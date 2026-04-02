@@ -1,0 +1,153 @@
+# The Go Engineer: Learn Go by Building Real Projects
+
+[![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/rasel9t6)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/rasel9t6)
+
+Welcome to **The Go Engineer** — the definitive open-source Go curriculum. Every section teaches through **practical examples, real-world projects, and hands-on exercises** — not just syntax. You'll build servers, CLI tools, concurrent pipelines, REST APIs, and production-grade applications while learning the engineering depth behind every concept.
+
+## Quick Start
+
+```bash
+# 1. Install Go: https://go.dev/dl/  (see 00-getting-started for detailed instructions)
+# 2. Clone this repository
+git clone https://github.com/rasel9t6/the-go-engineer.git
+cd the-go-engineer
+
+# 3. Verify Go is working
+go version
+
+# 4. Run your first program
+go run ./00-getting-started/2-hello-world
+```
+
+## Who is This For?
+
+- **Complete beginners** — Never programmed before? Start at Section 00. Every line is explained.
+- **Developers from other languages** — Know Python/JS/Java? Start at Section 01. Skim the basics, deep-dive into Go-specific patterns.
+- **Go developers leveling up** — Already write Go? Jump to Sections 09+ for concurrency, testing, and production patterns.
+
+## The Structured 4-Phase Learning Path
+
+This repository follows a strict **Beginner → Expert** progression. Every section builds on the previous one.
+
+### Phase 0: Setup
+
+Get your development environment ready.
+
+- `00-getting-started`: Installation, Hello World, how Go works, dev environment setup
+
+### Phase 1: Fundamentals
+
+Start here to understand the syntax, memory model, and error handling philosophies of Go.
+
+- `01-language-basics`: Variables, types, scope, zero values, and formatting
+- `02-control-flow`: Loops, if/switch statements, branching
+- `03-collections-and-pointers`: Arrays, Slices, Maps, and Pointers (Stack vs Heap)
+- `04-functions-and-errors`: First-class functions, closures, defer mechanics, and idiomatic error handling
+- `07-strings-and-text`: String internals (UTF-8 bytes), regex, and buffers
+
+### Phase 2: Core Go (Architecture & Types)
+
+Master Go's approach to Object-Oriented Programming and domain modeling.
+
+- `05-types-and-interfaces`: Custom types, structs, methods (pointer vs value receivers), duck typing
+- `06-composition-and-embedding`: Composition over inheritance
+- `11-encoding`: JSON serialization/deserialization mechanics
+- `15-time-and-scheduling`: `time`, `context` trees, and tickers
+
+### Phase 3: Advanced Patterns
+
+Dive into Go's superpower: Concurrency and low-level I/O.
+
+- `09-concurrency`: Goroutines, channel blocking, WaitGroups, `select` deep-dives, sync primitives (`Mutex`, `Map`)
+- `10-filesystem`: Low-level I/O, `io.Reader`/`io.Writer` patterns, and the `embed` package
+
+### Phase 4: Production Engineering
+
+Learn how to build, test, and deploy Google-grade applications.
+
+- `08-modules-and-dependencies`: `go.mod`, dependency management, versioning
+- `12-databases`: `database/sql`, connection pooling, SQLite, Repository pattern
+- `13-web-masterclass`: Comprehensive Web Development (Routing → Auth → Full App)
+- `14-testing`: Unit testing, structured benchmarks (`testing.B`), memory allocation profiling
+- `16-http-clients-and-mocking`: Calling APIs, dependency injection for testing, `testify/mock`
+
+### Phase 5: Expert Patterns
+
+Master the patterns that distinguish senior Go engineers.
+
+- `17-context`: `context.Context` deep-dive — cancellation, timeouts, request-scoped values
+- `18-package-design`: Naming conventions, visibility, `internal/`, standard project layout
+- `19-cli-tools`: Building command-line tools with `flag`, subcommands, and exit codes
+
+### Phase 6: The Production Engineer
+
+Master the tools required to deploy scalable Go services to the cloud.
+
+- `20-docker-and-deployment`: Multi-stage Dockerfiles, layer caching, `docker-compose` orchestration
+- `21-database-migrations`: Schema evolution using `golang-migrate` and `//go:embed` SQL embedding
+- `22-enterprise-capstone`: The ultimate multi-package REST API (PostgreSQL + Middleware + DB Migrations + Docker)
+
+## Projects & Exercises
+
+Each section culminates in a hands-on project to test your understanding:
+
+| Section | Exercise | Description |
+| ------- | -------- | ----------- |
+| **01** Language Basics | `4-application-logger` | Application Logger with severity levels |
+| **02** Control Flow | `4-pricing-calculator` | Pricing Calculator engine |
+| **03** Collections | `6-contact-manager` | Slice-based Contact Manager System |
+| **04** Functions & Errors | `8-error-handling` | Custom mathematical error handling |
+| **05** Types & Interfaces | `6-payroll-processor` | Polymorphic User Payroll Processor |
+| **06** Composition | `3-bank-account` | Bank Account System with deposits/withdrawals |
+| **07** Strings & Text | `6-log-parser` | Log File Parsing System |
+| **09** Concurrency | `7-downloader` | Concurrent Multi-File Downloader |
+| **10** Filesystem | `7-log-search` | Directory traversal log search tool |
+| **12** Databases | `6-repository` | CRUD SQLite App using Repository Pattern |
+| **13** Web Masterclass | `1-routing/exercise` | Multi-route Bookstore Web API |
+| **16** HTTP Clients | `6-testify-mock` | Mocking an external REST API Data Fetcher |
+| **22** The Capstone | `cmd/api` | **The Multi-Package Docker Enterprise Backend** |
+
+## How to Use This Repository
+
+The best way to learn is by **reading the inline comments** and **running the code**.
+
+```bash
+# Run any lesson
+go run ./SECTION/LESSON
+
+# Examples:
+go run ./00-getting-started/2-hello-world
+go run ./01-language-basics/1-variables
+go run ./09-concurrency/3-channels
+go run ./13-web-masterclass/1-routing
+```
+
+For the grand finale, boot the entire Enterprise Backend cluster (Database + Migrations + API) using Docker:
+
+```bash
+# Run the massive Phase 6 Capstone project
+cd 22-enterprise-capstone
+docker-compose up -d --build
+```
+
+## Running the Tests
+
+To verify your environment is set up correctly, run the full test suite:
+
+```bash
+# Run all tests
+go test ./...
+
+# Run tests with race detection
+go test -race ./...
+
+# Run benchmarks
+go test -bench=. -benchmem -count=1 ./14-testing/benchmarks/
+```
+
+## Requirements
+
+- **Go 1.26+** (check with `go version`)
+- **Git** (to clone the repository)
+- A text editor (VSCode with Go extension recommended — see Section 00)
