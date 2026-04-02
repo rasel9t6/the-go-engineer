@@ -1,7 +1,7 @@
 # The Go Engineer: Learn Go by Building Real Projects
 
 [![CI](https://github.com/rasel9t6/the-go-engineer/actions/workflows/ci.yml/badge.svg)](https://github.com/rasel9t6/the-go-engineer/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: TGE License v1.0 (Non-Commercial)](https://img.shields.io/badge/License-TGE_v1.0-red.svg?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xNCAySDZhMiAyIDAgMCAwLTIgMnYxNmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWOGwtNi02em0tMSAxLjVMMTguNSA5SDEzVjMuNXpNNiAyMFY0aDV2Nmg2djEwSDZ6bTItOGg4djJIOHYtMnptMCA0aDh2Mkg4di0yeiIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4%3D)](#-license)
 [![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/rasel9t6)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/rasel9t6)
 
@@ -172,3 +172,24 @@ go test -bench=. -benchmem -count=1 ./14-testing/benchmarks/
 - **Go 1.26+** (check with `go version`)
 - **Git** (to clone the repository)
 - A text editor (VSCode with Go extension recommended — see Section 00)
+
+## 📜 License
+
+This project is licensed under the **The Go Engineer License (TGE License) v1.0**.
+
+- ✅ Free for personal, educational, and non-commercial use
+- ❌ Commercial use is strictly prohibited without permission
+
+### 🚫 Commercial Use Includes
+
+- Paid courses, bootcamps, or training programs
+- SaaS or product development
+- Company/internal usage
+- Freelance or client work
+- Selling this project or derivatives
+
+### 📧 Commercial License
+
+To use this project commercially, contact:
+
+[raselhossen052@gmail.com](mailto:raselhossen052@gmail.com)
