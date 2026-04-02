@@ -27,7 +27,7 @@ import "fmt"
 //
 // File: go.mod
 //
-//	module learning-go          ← Module path: the root import path for ALL packages
+//	module github.com/rasel9t6/the-go-engineer ← Module path: the root import path for ALL packages
 //	go 1.24                     ← Minimum Go version required to build
 //
 //	require (
@@ -45,7 +45,7 @@ import "fmt"
 //
 // 1. MODULE PATH is the identity of your module.
 //    - For published modules: use your repo URL (e.g., github.com/user/project)
-//    - For local-only modules: any name works (e.g., "learning-go")
+//    - For local-only modules: any name works (e.g., "the-go-engineer")
 //
 // 2. SEMANTIC VERSIONING: vMAJOR.MINOR.PATCH
 //    - MAJOR: breaking changes (v2 requires import path change: /v2)
@@ -65,7 +65,7 @@ func main() {
 	fmt.Println()
 
 	// Demonstrate how import paths map to module structure
-	fmt.Println("Module path: learning-go")
+	fmt.Println("Module path: github.com/rasel9t6/the-go-engineer")
 	fmt.Println("This means all packages in this repo are importable as:")
 	fmt.Println("  github.com/rasel9t6/the-go-engineer/12-databases/6-repository/models")
 	fmt.Println("  github.com/rasel9t6/the-go-engineer/12-databases/6-repository/repository")

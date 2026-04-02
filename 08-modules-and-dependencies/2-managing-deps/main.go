@@ -63,7 +63,7 @@ func main() {
 			continue
 		}
 		// Classify as direct or indirect
-		if strings.Contains(line, "learning-go") {
+		if strings.Contains(line, "the-go-engineer") {
 			fmt.Printf("  [ROOT]     %s\n", line)
 		} else {
 			fmt.Printf("  [DEP]      %s\n", line)

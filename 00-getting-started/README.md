@@ -113,8 +113,8 @@ If you prefer a full IDE, JetBrains GoLand is excellent. It has a 30-day free tr
 ## Step 4: Clone This Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/learning-go.git
-cd learning-go
+git clone https://github.com/rasel9t6/the-go-engineer.git
+cd the-go-engineer
 ```
 
 ## Step 5: Run Your First Program
@@ -136,7 +136,7 @@ Hello, World! Welcome to the Go Mastery.
 This repo uses a single `go.mod` file at the root, making it one Go module with many runnable examples. Each numbered directory is a section, and each sub-directory is a lesson:
 
 ```
-learning-go/
+the-go-engineer/
 ├── go.mod                    ← Module definition (you don't need to touch this)
 ├── 00-getting-started/       ← You are here
 │   ├── 1-installation/
@@ -164,7 +164,7 @@ go run ./09-concurrency/3-channels
 | Problem | Solution |
 | ------- | -------- |
 | `command not found: go` | Go is not in your PATH. Re-run the installation steps. |
-| `cannot find module` | Make sure you are in the `learning-go/` directory (where `go.mod` lives). |
+| `cannot find module` | Make sure you are in the `the-go-engineer/` directory (where `go.mod` lives). |
 | `declared and not used` | Go requires you to USE every variable you declare. Remove or use the variable. |
 | `imported and not used` | Go requires you to USE every package you import. Remove or use the import. |
 | `syntax error: unexpected newline` | Go requires opening braces `{` on the SAME line as the statement. |
