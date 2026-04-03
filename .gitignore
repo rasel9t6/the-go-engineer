@@ -27,6 +27,8 @@ go.work
 .idea/
 *.swp
 *.swo
+# Agents
+.agents
 
 # OS
 .DS_Store
@@ -41,3 +43,5 @@ uploads/
 
 # Logs
 *.log
+
+
