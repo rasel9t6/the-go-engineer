@@ -45,6 +45,7 @@ func main() {
 
 	// runtime.GOROOT() returns where Go is installed on your system.
 	// You rarely need to change this — it's set during installation.
+	//lint:ignore SA1019 runtime.GOROOT is deprecated in Go 1.24 but helpful for beginners to see.
 	fmt.Printf("GOROOT:        %s\n", runtime.GOROOT())
 
 	fmt.Println()

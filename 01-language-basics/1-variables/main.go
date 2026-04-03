@@ -45,17 +45,20 @@ func main() {
 	// This is a SAFETY FEATURE. In C, uninitialized variables contain garbage
 	// data. Go guarantees you never encounter undefined behavior.
 	var greeting string // greeting is "" right now (zero value for string)
+	fmt.Printf("Initial zero value:   '%s'\n", greeting)
 	greeting = "Hello, world!"
 
 	fmt.Println(greeting)
 
 	// var with a numeric type — zero value is 0
 	var count int
+	fmt.Printf("Initial zero value:    %d\n", count)
 	count = 10
 	fmt.Println(count)
 
 	// var with a boolean — zero value is false
 	var isRunning bool
+	fmt.Printf("Initial zero value:    %t\n", isRunning)
 	isRunning = true
 	fmt.Println(isRunning)
 

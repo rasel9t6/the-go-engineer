@@ -36,6 +36,7 @@ func main() {
 	fmt.Printf("  Go Version:     %s\n", runtime.Version())
 	fmt.Printf("  OS/Arch:        %s/%s\n", runtime.GOOS, runtime.GOARCH)
 	fmt.Printf("  Num CPUs:       %d\n", runtime.NumCPU())
+	//lint:ignore SA1019 runtime.GOROOT is deprecated in Go 1.24 but helpful for beginners to see.
 	fmt.Printf("  GOROOT:         %s\n", runtime.GOROOT())
 	fmt.Printf("  GOPATH:         %s\n", os.Getenv("GOPATH"))
 	fmt.Println()

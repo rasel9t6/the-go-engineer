@@ -31,7 +31,7 @@ import (
 // 1. Process all image IDs concurrently using errgroup.
 // 2. Limit the concurrency so NO MORE than 4 images are processed at the same time.
 //    (HINT: Use g.SetLimit).
-// 3. Stop early if ANY processing fails. 
+// 3. Stop early if ANY processing fails.
 //    (HINT: Use errgroup.WithContext, and trigger a context cancellation).
 // 4. Use a `sync.Pool` to recycle the `*bytes.Buffer` used for the payload.
 //
@@ -49,7 +49,7 @@ func main() {
 
 	// TODO 2: Initialize an errgroup.WithContext
 	// g, ctx := ...
-	var g errgroup.Group 
+	var g errgroup.Group
 
 	// TODO 3: Limit the concurrency to 4
 	// g.SetLimit(4)
@@ -82,7 +82,7 @@ func processImage(ctx context.Context, id string) error {
 	// TODO 6: Get a buffer from the pool, use it, and defer putting it back
 	// buf := bufPool.Get().(*bytes.Buffer)
 	// defer ...
-	// buf.Reset() 
+	// buf.Reset()
 	var buf *bytes.Buffer = bytes.NewBuffer(make([]byte, 0, 2*1024*1024)) // REMOVE THIS LINE and use the pool
 
 	// Simulate heavy work
