@@ -25,6 +25,15 @@ go version
 go run ./00-getting-started/2-hello-world
 ```
 
+## Reference Documents
+
+| Document | Purpose |
+| -------- | ------- |
+| [COMMON-MISTAKES.md](./COMMON-MISTAKES.md) | 15 most common Go bugs with fixes and section cross-references |
+| [ROADMAP.md](./ROADMAP.md) | What is built, in progress, and planned |
+| [CHANGELOG.md](./CHANGELOG.md) | History of additions and bug fixes |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | How to add lessons, exercises, and sections |
+
 ## Who is This For?
 
 - **Complete beginners** — Never programmed before? Start at Section 00. Every line is explained.
@@ -85,6 +94,14 @@ Master the patterns that distinguish senior Go engineers.
 - `18-package-design`: Naming conventions, visibility, `internal/`, standard project layout
 - `19-cli-tools`: Building command-line tools with `flag`, subcommands, and exit codes
 
+### Phase 7: Senior Engineer Patterns
+
+- `23-structured-logging`: `slog` basics, context-keyed logger, custom `slog.Handler`, zerolog comparison
+- `24-errgroup-and-pools`: `errgroup.Group`, errgroup+context pipelines, `sync.Pool` for zero-allocation buffering
+- `25-profiling`: CPU profiles, memory profiles, live `net/http/pprof` endpoint, `go tool pprof` workflow
+- `26-grpc`: proto3 service definition, unary and streaming RPC, interceptors (middleware for gRPC)
+- `27-graceful-shutdown`: `signal.NotifyContext`, `http.Server.Shutdown`, complete zero-downtime Kubernetes shutdown
+
 ### Phase 6: The Production Engineer
 
 Master the tools required to deploy scalable Go services to the cloud.
@@ -116,6 +133,12 @@ Each section culminates in a hands-on project to test your understanding:
 | **17** Context | `5-timeout-client` | Timeout-aware HTTP API client |
 | **19** CLI Tools | `4-file-organizer` | CLI file organizer by extension |
 | **22** The Capstone | `cmd/api` | **The Multi-Package Docker Enterprise Backend** |
+| **23** Structured Logging | `2-context-logger` | HTTP middleware that injects request-scoped logger into context |
+| **24** errgroup & sync.Pool | `4-bounded-pipeline-exercise` | Image resizer with bounded concurrency using `errgroup.SetLimit` |
+| **24** errgroup & sync.Pool | `5-url-checker-exercise` | Concurrent URL health checker with bounded concurrency and pooled clients |
+| **25** Profiling | `1-cpu-profile` | Profile slow vs fast log processor, read flame graph in go tool pprof |
+| **26** gRPC | `1-unary` | Type-safe OrderService client + server with status codes and interceptors |
+| **27** Graceful Shutdown | `3-capstone` | Complete shutdown: readiness probe → HTTP drain → worker drain → DB close |
 
 ## How to Use This Repository
 
@@ -130,6 +153,28 @@ go run ./00-getting-started/2-hello-world
 go run ./01-language-basics/1-variables
 go run ./09-concurrency/3-channels
 go run ./13-web-masterclass/1-routing
+
+# Section 23 — Structured Logging
+go run ./23-structured-logging/1-slog-basics
+go run ./23-structured-logging/2-context-logger    # then: curl http://localhost:8080/api/orders/42
+
+# Section 24 — errgroup & sync.Pool
+go run ./24-errgroup-and-pools/1-errgroup
+go run ./24-errgroup-and-pools/5-url-checker-exercise  # Try the exercise
+go run ./24-errgroup-and-pools/5-url-checker-exercise/_starter  # See the solution
+
+# Section 25 — Profiling
+go run ./25-profiling/1-cpu-profile               # then: go tool pprof -http=:8090 cpu.prof
+go run ./25-profiling/3-http-pprof                # then: go tool pprof http://localhost:6060/debug/pprof/profile?seconds=5
+
+# Section 26 — gRPC (two terminals)
+go run ./26-grpc/1-unary/server                   # Terminal 1
+go run ./26-grpc/1-unary/client                   # Terminal 2
+
+# Section 27 — Graceful Shutdown
+go run ./27-graceful-shutdown/1-signal-context     # then: Ctrl+C to test
+go run ./27-graceful-shutdown/2-http-server        # then: curl http://localhost:8080/api/slow & Ctrl+C
+go run ./27-graceful-shutdown/3-capstone           # complete production pattern
 ```
 
 ### Self-Challenge Mode
@@ -166,6 +211,18 @@ go test -race ./...
 # Run benchmarks
 go test -bench=. -benchmem -count=1 ./14-testing/benchmarks/
 ```
+
+## Windows Users — CGO Note
+
+Sections `12-databases` and `22-enterprise-capstone` use `github.com/mattn/go-sqlite3`,
+which requires CGO and a C compiler. On Windows without WSL:
+
+1. Install [TDM-GCC](https://jmeubank.github.io/tdm-gcc/)
+2. Verify: `gcc --version`
+3. Set environment: `$env:CGO_ENABLED = "1"` (PowerShell)
+
+All other sections (00–11, 13–27) work on Windows without a C compiler.
+We recommend [WSL2](https://docs.microsoft.com/en-us/windows/wsl/) for the best experience.
 
 ## Requirements
 

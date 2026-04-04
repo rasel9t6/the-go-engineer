@@ -221,10 +221,6 @@ type ErrorOnlyHandler struct {
 	slog.Handler
 }
 
-func (e *ErrorOnlyHandler) Enabled(_ context.Context, level slog.Level) bool {
-	return level >= slog.LevelError
-}
-
 func (e *ErrorOnlyHandler) Handle(ctx context.Context, r slog.Record) error {
 	if r.Level >= slog.LevelError {
 		alert := map[string]any{

@@ -25,25 +25,6 @@
 - Allocation is not the bottleneck (profile first!)
 - Objects outlive the goroutine that created them
 
-## Contents
-
-| Directory | Topic | Level |
-|-----------|-------|-------|
-| `1-errgroup/` | errgroup replacement for WaitGroup | Intermediate |
-| `2-errgroup-context/` | Automatic cancellation via Context | Advanced |
-| `3-sync-pool/` | Reducing GC pressure with sync.Pool | Advanced |
-| `4-exercise/` | Build a concurrent batch processor | Intermediate |
-
-## How to Run
-
-```bash
-go run ./24-errgroup-and-pools/1-errgroup
-go run ./24-errgroup-and-pools/2-errgroup-context
-go run ./24-errgroup-and-pools/3-sync-pool
-go test -bench=. -benchmem ./24-errgroup-and-pools/3-sync-pool
-go run ./24-errgroup-and-pools/4-exercise/_starter
-```
-
 ## References
 
 - [golang.org/x/sync/errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)

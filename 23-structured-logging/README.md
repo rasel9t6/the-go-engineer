@@ -16,7 +16,6 @@ Before `slog` (added in Go 1.21), every team invented their own logger or reache
 The key insight: **structured logs are data, not strings**. A log like `"user 42 logged in from 192.168.1.1"` cannot be queried. A structured log with `user_id=42` and `remote_ip=192.168.1.1` can be indexed and filtered in any observability platform (Datadog, Loki, CloudWatch).
 
 **Performance hierarchy:**
-
 - `slog.TextHandler` — human readable, ~300 ns/op, ~3 allocs/op
 - `slog.JSONHandler` — machine readable, ~350 ns/op, ~4 allocs/op
 - `zerolog` — allocation-free (uses byte buffers + `sync.Pool`), ~80 ns/op, 0 allocs/op
@@ -31,7 +30,6 @@ For most services `slog` is sufficient. Reach for `zerolog` only when pprof show
 | `2-context-logger/` | Context-keyed logger, HTTP middleware | Intermediate |
 | `3-custom-handler/` | Implement `slog.Handler` interface | Advanced |
 | `4-zerolog-comparison/` | zerolog patterns, when to use it | Advanced |
-| `5-exercise/` | PII redacting logger with `ReplaceAttr` | Intermediate |
 
 ## How to Run
 
@@ -40,7 +38,6 @@ go run ./23-structured-logging/1-slog-basics
 go run ./23-structured-logging/2-context-logger
 go run ./23-structured-logging/3-custom-handler
 go run ./23-structured-logging/4-zerolog-comparison
-go run ./23-structured-logging/5-exercise
 ```
 
 ## References

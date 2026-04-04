@@ -4,7 +4,6 @@
 package main
 
 import (
-	"context"
 	"log/slog"
 	"os"
 	"time"
@@ -83,7 +82,7 @@ func zeroLogPatterns() {
 	// log.Error().Err(err).Stack().Msg("panic recovered")
 
 	// Conditional logging — slog (attributes are always evaluated):
-	if logger.Enabled(context.Background(), slog.LevelDebug) {
+	if logger.Enabled(nil, slog.LevelDebug) {
 		logger.Debug("expensive debug", slog.Any("payload", buildExpensivePayload()))
 	}
 
@@ -143,7 +142,6 @@ func levelComparison() {
 
 func main() {
 	zeroLogPatterns()
-	zeroAllocPattern()
 	levelComparison()
 
 	// KEY TAKEAWAY:

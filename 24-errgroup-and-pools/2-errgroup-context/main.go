@@ -178,16 +178,19 @@ func main() {
 		close(results)
 	}()
 
-	// Collect results in the main goroutine using our dedicated collector function.
-	// This drains the results channel until it is closed by the goroutine above.
-	_ = resultCollector(ctx, results)
+	// Collect results in the main goroutine (or a dedicated collector goroutine).
+	var totalResults int
+	for r := range results {
+		totalResults++
+		_ = r
+	}
 
 	// g.Wait() has already been called above. Call it again to get the error.
 	// Calling Wait() multiple times is safe — it always returns the same error.
 	if err := g.Wait(); err != nil && err != context.Canceled {
 		fmt.Printf("❌ Pipeline failed: %v\n", err)
 	} else {
-		fmt.Printf("✅ Pipeline complete in %v\n", time.Since(start).Round(time.Millisecond))
+		fmt.Printf("✅ Pipeline complete: %d results in %v\n", totalResults, time.Since(start).Round(time.Millisecond))
 	}
 
 	// KEY TAKEAWAY:
