@@ -1638,7 +1638,7 @@
           "is_entry": true,
           "is_exercise": false,
           "sub_graph": "",
-          "path": "14-application-architecture/grpc/gen/proto"
+          "path": "14-application-architecture/grpc/proto"
         },
         {
           "id": "GR.2",
