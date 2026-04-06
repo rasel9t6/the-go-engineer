@@ -11,6 +11,21 @@ The Go Engineer follows **semantic versioning** for stable releases:
 
 **Release Format**: `v1.0.0`, `v1.1.0`, `v1.0.1`
 
+## Branch Roles
+
+The project uses long-lived branches for supported major versions:
+
+- `main`: active v2 development and prerelease integration branch
+- `release/v1`: stable v1 maintenance branch for current users
+- `release/v2`: created from `main` when v2 reaches feature freeze
+
+Topic branches stay short-lived and always branch from the line they should ship to.
+
+- `feat/...` and `fix/...` branch from `main` for v2 work
+- `fix/v1-...` or `hotfix/v1-...` branch from `release/v1` for stable v1 fixes
+
+`v1.0.0` remains an immutable release tag. It is not the permanent maintenance branch name.
+
 ## Release Process
 
 ### Step 1: Plan the Release
@@ -50,24 +65,47 @@ git status
 make deps-check
 ```
 
-### Step 3: Create Release Branch
+### Step 3: Choose the Correct Release Line
+
+- For v1 patch or minor releases, work from `release/v1`
+- For ongoing v2 development and alpha prereleases, work from `main`
+- For v2 beta, release candidate, and final stabilization, cut `release/v2` from `main`
+
+Do not open sync PRs from `main` into `release/v1` just to keep the branches identical. Once v2 begins, those branches are expected to diverge.
+
+### Step 4: Create the Release Branch or Topic Branch
 
 ```bash
-# Create release branch from main
-git checkout -b release/v1.X.Y
+# One-time step: cut the long-lived v2 stabilization branch
+git switch main
+git pull origin main
+git switch -c release/v2
+git push -u origin release/v2
+
+# Example: prepare a v1 patch release from the stable line
+git switch release/v1
+git pull origin release/v1
+git switch -c release-prep/v1.X.Y
+
+# Example: prepare a v2 stabilization update after release/v2 exists
+git switch release/v2
+git pull origin release/v2
+git switch -c release-prep/v2.0.0-rc.N
 
 # Commit version/changelog updates
 git add CHANGELOG.md README.md ROADMAP.md
-git commit -m "chore: prepare v1.X.Y release"
+git commit -m "chore: prepare release metadata"
 
 # Push to GitHub
-git push origin release/v1.X.Y
+git push origin HEAD
 ```
 
-### Step 4: Create Pull Request
+### Step 5: Create Pull Request
 
-1. Open PR from `release/v1.X.Y` to `main`
-2. Title: `Release: v1.X.Y`
+1. Open PR into the long-lived target branch:
+   - `release-prep/v1.X.Y` -> `release/v1`
+   - `release-prep/v2.0.0-rc.N` -> `release/v2`
+2. Title: `Release: v1.X.Y` or `Release: v2.0.0-rc.N`
 3. Description:
    ```markdown
    ## Release v1.X.Y
@@ -93,21 +131,18 @@ git push origin release/v1.X.Y
 4. Wait for all CI checks to pass
 5. Get approval from maintainers
 
-### Step 5: Merge Release
+### Step 6: Merge Release
 
 ```bash
-# After PR approval and all checks pass
-git switch main
-git pull origin main
-
-# Merge release branch
-git merge release/v1.X.Y
-
-# Push to main
-git push origin main
+# After the PR is approved, merge it in GitHub using Squash and Merge.
+# Then update your local long-lived branch.
+git switch release/v1
+git pull origin release/v1
 ```
 
-### Step 6: Create GitHub Release
+Maintainers should use **Squash and Merge** for release pull requests. If the same fix also belongs in another supported branch, propagate it with `git cherry-pick -x` instead of a branch sync merge.
+
+### Step 7: Create GitHub Release
 
 1. Go to [Releases](https://github.com/rasel9t6/the-go-engineer/releases)
 2. Click "Draft a new release"
@@ -120,15 +155,25 @@ git push origin main
 4. Choose "Set as latest release"
 5. Publish release
 
-### Step 7: Clean Up
+Use prerelease tags during the v2 rollout:
+
+- `v2.0.0-alpha.N` from `main`
+- `v2.0.0-beta.N` from `release/v2`
+- `v2.0.0-rc.N` from `release/v2`
+
+Mark alpha, beta, and RC builds as prereleases on GitHub so stable v1 users are not silently moved early.
+
+### Step 8: Clean Up
 
 ```bash
-# Delete release branch locally
-git branch -d release/v1.X.Y
+# Delete the short-lived topic branch locally
+git branch -d release-prep/v1.X.Y
 
-# Delete release branch on GitHub
-git push origin --delete release/v1.X.Y
+# Delete the short-lived topic branch on GitHub
+git push origin --delete release-prep/v1.X.Y
 ```
+
+Keep `release/v1` and later `release/v2` as permanent branches while those lines are supported.
 
 ## Release Checklist
 
@@ -144,6 +189,8 @@ Before releasing, verify:
 - [ ] Documentation is up to date
 - [ ] No breaking changes without major version bump
 - [ ] Version numbers updated in appropriate files
+- [ ] PR target matches the release line (`release/v1` or `release/v2`)
+- [ ] Any cross-line fix has a planned `cherry-pick -x` follow-up
 
 ## Rollback Procedure
 
@@ -157,7 +204,7 @@ git push origin --delete refs/tags/v1.X.Y   # Delete tag reference
 
 # Revert commit if already merged
 git revert <commit-hash>
-git push origin main
+git push origin <release-branch>
 
 # Create patch release when ready
 # e.g., v1.X.1 for security fix on v1.X.0
@@ -190,20 +237,23 @@ git push origin main
 For maintaining older releases (security fixes, critical bugs):
 
 ```bash
-# If fixing critical bug in v1.0
-git checkout v1.0.0
-git checkout -b maintenance/v1.0
+# If fixing a critical bug in the stable v1 line
+git switch release/v1
+git pull origin release/v1
+git switch -c hotfix/v1.X.Z
 
 # Make fixes
 git commit -m "fix: critical security issue"
 
-# Push and create PR against v1.0 tag
-git push origin maintenance/v1.0
+# Push and create PR against release/v1
+git push origin hotfix/v1.X.Z
 
 # After merge and testing
-git tag v1.0.1
-git push origin v1.0.1
+git tag v1.X.(Z+1)
+git push origin v1.X.(Z+1)
 ```
+
+If the same fix is also needed on `main`, cherry-pick it forward with `git cherry-pick -x`.
 
 ## Dependency Updates
 
@@ -287,6 +337,18 @@ Thank you to all contributors! @mention @mention @mention
 2. **Triage** all open issues and PRs
 3. **Plan** next release content based on community feedback
 4. **Update** contributor discussions/roadmap as needed
+
+## GitHub Repository Settings
+
+Recommended repository settings for this workflow:
+
+- protect `main`, `release/v1`, and later `release/v2`
+- require pull requests, status checks, and at least one maintainer review
+- disable direct pushes to protected branches
+- prefer **Squash and Merge** for pull requests
+- enable automatic deletion of head branches after merge
+
+Ahead/behind counts between `main` and `release/v1` are normal once v2 work starts. The goal is not identical histories across major versions; the goal is intentional propagation of the fixes that should exist in both lines.
 
 ## Release Schedule
 

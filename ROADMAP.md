@@ -2,6 +2,12 @@
 
 This document tracks what is built, what is in progress, and what is planned.
 
+## Branch Model
+
+- `main` tracks active v2 development and prereleases.
+- `release/v1` tracks stable v1 maintenance for current users.
+- `release/v2` will be cut from `main` when v2 reaches beta and feature freeze.
+
 ## Status Legend
 
 | Symbol | Meaning |

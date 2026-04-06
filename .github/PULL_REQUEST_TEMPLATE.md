@@ -2,6 +2,8 @@
 
 <!-- Please include a summary of the change and which issue is fixed (if applicable). -->
 <!-- Include relevant motivation and context. -->
+<!-- Target `main` for v2 work by default. Use `release/v1` only for v1-only fixes/support updates. -->
+<!-- If this change should ship in both supported lines, call out the cherry-pick/backport plan below. -->
 
 Fixes # (issue)
 
@@ -81,6 +83,7 @@ make bench
 ## Reviewer Guidance
 
 <!-- Add any specific things you want the reviewer to look at, concerns, or questions. -->
+<!-- Also mention if this PR needs a follow-up cherry-pick to another supported branch. -->
 
 ## Screenshots/Output
 

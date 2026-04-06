@@ -2,11 +2,22 @@
 
 All notable changes to The Go Engineer are documented here.
 
-Format: **[Date] — Description**. Sections: `Added`, `Fixed`, `Changed`, `Removed`.
+Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Removed`.
 
 ---
 
-## [2026-04-06] — Curriculum Dependency Integration
+## [2026-04-06] - Long-Lived v1/v2 Branch Workflow
+
+### Changed
+
+- Adopted `main` as the active v2 development branch and `release/v1` as the stable v1 maintenance line.
+- Replaced the branch-per-release guidance in the contributor and release docs with a long-lived support branch model.
+- Documented squash-merge for pull requests and `git cherry-pick -x` for fixes that must ship in both supported lines.
+- Updated the PR template so contributors target `main` by default and call out v1 backports explicitly.
+
+---
+
+## [2026-04-06] - Curriculum Dependency Integration
 
 ### Added
 
@@ -24,7 +35,7 @@ Format: **[Date] — Description**. Sections: `Added`, `Fixed`, `Changed`, `Remo
 
 ---
 
-## [2026-04-05] — The v1.0 Curriculum Migration
+## [2026-04-05] - The v1.0 Curriculum Migration
 
 ### Changed
 
@@ -40,60 +51,60 @@ Format: **[Date] — Description**. Sections: `Added`, `Fixed`, `Changed`, `Remo
 
 ---
 
-## [2026-04-04] — Phase 7 additions + bug fixes
+## [2026-04-04] - Phase 7 additions + bug fixes
 
 ### Added
 
-- **Section 23: Structured Logging** — slog basics, context-keyed logger, custom Handler, zerolog comparison
-- **Section 24: errgroup & sync.Pool** — errgroup, errgroup+context pipeline, sync.Pool, bounded pipeline resizer exercise, URL checker exercise
-- **Section 25: Profiling** — CPU profile, live `net/http/pprof` endpoint, go tool pprof workflow
-- **Section 26: gRPC** — proto3 definition, unary server with interceptors, typed client stub
-- **Section 27: Graceful Shutdown** — signal.NotifyContext, http.Server.Shutdown, complete production capstone
-- **Section 10 supplement** — `io/fs` as a testing seam with `fstest.MapFS`
-- **`COMMON-MISTAKES.md`** — 15 most common Go bugs with fixes and section cross-references
-- **`ROADMAP.md`** — tracks current progress and planned future sections
-- **`CHANGELOG.md`** — this file
+- **Section 23: Structured Logging** - slog basics, context-keyed logger, custom Handler, zerolog comparison
+- **Section 24: errgroup & sync.Pool** - errgroup, errgroup+context pipeline, sync.Pool, bounded pipeline resizer exercise, URL checker exercise
+- **Section 25: Profiling** - CPU profile, live `net/http/pprof` endpoint, go tool pprof workflow
+- **Section 26: gRPC** - proto3 definition, unary server with interceptors, typed client stub
+- **Section 27: Graceful Shutdown** - signal.NotifyContext, http.Server.Shutdown, complete production capstone
+- **Section 10 supplement** - `io/fs` as a testing seam with `fstest.MapFS`
+- **`COMMON-MISTAKES.md`** - 15 most common Go bugs with fixes and section cross-references
+- **`ROADMAP.md`** - tracks current progress and planned future sections
+- **`CHANGELOG.md`** - this file
 
 ### Fixed
 
-- **Bug:** `23-structured-logging/3-custom-handler` — `slog.DiscardHandler` instantiation type error fixed by removing struct brackets.
-- **Bug:** `12-concurrency-patterns/3-sync-pool` — duplicate `BenchmarkWithPool` declaration causing compilation failure removed from `main.go`.
-- **Bug:** `25-profiling/1-cpu-profile` and `10-filesystem/8-fs-testing-seam` — redundant newline formatting in `fmt.Println` fixed to standard `fmt.Print`.
-- **Bug:** `26-grpc` — missing generated Protocol Buffer Go files added using `protoc` and properly imported into `gen` package.
-- **Bug:** Global repository string literals — fixed widespread compilation errors caused by improper line breaks across several past modules.
+- **Bug:** `23-structured-logging/3-custom-handler` - `slog.DiscardHandler` instantiation type error fixed by removing struct brackets.
+- **Bug:** `12-concurrency-patterns/3-sync-pool` - duplicate `BenchmarkWithPool` declaration causing compilation failure removed from `main.go`.
+- **Bug:** `25-profiling/1-cpu-profile` and `10-filesystem/8-fs-testing-seam` - redundant newline formatting in `fmt.Println` fixed to standard `fmt.Print`.
+- **Bug:** `26-grpc` - missing generated Protocol Buffer Go files added using `protoc` and properly imported into `gen` package.
+- **Bug:** Global repository string literals - fixed widespread compilation errors caused by improper line breaks across several past modules.
 
 ### Changed
 
-- `go.mod` and Dockerfiles now correctly declare `go 1.26` (was previously correct — this entry confirms it intentionally targets Go 1.26 stable)
-- README exercise table updated to include all new sections 23–27
+- `go.mod` and Dockerfiles now correctly declare `go 1.26` (was previously correct - this entry confirms it intentionally targets Go 1.26 stable)
+- README exercise table updated to include all new sections 23-27
 - README Windows CGO note added for `go-sqlite3` dependency
 
 ---
 
-## [2026-01-15] — Enterprise Capstone
+## [2026-01-15] - Enterprise Capstone
 
 ### Added
 
-- Section 22: Enterprise Capstone — multi-package PostgreSQL REST API with Docker Compose
-- Section 21: Database Migrations — golang-migrate with embedded SQL files
-- Section 20: Docker & Deployment — multi-stage Dockerfiles
+- Section 22: Enterprise Capstone - multi-package PostgreSQL REST API with Docker Compose
+- Section 21: Database Migrations - golang-migrate with embedded SQL files
+- Section 20: Docker & Deployment - multi-stage Dockerfiles
 
 ---
 
-## [2025-11-01] — Web Masterclass
+## [2025-11-01] - Web Masterclass
 
 ### Added
 
-- Section 13: Web Masterclass — complete 11-part progression from routing to full production app
-- Section 16: HTTP Clients & Mocking — testify/mock, manual mocking, table-driven tests
+- Section 13: Web Masterclass - complete 11-part progression from routing to full production app
+- Section 16: HTTP Clients & Mocking - testify/mock, manual mocking, table-driven tests
 
 ---
 
-## [2025-09-01] — Initial Release
+## [2025-09-01] - Initial Release
 
 ### Added
 
-- Sections 00–19: complete Beginner → Expert learning path
+- Sections 00-19: complete Beginner -> Expert learning path
 - 17 exercises with `_starter/` stubs and full solutions
 - GitHub Actions CI pipeline
 - CONTRIBUTING.md with file templates and quality checklist

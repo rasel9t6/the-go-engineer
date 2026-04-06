@@ -25,6 +25,17 @@ go version
 go run ./01-core-foundations/getting-started/2-hello-world
 ```
 
+## Release Channels
+
+The repository now uses a long-lived branch model for the v1 to v2 transition:
+
+- `main` is the active v2 development branch and the default target for new sections, lessons, and features.
+- `release/v1` is the stable v1 support branch for existing users who want the current curriculum line.
+- `release/v2` will be created later from `main` when v2 enters beta and feature freeze.
+- `v1.0.0` stays as an immutable release tag. It is not the long-term maintenance branch name.
+
+If you want the stable v1 curriculum, check out `release/v1` or a stable `v1.x.y` tag. If you want the newest v2 work as it lands section by section, stay on `main`.
+
 ## Choose Your Learning Path
 
 New to Go? → **Start at [01-core-foundations](./01-core-foundations/)**  

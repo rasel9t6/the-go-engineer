@@ -21,6 +21,34 @@ make test
 make lint
 ```
 
+## Branch Strategy
+
+The repository uses long-lived branches for supported major versions:
+
+- `main`: active v2 development and the default target for new work
+- `release/v1`: stable v1 maintenance for bug fixes and support updates
+- `release/v2`: created from `main` when v2 enters beta and feature freeze
+
+Create short-lived topic branches from the branch your change should ship to:
+
+- `feat/...` from `main` for new sections, lessons, and v2 features
+- `fix/...` from `main` for v2 bug fixes
+- `fix/v1-...` from `release/v1` for v1-only bug fixes
+- `docs/...` or `chore/...` from the appropriate target branch
+
+### Pull Request Targeting
+
+- Target `main` by default.
+- Only target `release/v1` when the issue is explicitly v1-only or the fix must reach current stable users first.
+- If a fix belongs in both lines, merge it into the correct source branch first and then `git cherry-pick -x` it to the other supported branch.
+- Do not try to keep `main` and `release/v1` identical once v2 development begins. Divergence between supported major versions is expected.
+
+### Merge Policy
+
+- Maintainers use **Squash and Merge** for pull requests into `main`, `release/v1`, and future release branches.
+- Do not work directly on long-lived branches.
+- Auto-delete topic branches after merge when possible.
+
 ## Code Style
 
 ### Every Go File Must Follow This Template
@@ -84,7 +112,8 @@ func main() {
 4. Update `curriculum.json` with the new lesson ID, concept, and prerequisites
 5. Run `go run scripts/validate_curriculum.go` to verify the mapping
 6. Update the root `README.md` if adding a new section
-7. Verify: `make build && make test && make lint`
+7. Open the pull request against `main`
+8. Verify: `make build && make test && make lint`
 
 ## Adding an Exercise
 
@@ -114,6 +143,16 @@ Add: Section 17 Context deep-dive (4 lessons)
 Fix: go vet warning in 07-strings formatting
 Update: Backfill comments in Section 02 control flow
 ```
+
+## Backports and Stable Fixes
+
+When a bug affects both stable v1 and active v2:
+
+1. Fix it on the branch that needs the release first.
+2. Merge that pull request with squash.
+3. Cherry-pick the resulting commit with `git cherry-pick -x` onto the other supported branch.
+
+This keeps history intentional and avoids branch-to-branch sync merges that make maintenance harder over time.
 
 ## Quality Checklist
 
