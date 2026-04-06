@@ -14,7 +14,7 @@ import (
 )
 
 // ============================================================================
-// Section 12: Databases — Executing Queries (INSERT)
+// Section 10: Databases — Executing Queries (INSERT)
 // Level: Beginner
 // ============================================================================
 //

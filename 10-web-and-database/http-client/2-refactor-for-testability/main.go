@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 16: HTTP Clients & Mocking — Refactor for Testability
+// Section 10: HTTP Clients & Mocking — Refactor for Testability
 // Level: Intermediate
 // ============================================================================
 //

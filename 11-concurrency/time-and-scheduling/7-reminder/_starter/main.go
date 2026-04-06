@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 15: Time & Scheduling — Console Reminder (Exercise Starter)
+// Section 11: Time & Scheduling — Console Reminder (Exercise Starter)
 // Level: Intermediate
 // ============================================================================
 //

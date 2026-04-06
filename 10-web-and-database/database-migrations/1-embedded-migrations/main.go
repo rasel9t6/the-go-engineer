@@ -21,7 +21,7 @@ import (
 )
 
 // ============================================================================
-// Section 21: Database Migrations — Embedded Schema Evolution
+// Section 10: Database Migrations — Embedded Schema Evolution
 // Level: Advanced
 // ============================================================================
 //

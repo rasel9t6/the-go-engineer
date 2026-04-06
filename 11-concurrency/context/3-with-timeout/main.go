@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 17: Context — WithTimeout & WithDeadline
+// Section 11: Context — WithTimeout & WithDeadline
 // Level: Intermediate
 // ============================================================================
 //

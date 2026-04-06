@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 15: Time & Scheduling — Random Numbers
+// Section 11: Time & Scheduling — Random Numbers
 // Level: Beginner
 // ============================================================================
 //

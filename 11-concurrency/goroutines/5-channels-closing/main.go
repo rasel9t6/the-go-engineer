@@ -10,7 +10,7 @@ import (
 )
 
 // ============================================================================
-// Section 9: Concurrency — Closing Channels
+// Section 11: Concurrency — Closing Channels
 // Level: Intermediate
 // ============================================================================
 //

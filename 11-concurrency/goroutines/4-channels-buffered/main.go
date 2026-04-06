@@ -10,7 +10,7 @@ import (
 )
 
 // ============================================================================
-// Section 9: Concurrency — Buffered Channels
+// Section 11: Concurrency — Buffered Channels
 // Level: Intermediate
 // ============================================================================
 //

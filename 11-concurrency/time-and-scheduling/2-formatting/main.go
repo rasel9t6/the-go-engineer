@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 15: Time & Scheduling — Time Formatting
+// Section 11: Time & Scheduling — Time Formatting
 // Level: Beginner
 // ============================================================================
 //

@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 15: Time & Scheduling — Timezones
+// Section 11: Time & Scheduling — Timezones
 // Level: Intermediate
 // ============================================================================
 //

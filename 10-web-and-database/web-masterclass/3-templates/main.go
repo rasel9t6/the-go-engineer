@@ -14,7 +14,7 @@ import (
 )
 
 // ============================================================================
-// Section 13: Web Masterclass — HTML Templates
+// Section 10: Web Masterclass — HTML Templates
 // Level: Intermediate
 // ============================================================================
 //

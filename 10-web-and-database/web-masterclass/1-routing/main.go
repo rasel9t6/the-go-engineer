@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 13: Web Masterclass — Routing
+// Section 10: Web Masterclass — Routing
 // Level: Beginner -> Intermediate
 // ============================================================================
 //

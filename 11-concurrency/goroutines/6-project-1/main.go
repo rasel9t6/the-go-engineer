@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 9: Concurrency — Pipeline Project
+// Section 11: Concurrency — Pipeline Project
 // Level: Advanced
 // ============================================================================
 //
