@@ -994,6 +994,18 @@
                     "is_exercise": false,
                     "sub_graph": "",
                     "path": "10-web-and-database/web-masterclass/10-comments"
+                },
+                {
+                    "id": "WM.11",
+                    "name": "websockets",
+                    "concept": "HTTP Upgrade \u00b7 gorilla/websocket \u00b7 message pumping \u00b7 real-time duplex",
+                    "prerequisites": [
+                        "WM.1"
+                    ],
+                    "is_entry": false,
+                    "is_exercise": false,
+                    "sub_graph": "",
+                    "path": "10-web-and-database/web-masterclass/11-websockets"
                 }
             ]
         },
