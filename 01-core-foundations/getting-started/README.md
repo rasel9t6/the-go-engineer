@@ -156,7 +156,7 @@ To run any example:
 go run ./SECTION/LESSON
 # Example:
 go run ./01-core-foundations/language-basics/1-variables
-go run ./11-concurrency/concurrency/3-channels
+go run ./11-concurrency/goroutines/3-channels
 ```
 
 ## Common Beginner Mistakes

@@ -1039,7 +1039,7 @@
                     "is_entry": true,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/1-goroutine"
+                    "path": "11-concurrency/goroutines/1-goroutine"
                 },
                 {
                     "id": "GC.2",
@@ -1051,7 +1051,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/2-wait-group"
+                    "path": "11-concurrency/goroutines/2-wait-group"
                 },
                 {
                     "id": "GC.3",
@@ -1064,7 +1064,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/3-channels"
+                    "path": "11-concurrency/goroutines/3-channels"
                 },
                 {
                     "id": "GC.4",
@@ -1076,7 +1076,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/4-channels-buffered"
+                    "path": "11-concurrency/goroutines/4-channels-buffered"
                 },
                 {
                     "id": "GC.5",
@@ -1089,7 +1089,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/5-channels-closing"
+                    "path": "11-concurrency/goroutines/5-channels-closing"
                 },
                 {
                     "id": "GC.6",
@@ -1103,7 +1103,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/6-project-1"
+                    "path": "11-concurrency/goroutines/6-project-1"
                 },
                 {
                     "id": "GC.8",
@@ -1116,7 +1116,7 @@
                     "is_entry": false,
                     "is_exercise": true,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/8-race"
+                    "path": "11-concurrency/goroutines/8-race"
                 },
                 {
                     "id": "GC.9",
@@ -1130,7 +1130,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/9-select-deep-dive"
+                    "path": "11-concurrency/goroutines/9-select-deep-dive"
                 },
                 {
                     "id": "GC.10",
@@ -1142,7 +1142,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "11-concurrency/concurrency/10-sync-primitives"
+                    "path": "11-concurrency/goroutines/10-sync-primitives"
                 }
             ]
         },
