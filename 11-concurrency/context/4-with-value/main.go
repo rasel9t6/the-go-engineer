@@ -122,4 +122,3 @@ func logAction(ctx context.Context, action string) {
 	requestID, _ := ctx.Value(requestIDKey).(string)
 	fmt.Printf("  [%s] Action: %s\n", requestID, action)
 }
-

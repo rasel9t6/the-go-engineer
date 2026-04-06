@@ -248,4 +248,3 @@ func (app *application) handleListPosts(w http.ResponseWriter, r *http.Request) 
 		"page":  page,
 	})
 }
-

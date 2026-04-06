@@ -105,4 +105,3 @@ func createUser(db *sql.DB, name, email, rawPassword string) (int64, error) {
 	// result object contains useful metadata like the auto-incremented ID
 	return result.LastInsertId()
 }
-

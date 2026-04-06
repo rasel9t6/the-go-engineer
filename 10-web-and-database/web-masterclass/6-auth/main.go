@@ -195,4 +195,3 @@ func handleProfile(w http.ResponseWriter, r *http.Request) {
 		"user_id": userID,
 	})
 }
-

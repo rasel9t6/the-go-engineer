@@ -128,4 +128,3 @@ func worker(ctx context.Context, results chan<- string) {
 		}
 	}
 }
-

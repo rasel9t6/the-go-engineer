@@ -142,4 +142,3 @@ func main() {
 	fmt.Println("   Current: GC.5 (closing channels)")
 	fmt.Println("---------------------------------------------------")
 }
-

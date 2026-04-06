@@ -146,4 +146,3 @@ func main() {
 	fmt.Println("   Current: GC.2 (WaitGroups)")
 	fmt.Println("---------------------------------------------------")
 }
-

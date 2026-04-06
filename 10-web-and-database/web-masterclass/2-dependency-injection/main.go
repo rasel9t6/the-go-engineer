@@ -104,4 +104,3 @@ func (app *application) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprintf(w, `{"status":"ok","env":"%s"}`, app.config.env)
 }
-

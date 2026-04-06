@@ -73,4 +73,3 @@ func timerExample() {
 
 	fmt.Println("program ends")
 }
-

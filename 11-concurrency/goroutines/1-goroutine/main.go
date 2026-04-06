@@ -131,4 +131,3 @@ func main() {
 	fmt.Println("   Current: GC.1 (goroutines)")
 	fmt.Println("---------------------------------------------------")
 }
-

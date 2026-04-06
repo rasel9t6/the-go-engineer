@@ -127,4 +127,3 @@ func main() {
 	fmt.Println("   Current: GC.4 (buffered channels)")
 	fmt.Println("---------------------------------------------------")
 }
-

@@ -80,4 +80,3 @@ func main() {
 	fmt.Println("   Current: TM.6 (timezones)")
 	fmt.Println("---------------------------------------------------")
 }
-

@@ -129,4 +129,3 @@ func createUserWithProfile(db *sql.DB, name, email, hashedPassword, avatar strin
 
 	return userID, nil
 }
-

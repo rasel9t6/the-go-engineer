@@ -146,4 +146,3 @@ func main() {
 	fmt.Println("   Current: GC.10 (sync primitives)")
 	fmt.Println("---------------------------------------------------")
 }
-

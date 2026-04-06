@@ -117,4 +117,3 @@ func connectToDatabase(name string) (*sql.DB, error) {
 
 	return db, nil
 }
-

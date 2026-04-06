@@ -134,4 +134,3 @@ func main() {
 	fmt.Println("   Current: HC.2 (refactor for testability)")
 	fmt.Println("---------------------------------------------------")
 }
-

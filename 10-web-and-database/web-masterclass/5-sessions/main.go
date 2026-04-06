@@ -183,4 +183,3 @@ func (app *application) handleFlash(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "No flash messages")
 	}
 }
-

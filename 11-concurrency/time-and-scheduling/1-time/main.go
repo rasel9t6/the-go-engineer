@@ -79,4 +79,3 @@ func main() {
 	fmt.Println("   Current: TM.1 (time basics)")
 	fmt.Println("---------------------------------------------------")
 }
-

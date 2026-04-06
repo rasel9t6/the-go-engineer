@@ -150,4 +150,3 @@ func main() {
 	fmt.Println("   Current: WM.3 (templates)")
 	fmt.Println("---------------------------------------------------")
 }
-

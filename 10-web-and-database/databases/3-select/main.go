@@ -145,4 +145,3 @@ func GetUsers(db *sql.DB) ([]User, error) {
 
 	return users, nil
 }
-

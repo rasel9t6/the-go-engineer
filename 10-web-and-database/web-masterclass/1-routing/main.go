@@ -107,4 +107,3 @@ func handleCreatePost(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	fmt.Fprint(w, `{"message":"post created"}`)
 }
-

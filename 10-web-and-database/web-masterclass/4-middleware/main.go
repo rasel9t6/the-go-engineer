@@ -124,4 +124,3 @@ func main() {
 	fmt.Println("   Current: WM.4 (middleware)")
 	fmt.Println("---------------------------------------------------")
 }
-

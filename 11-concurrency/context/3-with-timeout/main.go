@@ -138,4 +138,3 @@ func slowOperation(ctx context.Context, duration time.Duration) (string, error) 
 		return "operation completed successfully", nil
 	}
 }
-

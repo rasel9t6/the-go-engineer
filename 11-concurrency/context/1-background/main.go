@@ -122,4 +122,3 @@ func processRequest(ctx context.Context, orderID string) {
 	//   http.NewRequestWithContext(ctx, "GET", url, nil)
 	//   grpcClient.Call(ctx, request)
 }
-

@@ -106,4 +106,3 @@ func createUserWithCtx(ctx context.Context, db *sql.DB, name, email, hashedPassw
 
 	return result.LastInsertId()
 }
-

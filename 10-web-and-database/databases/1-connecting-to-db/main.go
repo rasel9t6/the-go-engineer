@@ -100,4 +100,3 @@ func main() {
 	fmt.Println("   Current: DB.1 (connecting)")
 	fmt.Println("---------------------------------------------------")
 }
-

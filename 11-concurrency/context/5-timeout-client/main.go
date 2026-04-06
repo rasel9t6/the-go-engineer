@@ -104,4 +104,3 @@ func main() {
 	fmt.Println("  - Check ctx.Err() == context.DeadlineExceeded for timeout detection")
 	fmt.Println("  - Production default: 5-30 seconds for API calls, 1-5 seconds for health checks")
 }
-

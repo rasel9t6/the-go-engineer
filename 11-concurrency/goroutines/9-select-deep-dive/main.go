@@ -215,4 +215,3 @@ func fanIn(channels ...<-chan string) <-chan string {
 
 	return out
 }
-

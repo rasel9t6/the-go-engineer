@@ -131,4 +131,3 @@ func main() {
 	fmt.Println("   Current: HC.1 (basic GET)")
 	fmt.Println("---------------------------------------------------")
 }
-

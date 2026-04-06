@@ -165,4 +165,3 @@ func main() {
 	fmt.Println("   Current: GC.8 (race conditions)")
 	fmt.Println("---------------------------------------------------")
 }
-

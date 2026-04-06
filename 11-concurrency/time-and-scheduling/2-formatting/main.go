@@ -75,4 +75,3 @@ func getOffsetInSeconds(t time.Time) int {
 	_, offset := t.Zone()
 	return offset
 }
-

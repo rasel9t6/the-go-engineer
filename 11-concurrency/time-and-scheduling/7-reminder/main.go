@@ -102,4 +102,3 @@ func runReminder(seconds int, message string) {
 		}
 	}
 }
-

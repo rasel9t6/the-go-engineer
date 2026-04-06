@@ -175,4 +175,3 @@ func main() {
 	fmt.Println("   Current: GC.3 (channels (unbuffered))")
 	fmt.Println("---------------------------------------------------")
 }
-

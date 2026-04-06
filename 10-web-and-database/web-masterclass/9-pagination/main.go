@@ -146,4 +146,3 @@ func main() {
 	fmt.Println("   Current: WM.9 (pagination)")
 	fmt.Println("---------------------------------------------------")
 }
-

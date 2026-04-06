@@ -76,4 +76,3 @@ func main() {
 	fmt.Println("   Current: TM.4 (random numbers)")
 	fmt.Println("---------------------------------------------------")
 }
-

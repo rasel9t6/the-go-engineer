@@ -92,4 +92,3 @@ func main() {
 	fmt.Println("   Current: GC.6 (pipeline project)")
 	fmt.Println("---------------------------------------------------")
 }
-
