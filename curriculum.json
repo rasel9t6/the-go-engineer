@@ -441,6 +441,18 @@
                     "is_exercise": true,
                     "sub_graph": "",
                     "path": "05-types-and-interfaces/6-payroll-processor"
+                },
+                {
+                    "id": "TI.7",
+                    "name": "advanced generics",
+                    "concept": "Map/Filter patterns \u00b7 constraint interfaces \u00b7 reusable data pipelines",
+                    "prerequisites": [
+                        "TI.5"
+                    ],
+                    "is_entry": false,
+                    "is_exercise": false,
+                    "sub_graph": "",
+                    "path": "05-types-and-interfaces/7-advanced-generics"
                 }
             ]
         },
@@ -1006,6 +1018,18 @@
                     "is_exercise": false,
                     "sub_graph": "",
                     "path": "10-web-and-database/web-masterclass/10-comments"
+                },
+                {
+                    "id": "WM.11",
+                    "name": "websockets",
+                    "concept": "HTTP Upgrade \u00b7 gorilla/websocket \u00b7 message pumping \u00b7 real-time duplex",
+                    "prerequisites": [
+                        "WM.1"
+                    ],
+                    "is_entry": false,
+                    "is_exercise": false,
+                    "sub_graph": "",
+                    "path": "10-web-and-database/web-masterclass/11-websockets"
                 }
             ]
         },
