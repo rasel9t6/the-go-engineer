@@ -1496,6 +1496,19 @@
                     "is_exercise": false,
                     "sub_graph": "",
                     "path": "13-quality-and-performance/testing/benchmarks"
+                },
+                {
+                    "id": "TE.5",
+                    "name": "testcontainers",
+                    "concept": "Spinning up real postgres instances via Docker APIs \u00b7 wait strategies \u00b7 raw SQL vs mocking",
+                    "prerequisites": [
+                        "TE.1",
+                        "DB.1"
+                    ],
+                    "is_entry": false,
+                    "is_exercise": false,
+                    "sub_graph": "",
+                    "path": "13-quality-and-performance/4-testcontainers"
                 }
             ]
         },
