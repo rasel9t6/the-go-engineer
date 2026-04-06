@@ -357,6 +357,19 @@
                     "is_exercise": true,
                     "sub_graph": "",
                     "path": "04-functions-and-errors/8-error-handling"
+                },
+                {
+                    "id": "FE.10",
+                    "name": "functional options pattern",
+                    "concept": "Configuration closures \u00b7 scalable constructors \u00b7 overriding defaults",
+                    "prerequisites": [
+                        "FE.1",
+                        "FE.2"
+                    ],
+                    "is_entry": false,
+                    "is_exercise": false,
+                    "sub_graph": "",
+                    "path": "04-functions-and-errors/9-functional-options"
                 }
             ]
         },
