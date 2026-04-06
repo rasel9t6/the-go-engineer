@@ -15,7 +15,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Databases — SELECT Queries
+// Section 10: Databases â€” SELECT Queries
 // Level: Intermediate
 // ============================================================================
 //
@@ -67,19 +67,19 @@ func main() {
 	// 2. Fetch SINGLE user
 	fmt.Println("\n=== Fetching Single User ===")
 	// Note: this assumes "Alice" (from the previous exercise) exists in the database.
-	// You may need to run `go run ./12-databases/2-query` first if the DB is empty.
+	// You may need to run `go run ./10-web-and-database/databases/2-query` first if the DB is empty.
 	if len(users) > 0 {
 		alice, err := GetUserByEmail(db, users[0].Email)
 		if err != nil {
 			log.Fatal("Failed to fetch user by email:", err)
 		}
-		fmt.Printf("✅ Found: ID=%d, Name=%s, Email=%s\n", alice.ID, alice.Name, alice.Email)
+		fmt.Printf("âœ… Found: ID=%d, Name=%s, Email=%s\n", alice.ID, alice.Name, alice.Email)
 	} else {
-		fmt.Println("⚠️ Database is empty. Run exercise `2-query` first to populate it.")
+		fmt.Println("âš ï¸ Database is empty. Run exercise `2-query` first to populate it.")
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.4 prepared statements")
-	fmt.Println("   Current: DB.3 (query — SELECT)")
+	fmt.Println("ðŸš€ NEXT UP: DB.4 prepared statements")
+	fmt.Println("   Current: DB.3 (query â€” SELECT)")
 	fmt.Println("---------------------------------------------------")
 }
 

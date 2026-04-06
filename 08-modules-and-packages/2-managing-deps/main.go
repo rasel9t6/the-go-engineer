@@ -5,11 +5,11 @@
 package main
 
 // ============================================================================
-// Section 8: Modules & Dependencies — Managing Dependencies
+// Section 8: Modules & Dependencies â€” Managing Dependencies
 // Level: Intermediate
 // ============================================================================
 //
-// RUN: go run ./08-modules-and-packages/08-modules-and-dependencies/2-managing-deps
+// RUN: go run ./08-modules-and-packages/2-managing-deps
 // ============================================================================
 
 import (
@@ -27,23 +27,23 @@ import (
 // Run the commands below in a terminal to see them in action.
 //
 // ADDING DEPENDENCIES:
-//   go get github.com/stretchr/testify@latest       — latest version
-//   go get github.com/stretchr/testify@v1.11.1       — specific version
-//   go get github.com/stretchr/testify@v1.10.0       — downgrade
+//   go get github.com/stretchr/testify@latest       â€” latest version
+//   go get github.com/stretchr/testify@v1.11.1       â€” specific version
+//   go get github.com/stretchr/testify@v1.10.0       â€” downgrade
 //
 // REMOVING DEPENDENCIES:
-//   go get github.com/some/pkg@none                  — remove from go.mod
-//   go mod tidy                                       — clean up unused
+//   go get github.com/some/pkg@none                  â€” remove from go.mod
+//   go mod tidy                                       â€” clean up unused
 //
 // INSPECTING DEPENDENCIES:
-//   go list -m all                                    — all modules
-//   go list -m -versions github.com/stretchr/testify  — available versions
-//   go mod why github.com/stretchr/objx              — why is this needed?
-//   go mod graph                                      — full dependency tree
+//   go list -m all                                    â€” all modules
+//   go list -m -versions github.com/stretchr/testify  â€” available versions
+//   go mod why github.com/stretchr/objx              â€” why is this needed?
+//   go mod graph                                      â€” full dependency tree
 //
 // SECURITY:
 //   go install golang.org/x/vuln/cmd/govulncheck@latest
-//   govulncheck ./...                                — scan for known vulnerabilities
+//   govulncheck ./...                                â€” scan for known vulnerabilities
 // ============================================================================
 
 func main() {
@@ -86,7 +86,7 @@ func main() {
 	}
 	fmt.Println(string(whyOut))
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: MP.3 versioning")
+	fmt.Println("ðŸš€ NEXT UP: MP.3 versioning")
 	fmt.Println("   Current: MP.2 (managing deps)")
 	fmt.Println("---------------------------------------------------")
 }

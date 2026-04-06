@@ -5,11 +5,11 @@
 package main
 
 // ============================================================================
-// Section 11: Concurrency — Concurrent Downloader (Exercise)
+// Section 11: Concurrency â€” Concurrent Downloader (Exercise)
 // Level: Advanced
 // ============================================================================
 //
-// RUN: go run ./11-concurrency/concurrency/7-downloader
+// RUN: go run ./11-concurrency/goroutines/7-downloader
 // ============================================================================
 
 import (

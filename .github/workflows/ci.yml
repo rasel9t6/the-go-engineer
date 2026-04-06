@@ -19,7 +19,12 @@ jobs:
         run: go vet ./...
 
       - name: Format Check
-        run: gofmt -l . | grep . && exit 1 || true
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "$unformatted"
+            exit 1
+          fi
 
       - name: Module Tidy Check
         run: |

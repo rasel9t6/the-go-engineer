@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 11: Encoding — Config File Parser (Exercise Starter)
+// Section 11: Encoding â€” Config File Parser (Exercise Starter)
 // Level: Intermediate
 // ============================================================================
 //
@@ -23,7 +23,7 @@ import "fmt"
 //         - Validates after parsing
 //  4. [ ] In main(), create a sample JSON config file, load it, and print the values
 //
-// RUN: go run ./11-encoding/6-config-parser/_starter
+// RUN: go run ./09-io-and-cli/encoding/6-config-parser/_starter
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

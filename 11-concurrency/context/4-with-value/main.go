@@ -10,7 +10,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Context — WithValue
+// Section 11: Context â€” WithValue
 // Level: Advanced
 // ============================================================================
 //
@@ -23,19 +23,19 @@ import (
 // IMPORTANT RULE:
 //   Context values are for REQUEST-SCOPED data only.
 //   DO NOT use context to pass function parameters.
-//   Bad:  ctx = context.WithValue(ctx, "db", database)     ← Anti-pattern
-//   Good: ctx = context.WithValue(ctx, requestIDKey, "abc") ← Request metadata
+//   Bad:  ctx = context.WithValue(ctx, "db", database)     â† Anti-pattern
+//   Good: ctx = context.WithValue(ctx, requestIDKey, "abc") â† Request metadata
 //
 // ENGINEERING DEPTH:
 //   `WithValue` creates a `valueCtx` struct containing exactly *one* key-value pair
 //   and a pointer to its parent. Because Contexts are immutable, adding 5 values
 //   creates a chain of 5 nested Context wrappers. When you call `ctx.Value(key)`,
 //   Go walks UP the parent chain comparing keys until it finds a match or reaches
-//   the root. This is O(depth) — proportional to how many values were added. This
+//   the root. This is O(depth) â€” proportional to how many values were added. This
 //   is why you must NEVER store large amounts of data in Context; the linear lookup
 //   cost at high concurrency will degrade your server's performance.
 //
-// RUN: go run ./11-concurrency/concurrency/context/4-with-value
+// RUN: go run ./11-concurrency/context/4-with-value
 // ============================================================================
 
 // --- CUSTOM KEY TYPES ---
@@ -87,7 +87,7 @@ func main() {
 	fmt.Println("  4. Bad uses: database connections, loggers, config (use DI instead)")
 	fmt.Println("  5. Values are inherited by child contexts automatically")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TM.1 time basics")
+	fmt.Println("ðŸš€ NEXT UP: TM.1 time basics")
 	fmt.Println("   Current: CT.4 (WithValue)")
 	fmt.Println("---------------------------------------------------")
 }
@@ -97,7 +97,7 @@ func main() {
 // and handlers downstream read them.
 func handleRequest(ctx context.Context) {
 	// Extract values with ctx.Value(key).
-	// Value() returns `any` — you must type-assert to the expected type.
+	// Value() returns `any` â€” you must type-assert to the expected type.
 	// Always handle the case where the value is nil (key not found).
 	requestID, ok := ctx.Value(requestIDKey).(string)
 	if !ok {
@@ -111,7 +111,7 @@ func handleRequest(ctx context.Context) {
 
 	fmt.Printf("  Handling request: ID=%s, UserID=%d\n", requestID, userID)
 
-	// Pass context further downstream — the values travel with it
+	// Pass context further downstream â€” the values travel with it
 	logAction(ctx, "processing order")
 }
 

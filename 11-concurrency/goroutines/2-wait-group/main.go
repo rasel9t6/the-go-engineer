@@ -12,13 +12,13 @@ import (
 )
 
 // ============================================================================
-// Section 11: Concurrency — WaitGroups
+// Section 11: Concurrency â€” WaitGroups
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - sync.WaitGroup: the standard tool for waiting on goroutines
-//   - The 3-step pattern: Add → go func { defer Done } → Wait
+//   - The 3-step pattern: Add â†’ go func { defer Done } â†’ Wait
 //   - Why you MUST pass WaitGroup by pointer (never by value)
 //   - Common mistakes: Add inside goroutine, forgetting Done, copy WaitGroup
 //   - Real-world example: concurrent health checks
@@ -32,7 +32,7 @@ import (
 //   If you forget to call Done(), the gate never closes (deadlock).
 //   If you call Add() after Wait(), the counter goes negative (panic).
 //
-// RUN: go run ./11-concurrency/concurrency/2-wait-group
+// RUN: go run ./11-concurrency/goroutines/2-wait-group
 // ============================================================================
 
 // ServiceStatus represents the health of a backend service.
@@ -46,7 +46,7 @@ type ServiceStatus struct {
 // It takes a *sync.WaitGroup as a parameter and calls Done() when finished.
 //
 // THE GOLDEN RULE: Always pass WaitGroup by POINTER (*sync.WaitGroup).
-// If you pass by value, the goroutine gets a COPY — calling Done()
+// If you pass by value, the goroutine gets a COPY â€” calling Done()
 // on the copy doesn't affect the original, causing a deadlock.
 func checkService(name string, wg *sync.WaitGroup, results chan<- ServiceStatus) {
 	// defer wg.Done() MUST be the first line in the goroutine.
@@ -74,13 +74,13 @@ func main() {
 
 	// --- THE WAITGROUP PATTERN ---
 	//
-	//   var wg sync.WaitGroup    ← Step 0: Declare (zero value is ready to use)
-	//   wg.Add(1)                ← Step 1: Increment BEFORE launching goroutine
+	//   var wg sync.WaitGroup    â† Step 0: Declare (zero value is ready to use)
+	//   wg.Add(1)                â† Step 1: Increment BEFORE launching goroutine
 	//   go func() {
-	//       defer wg.Done()      ← Step 2: Decrement when goroutine finishes
+	//       defer wg.Done()      â† Step 2: Decrement when goroutine finishes
 	//       // ... do work ...
 	//   }()
-	//   wg.Wait()                ← Step 3: Block until counter reaches 0
+	//   wg.Wait()                â† Step 3: Block until counter reaches 0
 
 	var wg sync.WaitGroup
 
@@ -97,7 +97,7 @@ func main() {
 	// Channel to collect results from all goroutines
 	results := make(chan ServiceStatus, len(services)) // Buffered: won't block senders
 
-	fmt.Printf("🔍 Health checking %d services concurrently...\n\n", len(services))
+	fmt.Printf("ðŸ” Health checking %d services concurrently...\n\n", len(services))
 
 	// Launch one goroutine per service
 	for _, svc := range services {
@@ -118,9 +118,9 @@ func main() {
 	// Collect and display all results
 	allHealthy := true
 	for status := range results {
-		icon := "✅"
+		icon := "âœ…"
 		if !status.Healthy {
-			icon = "❌"
+			icon = "âŒ"
 			allHealthy = false
 		}
 		fmt.Printf("  %s %-20s latency: %v\n", icon, status.Name, status.Latency)
@@ -128,21 +128,21 @@ func main() {
 
 	fmt.Println()
 	if allHealthy {
-		fmt.Println("🎉 All services healthy!")
+		fmt.Println("ðŸŽ‰ All services healthy!")
 	} else {
-		fmt.Println("⚠️  Some services are degraded — check logs!")
+		fmt.Println("âš ï¸  Some services are degraded â€” check logs!")
 	}
 
 	// --- COMMON MISTAKES ---
 	fmt.Println()
 	fmt.Println("=== Common WaitGroup Mistakes ===")
-	fmt.Println("  ❌ wg.Add(1) INSIDE the goroutine → race condition (main may exit first)")
-	fmt.Println("  ❌ Passing wg by VALUE (not &wg)  → Done() on copy, main deadlocks")
-	fmt.Println("  ❌ Forgetting defer wg.Done()     → counter never reaches 0, deadlock")
-	fmt.Println("  ❌ Calling wg.Add() after Wait()  → panic (negative counter)")
-	fmt.Println("  ✅ ALWAYS: Add() before go, &wg as pointer, defer Done() first line")
+	fmt.Println("  âŒ wg.Add(1) INSIDE the goroutine â†’ race condition (main may exit first)")
+	fmt.Println("  âŒ Passing wg by VALUE (not &wg)  â†’ Done() on copy, main deadlocks")
+	fmt.Println("  âŒ Forgetting defer wg.Done()     â†’ counter never reaches 0, deadlock")
+	fmt.Println("  âŒ Calling wg.Add() after Wait()  â†’ panic (negative counter)")
+	fmt.Println("  âœ… ALWAYS: Add() before go, &wg as pointer, defer Done() first line")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GC.3 channels (unbuffered)")
+	fmt.Println("ðŸš€ NEXT UP: GC.3 channels (unbuffered)")
 	fmt.Println("   Current: GC.2 (WaitGroups)")
 	fmt.Println("---------------------------------------------------")
 }

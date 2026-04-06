@@ -2,9 +2,9 @@
 
 ## Learning Objectives
 
-Every Go engineer needs to build command-line tools. Go excels at CLI development — the standard library provides `flag` for argument parsing, and the single-binary deployment model means your CLI runs anywhere without dependencies.
+Every Go engineer needs to build command-line tools. Go excels at CLI development Ã¢â‚¬â€ the standard library provides `flag` for argument parsing, and the single-binary deployment model means your CLI runs anywhere without dependencies.
 
-## Beginner → Expert Mapping
+## Beginner Ã¢â€ â€™ Expert Mapping
 
 | Topic | Level | Importance | Engineering Concept |
 | ----- | ----- | ---------- | ------------------- |
@@ -25,20 +25,20 @@ Every Go engineer needs to build command-line tools. Go excels at CLI developmen
 ## How to Run
 
 ```bash
-go run ./19-cli-tools/1-args hello world
-go run ./19-cli-tools/2-flags -name="The Go Engineer" -count=3
-go run ./19-cli-tools/3-subcommands greet -name="Gopher"
+go run ./09-io-and-cli/cli-tools/1-args hello world
+go run ./09-io-and-cli/cli-tools/2-flags -name="The Go Engineer" -count=3
+go run ./09-io-and-cli/cli-tools/3-subcommands greet -name="Gopher"
 ```
 
 ---
 
-## 🏗 Exercise: File Organizer (`4-file-organizer`)
+## Ã°Å¸Ââ€” Exercise: File Organizer (`4-file-organizer`)
 
 Build a CLI tool that organizes files in a directory by extension, with a `--dry-run` flag. Try it yourself first!
 
 ```bash
-go run ./19-cli-tools/4-file-organizer/_starter --dir=./my-folder  # Try the exercise
-go run ./19-cli-tools/4-file-organizer --dir=./my-folder           # See the solution
+go run ./09-io-and-cli/cli-tools/4-file-organizer/_starter --dir=./my-folder  # Try the exercise
+go run ./09-io-and-cli/cli-tools/4-file-organizer --dir=./my-folder           # See the solution
 ```
 
 ## References
@@ -51,6 +51,6 @@ go run ./19-cli-tools/4-file-organizer --dir=./my-folder           # See the sol
 
 | ID | Lesson | Concept | Requires |
 | --- | --- | --- | --- |
-| CL.1 | [args](./1-args) | os.Args · os.Getenv · os.Exit codes · safe index access | 🟢 entry |
-| CL.2 | [flags](./2-flags) | flag.String/Int/Bool · flag.Parse() · pointer return · -help | CL.1 |
-| CL.3 | [subcommands](./3-subcommands) | flag.NewFlagSet · os.Args[2:] slicing · switch routing | CL.1, CL.2 |
+| CL.1 | [args](./1-args) | os.Args Ã‚Â· os.Getenv Ã‚Â· os.Exit codes Ã‚Â· safe index access | Ã°Å¸Å¸Â¢ entry |
+| CL.2 | [flags](./2-flags) | flag.String/Int/Bool Ã‚Â· flag.Parse() Ã‚Â· pointer return Ã‚Â· -help | CL.1 |
+| CL.3 | [subcommands](./3-subcommands) | flag.NewFlagSet Ã‚Â· os.Args[2:] slicing Ã‚Â· switch routing | CL.1, CL.2 |

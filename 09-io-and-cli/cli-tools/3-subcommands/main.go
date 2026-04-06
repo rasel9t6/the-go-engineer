@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools — Subcommands
+// Section 19: CLI Tools â€” Subcommands
 // Level: Advanced
 // ============================================================================
 //
@@ -31,9 +31,9 @@ import (
 //   allowing independent validation lifetimes for every subcommand.
 //
 // RUN:
-//   go run ./19-cli-tools/3-subcommands greet -name="Gopher"
-//   go run ./19-cli-tools/3-subcommands version
-//   go run ./19-cli-tools/3-subcommands calc -a=10 -b=20
+//   go run ./09-io-and-cli/cli-tools/3-subcommands greet -name="Gopher"
+//   go run ./09-io-and-cli/cli-tools/3-subcommands version
+//   go run ./09-io-and-cli/cli-tools/3-subcommands calc -a=10 -b=20
 // ============================================================================
 
 func main() {
@@ -62,7 +62,7 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.1 connecting")
+	fmt.Println("ðŸš€ NEXT UP: DB.1 connecting")
 	fmt.Println("   Current: CL.3 (subcommands)")
 	fmt.Println("---------------------------------------------------")
 }

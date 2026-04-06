@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling — Cron-like Scheduling
+// Section 11: Time & Scheduling â€” Cron-like Scheduling
 // Level: Advanced
 // ============================================================================
 //
@@ -23,7 +23,7 @@ package main
 //   a signal to every child's `stopChan`, and safely blocks until the `WaitGroup`
 //   counter hits zero. This guarantees zero zombie processes during deployments!
 //
-// RUN: go run ./11-concurrency/concurrency/time-and-scheduling/5-schedule
+// RUN: go run ./11-concurrency/time-and-scheduling/5-schedule
 // ============================================================================
 
 import (
@@ -218,7 +218,7 @@ func main() {
 
 	scheduler.globalWg.Wait()
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TM.6 timezones")
+	fmt.Println("ðŸš€ NEXT UP: TM.6 timezones")
 	fmt.Println("   Current: TM.5 (scheduler)")
 	fmt.Println("---------------------------------------------------")
 }

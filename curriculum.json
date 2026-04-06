@@ -1404,7 +1404,7 @@
                     "is_entry": false,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "12-concurrency-patterns/advanced-concurrency/2-errgroup-context"
+                    "path": "12-concurrency-patterns/2-errgroup-context"
                 },
                 {
                     "id": "CP.3",
@@ -1414,7 +1414,7 @@
                     "is_entry": true,
                     "is_exercise": false,
                     "sub_graph": "",
-                    "path": "12-concurrency-patterns/advanced-concurrency/3-sync-pool"
+                    "path": "12-concurrency-patterns/3-sync-pool"
                 },
                 {
                     "id": "CP.4",
@@ -1427,7 +1427,7 @@
                     "is_entry": false,
                     "is_exercise": true,
                     "sub_graph": "",
-                    "path": "12-concurrency-patterns/advanced-concurrency/4-bounded-pipeline-exercise"
+                    "path": "12-concurrency-patterns/4-bounded-pipeline-exercise"
                 },
                 {
                     "id": "CP.5",
@@ -1440,7 +1440,7 @@
                     "is_entry": false,
                     "is_exercise": true,
                     "sub_graph": "",
-                    "path": "12-concurrency-patterns/advanced-concurrency/5-url-checker-exercise"
+                    "path": "12-concurrency-patterns/5-url-checker-exercise"
                 },
                 {
                     "id": "CP.6",
@@ -1654,8 +1654,8 @@
         },
         {
             "id": "s14docker",
-            "num": "§14 · Docker",
-            "title": "Architecture — Docker & Deployment",
+            "num": "Â§14 Â· Docker",
+            "title": "Architecture â€” Docker & Deployment",
             "description": "Single-stage Dockerfile before multi-stage. Layer caching is fundamental to optimization. Compose orchestrates local development with multiple services.",
             "lessons": [{
                     "id": "DO.1",

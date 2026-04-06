@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 19: CLI Tools — File Organizer (Exercise Starter)
+// Section 19: CLI Tools â€” File Organizer (Exercise Starter)
 // Level: Intermediate
 // ============================================================================
 //
@@ -20,7 +20,7 @@ import "fmt"
 //  4. [ ] In dry-run mode, print what WOULD happen without moving files
 //  5. [ ] In normal mode, use os.MkdirAll and os.Rename to move files
 //
-// RUN: go run ./19-cli-tools/4-file-organizer/_starter --dir=./my-folder
+// RUN: go run ./09-io-and-cli/cli-tools/4-file-organizer/_starter --dir=./my-folder
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

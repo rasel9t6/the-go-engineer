@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — errgroup Basics
+// Section 12: Concurrency Patterns â€” errgroup Basics
 // Level: Intermediate
 // ============================================================================
 //
@@ -50,13 +50,13 @@ import (
 // ENGINEERING DEPTH:
 //   errgroup.Group stores exactly one error: the first non-nil error returned
 //   by any goroutine. All other errors are discarded. This is the right default
-//   because returning ALL errors is rarely useful — a single failed database
+//   because returning ALL errors is rarely useful â€” a single failed database
 //   connection explains the cascade of failures that follows it.
 //
 //   If you genuinely need ALL errors, use errors.Join() in each goroutine to
 //   build a combined error, or collect into a []error with a mutex.
 //
-// RUN: go run ./12-concurrency-patterns/24-errgroup-and-pools/24-errgroup-and-pools/1-errgroup
+// RUN: go run ./12-concurrency-patterns/1-errgroup
 // ============================================================================
 
 // Service represents a microservice dependency that must be checked at startup.
@@ -82,7 +82,7 @@ func checkService(name string) (*Service, error) {
 
 func main() {
 	// =========================================================================
-	// Demo 1: Basic errgroup — all goroutines, first error wins
+	// Demo 1: Basic errgroup â€” all goroutines, first error wins
 	// =========================================================================
 	fmt.Println("=== errgroup: startup health checks ===")
 	start := time.Now()
@@ -108,9 +108,9 @@ func main() {
 
 	// Wait() blocks until all goroutines finish and returns the first error.
 	if err := g.Wait(); err != nil {
-		fmt.Printf("❌ Health check failed (%.0fms): %v\n", float64(time.Since(start).Milliseconds()), err)
+		fmt.Printf("âŒ Health check failed (%.0fms): %v\n", float64(time.Since(start).Milliseconds()), err)
 	} else {
-		fmt.Printf("✅ All services healthy (%.0fms)\n", float64(time.Since(start).Milliseconds()))
+		fmt.Printf("âœ… All services healthy (%.0fms)\n", float64(time.Since(start).Milliseconds()))
 		for _, r := range results {
 			if r != nil {
 				fmt.Printf("   %-20s latency: %v\n", r.Name, r.Latency)
@@ -121,7 +121,7 @@ func main() {
 	fmt.Println()
 
 	// =========================================================================
-	// Demo 2: errors.Join — collecting ALL errors when you need them
+	// Demo 2: errors.Join â€” collecting ALL errors when you need them
 	// =========================================================================
 	// errgroup only keeps the first error. If you need all of them, collect
 	// them inside each goroutine and join into a single compound error.
@@ -135,7 +135,7 @@ func main() {
 		g2.Go(func() error {
 			_, err := checkService(svc)
 			if err != nil {
-				errCh <- err // Send to channel; don't return — keep running
+				errCh <- err // Send to channel; don't return â€” keep running
 			}
 			return nil // Return nil so other goroutines continue
 		})
@@ -156,7 +156,7 @@ func main() {
 	fmt.Println()
 
 	// =========================================================================
-	// Demo 3: TryGo — bounded concurrency without a semaphore channel
+	// Demo 3: TryGo â€” bounded concurrency without a semaphore channel
 	// =========================================================================
 	// g.TryGo(f) tries to start f as a goroutine. It succeeds ONLY if the
 	// current goroutine count is below the limit set by SetLimit().
@@ -168,7 +168,7 @@ func main() {
 
 	for i := range 5 {
 		i := i
-		// TryGo returns false if the limit is reached — spin until space opens.
+		// TryGo returns false if the limit is reached â€” spin until space opens.
 		for !g3.TryGo(func() error {
 			fmt.Printf("  worker %d started\n", i)
 			time.Sleep(100 * time.Millisecond)
@@ -187,7 +187,7 @@ func main() {
 	// - g.SetLimit(N) + g.TryGo(f) = bounded concurrency without chan struct{}
 	// - Use Go: github.com/rasel9t6/the-go-engineer already has x/sync
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CP.2 errgroup + context")
+	fmt.Println("ðŸš€ NEXT UP: CP.2 errgroup + context")
 	fmt.Println("   Current: CP.1 (errgroup basics)")
 	fmt.Println("---------------------------------------------------")
 }

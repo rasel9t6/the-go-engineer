@@ -14,7 +14,7 @@ import (
 )
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — Exercise: Image Resizer
+// Section 12: Concurrency Patterns â€” Exercise: Image Resizer
 // Level: Intermediate/Advanced
 // ============================================================================
 //
@@ -35,7 +35,7 @@ import (
 //    (HINT: Use errgroup.WithContext, and trigger a context cancellation).
 // 4. Use a `sync.Pool` to recycle the `*bytes.Buffer` used for the payload.
 //
-// RUN: go run ./24-errgroup-and-pools/4-bounded-pipeline-exercise/_starter
+// RUN: go run ./12-concurrency-patterns/4-bounded-pipeline-exercise/_starter
 // ============================================================================
 
 // TODO 1: Create a sync.Pool for *bytes.Buffer. Ensure you allocate enough capacity (e.g. 2MB).
@@ -64,9 +64,9 @@ func main() {
 
 	// TODO 5: Wait for the group to finish and check for errors
 	if err := g.Wait(); err != nil {
-		fmt.Printf("❌ Batch job failed: %v\n", err)
+		fmt.Printf("âŒ Batch job failed: %v\n", err)
 	} else {
-		fmt.Printf("✅ Batch job completed successfully in %v\n", time.Since(start))
+		fmt.Printf("âœ… Batch job completed successfully in %v\n", time.Since(start))
 	}
 }
 
