@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 15: Time & Scheduling — Timers & Tickers
+// Section 11: Time & Scheduling — Timers & Tickers
 // Level: Intermediate
 // ============================================================================
 //

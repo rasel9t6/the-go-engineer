@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 13: Web Masterclass — Dependency Injection
+// Section 10: Web Masterclass — Dependency Injection
 // Level: Intermediate
 // ============================================================================
 //

@@ -18,7 +18,7 @@ import (
 )
 
 // ============================================================================
-// Section 12: Databases — Connecting to SQLite
+// Section 10: Databases — Connecting to SQLite
 // Level: Beginner
 // ============================================================================
 //

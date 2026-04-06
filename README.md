@@ -120,7 +120,7 @@ go run ./CHAPTER/LESSON
 # Examples:
 go run ./01-core-foundations/getting-started/2-hello-world
 go run ./01-core-foundations/language-basics/1-variables
-go run ./11-concurrency/concurrency/3-channels
+go run ./11-concurrency/goroutines/3-channels
 go run ./10-web-and-database/web-masterclass/1-routing
 
 # Chapter 13 — Quality and Testing

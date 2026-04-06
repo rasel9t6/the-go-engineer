@@ -20,7 +20,7 @@ import (
 )
 
 // ============================================================================
-// Section 13: Posts CRUD with Repository Pattern
+// Section 10: Posts CRUD with Repository Pattern
 // Level: Advanced
 // ============================================================================
 //

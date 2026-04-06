@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 12: Databases — Repository Pattern
+// Section 10: Databases — Repository Pattern
 // Level: Advanced
 // ============================================================================
 //

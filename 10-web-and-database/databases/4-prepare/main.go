@@ -16,7 +16,7 @@ import (
 )
 
 // ============================================================================
-// Section 12: Databases — Prepared Statements & Context
+// Section 10: Databases — Prepared Statements & Context
 // Level: Intermediate
 // ============================================================================
 //

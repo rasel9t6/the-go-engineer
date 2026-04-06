@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 15: Time & Scheduling — Time Basics
+// Section 11: Time & Scheduling — Time Basics
 // Level: Beginner
 // ============================================================================
 //

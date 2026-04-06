@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 17: Context — Timeout-Aware API Client (Exercise)
+// Section 11: Context — Timeout-Aware API Client (Exercise)
 // Level: Advanced
 // ============================================================================
 //
