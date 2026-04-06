@@ -1,6 +1,6 @@
 # Section 25: Profiling with pprof
 
-## Beginner → Expert Mapping
+## Beginner â†’ Expert Mapping
 
 | Topic | Level | Importance | Engineering Concept |
 |-------|-------|------------|---------------------|
@@ -15,17 +15,17 @@
 
 **The profiling workflow:**
 1. Record a profile (`-cpuprofile` flag or `pprof.StartCPUProfile`)
-2. Visualise with `go tool pprof` — text, web, or flame graph
+2. Visualise with `go tool pprof` â€” text, web, or flame graph
 3. Fix the bottleneck (usually one of: reflection, string building, excessive allocation, regex in a hot loop)
 4. Benchmark before and after to confirm the improvement
 5. Commit the benchmark so regressions surface in CI
 
 **Common hotspots found via pprof:**
-- `runtime.mallocgc` — too many allocations (use sync.Pool or pre-allocate)
-- `runtime.gcBgMarkWorker` — GC running too frequently (same root cause)
-- `regexp.(*Regexp).FindAllString` — compiling regex inside a loop (pre-compile at package level)
-- `strings.Builder.copyCheck` — using += in a loop (use strings.Builder)
-- `reflect.Value.Field` — encoding/json reflection on untagged large structs
+- `runtime.mallocgc` â€” too many allocations (use sync.Pool or pre-allocate)
+- `runtime.gcBgMarkWorker` â€” GC running too frequently (same root cause)
+- `regexp.(*Regexp).FindAllString` â€” compiling regex inside a loop (pre-compile at package level)
+- `strings.Builder.copyCheck` â€” using += in a loop (use strings.Builder)
+- `reflect.Value.Field` â€” encoding/json reflection on untagged large structs
 
 ## How to Run
 
@@ -34,9 +34,8 @@
 go run ./13-quality-and-performance/profiling/1-cpu-profile
 go tool pprof -http=:8090 cpu.prof
 
-# Memory profile
-go run ./13-quality-and-performance/profiling/2-memory-profile
-go tool pprof -http=:8090 mem.prof
+# Memory profile workflow
+# Add runtime/pprof hooks to your own binary, then inspect the generated heap profile
 
 # Live pprof endpoint
 go run ./13-quality-and-performance/profiling/3-http-pprof
@@ -55,5 +54,5 @@ go run ./13-quality-and-performance/profiling/3-http-pprof
 
 | ID | Lesson | Concept | Requires |
 | --- | --- | --- | --- |
-| PR.1 | [CPU profile](./1-cpu-profile) | pprof.StartCPUProfile · StopCPUProfile · go tool pprof · flat vs cum | 🟢 entry |
-| PR.2 | [live pprof endpoint](./3-http-pprof) | net/http/pprof blank import · two-port pattern · goroutine leak | PR.1 |
+| PR.1 | [CPU profile](./1-cpu-profile) | pprof.StartCPUProfile Â· StopCPUProfile Â· go tool pprof Â· flat vs cum | ðŸŸ¢ entry |
+| PR.2 | [live pprof endpoint](./3-http-pprof) | net/http/pprof blank import Â· two-port pattern Â· goroutine leak | PR.1 |

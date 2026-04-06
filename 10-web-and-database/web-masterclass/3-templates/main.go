@@ -14,14 +14,14 @@ import (
 )
 
 // ============================================================================
-// Section 10: Web Masterclass — HTML Templates
+// Section 10: Web Masterclass â€” HTML Templates
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - html/template for safe HTML rendering (auto-escapes XSS)
-//   - Template caching — parse once, execute many times
-//   - Template composition — base layout + page content + partials
+//   - Template caching â€” parse once, execute many times
+//   - Template composition â€” base layout + page content + partials
 //   - Passing dynamic data to templates via structs
 //
 // ENGINEERING DEPTH:
@@ -38,7 +38,7 @@ import (
 // ============================================================================
 
 // templateCache stores pre-parsed templates keyed by page name.
-// Parsing on every request is expensive — we parse ONCE at startup.
+// Parsing on every request is expensive â€” we parse ONCE at startup.
 type templateCache map[string]*template.Template
 
 // newTemplateCache parses all template files and returns a cache.
@@ -56,7 +56,7 @@ func newTemplateCache(dir string) (templateCache, error) {
 		// Extract the page filename (e.g., "home.html")
 		name := filepath.Base(page)
 
-		// Parse template files in order: base → partials → page
+		// Parse template files in order: base â†’ partials â†’ page
 		// The first template parsed defines the root template name.
 		ts, err := template.New(name).ParseFiles(
 			filepath.Join(dir, "base.html"), // Layout wrapper
@@ -118,7 +118,7 @@ func (app *application) render(w http.ResponseWriter, name string, data template
 }
 
 func main() {
-	cache, err := newTemplateCache("./13-web-masterclass/3-templates/templates")
+	cache, err := newTemplateCache("./10-web-and-database/web-masterclass/3-templates/templates")
 	if err != nil {
 		log.Fatalf("Failed to create template cache: %v", err)
 	}
@@ -146,7 +146,7 @@ func main() {
 	log.Println("Starting server on :8080")
 	log.Fatal(http.ListenAndServe(":8080", mux))
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: WM.4 middleware")
+	fmt.Println("ðŸš€ NEXT UP: WM.4 middleware")
 	fmt.Println("   Current: WM.3 (templates)")
 	fmt.Println("---------------------------------------------------")
 }

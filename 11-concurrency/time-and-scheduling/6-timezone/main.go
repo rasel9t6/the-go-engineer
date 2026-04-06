@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling — Timezones
+// Section 11: Time & Scheduling â€” Timezones
 // Level: Intermediate
 // ============================================================================
 //
@@ -23,7 +23,7 @@ package main
 //   UTC time in your databases. Only convert to a local `time.Location` at the
 //   very last millisecond before rendering the UI for the user!
 //
-// RUN: go run ./11-concurrency/concurrency/time-and-scheduling/6-timezone
+// RUN: go run ./11-concurrency/time-and-scheduling/6-timezone
 // ============================================================================
 
 import (
@@ -76,7 +76,7 @@ func main() {
 	fmt.Printf("In New York: %s\n", parsedTime.In(newYork))
 	fmt.Printf("In Tokyo: %s\n", parsedTime.In(tokyo))
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CP.1 errgroup basics")
+	fmt.Println("ðŸš€ NEXT UP: CP.1 errgroup basics")
 	fmt.Println("   Current: TM.6 (timezones)")
 	fmt.Println("---------------------------------------------------")
 }

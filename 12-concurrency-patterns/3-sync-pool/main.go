@@ -10,13 +10,13 @@ import (
 )
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — sync.Pool
+// Section 12: Concurrency Patterns â€” sync.Pool
 // Level: Advanced
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - sync.Pool: reuse temporary objects to reduce GC pressure
-//   - The correct Get() → use → reset → Put() lifecycle
+//   - The correct Get() â†’ use â†’ reset â†’ Put() lifecycle
 //   - Why you MUST reset objects before Put()
 //   - Building a production-grade byte buffer pool (used by fmt, json, http)
 //   - How to benchmark pool impact with testing.B
@@ -32,24 +32,24 @@ import (
 //   Get() returns a recycled object and Put() returns it. During GC, the pool
 //   is cleared (the GC intentionally evicts pools to prevent memory leaks from
 //   objects that should have been freed). Objects MUST therefore be treated as
-//   temporary — never assume an object from the pool is clean or that a Put()
+//   temporary â€” never assume an object from the pool is clean or that a Put()
 //   object will be returned by the next Get().
 //
 //   PRODUCTION RULE: Reset the object (buf.Reset(), clear the struct) before
-//   Put(). Otherwise the next caller gets stale data — a serious security bug
+//   Put(). Otherwise the next caller gets stale data â€” a serious security bug
 //   if the buffer contains HTTP headers or auth tokens.
 //
-// RUN: go run ./12-concurrency-patterns/24-errgroup-and-pools/24-errgroup-and-pools/3-sync-pool
+// RUN: go run ./12-concurrency-patterns/3-sync-pool
 // ============================================================================
 
 // ============================================================================
-// ByteBufferPool — a production-grade pooled buffer
+// ByteBufferPool â€” a production-grade pooled buffer
 // ============================================================================
 // This is the same pattern used by encoding/json, net/http, and fmt internally.
 
 var bufPool = sync.Pool{
 	// New is called when the pool is empty. It creates a fresh object.
-	// New should always allocate — don't return nil here.
+	// New should always allocate â€” don't return nil here.
 	New: func() any {
 		// Pre-allocate 4KB: covers most HTTP responses without reallocation.
 		buf := bytes.NewBuffer(make([]byte, 0, 4096))
@@ -66,7 +66,7 @@ func GetBuffer() *bytes.Buffer {
 
 // PutBuffer returns a buffer to the pool after use.
 func PutBuffer(buf *bytes.Buffer) {
-	// Optional: don't pool oversized buffers — they waste pool memory.
+	// Optional: don't pool oversized buffers â€” they waste pool memory.
 	// A 10MB buffer from a single huge response shouldn't block a 4KB slot.
 	if buf.Cap() > 64*1024 {
 		return // Let GC collect it
@@ -98,7 +98,7 @@ func buildHTTPResponseWithoutPool(status int, body string) string {
 }
 
 // ============================================================================
-// StructPool — pooling custom structs
+// StructPool â€” pooling custom structs
 // ============================================================================
 // Pooling structs is more error-prone than buffers because you MUST zero out
 // every field. Missing a field means previous request data bleeds into the next.
@@ -156,13 +156,13 @@ func main() {
 
 	// KEY TAKEAWAY:
 	// - sync.Pool: reuse temporary objects to cut GC pressure
-	// - Get() → use → Reset() → Put() is the complete lifecycle
-	// - ALWAYS reset before Put() — stale data is a security bug
-	// - Don't pool oversized objects — they waste pool slots
+	// - Get() â†’ use â†’ Reset() â†’ Put() is the complete lifecycle
+	// - ALWAYS reset before Put() â€” stale data is a security bug
+	// - Don't pool oversized objects â€” they waste pool slots
 	// - Use -benchmem to measure before and after: allocs/op should drop to 0
-	// - Pool objects are evicted on GC — never rely on pool for caching
+	// - Pool objects are evicted on GC â€” never rely on pool for caching
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TE.1 unit testing")
+	fmt.Println("ðŸš€ NEXT UP: TE.1 unit testing")
 	fmt.Println("   Current: CP.3 (sync.Pool)")
 	fmt.Println("---------------------------------------------------")
 }

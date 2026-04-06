@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling — Time Formatting
+// Section 11: Time & Scheduling â€” Time Formatting
 // Level: Beginner
 // ============================================================================
 //
@@ -22,7 +22,7 @@ package main
 //   You simply write down what that specific reference time would look like
 //   in your desired format, and the engine tokenizes it underneath.
 //
-// RUN: go run ./11-concurrency/concurrency/time-and-scheduling/2-formatting
+// RUN: go run ./11-concurrency/time-and-scheduling/2-formatting
 // ============================================================================
 
 import (
@@ -66,7 +66,7 @@ func main() {
 		fmt.Printf("Parsed RFC3339 (in UTC): %s\n", parsedTimeRFC.UTC())
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TM.3 timers &amp; tickers")
+	fmt.Println("ðŸš€ NEXT UP: TM.3 timers &amp; tickers")
 	fmt.Println("   Current: TM.2 (formatting)")
 	fmt.Println("---------------------------------------------------")
 }

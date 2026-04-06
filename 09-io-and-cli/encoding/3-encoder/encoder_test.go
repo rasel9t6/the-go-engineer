@@ -17,7 +17,7 @@ import (
 // These tests verify that json.NewEncoder produces valid, parseable JSON
 // output with the correct field names from struct tags.
 //
-// RUN: go test -v ./11-encoding/3-encoder
+// RUN: go test -v ./09-io-and-cli/encoding/3-encoder
 // ============================================================================
 
 func TestDeviceLogEncoding(t *testing.T) {

@@ -14,7 +14,7 @@ By the end of this section, you will understand:
 - Propagating context through function chains
 - Context in HTTP handlers (`r.Context()`)
 
-## Beginner → Expert Mapping
+## Beginner Ã¢â€ â€™ Expert Mapping
 
 | Topic | Level | Importance | Engineering Concept |
 | ----- | ----- | ---------- | ------------------- |
@@ -26,7 +26,7 @@ By the end of this section, you will understand:
 
 ## Engineering Depth
 
-Google's internal Go style guide mandates context as the first parameter of any function that does I/O or may be long-running. The signature `func DoSomething(ctx context.Context, ...)` is not optional — it's the law.
+Google's internal Go style guide mandates context as the first parameter of any function that does I/O or may be long-running. The signature `func DoSomething(ctx context.Context, ...)` is not optional Ã¢â‚¬â€ it's the law.
 
 Context solves the "cancellation propagation" problem: when a user cancels an HTTP request, how do you stop the database query, the API call, and the file write that are all happening downstream? Context creates a tree of cancellation signals that flow from parent to child automatically.
 
@@ -42,21 +42,21 @@ Context solves the "cancellation propagation" problem: when a user cancels an HT
 ## How to Run
 
 ```bash
-go run ./17-context/1-background
-go run ./17-context/2-with-cancel
-go run ./17-context/3-with-timeout
-go run ./17-context/4-with-value
+go run ./11-concurrency/context/1-background
+go run ./11-concurrency/context/2-with-cancel
+go run ./11-concurrency/context/3-with-timeout
+go run ./11-concurrency/context/4-with-value
 ```
 
 ---
 
-## 🏗 Exercise: Timeout-Aware API Client (`5-timeout-client`)
+## Ã°Å¸Ââ€” Exercise: Timeout-Aware API Client (`5-timeout-client`)
 
 Build an HTTP client that uses `context.WithTimeout` to enforce request deadlines. Try it yourself first!
 
 ```bash
-go run ./17-context/5-timeout-client/_starter   # Try the exercise
-go run ./17-context/5-timeout-client            # See the solution
+go run ./11-concurrency/context/5-timeout-client/_starter   # Try the exercise
+go run ./11-concurrency/context/5-timeout-client            # See the solution
 ```
 
 ## References
@@ -69,7 +69,7 @@ go run ./17-context/5-timeout-client            # See the solution
 
 | ID | Lesson | Concept | Requires |
 | --- | --- | --- | --- |
-| CT.1 | [Background &amp; TODO](./1-background) | Root context · Context interface (Deadline/Done/Err/Value) | 🟢 entry |
-| CT.2 | [WithCancel](./2-with-cancel) | cancel func · ctx.Done() · goroutine leak prevention · tree propagation | CT.1 |
-| CT.3 | [WithTimeout](./3-with-timeout) | Duration-based auto-cancel · WithDeadline · DeadlineExceeded | CT.1, CT.2 |
-| CT.4 | [WithValue](./4-with-value) | Private key type · request-scoped metadata · O(depth) lookup | CT.1, CT.2, CT.3 |
+| CT.1 | [Background &amp; TODO](./1-background) | Root context Ã‚Â· Context interface (Deadline/Done/Err/Value) | Ã°Å¸Å¸Â¢ entry |
+| CT.2 | [WithCancel](./2-with-cancel) | cancel func Ã‚Â· ctx.Done() Ã‚Â· goroutine leak prevention Ã‚Â· tree propagation | CT.1 |
+| CT.3 | [WithTimeout](./3-with-timeout) | Duration-based auto-cancel Ã‚Â· WithDeadline Ã‚Â· DeadlineExceeded | CT.1, CT.2 |
+| CT.4 | [WithValue](./4-with-value) | Private key type Ã‚Â· request-scoped metadata Ã‚Â· O(depth) lookup | CT.1, CT.2, CT.3 |

@@ -17,7 +17,7 @@ import (
 // These tests verify loadConfig and validate handle valid configs,
 // missing fields, invalid JSON, and missing files correctly.
 //
-// RUN: go test -v ./11-encoding/6-config-parser
+// RUN: go test -v ./09-io-and-cli/encoding/6-config-parser
 // ============================================================================
 
 func TestLoadConfigValid(t *testing.T) {

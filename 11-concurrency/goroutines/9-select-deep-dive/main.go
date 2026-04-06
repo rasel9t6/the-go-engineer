@@ -5,11 +5,11 @@
 package main
 
 // ============================================================================
-// Section 11: Concurrency — Select Deep Dive
+// Section 11: Concurrency â€” Select Deep Dive
 // Level: Advanced
 // ============================================================================
 //
-// RUN: go run ./11-concurrency/concurrency/9-select-deep-dive
+// RUN: go run ./11-concurrency/goroutines/9-select-deep-dive
 // ============================================================================
 
 import (
@@ -37,22 +37,22 @@ func main() {
 	fmt.Println("=== Select Statement Deep Dive ===")
 	fmt.Println()
 
-	// 1. Basic select — wait on multiple channels
+	// 1. Basic select â€” wait on multiple channels
 	basicSelect()
 
-	// 2. Timeout pattern — prevent waiting forever
+	// 2. Timeout pattern â€” prevent waiting forever
 	timeoutPattern()
 
 	// 3. Non-blocking operations with default
 	nonBlockingSelect()
 
-	// 4. Context cancellation — production-standard cancellation
+	// 4. Context cancellation â€” production-standard cancellation
 	contextCancellation()
 
-	// 5. Fan-in — merging multiple channels into one
+	// 5. Fan-in â€” merging multiple channels into one
 	fanInPattern()
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GC.10 sync primitives")
+	fmt.Println("ðŸš€ NEXT UP: GC.10 sync primitives")
 	fmt.Println("   Current: GC.9 (select deep dive)")
 	fmt.Println("---------------------------------------------------")
 }
@@ -104,7 +104,7 @@ func timeoutPattern() {
 	case <-time.After(500 * time.Millisecond):
 		// time.After returns a channel that receives after the duration.
 		// This is the standard timeout pattern in Go.
-		fmt.Println("  ⏰ Operation timed out after 500ms")
+		fmt.Println("  â° Operation timed out after 500ms")
 	}
 	fmt.Println()
 }
@@ -120,7 +120,7 @@ func nonBlockingSelect() {
 	case val := <-ch:
 		fmt.Printf("  Received: %d\n", val)
 	default:
-		fmt.Println("  Channel empty — no blocking!")
+		fmt.Println("  Channel empty â€” no blocking!")
 	}
 
 	// Try to send without blocking
@@ -129,7 +129,7 @@ func nonBlockingSelect() {
 	case ch <- 100: // Buffer is full, this won't execute
 		fmt.Println("  Sent 100")
 	default:
-		fmt.Println("  Channel full — no blocking!")
+		fmt.Println("  Channel full â€” no blocking!")
 	}
 	fmt.Println()
 }
@@ -156,7 +156,7 @@ func contextCancellation() {
 		fmt.Printf("  Result: %s\n", result)
 	case <-ctx.Done():
 		// ctx.Done() returns a channel that closes when the context is cancelled.
-		fmt.Printf("  ❌ Cancelled: %v\n", ctx.Err())
+		fmt.Printf("  âŒ Cancelled: %v\n", ctx.Err())
 	}
 	fmt.Println()
 }
@@ -175,7 +175,7 @@ func fanInPattern() {
 	merged := fanIn(producers...)
 
 	// Read all results from the merged channel
-	for i := 0; i < 6; i++ { // 3 producers × 2 messages each
+	for i := 0; i < 6; i++ { // 3 producers Ã— 2 messages each
 		fmt.Printf("  %s\n", <-merged)
 	}
 	fmt.Println()

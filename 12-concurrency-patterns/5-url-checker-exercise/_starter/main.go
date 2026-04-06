@@ -6,7 +6,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — URL Health Checker (Exercise Starter)
+// Section 12: Concurrency Patterns â€” URL Health Checker (Exercise Starter)
 // Level: Advanced
 // ============================================================================
 //
@@ -40,7 +40,7 @@ import "fmt"
 //     "https://httpbin.org/delay/1",
 //   }
 //
-// RUN: go run ./24-errgroup-and-pools/5-url-checker-exercise/_starter
+// RUN: go run ./12-concurrency-patterns/5-url-checker-exercise/_starter
 // SOLUTION: See the main.go in the parent directory (5-url-checker-exercise)
 // ============================================================================
 

@@ -1,7 +1,7 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
-// RUN: go run ./24-errgroup-and-pools/4-bounded-pipeline-exercise
+// RUN: go run ./12-concurrency-patterns/4-bounded-pipeline-exercise
 package main
 
 import (
@@ -16,7 +16,7 @@ import (
 )
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — Exercise: Image Resizer SOLUTION
+// Section 12: Concurrency Patterns â€” Exercise: Image Resizer SOLUTION
 // ============================================================================
 
 // 1. Create the sync.Pool
@@ -50,9 +50,9 @@ func main() {
 
 	// 5. Wait for the group to finish
 	if err := g.Wait(); err != nil {
-		fmt.Printf("❌ Batch job failed: %v\n", err)
+		fmt.Printf("âŒ Batch job failed: %v\n", err)
 	} else {
-		fmt.Printf("✅ Batch job completed successfully in %v\n", time.Since(start))
+		fmt.Printf("âœ… Batch job completed successfully in %v\n", time.Since(start))
 	}
 }
 

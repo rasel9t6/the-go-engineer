@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools — Flag Package
+// Section 19: CLI Tools â€” Flag Package
 // Level: Intermediate
 // ============================================================================
 //
@@ -20,7 +20,7 @@ import (
 //   - The flag package for typed argument parsing
 //   - String, int, bool, and duration flags
 //   - Default values and usage help
-//   - flag.Parse() — MUST call before accessing flag values
+//   - flag.Parse() â€” MUST call before accessing flag values
 //   - Accessing remaining (non-flag) arguments
 //
 // ENGINEERING DEPTH:
@@ -32,9 +32,9 @@ import (
 //   you would be forced to capture every return value from the parse step individually.
 //
 // RUN:
-//   go run ./19-cli-tools/2-flags
-//   go run ./19-cli-tools/2-flags -name="The Go Engineer" -count=3 -verbose
-//   go run ./19-cli-tools/2-flags -help
+//   go run ./09-io-and-cli/cli-tools/2-flags
+//   go run ./09-io-and-cli/cli-tools/2-flags -name="The Go Engineer" -count=3 -verbose
+//   go run ./09-io-and-cli/cli-tools/2-flags -help
 // ============================================================================
 
 func main() {
@@ -75,7 +75,7 @@ func main() {
 	// --- REMAINING ARGUMENTS ---
 	// Any arguments after the flags are available via flag.Args()
 	// Example: go run . -name=Go extra1 extra2
-	//   → flag.Args() = ["extra1", "extra2"]
+	//   â†’ flag.Args() = ["extra1", "extra2"]
 	remaining := flag.Args()
 	if len(remaining) > 0 {
 		fmt.Printf("\nExtra arguments: %v\n", remaining)
@@ -84,16 +84,16 @@ func main() {
 	// --- AUTO-GENERATED HELP ---
 	// Running with -help or -h automatically prints usage information
 	// generated from the flag definitions above.
-	// Try: go run ./19-cli-tools/2-flags -help
+	// Try: go run ./09-io-and-cli/cli-tools/2-flags -help
 
 	// KEY TAKEAWAY:
 	// - flag package gives you typed CLI arguments with defaults and help text
 	// - ALWAYS call flag.Parse() before accessing flag values
-	// - flag functions return pointers — dereference with *
+	// - flag functions return pointers â€” dereference with *
 	// - -help is auto-generated from your flag definitions
 	// - For complex CLIs with subcommands, see 3-subcommands/
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CL.3 subcommands")
+	fmt.Println("ðŸš€ NEXT UP: CL.3 subcommands")
 	fmt.Println("   Current: CL.2 (flags)")
 	fmt.Println("---------------------------------------------------")
 }

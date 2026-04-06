@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 11: Context — Timeout-Aware API Client (Exercise Starter)
+// Section 11: Context â€” Timeout-Aware API Client (Exercise Starter)
 // Level: Advanced
 // ============================================================================
 //
@@ -20,7 +20,7 @@ import "fmt"
 //  4. [ ] If the timeout fires, return a clear error message
 //  5. [ ] Test with a fast URL (should succeed) and an impossibly short timeout (should fail)
 //
-// RUN: go run ./17-context/5-timeout-client/_starter
+// RUN: go run ./11-concurrency/context/5-timeout-client/_starter
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

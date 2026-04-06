@@ -12,14 +12,14 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools — Command-Line Arguments
+// Section 19: CLI Tools â€” Command-Line Arguments
 // Level: Beginner
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - os.Args — raw access to command-line arguments
-//   - os.Getenv — reading environment variables
-//   - os.Exit — exiting with status codes (0=success, 1=error)
+//   - os.Args â€” raw access to command-line arguments
+//   - os.Getenv â€” reading environment variables
+//   - os.Exit â€” exiting with status codes (0=success, 1=error)
 //   - Building a simple CLI tool from scratch
 //
 // ENGINEERING DEPTH:
@@ -31,9 +31,9 @@ import (
 //   is why `os.Args[0]` is incredibly rigid and always contains the executable path!
 //
 // RUN:
-//   go run ./19-cli-tools/1-args
-//   go run ./19-cli-tools/1-args hello world
-//   GREETING=Hi go run ./19-cli-tools/1-args gopher
+//   go run ./09-io-and-cli/cli-tools/1-args
+//   go run ./09-io-and-cli/cli-tools/1-args hello world
+//   GREETING=Hi go run ./09-io-and-cli/cli-tools/1-args gopher
 // ============================================================================
 
 func main() {
@@ -46,7 +46,7 @@ func main() {
 	//   os.Args[1] = first argument
 	//   os.Args[2] = second argument, etc.
 	//
-	// When you run: go run ./19-cli-tools/1-args hello world
+	// When you run: go run ./09-io-and-cli/cli-tools/1-args hello world
 	//   os.Args = ["/tmp/go-build.../main", "hello", "world"]
 	fmt.Printf("  Program: %s\n", os.Args[0])
 	fmt.Printf("  Total args: %d\n", len(os.Args))
@@ -59,13 +59,13 @@ func main() {
 		fmt.Printf("  Arguments: %s\n", strings.Join(args, ", "))
 	} else {
 		fmt.Println("  No arguments provided.")
-		fmt.Println("  Try: go run ./19-cli-tools/1-args hello world")
+		fmt.Println("  Try: go run ./09-io-and-cli/cli-tools/1-args hello world")
 	}
 
 	fmt.Println()
 
 	// --- ENVIRONMENT VARIABLES ---
-	// os.Getenv reads environment variables — returns "" if not set.
+	// os.Getenv reads environment variables â€” returns "" if not set.
 	// Environment variables are the standard way to configure production apps:
 	//   DATABASE_URL, API_KEY, PORT, LOG_LEVEL, etc.
 	fmt.Println("=== Environment Variables ===")
@@ -76,7 +76,7 @@ func main() {
 
 	user := os.Getenv("USER") // Most systems set this automatically
 	fmt.Printf("  %s, %s!\n", greeting, user)
-	fmt.Println("  Try: GREETING=Howdy go run ./19-cli-tools/1-args")
+	fmt.Println("  Try: GREETING=Howdy go run ./09-io-and-cli/cli-tools/1-args")
 
 	fmt.Println()
 
@@ -90,9 +90,9 @@ func main() {
 	// Deferred functions DO NOT RUN after os.Exit.
 	// Use it at the very end, or for fatal errors only.
 	fmt.Println("=== Exit Codes ===")
-	fmt.Println("  os.Exit(0) — success")
-	fmt.Println("  os.Exit(1) — error")
-	fmt.Println("  os.Exit(2) — usage error")
+	fmt.Println("  os.Exit(0) â€” success")
+	fmt.Println("  os.Exit(1) â€” error")
+	fmt.Println("  os.Exit(2) â€” usage error")
 
 	// Example: validate minimum arguments
 	if len(os.Args) > 1 && os.Args[1] == "--fail" {
@@ -107,9 +107,9 @@ func main() {
 	fmt.Println("  3. os.Getenv for config, with sensible defaults for missing vars")
 	fmt.Println("  4. Exit 0 = success, Exit 1 = error (defers DON'T run after os.Exit)")
 	fmt.Println()
-	fmt.Println("   Next: go run ./19-cli-tools/2-flags -name='The Go Engineer' -count=3")
+	fmt.Println("   Next: go run ./09-io-and-cli/cli-tools/2-flags -name='The Go Engineer' -count=3")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CL.2 flags")
+	fmt.Println("ðŸš€ NEXT UP: CL.2 flags")
 	fmt.Println("   Current: CL.1 (args)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -2,104 +2,104 @@
 
 Welcome to the complete learning path for **The Go Engineer**. This directory contains comprehensive curriculum documentation and visual references.
 
-## 📚 Curriculum Overview
+## Ã°Å¸â€œÅ¡ Curriculum Overview
 
-The Go Engineer teaches **15 major sections** across **80+ lessons** through a carefully designed **Language → Runtime → IO → Quality → Architecture** progression.
+The Go Engineer teaches **15 major sections** across **80+ lessons** through a carefully designed **Language Ã¢â€ â€™ Runtime Ã¢â€ â€™ IO Ã¢â€ â€™ Quality Ã¢â€ â€™ Architecture** progression.
 
 ### Section Breakdown
 
 #### **Core Foundation (Sections 01-03)**
 Master the language fundamentals in 15 lessons.
 
-- **§01 — Core Foundations** (8 lessons)
-  - Getting Started: Go installation, hello-world, compilation model, dev tools (GS.1–4)
-  - Language Basics: variables, constants, iota, application-logger exercise (LB.1–4)
+- **Ã‚Â§01 Ã¢â‚¬â€ Core Foundations** (8 lessons)
+  - Getting Started: Go installation, hello-world, compilation model, dev tools (GS.1Ã¢â‚¬â€œ4)
+  - Language Basics: variables, constants, iota, application-logger exercise (LB.1Ã¢â‚¬â€œ4)
 
-- **§02 — Control Flow** (4 lessons)
-  - for-loop, if/else, switch, pricing-calculator exercise (CF.1–4)
+- **Ã‚Â§02 Ã¢â‚¬â€ Control Flow** (4 lessons)
+  - for-loop, if/else, switch, pricing-calculator exercise (CF.1Ã¢â‚¬â€œ4)
 
-- **§03 — Data Structures** (6 lessons)
-  - arrays, slices, maps, pointers, advanced-slicing, contact-manager exercise (DS.1–6)
+- **Ã‚Â§03 Ã¢â‚¬â€ Data Structures** (6 lessons)
+  - arrays, slices, maps, pointers, advanced-slicing, contact-manager exercise (DS.1Ã¢â‚¬â€œ6)
 
 #### **Functions & Errors (Section 04)**
 Error handling design patterns in 9 lessons.
 
-- **§04 — Functions & Errors** (9 lessons)
+- **Ã‚Â§04 Ã¢â‚¬â€ Functions & Errors** (9 lessons)
   - functions, closures, variadic functions, multiple returns
-  - custom errors, error-wrapping, defer, panic/recover, error-handling exercise (FE.1–9)
+  - custom errors, error-wrapping, defer, panic/recover, error-handling exercise (FE.1Ã¢â‚¬â€œ9)
 
 #### **Types & Design (Sections 05-07)**
 Object-oriented and functional patterns in 11 lessons.
 
-- **§05 — Types & Interfaces** (6 lessons)
-  - structs, methods, interfaces, Stringer, generics, payroll-processor exercise (TI.1–6)
+- **Ã‚Â§05 Ã¢â‚¬â€ Types & Interfaces** (6 lessons)
+  - structs, methods, interfaces, Stringer, generics, payroll-processor exercise (TI.1Ã¢â‚¬â€œ6)
 
-- **§06 — Composition** (2 lessons)
-  - composition vs inheritance, embedding (CO.1–2)
+- **Ã‚Â§06 Ã¢â‚¬â€ Composition** (2 lessons)
+  - composition vs inheritance, embedding (CO.1Ã¢â‚¬â€œ2)
 
-- **§07 — Strings & Text** (5 lessons)
-  - string internals, formatting, unicode/runes, regex, text templates (ST.1–5)
+- **Ã‚Â§07 Ã¢â‚¬â€ Strings & Text** (5 lessons)
+  - string internals, formatting, unicode/runes, regex, text templates (ST.1Ã¢â‚¬â€œ5)
 
 #### **Modules & IO (Sections 08-09)**
 Real-world input/output and module management in 18 lessons.
 
-- **§08 — Modules & Packages** (3 lessons)
-  - module basics, managing dependencies, versioning (MP.1–3)
+- **Ã‚Â§08 Ã¢â‚¬â€ Modules & Packages** (3 lessons)
+  - module basics, managing dependencies, versioning (MP.1Ã¢â‚¬â€œ3)
 
-- **§09 — IO & CLI** (15 lessons)
-  - Filesystem (8): files, paths, directories, temp files, embed, io.Reader/Writer patterns, fs.FS testing (FS.1–8)
-  - Encoding (5): JSON marshalling/unmarshalling, streaming, base64 (EN.1–5)
-  - CLI Tools (3): args, flags, subcommands (CL.1–3)
+- **Ã‚Â§09 Ã¢â‚¬â€ IO & CLI** (15 lessons)
+  - Filesystem (8): files, paths, directories, temp files, embed, io.Reader/Writer patterns, fs.FS testing (FS.1Ã¢â‚¬â€œ8)
+  - Encoding (5): JSON marshalling/unmarshalling, streaming, base64 (EN.1Ã¢â‚¬â€œ5)
+  - CLI Tools (3): args, flags, subcommands (CL.1Ã¢â‚¬â€œ3)
 
 #### **Web & Database (Section 10)**
 Full-stack development in 19 lessons.
 
-- **§10 — Web & Database** (19 lessons)
-  - Databases (5): connecting, INSERT, SELECT, prepared statements, transactions (DB.1–5)
-  - Web Masterclass (11): routing, DI, templates, middleware, sessions, auth, forms, CRUD, pagination, comments (WM.1–11)
-  - HTTP Client (2): basic GET, refactoring for testability (HC.1–2)
+- **Ã‚Â§10 Ã¢â‚¬â€ Web & Database** (19 lessons)
+  - Databases (5): connecting, INSERT, SELECT, prepared statements, transactions (DB.1Ã¢â‚¬â€œ5)
+  - Web Masterclass (11): routing, DI, templates, middleware, sessions, auth, forms, CRUD, pagination, comments (WM.1Ã¢â‚¬â€œ11)
+  - HTTP Client (2): basic GET, refactoring for testability (HC.1Ã¢â‚¬â€œ2)
 
 > **NOTE**: This section is the most complex; learners **must** understand middleware and DI before advanced lessons.
 
 #### **Concurrency (Sections 11-12)**
-Parallel programming patterns in 21 lessons.
+Parallel programming patterns in 23 lessons.
 
-- **§11 — Concurrency** (17 lessons)
-  - Goroutines & Channels (10): goroutines, WaitGroups, channels, buffered channels, closing, pipelines, races, select, sync primitives (GC.1–10)
-  - Context (4): Background/TODO, WithCancel, WithTimeout, WithValue (CT.1–4)
-  - Time & Scheduling (7): time basics, formatting, timers/tickers, random, scheduler, timezones (TM.1–7)
+- **Ã‚Â§11 Ã¢â‚¬â€ Concurrency** (17 lessons)
+  - Goroutines & Channels (10): goroutines, WaitGroups, channels, buffered channels, closing, pipelines, races, select, sync primitives (GC.1Ã¢â‚¬â€œ10)
+  - Context (4): Background/TODO, WithCancel, WithTimeout, WithValue (CT.1Ã¢â‚¬â€œ4)
+  - Time & Scheduling (7): time basics, formatting, timers/tickers, random, scheduler, timezones (TM.1Ã¢â‚¬â€œ7)
 
-- **§12 — Concurrency Patterns** (3 lessons)
-  - errgroup basics, errgroup + context, sync.Pool (CP.1–3)
+- **§12 — Concurrency Patterns** (6 lessons)
+  - errgroup basics, errgroup + context, sync.Pool, bounded pipeline, URL checker, worker pool (CP.1–6)
 
 #### **Quality & Performance (Section 13)**
 Testing and optimization in 14 lessons.
 
-- **§13 — Quality & Performance** (14 lessons)
-  - Testing (4): unit tests, table-driven, HTTP handler tests, benchmarking (TE.1–4)
-  - Mocking (4): manual mocks, function-injection, table-driven, testify/mock (HM.1–4)
-  - Profiling (2): CPU profiling, live pprof HTTP endpoint (PR.1–2)
+- **Ã‚Â§13 Ã¢â‚¬â€ Quality & Performance** (14 lessons)
+  - Testing (4): unit tests, table-driven, HTTP handler tests, benchmarking (TE.1Ã¢â‚¬â€œ4)
+  - Mocking (4): manual mocks, function-injection, table-driven, testify/mock (HM.1Ã¢â‚¬â€œ4)
+  - Profiling (2): CPU profiling, live pprof HTTP endpoint (PR.1Ã¢â‚¬â€œ2)
 
 #### **Architecture (Section 14)**
 Production-grade design patterns in 15 lessons.
 
-- **§14 — Application Architecture** (15 lessons)
-  - Package Design (3): naming, visibility, project layout (PD.1–3)
-  - Docker (3): single-stage Dockerfile, multi-stage builds, layer caching (DO.1–3)
-  - Logging (4): slog basics, context-keyed logger, custom handlers, zerolog comparison (SL.1–4)
-  - gRPC (3): proto definition, unary server, unary client (GR.1–3)
-  - Graceful Shutdown (2): signal.NotifyContext, HTTP graceful drain (GS.1–2)
+- **Ã‚Â§14 Ã¢â‚¬â€ Application Architecture** (15 lessons)
+  - Package Design (3): naming, visibility, project layout (PD.1Ã¢â‚¬â€œ3)
+  - Docker (3): single-stage Dockerfile, multi-stage builds, layer caching (DO.1Ã¢â‚¬â€œ3)
+  - Logging (4): slog basics, context-keyed logger, custom handlers, zerolog comparison (SL.1Ã¢â‚¬â€œ4)
+  - gRPC (3): proto definition, unary server, unary client (GR.1Ã¢â‚¬â€œ3)
+  - Graceful Shutdown (2): signal.NotifyContext, HTTP graceful drain (GS.1Ã¢â‚¬â€œ2)
   - Enterprise Capstone (1): Full REST API with PostgreSQL & Docker Compose (EC.1)
 
 #### **Code Generation (Section 15)**
 Build-time automation in 1 lesson.
 
-- **§15 — Code Generation** (1 lesson)
+- **Ã‚Â§15 Ã¢â‚¬â€ Code Generation** (1 lesson)
   - go:generate directive and canonical tools (mockery, stringer, sqlc) (CG.1)
 
 ---
 
-## 📊 Curriculum Statistics
+## Ã°Å¸â€œÅ  Curriculum Statistics
 
 | Metric | Count |
 |--------|-------|
@@ -112,7 +112,7 @@ Build-time automation in 1 lesson.
 
 ---
 
-## 🗺️ Visual Dependency Graph
+## Ã°Å¸â€”ÂºÃ¯Â¸Â Visual Dependency Graph
 
 See `dependency-graphs.html` in this directory for an interactive visual map of all lesson dependencies.
 
@@ -123,19 +123,19 @@ See `dependency-graphs.html` in this directory for an interactive visual map of 
 
 ---
 
-## 📖 How to Navigate
+## Ã°Å¸â€œâ€“ How to Navigate
 
 ### If you're a **Complete Beginner**
-Start at **§01 Getting Started** (GS.1) and follow sequentially. The curriculum is designed so that each lesson builds on previous concepts.
+Start at **Ã‚Â§01 Getting Started** (GS.1) and follow sequentially. The curriculum is designed so that each lesson builds on previous concepts.
 
 ### If you know another language
-Skim §01-03 (basics), deep-dive into §04-07 (Go idioms), then §09+ (real applications).
+Skim Ã‚Â§01-03 (basics), deep-dive into Ã‚Â§04-07 (Go idioms), then Ã‚Â§09+ (real applications).
 
 ### If you're an experienced Go developer
 Jump directly to:
-- §11-12 for advanced concurrency
-- §13 for testing patterns
-- §14 for production architecture
+- Ã‚Â§11-12 for advanced concurrency
+- Ã‚Â§13 for testing patterns
+- Ã‚Â§14 for production architecture
 
 ### If you're learning a specific topic
 Use the dependency graph to find all related lessons:
@@ -145,7 +145,7 @@ Topics: Database, Web, Testing, Concurrency, Logging, Docker, etc.
 
 ---
 
-## ✅ Curriculum Validation
+## Ã¢Å“â€¦ Curriculum Validation
 
 Run the curriculum validation tool to ensure all lessons are correctly mapped to the filesystem:
 
@@ -160,21 +160,21 @@ This verifies:
 
 ---
 
-## 📝 Lesson Structure
+## Ã°Å¸â€œÂ Lesson Structure
 
 Each lesson directory follows a consistent structure:
 
 ```
 NN-lesson-name/
-├── main.go              (Primary lesson code with full explanation)
-├── README.md            (Optional: Additional context for complex lessons)
-└── _starter/            (Optional: Starting point for follow-along)
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ main.go              (Primary lesson code with full explanation)
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ README.md            (Optional: Additional context for complex lessons)
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ _starter/            (Optional: Starting point for follow-along)
 ```
 
 ### main.go Header Template
 ```go
 // ============================================================================
-// Section N: Section Name — Lesson Title
+// Section N: Section Name Ã¢â‚¬â€ Lesson Title
 // Level: Beginner | Intermediate | Advanced
 // ============================================================================
 //
@@ -191,18 +191,18 @@ NN-lesson-name/
 
 ---
 
-## 🎯 Prerequisites & Dependencies
+## Ã°Å¸Å½Â¯ Prerequisites & Dependencies
 
 The curriculum uses a **directed acyclic graph (DAG)** of dependencies:
 
 - **Entry Points**: 15 lessons with no prerequisites (one per section)
-- **Chains**: Linear progressions (e.g., GS.1 → GS.2 → GS.3 → GS.4)
+- **Chains**: Linear progressions (e.g., GS.1 Ã¢â€ â€™ GS.2 Ã¢â€ â€™ GS.3 Ã¢â€ â€™ GS.4)
 - **Fans**: Lessons depending on multiple prerequisites (e.g., WM.8 requires WM.1-7 + DB.1-3)
 - **Exercises**: Capstone lessons combining 5+ prerequisites
 
 ---
 
-## 📚 Reading the Curriculum JSON
+## Ã°Å¸â€œÅ¡ Reading the Curriculum JSON
 
 The master curriculum is defined in `/curriculum.json`:
 
@@ -211,7 +211,7 @@ The master curriculum is defined in `/curriculum.json`:
   "sections": [
     {
       "id": "s01",
-      "num": "§01",
+      "num": "Ã‚Â§01",
       "title": "Core Foundations",
       "lessons": [
         {
@@ -238,7 +238,7 @@ The master curriculum is defined in `/curriculum.json`:
 
 ---
 
-## 🚀 Next Steps
+## Ã°Å¸Å¡â‚¬ Next Steps
 
 - **Start Learning**: Begin at [01-core-foundations/getting-started](../../01-core-foundations/getting-started)
 - **See Dependencies**: Open `dependency-graphs.html`

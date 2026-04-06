@@ -5,11 +5,11 @@
 package main
 
 // ============================================================================
-// Section 11: Concurrency — Pipeline Project
+// Section 11: Concurrency â€” Pipeline Project
 // Level: Advanced
 // ============================================================================
 //
-// RUN: go run ./11-concurrency/concurrency/6-project-1
+// RUN: go run ./11-concurrency/goroutines/6-project-1
 // ============================================================================
 
 import (
@@ -88,7 +88,7 @@ func main() {
 	<-done
 	fmt.Println("done")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: ⭐ GC.8 race conditions")
+	fmt.Println("ðŸš€ NEXT UP: â­ GC.8 race conditions")
 	fmt.Println("   Current: GC.6 (pipeline project)")
 	fmt.Println("---------------------------------------------------")
 }

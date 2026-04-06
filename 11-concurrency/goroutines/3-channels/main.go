@@ -10,7 +10,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Concurrency — Channels
+// Section 11: Concurrency â€” Channels
 // Level: Intermediate
 // ============================================================================
 //
@@ -32,7 +32,7 @@ import (
 //   mailbox until B arrives to take the letter. They synchronize.
 //
 //   With a BUFFERED channel (mailbox with slots), A can drop letters
-//   and leave — until the mailbox is full. Then A waits too.
+//   and leave â€” until the mailbox is full. Then A waits too.
 //
 // ENGINEERING DEPTH:
 //   Channels are implemented as a struct (hchan) containing:
@@ -41,9 +41,9 @@ import (
 //     - Two wait queues: one for blocked senders, one for blocked receivers
 //   When a goroutine blocks on a channel, the Go scheduler parks it
 //   (removes it from the OS thread) and schedules another goroutine.
-//   This is a userspace context switch — ~10ns vs ~1μs for OS threads.
+//   This is a userspace context switch â€” ~10ns vs ~1Î¼s for OS threads.
 //
-// RUN: go run ./11-concurrency/concurrency/3-channels
+// RUN: go run ./11-concurrency/goroutines/3-channels
 // ============================================================================
 
 // ScanResult represents the result of scanning a server port.
@@ -122,7 +122,7 @@ func main() {
 	host := "10.0.1.42"
 
 	// Launch a goroutine for EACH port scan.
-	// All scans run CONCURRENTLY — much faster than scanning sequentially.
+	// All scans run CONCURRENTLY â€” much faster than scanning sequentially.
 	for _, port := range portsToScan {
 		go scanPort(host, port, results) // Each goroutine sends its result to the channel
 	}
@@ -134,11 +134,11 @@ func main() {
 	for i := 0; i < len(portsToScan); i++ {
 		result := <-results // Receive one result (blocks until available)
 
-		status := "❌ closed"
+		status := "âŒ closed"
 		if result.IsOpen {
-			status = "✅ OPEN"
+			status = "âœ… OPEN"
 		}
-		fmt.Printf("  %s:%d → %s\n", result.Host, result.Port, status)
+		fmt.Printf("  %s:%d â†’ %s\n", result.Host, result.Port, status)
 	}
 
 	fmt.Println()
@@ -148,8 +148,8 @@ func main() {
 	// =====================================================================
 	fmt.Println("--- Channel as Signal (done pattern) ---")
 
-	// A channel can carry no data — just signal that something happened.
-	// struct{} takes ZERO bytes of memory — the most efficient signal type.
+	// A channel can carry no data â€” just signal that something happened.
+	// struct{} takes ZERO bytes of memory â€” the most efficient signal type.
 	done := make(chan struct{})
 
 	go func() {
@@ -171,7 +171,7 @@ func main() {
 	fmt.Println("  - close(ch) signals all receivers that no more values are coming")
 	fmt.Println("  - Channels replace shared memory + mutexes for most use cases")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GC.4 buffered channels")
+	fmt.Println("ðŸš€ NEXT UP: GC.4 buffered channels")
 	fmt.Println("   Current: GC.3 (channels (unbuffered))")
 	fmt.Println("---------------------------------------------------")
 }

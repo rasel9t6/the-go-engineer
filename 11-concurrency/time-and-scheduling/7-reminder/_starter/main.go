@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 11: Time & Scheduling — Console Reminder (Exercise Starter)
+// Section 11: Time & Scheduling â€” Console Reminder (Exercise Starter)
 // Level: Intermediate
 // ============================================================================
 //
@@ -20,7 +20,7 @@ import "fmt"
 //  4. [ ] Use select to multiplex between ticker.C and a done channel
 //  5. [ ] Always defer ticker.Stop() to prevent leaks
 //
-// RUN: go run ./15-time-and-scheduling/7-reminder/_starter 5 "Hello!"
+// RUN: go run ./11-concurrency/time-and-scheduling/7-reminder/_starter 5 "Hello!"
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

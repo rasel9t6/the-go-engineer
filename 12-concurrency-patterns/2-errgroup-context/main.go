@@ -15,7 +15,7 @@ import (
 )
 
 // ============================================================================
-// Section 24: errgroup & sync.Pool — errgroup with Context Cancellation
+// Section 12: Concurrency Patterns â€” errgroup with Context Cancellation
 // Level: Advanced
 // ============================================================================
 //
@@ -27,7 +27,7 @@ import (
 // ENGINEERING DEPTH:
 //   errgroup.WithContext creates a context that is cancelled automatically
 //   the moment any goroutine returns a non-nil error. This is the answer to
-//   the "I launched 10 goroutines but one failed — how do I stop the other 9?"
+//   the "I launched 10 goroutines but one failed â€” how do I stop the other 9?"
 //   problem.
 //
 //   The pattern:
@@ -42,7 +42,7 @@ import (
 //     cancel := func() { once.Do(func() { close(done) }) }
 //     // ... 20 lines of error propagation ...
 //
-// RUN: go run ./12-concurrency-patterns/24-errgroup-and-pools/24-errgroup-and-pools/2-errgroup-context
+// RUN: go run ./12-concurrency-patterns/2-errgroup-context
 // ============================================================================
 
 // WorkItem represents a URL to be crawled.
@@ -59,7 +59,7 @@ type Result struct {
 }
 
 // producer sends work items into the jobs channel.
-// It respects context cancellation — if the context is cancelled (e.g., a
+// It respects context cancellation â€” if the context is cancelled (e.g., a
 // consumer failed), the producer stops immediately instead of loading more work.
 func producer(ctx context.Context, jobs chan<- WorkItem) error {
 	defer close(jobs) // Signal: no more work coming
@@ -97,7 +97,7 @@ func consumer(ctx context.Context, id int, jobs <-chan WorkItem, results chan<- 
 			return ctx.Err()
 		case item, ok := <-jobs:
 			if !ok {
-				return nil // Channel closed — no more work
+				return nil // Channel closed â€” no more work
 			}
 
 			start := time.Now()
@@ -133,9 +133,9 @@ func resultCollector(ctx context.Context, results <-chan Result) error {
 				return nil
 			}
 			count++
-			status := "✅"
+			status := "âœ…"
 			if !r.StatusOK {
-				status = "❌"
+				status = "âŒ"
 			}
 			slog.Info("result", "status", status, "url", r.URL, "latency", r.Latency.Round(time.Millisecond))
 		}
@@ -149,8 +149,8 @@ func main() {
 	start := time.Now()
 
 	// errgroup.WithContext returns:
-	//   g — the group. g.Wait() returns the first error.
-	//   ctx — cancelled automatically when any goroutine returns an error.
+	//   g â€” the group. g.Wait() returns the first error.
+	//   ctx â€” cancelled automatically when any goroutine returns an error.
 	g, ctx := errgroup.WithContext(context.Background())
 
 	// Buffered channels decouple producer pace from consumer pace.
@@ -172,7 +172,7 @@ func main() {
 	}
 
 	// Close results channel AFTER all producers and consumers finish.
-	// This requires a separate goroutine — g.Wait() blocks, so we can't call it
+	// This requires a separate goroutine â€” g.Wait() blocks, so we can't call it
 	// and then close results in the same goroutine.
 	go func() {
 		g.Wait()
@@ -187,11 +187,11 @@ func main() {
 	}
 
 	// g.Wait() has already been called above. Call it again to get the error.
-	// Calling Wait() multiple times is safe — it always returns the same error.
+	// Calling Wait() multiple times is safe â€” it always returns the same error.
 	if err := g.Wait(); err != nil && err != context.Canceled {
-		fmt.Printf("❌ Pipeline failed: %v\n", err)
+		fmt.Printf("âŒ Pipeline failed: %v\n", err)
 	} else {
-		fmt.Printf("✅ Pipeline complete: %d results in %v\n", totalResults, time.Since(start).Round(time.Millisecond))
+		fmt.Printf("âœ… Pipeline complete: %d results in %v\n", totalResults, time.Since(start).Round(time.Millisecond))
 	}
 
 	// KEY TAKEAWAY:
@@ -201,7 +201,7 @@ func main() {
 	// - ctx.Done() in select cases makes goroutines respond to cancellation
 	// - This replaces hundreds of lines of manual done-channel machinery
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CP.3 sync.Pool")
+	fmt.Println("ðŸš€ NEXT UP: CP.3 sync.Pool")
 	fmt.Println("   Current: CP.2 (errgroup + context)")
 	fmt.Println("---------------------------------------------------")
 }

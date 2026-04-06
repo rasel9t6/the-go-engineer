@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Web Masterclass — Routing Exercise
+// Section 10: Web Masterclass â€” Routing Exercise
 // Level: Beginner
 // ============================================================================
 //
@@ -39,7 +39,7 @@ import (
 //   import third-party packages, as they can silently register malicious routes
 //   on your public server. ALWAYS create your own mux!
 //
-// RUN: go run ./13-web-masterclass/1-routing/exercise
+// RUN: go run ./10-web-and-database/web-masterclass/1-routing/exercise
 // ============================================================================
 
 func main() {
@@ -55,7 +55,7 @@ func main() {
 
 	// Start the server
 	port := 8080
-	fmt.Printf("🚀 Bookstore server starting exactly on http://localhost:%d\n", port)
+	fmt.Printf("ðŸš€ Bookstore server starting exactly on http://localhost:%d\n", port)
 
 	// http.ListenAndServe blocks forever unless there's a fatal error.
 	err := http.ListenAndServe(fmt.Sprintf(":%d", port), mux)

@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 10: Databases — Repository Pattern
+// Section 10: Databases â€” Repository Pattern
 // Level: Advanced
 // ============================================================================
 //
@@ -23,7 +23,7 @@ package main
 //   database. In production, you inject `SQLUserRepository`. In tests, you
 //   inject a `MockUserRepository` that just returns hardcoded structs instantly.
 //
-// RUN: go run ./12-databases/6-repository
+// RUN: go run ./10-web-and-database/databases/6-repository
 // ============================================================================
 
 import (
@@ -63,7 +63,7 @@ func main() {
 	// (Demo setup: Ensure tables exist)
 	_, _ = db.Exec(profileSchema)
 
-	fmt.Println("✅ Database connection established")
+	fmt.Println("âœ… Database connection established")
 
 	// 2. Dependency Injection
 	// We instantiate the concrete SQL repository, passing the *sql.DB dependency.
@@ -78,9 +78,9 @@ func main() {
 	// Create a user
 	id, err := repo.CreateUser("Alice Repo", "alice.repo@example.com", "secret", "alice_avatar.png")
 	if err != nil {
-		fmt.Println("⚠️ Insert failed (User might already exist):", err)
+		fmt.Println("âš ï¸ Insert failed (User might already exist):", err)
 	} else {
-		fmt.Printf("✅ Created User ID: %d\n", id)
+		fmt.Printf("âœ… Created User ID: %d\n", id)
 	}
 
 	// Fetch users
