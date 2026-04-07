@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 6: Composition & Embedding — Struct Embedding
+// Section 6: Composition & Embedding â€” Struct Embedding
 // Level: Intermediate
 // ============================================================================
 //
@@ -19,12 +19,12 @@ import "fmt"
 //   - Embedding for interface satisfaction
 //
 // ANALOGY:
-//   Composition (previous lesson): "The phone HAS a camera" → phone.Camera.TakePhoto()
-//   Embedding (this lesson):       "The phone HAS a camera" → phone.TakePhoto()
+//   Composition (previous lesson): "The phone HAS a camera" â†’ phone.Camera.TakePhoto()
+//   Embedding (this lesson):       "The phone HAS a camera" â†’ phone.TakePhoto()
 //
 //   With embedding, the camera's methods are PROMOTED to the phone level.
 //   You can call phone.TakePhoto() directly instead of phone.Camera.TakePhoto().
-//   The camera is still there — you just get a shortcut.
+//   The camera is still there â€” you just get a shortcut.
 //
 // RUN: go run ./06-composition/06-composition-and-embedding/2-embedding
 // ============================================================================
@@ -71,9 +71,9 @@ func (b Battery) IsLow() bool {
 // Status returns a human-readable battery status.
 func (b Battery) Status() string {
 	if b.IsLow() {
-		return fmt.Sprintf("🔴 %d%% (LOW — charge soon!)", b.ChargeLevel)
+		return fmt.Sprintf("ðŸ”´ %d%% (LOW â€” charge soon!)", b.ChargeLevel)
 	}
-	return fmt.Sprintf("🟢 %d%%", b.ChargeLevel)
+	return fmt.Sprintf("ðŸŸ¢ %d%%", b.ChargeLevel)
 }
 
 // --- EMBEDDED TYPE ---
@@ -81,9 +81,9 @@ func (b Battery) Status() string {
 // Laptop EMBEDS Dimensions and Battery.
 // Notice: no field names! Just the type names.
 //
-//	Dimensions    ← EMBEDDED (anonymous field)
-//	Battery       ← EMBEDDED (anonymous field)
-//	Brand string  ← named field (normal composition)
+//	Dimensions    â† EMBEDDED (anonymous field)
+//	Battery       â† EMBEDDED (anonymous field)
+//	Brand string  â† named field (normal composition)
 //
 // PROMOTED: All fields and methods of Dimensions and Battery are
 // accessible directly on Laptop:
@@ -92,18 +92,18 @@ func (b Battery) Status() string {
 //	laptop.IsPortable()   instead of  laptop.Dimensions.IsPortable()
 //	laptop.IsLow()        instead of  laptop.Battery.IsLow()
 type Laptop struct {
-	Brand      string // Named field — NOT promoted
-	Model      string // Named field — NOT promoted
-	Dimensions        // EMBEDDED — fields and methods are promoted
-	Battery           // EMBEDDED — fields and methods are promoted
+	Brand      string // Named field â€” NOT promoted
+	Model      string // Named field â€” NOT promoted
+	Dimensions        // EMBEDDED â€” fields and methods are promoted
+	Battery           // EMBEDDED â€” fields and methods are promoted
 }
 
 // Describe uses both promoted fields (Width, Weight) and
 // promoted methods (FormFactor, Status) without going through
 // the embedded type names.
 func (l Laptop) Describe() {
-	fmt.Printf("  💻 %s %s\n", l.Brand, l.Model)
-	fmt.Printf("     Size: %.0f × %.0f cm, %.0fg (%s)\n",
+	fmt.Printf("  ðŸ’» %s %s\n", l.Brand, l.Model)
+	fmt.Printf("     Size: %.0f Ã— %.0f cm, %.0fg (%s)\n",
 		l.Width, l.Height, l.Weight, l.FormFactor()) // Promoted from Dimensions
 	fmt.Printf("     Portable: %t\n", l.IsPortable()) // Promoted from Dimensions
 	fmt.Printf("     Battery: %s\n", l.Status())      // Promoted from Battery
@@ -112,7 +112,7 @@ func (l Laptop) Describe() {
 // --- FIELD SHADOWING ---
 
 // Tablet embeds Battery but also has its OWN ChargeLevel field.
-// When names collide, the OUTER (parent) type wins — this is "shadowing".
+// When names collide, the OUTER (parent) type wins â€” this is "shadowing".
 type Tablet struct {
 	Battery
 	ChargeLevel string // Shadows Battery.ChargeLevel (different type!)
@@ -164,21 +164,21 @@ func main() {
 		ChargeLevel: "half-charged", // Shadows Battery.ChargeLevel
 	}
 
-	// t.ChargeLevel refers to the OUTER (Tablet's) field — the string
+	// t.ChargeLevel refers to the OUTER (Tablet's) field â€” the string
 	fmt.Printf("  t.ChargeLevel = %q (Tablet's own field)\n", t.ChargeLevel)
 	// To access the shadowed inner field, use the explicit path
 	fmt.Printf("  t.Battery.ChargeLevel = %d (Battery's field)\n", t.Battery.ChargeLevel)
 
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAY:")
-	fmt.Println("  - Embedding = anonymous field → methods and fields are PROMOTED")
+	fmt.Println("  - Embedding = anonymous field â†’ methods and fields are PROMOTED")
 	fmt.Println("  - laptop.Width works instead of laptop.Dimensions.Width")
 	fmt.Println("  - Outer fields SHADOW inner fields with the same name")
-	fmt.Println("  - Embedding is NOT inheritance — it's syntactic sugar for composition")
+	fmt.Println("  - Embedding is NOT inheritance â€” it's syntactic sugar for composition")
 	fmt.Println("  - Use embedding when you want the promoted shortcut syntax")
 	fmt.Println("  - Use named fields when you want explicit access (Section 06/1)")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: ST.1 strings")
+	fmt.Println("NEXT UP: CO.3 bank account project")
 	fmt.Println("   Current: CO.2 (embedding)")
 	fmt.Println("---------------------------------------------------")
 }
