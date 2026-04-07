@@ -162,7 +162,7 @@ func main() {
 	fmt.Println("  - Use generics for data structures, algorithms, utilities")
 	fmt.Println("  - Use interfaces for behavior abstraction (polymorphism)")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CO.1 composition")
+	fmt.Println("🚀 NEXT UP: TI.6 payroll processor project")
 	fmt.Println("   Current: TI.5 (generics)")
 	fmt.Println("---------------------------------------------------")
 }

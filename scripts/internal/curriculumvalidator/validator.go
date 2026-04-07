@@ -71,6 +71,7 @@ type Result struct {
 }
 
 var runPathPattern = regexp.MustCompile(`\./[A-Za-z0-9._/\-]+`)
+var nextUpIDPattern = regexp.MustCompile(`NEXT UP:\s*([A-Z]{2,3}\.\d+)`)
 
 var (
 	allowedItemTypes = map[string]bool{
@@ -488,5 +489,49 @@ func validateV2Curriculum(root string, report func(string)) (int, int, int, bool
 		}
 	}
 
+	errorsFound += validateV2LessonNavigation(root, cur.Items, report)
+
 	return len(cur.Sections), len(cur.Items), errorsFound, true, nil
+}
+
+func validateV2LessonNavigation(root string, items []V2Item, report func(string)) int {
+	errorsFound := 0
+
+	for _, item := range items {
+		if item.Type != "lesson" || len(item.NextItems) == 0 {
+			continue
+		}
+
+		expectedNextID := item.NextItems[0]
+		if strings.HasPrefix(expectedNextID, "s") {
+			continue
+		}
+
+		mainPath := filepath.Join(root, item.Path, "main.go")
+		if _, err := os.Stat(mainPath); err != nil {
+			continue
+		}
+
+		data, err := os.ReadFile(mainPath)
+		if err != nil {
+			report(fmt.Sprintf("Failed to read v2 lesson source: %s -> %v", item.ID, err))
+			errorsFound++
+			continue
+		}
+
+		match := nextUpIDPattern.FindSubmatch(data)
+		if len(match) < 2 {
+			report(fmt.Sprintf("Missing v2 lesson navigation footer: %s -> %s", item.ID, filepath.ToSlash(filepath.Join(item.Path, "main.go"))))
+			errorsFound++
+			continue
+		}
+
+		actualNextID := string(match[1])
+		if actualNextID != expectedNextID {
+			report(fmt.Sprintf("Invalid v2 lesson navigation footer: %s -> %s (expected %s)", item.ID, actualNextID, expectedNextID))
+			errorsFound++
+		}
+	}
+
+	return errorsFound
 }

@@ -174,6 +174,83 @@ func TestValidateRejectsMixedContractWithoutCommands(t *testing.T) {
 	}
 }
 
+func TestValidateRejectsLessonNavigationFooterMismatch(t *testing.T) {
+	root := t.TempDir()
+
+	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeFile(t, root, "curriculum.v2.json", `{
+  "schema_version": 1,
+  "sections": [
+    {
+      "id": "s06",
+      "number": "06",
+      "slug": "composition",
+      "title": "Composition",
+      "path_prefix": "06-composition",
+      "entry_points": ["CO.1"],
+      "outputs": ["CO.2"],
+      "prerequisites": []
+    }
+  ],
+  "items": [
+    {
+      "id": "CO.1",
+      "section_id": "s06",
+      "slug": "composition",
+      "title": "Composition",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "path": "06-composition/06-composition-and-embedding/1-composition",
+      "prerequisites": [],
+      "run_command": "go run ./06-composition/06-composition-and-embedding/1-composition",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": ["CO.2"]
+    },
+    {
+      "id": "CO.2",
+      "section_id": "s06",
+      "slug": "embedding",
+      "title": "Embedding",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "path": "06-composition/06-composition-and-embedding/2-embedding",
+      "prerequisites": ["CO.1"],
+      "run_command": "go run ./06-composition/06-composition-and-embedding/2-embedding",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": []
+    }
+  ]
+}`)
+
+	mustMkdir(t, root, "06-composition/06-composition-and-embedding/1-composition")
+	mustMkdir(t, root, "06-composition/06-composition-and-embedding/2-embedding")
+	writeFile(t, root, "06-composition/06-composition-and-embedding/1-composition/main.go", `package main
+
+func main() {
+	println("NEXT UP: ST.1 strings")
+}`)
+
+	var reports []string
+	result, err := Validate(root, func(message string) {
+		reports = append(reports, message)
+	})
+	if err != nil {
+		t.Fatalf("Validate returned error: %v", err)
+	}
+	if result.ErrorCount != 1 {
+		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
+	}
+	if !containsReport(reports, "Invalid v2 lesson navigation footer: CO.1 -> ST.1 (expected CO.2)") {
+		t.Fatalf("expected lesson-navigation error in reports: %v", reports)
+	}
+}
+
 func writeFile(t *testing.T, root, relativePath, contents string) {
 	t.Helper()
 

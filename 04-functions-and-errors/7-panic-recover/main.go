@@ -107,7 +107,7 @@ func main() {
 	// - If you find yourself writing panic() in application code,
 	//   ask: "Can I return an error instead?" The answer is almost always yes.
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.1 structs")
+	fmt.Println("🚀 NEXT UP: FE.9 error handling project")
 	fmt.Println("   Current: FE.8 (panic &amp; recover)")
 	fmt.Println("---------------------------------------------------")
 }
