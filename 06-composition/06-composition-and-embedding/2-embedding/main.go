@@ -7,24 +7,24 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 6: Composition & Embedding â€” Struct Embedding
+// Section 6: Composition & Embedding - Struct Embedding
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - What embedding is: composition with PROMOTED methods and fields
+//   - What embedding is: composition with promoted methods and fields
 //   - The difference between composition (named field) and embedding (anonymous field)
 //   - How promoted fields work: access embedded fields directly
 //   - Field shadowing: what happens when names collide
 //   - Embedding for interface satisfaction
 //
 // ANALOGY:
-//   Composition (previous lesson): "The phone HAS a camera" â†’ phone.Camera.TakePhoto()
-//   Embedding (this lesson):       "The phone HAS a camera" â†’ phone.TakePhoto()
+//   Composition (previous lesson): "The phone HAS a camera" -> phone.Camera.TakePhoto()
+//   Embedding (this lesson):       "The phone HAS a camera" -> phone.TakePhoto()
 //
-//   With embedding, the camera's methods are PROMOTED to the phone level.
+//   With embedding, the camera's methods are promoted to the phone level.
 //   You can call phone.TakePhoto() directly instead of phone.Camera.TakePhoto().
-//   The camera is still there â€” you just get a shortcut.
+//   The camera is still there - you just get a shortcut.
 //
 // RUN: go run ./06-composition/06-composition-and-embedding/2-embedding
 // ============================================================================
@@ -71,39 +71,39 @@ func (b Battery) IsLow() bool {
 // Status returns a human-readable battery status.
 func (b Battery) Status() string {
 	if b.IsLow() {
-		return fmt.Sprintf("ðŸ”´ %d%% (LOW â€” charge soon!)", b.ChargeLevel)
+		return fmt.Sprintf("LOW %d%% (charge soon!)", b.ChargeLevel)
 	}
-	return fmt.Sprintf("ðŸŸ¢ %d%%", b.ChargeLevel)
+	return fmt.Sprintf("OK %d%%", b.ChargeLevel)
 }
 
 // --- EMBEDDED TYPE ---
 
-// Laptop EMBEDS Dimensions and Battery.
-// Notice: no field names! Just the type names.
+// Laptop embeds Dimensions and Battery.
+// Notice: no field names, just the type names.
 //
-//	Dimensions    â† EMBEDDED (anonymous field)
-//	Battery       â† EMBEDDED (anonymous field)
-//	Brand string  â† named field (normal composition)
+//	Dimensions    <- embedded (anonymous field)
+//	Battery       <- embedded (anonymous field)
+//	Brand string  <- named field (normal composition)
 //
-// PROMOTED: All fields and methods of Dimensions and Battery are
+// Promoted: All fields and methods of Dimensions and Battery are
 // accessible directly on Laptop:
 //
-//	laptop.Width          instead of  laptop.Dimensions.Width
-//	laptop.IsPortable()   instead of  laptop.Dimensions.IsPortable()
-//	laptop.IsLow()        instead of  laptop.Battery.IsLow()
+//	laptop.Width          instead of laptop.Dimensions.Width
+//	laptop.IsPortable()   instead of laptop.Dimensions.IsPortable()
+//	laptop.IsLow()        instead of laptop.Battery.IsLow()
 type Laptop struct {
-	Brand      string // Named field â€” NOT promoted
-	Model      string // Named field â€” NOT promoted
-	Dimensions        // EMBEDDED â€” fields and methods are promoted
-	Battery           // EMBEDDED â€” fields and methods are promoted
+	Brand      string // Named field - not promoted
+	Model      string // Named field - not promoted
+	Dimensions        // Embedded - fields and methods are promoted
+	Battery           // Embedded - fields and methods are promoted
 }
 
 // Describe uses both promoted fields (Width, Weight) and
 // promoted methods (FormFactor, Status) without going through
 // the embedded type names.
 func (l Laptop) Describe() {
-	fmt.Printf("  ðŸ’» %s %s\n", l.Brand, l.Model)
-	fmt.Printf("     Size: %.0f Ã— %.0f cm, %.0fg (%s)\n",
+	fmt.Printf("  Laptop: %s %s\n", l.Brand, l.Model)
+	fmt.Printf("     Size: %.0f x %.0f cm, %.0fg (%s)\n",
 		l.Width, l.Height, l.Weight, l.FormFactor()) // Promoted from Dimensions
 	fmt.Printf("     Portable: %t\n", l.IsPortable()) // Promoted from Dimensions
 	fmt.Printf("     Battery: %s\n", l.Status())      // Promoted from Battery
@@ -111,8 +111,8 @@ func (l Laptop) Describe() {
 
 // --- FIELD SHADOWING ---
 
-// Tablet embeds Battery but also has its OWN ChargeLevel field.
-// When names collide, the OUTER (parent) type wins â€” this is "shadowing".
+// Tablet embeds Battery but also has its own ChargeLevel field.
+// When names collide, the outer (parent) type wins - this is "shadowing".
 type Tablet struct {
 	Battery
 	ChargeLevel string // Shadows Battery.ChargeLevel (different type!)
@@ -137,12 +137,12 @@ func main() {
 		},
 	}
 
-	// PROMOTED ACCESS: Call methods and access fields directly.
-	// No need to write macbook.Dimensions.Width or macbook.Battery.Status()
+	// Promoted access: call methods and access fields directly.
+	// No need to write macbook.Dimensions.Width or macbook.Battery.Status().
 	macbook.Describe()
 	fmt.Println()
 
-	// You can still access the embedded struct explicitly if needed:
+	// You can still access the embedded struct explicitly if needed.
 	fmt.Printf("  Explicit access: macbook.Dimensions.Width = %.1f\n", macbook.Dimensions.Width)
 	fmt.Printf("  Promoted access: macbook.Width = %.1f (same value!)\n", macbook.Width)
 	fmt.Println()
@@ -157,24 +157,24 @@ func main() {
 	oldLaptop.Describe()
 	fmt.Println()
 
-	// --- FIELD SHADOWING ---
+	// --- Field shadowing ---
 	fmt.Println("--- Field Shadowing ---")
 	t := Tablet{
 		Battery:     Battery{CapacityMAh: 8000, ChargeLevel: 50},
 		ChargeLevel: "half-charged", // Shadows Battery.ChargeLevel
 	}
 
-	// t.ChargeLevel refers to the OUTER (Tablet's) field â€” the string
+	// t.ChargeLevel refers to the outer (Tablet's) field - the string.
 	fmt.Printf("  t.ChargeLevel = %q (Tablet's own field)\n", t.ChargeLevel)
-	// To access the shadowed inner field, use the explicit path
+	// To access the shadowed inner field, use the explicit path.
 	fmt.Printf("  t.Battery.ChargeLevel = %d (Battery's field)\n", t.Battery.ChargeLevel)
 
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAY:")
-	fmt.Println("  - Embedding = anonymous field â†’ methods and fields are PROMOTED")
+	fmt.Println("  - Embedding = anonymous field -> methods and fields are promoted")
 	fmt.Println("  - laptop.Width works instead of laptop.Dimensions.Width")
-	fmt.Println("  - Outer fields SHADOW inner fields with the same name")
-	fmt.Println("  - Embedding is NOT inheritance â€” it's syntactic sugar for composition")
+	fmt.Println("  - Outer fields shadow inner fields with the same name")
+	fmt.Println("  - Embedding is not inheritance - it's syntax sugar for composition")
 	fmt.Println("  - Use embedding when you want the promoted shortcut syntax")
 	fmt.Println("  - Use named fields when you want explicit access (Section 06/1)")
 	fmt.Println("\n---------------------------------------------------")
