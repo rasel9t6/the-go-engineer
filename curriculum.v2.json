@@ -36,6 +36,25 @@
       "outputs": [
         "TI.6"
       ]
+    },
+    {
+      "id": "s06",
+      "number": "06",
+      "slug": "composition",
+      "title": "Composition",
+      "phase": "foundations",
+      "summary": "Teach learners to model has-a relationships with named fields, then use embedding and method promotion deliberately without confusing them for inheritance.",
+      "status": "pilot",
+      "prerequisites": [
+        "s05"
+      ],
+      "path_prefix": "06-composition",
+      "entry_points": [
+        "CO.1"
+      ],
+      "outputs": [
+        "CO.3"
+      ]
     }
   ],
   "items": [
@@ -591,6 +610,103 @@
         "generics",
         "advanced",
         "collections"
+      ]
+    },
+    {
+      "id": "CO.1",
+      "section_id": "s06",
+      "slug": "composition",
+      "title": "Composition",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Introduce named-field composition as Go's main way to build larger types from smaller focused components.",
+      "objectives": [
+        "Explain the difference between has-a composition and class-style is-a inheritance",
+        "Access behavior through named component fields without hiding where the behavior comes from"
+      ],
+      "prerequisites": [
+        "TI.1",
+        "TI.2"
+      ],
+      "production_relevance": "Real Go systems rely on composition to keep domain types explicit, reusable, and easier to refactor than inheritance-heavy hierarchies.",
+      "path": "06-composition/06-composition-and-embedding/1-composition",
+      "run_command": "go run ./06-composition/06-composition-and-embedding/1-composition",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CO.2"
+      ],
+      "tags": [
+        "composition",
+        "structs",
+        "design"
+      ]
+    },
+    {
+      "id": "CO.2",
+      "section_id": "s06",
+      "slug": "embedding",
+      "title": "Embedding",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Teach anonymous field embedding, promoted methods, and field shadowing without pretending embedding is inheritance.",
+      "objectives": [
+        "Use embedding to promote behavior intentionally while keeping the underlying composed type visible",
+        "Explain what happens when outer fields or methods shadow embedded ones"
+      ],
+      "prerequisites": [
+        "CO.1"
+      ],
+      "production_relevance": "Embedding is common in configuration, logging, and domain wrappers where reuse helps, but teams need to keep promotion readable and deliberate.",
+      "path": "06-composition/06-composition-and-embedding/2-embedding",
+      "run_command": "go run ./06-composition/06-composition-and-embedding/2-embedding",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CO.3"
+      ],
+      "tags": [
+        "embedding",
+        "promotion",
+        "shadowing"
+      ]
+    },
+    {
+      "id": "CO.3",
+      "section_id": "s06",
+      "slug": "bank-account-project",
+      "title": "Bank Account Project",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "mixed",
+      "estimated_time": 75,
+      "summary": "Combine composition, embedding, promoted methods, and method shadowing in one bank-account milestone with runnable behavior and tests.",
+      "objectives": [
+        "Build account types that reuse shared behavior through embedding instead of inheritance",
+        "Show the difference between promoted methods and intentionally shadowed behavior in one small domain"
+      ],
+      "prerequisites": [
+        "CO.1",
+        "CO.2"
+      ],
+      "production_relevance": "Banking-style account rules are a compact way to practice reuse boundaries, domain modeling, and method behavior overrides that show up in real service code.",
+      "path": "06-composition/06-composition-and-embedding/3-bank-account",
+      "run_command": "go run ./06-composition/06-composition-and-embedding/3-bank-account",
+      "test_command": "go test ./06-composition/06-composition-and-embedding/3-bank-account",
+      "starter_path": "06-composition/06-composition-and-embedding/3-bank-account/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "composition",
+        "embedding",
+        "methods"
       ]
     }
   ]
