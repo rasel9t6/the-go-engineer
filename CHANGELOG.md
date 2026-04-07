@@ -6,6 +6,21 @@ Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Remove
 
 ---
 
+## [2026-04-07] - Public v2 Planning Kickoff
+
+### Added
+
+- Created the public `planning/v2` branch for the v2 Bible, migration planning, and structural prototype specs.
+- Opened the first public v2 planning and prototype issues (#79-#88).
+- Created the public v2 GitHub Project for planning and execution tracking.
+
+### Changed
+
+- Updated learner-facing docs to explain the v1/v2 transition more clearly.
+- Clarified that `release/v1` remains the stable learner path while v2 is designed and rolled out incrementally.
+
+---
+
 ## [2026-04-06] - Long-Lived v1/v2 Branch Workflow
 
 ### Changed

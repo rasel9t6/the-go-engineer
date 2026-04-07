@@ -8,6 +8,16 @@ This document tracks what is built, what is in progress, and what is planned.
 - `release/v1` tracks stable v1 maintenance for current users.
 - `release/v2` will be cut from `main` when v2 reaches beta and feature freeze.
 
+## Current V2 Focus
+
+As of April 7, 2026, the v2 transition is in the public planning and prototype-design phase.
+
+- Stable learners should keep using `release/v1`.
+- Public v2 planning now lives on [`planning/v2`](https://github.com/rasel9t6/the-go-engineer/tree/planning/v2).
+- Design work is tracked in the [V2 project board](https://github.com/users/rasel9t6/projects/2).
+- Initial public planning issues are [#79](https://github.com/rasel9t6/the-go-engineer/issues/79) through [#88](https://github.com/rasel9t6/the-go-engineer/issues/88).
+- Broad content migration will not begin until the structural prototype is approved.
+
 ## Status Legend
 
 | Symbol | Meaning |

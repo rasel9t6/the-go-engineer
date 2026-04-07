@@ -36,6 +36,17 @@ The repository now uses a long-lived branch model for the v1 to v2 transition:
 
 If you want the stable v1 curriculum, check out `release/v1` or a stable `v1.x.y` tag. If you want the newest v2 work as it lands section by section, stay on `main`.
 
+## V2 Update
+
+v2 planning is now happening in public.
+
+- If you want the most stable learner experience today, use `release/v1`.
+- If you want to follow the v2 redesign as it is being planned, see the [V2 Bible on `planning/v2`](https://github.com/rasel9t6/the-go-engineer/blob/planning/v2/docs/v2/BIBLE.md).
+- Public v2 planning work is tracked in the [V2 project board](https://github.com/users/rasel9t6/projects/2) and the initial planning issues [#79](https://github.com/rasel9t6/the-go-engineer/issues/79) through [#88](https://github.com/rasel9t6/the-go-engineer/issues/88).
+- No learner migration is required today. v1 remains supported while v2 is designed and rolled out incrementally.
+
+The short version: learn on `release/v1` if you want stability today, and watch `main` plus `planning/v2` if you want to follow the next version as it takes shape.
+
 ## Choose Your Learning Path
 
 New to Go? → **Start at [01-core-foundations](./01-core-foundations/)**  
