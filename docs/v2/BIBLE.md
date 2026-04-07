@@ -1,6 +1,6 @@
 # V2 Bible
 
-Status: Draft 0.2  
+Status: Draft 0.3  
 Audience: Maintainers and curriculum designers  
 Scope: Planning only. No live curriculum migration starts until the prototype gate is approved.
 
@@ -95,14 +95,16 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 | `docs/v2/10-DOCS-NAVIGATION-SYSTEM.md` | Public documentation surfaces and navigation ownership rules | Draft |
 | `docs/v2/11-CURRICULUM-SCHEMA.md` | Metadata model and validator contract | Draft |
 | `docs/v2/12-MIGRATION-MAP-V1-TO-V2.md` | Content and docs migration rules | Draft |
+| `docs/v2/13-CONTRIBUTOR-WORKFLOW.md` | Branch targeting, planning/prototype flow, and contribution rules | Draft |
 | `docs/v2/14-QA-VALIDATION.md` | Quality layers, validator scope, CI responsibilities, and review gates | Draft |
 | `docs/v2/15-IMPLEMENTATION-ROADMAP.md` | Workstreams, issues, milestones, rollout | Draft |
+| `docs/v2/16-RELEASE-ROLLOUT.md` | Stage-by-stage public rollout from planning through v2 final | Draft |
 | `docs/v2/appendix/DECISION-LOG.md` | Open decisions and review outcomes | Live |
 
-The remaining planned docs can be added after the first review pass:
+The first-pass Gate 1 planning set is now complete.
 
-- `13-CONTRIBUTOR-WORKFLOW.md`
-- `16-RELEASE-ROLLOUT.md`
+Further appendix or support docs can still be added later, but the core planning system no longer
+has missing top-level specification files.
 
 ## Current Working Assumptions
 
@@ -136,17 +138,21 @@ The next review cycle should focus on five alignment questions:
 4. Is the folder structure conservative enough to protect migration stability?
 5. Is the curriculum schema rich enough to support validation without becoming bureaucracy?
 
-## Open Questions To Resolve Next
+## Deferred Questions Beyond Gate 1
 
-These are the first major questions still open:
+Gate 1 no longer depends on resolving every future-facing design question.
 
-- Should v2 keep the exact v1 directory numbering for all sections?
-- How much lesson granularity should move from single-file examples to package-sized exercises?
-- Should `curriculum.json` be extended or replaced by a richer schema?
-- How much assessment structure should exist before we consider a platform or site layer?
+The questions that remain are now mostly later-stage refinement questions such as:
 
-Until those questions are answered, maintainers should treat this draft as the source of direction,
-not as a frozen spec.
+- whether coverage should become a harder release gate for some sections later
+- whether the validator should split into focused tools after prototype and alpha work
+- whether some doc placement changes make sense after real learner-facing migration waves exist
+
+Those questions should be revisited at prototype or alpha review points, not used to block the
+first structural prototype.
+
+Maintainers should now treat this draft as a prototype-ready planning baseline, not as a frozen
+forever spec.
 
 ## Working Rule For The Next Drafts
 

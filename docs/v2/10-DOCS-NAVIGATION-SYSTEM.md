@@ -306,25 +306,24 @@ The docs navigation system is ready when:
 - checkpoints and projects are treated as milestone docs, not only folders
 - maintainers can explain where new navigation guidance belongs without guessing
 
-## Open Decisions
+## Deferred Questions Beyond The First Prototype
 
-These points still need review:
+These points can stay deferred beyond the first prototype:
 
-- whether the v2 learning-path guide should keep the file name `LEARNING-PATH.md` or move under
-  `docs/`
-- whether `docs/curriculum/README.md` should stay as the public curriculum map or be replaced by a
-  more focused v2 overview doc
-- whether local sub-track README files should be mandatory for sections with multiple internal
-  tracks
 - how much section inventory detail should live in section READMEs versus generated curriculum views
+- whether the curriculum map should eventually move to a more generated navigation surface after the
+  metadata system matures
 
 ## Working Recommendation
 
 For the first v2 implementation:
 
 - keep the root README short and routing-focused
-- keep one canonical learning-path guide
-- keep one canonical curriculum map
+- keep one canonical learning-path guide at the repo root during the prototype stage
+- keep one canonical curriculum map and use `docs/curriculum/README.md` as that public map during
+  the prototype stage
 - require a section README for every section
+- require local sub-track README files only when a section has multiple learner-facing internal
+  tracks or milestone surfaces
 - make lesson-level next-step guidance and milestone verification explicit
 - reduce duplication before adding more navigation surfaces

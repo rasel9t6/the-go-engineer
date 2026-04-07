@@ -169,7 +169,7 @@ Default content expectations:
 
 - all section checkpoints
 - all path-critical exercises
-- all mini-projects that establish application-building habits
+- milestone mini-projects and any explicitly path-critical projects
 - any lesson marked as Go-idiom-critical
 
 Skippable candidates:
@@ -218,7 +218,7 @@ They must also define what cannot be skipped.
 The first v2 draft should use these floors:
 
 - Full Path: complete every checkpoint and required mini-project
-- Bridge Path: complete every checkpoint plus path-critical exercises and mini-projects
+- Bridge Path: complete every checkpoint plus path-critical exercises and milestone mini-projects
 - Targeted Path: complete the chosen section checkpoint and any required integration artifact
 
 ### Path-Critical Items
@@ -321,14 +321,13 @@ It does need enough structure to prove:
 - one exercise or checkpoint can act as a path validation gate
 - one mini-project can be marked as a milestone
 
-## Open Decisions
+## Deferred Questions Beyond The First Prototype
 
-These questions still need review:
+These points can stay deferred beyond the first prototype:
 
-- how many items should be marked as path-critical before the system becomes too heavy
-- whether the Bridge Path should require all mini-projects or only milestone projects
-- whether Targeted Path entry should always require a short prerequisite recap artifact
-- whether learning paths should live in the same metadata file as sections and content items
+- exact thresholds for how many items should be marked as path-critical in a large section
+- whether learning paths should live in the same metadata file as sections and content items after
+  the prototype stage
 
 ## Working Recommendation
 
@@ -337,5 +336,8 @@ For the first v2 implementation:
 - keep exactly three canonical paths
 - keep the section order stable
 - let faster learners skip repetition, not proof
+- require milestone mini-projects for the Bridge Path instead of every mini-project
+- require Targeted Path entry to include a short prerequisite recap at section entry, not
+  necessarily a separate artifact
 - make checkpoints the primary path control surface
 - keep path rules visible in docs and schema, but do not overbuild a personalized routing engine

@@ -259,6 +259,14 @@ The item should declare a test command or naturally resolvable test target.
 
 The item should declare visible success criteria because there may not be a strict automated test.
 
+For the first v2 implementation, rubric-verified items should use a standard README shape that
+includes:
+
+- requirements
+- success criteria
+- verification guidance
+- next step
+
 ### `mixed`
 
 The item should combine runnable/testable behavior with human-readable completion rules.
@@ -287,6 +295,11 @@ Reviewers should still verify:
 - the root README is not bloated
 - the section README actually helps entry and progression
 - path-aware guidance is honest and not generic filler
+
+Prototype working split:
+
+- validator enforces path and link truth
+- reviewers enforce doc quality and learner usefulness
 
 ## Authoring And Review Gates
 
@@ -395,21 +408,23 @@ The v2 QA and validation model is ready when:
 - prototype and migration wave gates are defined
 - maintainers can explain why a change failed QA without guessing
 
-## Open Decisions
+## Deferred Questions Beyond The First Prototype
 
-These questions still need review:
+These points can stay deferred beyond the first prototype:
 
-- how much of navigation integrity should be validator-enforced versus review-enforced
-- whether rubric-style verification should require a standard README section template
 - whether coverage should remain informational or become a release gate for specific sections
-- whether the current single validator script should grow gradually or split into focused tools
+- whether the validator should later split into focused tools after the prototype and first alpha
+  waves
 
 ## Working Recommendation
 
 For the first v2 implementation:
 
 - keep the validator focused on structural, metadata, command, and link truth
+- keep navigation enforcement split between validator truth and reviewer clarity checks
 - keep CI blocking on build, vet, format, tidy, tests, race, and validator success
 - treat coverage and benchmarks as informative by default
+- require the standard README shape for rubric-verified items
 - require type-aware review of checkpoints and projects
+- keep the current validator as a single growing tool through the prototype phase
 - expand validator scope gradually as the prototype proves which checks are worth automating

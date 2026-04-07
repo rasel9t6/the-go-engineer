@@ -121,9 +121,9 @@ Compared with v1, the section map should preserve:
 - the strong later-stage focus on concurrency, testing, and architecture
 - the repo's practical and build-first teaching style
 
-## Open Decisions
+## Deferred Questions Beyond The First Prototype
 
-These section-level decisions still need review:
+These section-level questions should be revisited after the prototype and early migration waves:
 
 - whether Section 10 should later split into separate HTTP and persistence tracks
 - whether Section 15 should broaden into a larger professional tooling section

@@ -13,32 +13,130 @@ Each decision should capture:
 - alternatives considered
 - follow-up actions
 
-## Open
+## Working Decisions
 
-### 2026-04-06: Should v2 keep the exact v1 section numbering and directory layout?
+### 2026-04-07: v2 planning is ready to open prototype work
 
-- Status: Open
-- Why it matters: changing numbering early increases churn for learners, links, and migration work
+- Status: Working decision
+- Why it matters: the team needs a clear gate between endless planning and prototype execution
 - Alternatives:
-  - keep the current section numbering for the first migration waves
-  - redesign numbering and directory layout before any migration
-- Follow-up: decide after the prototype and folder-structure draft exist
+  - delay prototype work until every open planning question is fully resolved
+  - begin prototype work once the planning stack is coherent enough to guide it
+- Follow-up: start the prototype phase under `#84` and use the prototype to resolve non-blocking
+  design questions
 
-### 2026-04-06: Should `curriculum.json` be extended or replaced for v2?
+### 2026-04-07: keep the current top-level section numbering and directory layout through prototype and early migration waves
 
-- Status: Open
-- Why it matters: exercise metadata, project metadata, and learning-path metadata likely exceed the
-  current schema
+- Status: Working decision
+- Why it matters: early renumbering would add churn before the training system itself is proven
 - Alternatives:
-  - extend `curriculum.json`
-  - add a v2 schema next to the current file and migrate later
-- Follow-up: decide after the curriculum schema draft and prototype metadata example are reviewed
+  - preserve the current numbering and layout first
+  - redesign the top-level layout before prototype validation
+- Follow-up: only revisit numbering after the prototype and first migration waves prove a clear
+  learner benefit
 
-### 2026-04-06: How much assessment structure should exist before any platform work is considered?
+### 2026-04-07: keep `curriculum.json` active while designing richer v2 metadata in parallel
 
-- Status: Open
-- Why it matters: v2 should stay repo-first and avoid platform sprawl
+- Status: Working decision
+- Why it matters: the repo needs schema evolution without breaking the current stable line
 - Alternatives:
-  - keep assessment entirely repo-native
-  - add richer progress and assessment layers later after the curriculum model is stable
-- Follow-up: revisit after the first alpha wave
+  - replace `curriculum.json` immediately
+  - keep it active and prototype a richer v2 schema in parallel
+- Follow-up: prove the richer metadata model in the prototype before deciding final canonical
+  storage
+
+### 2026-04-07: keep assessment and progress repo-native through the prototype and alpha stages
+
+- Status: Working decision
+- Why it matters: platform work would dilute focus before the curriculum system is proven
+- Alternatives:
+  - start platform features during early v2 planning
+  - keep assessment repo-native until later rollout stages
+- Follow-up: revisit only after alpha if repo-native checkpoints and projects prove insufficient
+
+### 2026-04-07: v2 should use one curriculum with three canonical learning paths
+
+- Status: Working decision
+- Why it matters: path design affects docs, metadata, checkpoints, and migration behavior
+- Alternatives:
+  - maintain one curriculum with route logic
+  - build separate content trees for different learner types
+- Follow-up: prove the path model in the prototype through one section README, one checkpoint, and
+  one milestone item
+
+### 2026-04-07: the Bridge Path requires milestone mini-projects rather than every mini-project
+
+- Status: Working decision
+- Why it matters: the Bridge Path should preserve proof without recreating the Full Path workload
+- Alternatives:
+  - require every mini-project
+  - require only milestone mini-projects plus path-critical project work
+- Follow-up: verify during the prototype that this still preserves honest readiness signals
+
+### 2026-04-07: every v2 section should have a top-level README as a required navigation surface
+
+- Status: Working decision
+- Why it matters: the current repo lacks a consistent section-entry contract for learners
+- Alternatives:
+  - rely mainly on the root README and directory order
+  - require a top-level section README with path-aware entry guidance
+- Follow-up: test the section README contract in the prototype slice before applying it widely
+
+### 2026-04-07: keep the learning-path guide at the repo root and keep `docs/curriculum/README.md` as the public curriculum map during the prototype stage
+
+- Status: Working decision
+- Why it matters: learners need stable discovery surfaces while v2 planning is still being proven
+- Alternatives:
+  - move those docs immediately into a new layout
+  - keep the existing public discovery locations during the prototype stage
+- Follow-up: reconsider doc placement after the first learner-facing migration wave if the
+  navigation system proves a better structure
+
+### 2026-04-07: local sub-track README files are only required when a section has multiple learner-facing internal tracks or milestone surfaces
+
+- Status: Working decision
+- Why it matters: the docs system needs consistency without forcing README files where they add no
+  navigation value
+- Alternatives:
+  - require sub-track README files everywhere
+  - require them only where internal track navigation is real
+- Follow-up: test this threshold in the prototype section outline
+
+### 2026-04-07: the validator should prioritize structural and metadata truth before broader teaching checks
+
+- Status: Working decision
+- Why it matters: the repo needs trustworthy automation without pretending every curriculum quality
+  concern can be parsed mechanically
+- Alternatives:
+  - try to automate most review logic immediately
+  - keep the validator focused on paths, commands, ids, links, and required assets first
+- Follow-up: expand validator scope gradually after the prototype proves which additional checks are
+  worth automating
+
+### 2026-04-07: navigation integrity should be split between validator truth and reviewer judgment
+
+- Status: Working decision
+- Why it matters: link existence and learner usefulness are different quality problems
+- Alternatives:
+  - try to automate all navigation quality
+  - let the validator check truth while reviewers check clarity and usefulness
+- Follow-up: keep refining this split during prototype validation
+
+### 2026-04-07: rubric-verified items should use a standard README shape
+
+- Status: Working decision
+- Why it matters: rubric-based items need visible and consistent completion rules
+- Alternatives:
+  - let rubric items vary freely
+  - require a standard README shape for rubric-based verification
+- Follow-up: prove the README shape in the prototype checkpoint and project surfaces
+
+### 2026-04-07: keep the current validator as a single growing tool through the prototype stage
+
+- Status: Working decision
+- Why it matters: splitting tooling early would add maintenance overhead before the right boundaries
+  are proven
+- Alternatives:
+  - split validation into multiple tools now
+  - keep one tool through the prototype stage and split later only if justified
+- Follow-up: revisit after the first alpha wave if validator scope becomes unwieldy
