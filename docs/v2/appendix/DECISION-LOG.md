@@ -140,3 +140,25 @@ Each decision should capture:
   - split validation into multiple tools now
   - keep one tool through the prototype stage and split later only if justified
 - Follow-up: revisit after the first alpha wave if validator scope becomes unwieldy
+
+### 2026-04-07: Section 04 Functions and Errors is the canonical first prototype section
+
+- Status: Working decision
+- Why it matters: the prototype needs one coherent section that can prove lesson, exercise,
+  checkpoint, and mini-project behavior without infrastructure-heavy setup
+- Alternatives:
+  - use an earlier foundations section with less project pressure
+  - use a design or application section with more complexity
+  - use Section 04 as the hinge between foundations and the first mini-project
+- Follow-up: implement `#85` through `#88` around the Section 04 prototype slice on `planning/v2`
+
+### 2026-04-07: the prototype section outline uses five lessons, one drill, one guided exercise, one checkpoint, and one mini-project linkage
+
+- Status: Working decision
+- Why it matters: the prototype must be large enough to prove the system, but small enough to avoid
+  becoming a stealth section migration
+- Alternatives:
+  - prototype too little and fail to prove the section contract
+  - prototype a near-full migration of the section
+  - use one compact but complete section slice with explicit practice layers
+- Follow-up: use this outline as the container for `#86`, `#87`, and `#88`
