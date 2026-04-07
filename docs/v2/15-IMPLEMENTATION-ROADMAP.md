@@ -177,6 +177,13 @@ Recommended wave order:
 
 Alpha releases should be cut from `main` only when a wave produces a meaningful public improvement.
 
+The first live migration step for this phase should be:
+
+1. introduce `curriculum.v2.json` for the Section 04 pilot slice
+2. extend `scripts/validate_curriculum.go` with the first v2 metadata pass
+3. migrate Section 04 as the first live v2 pilot on `main`
+4. use that pilot to de-risk the broader Sections 01-04 alpha wave
+
 ### Phase 4: Beta Stabilization
 
 At the point where planned v2 scope is mostly complete:
@@ -225,13 +232,20 @@ For fixes that belong in both active lines:
 
 ## Immediate Next Actions
 
-The next practical steps after this draft are:
+The next practical steps after the completed planning, prototype, and tooling phases are:
 
-1. review and refine the Bible docs
-2. create the planning and prototype GitHub issues
-3. open a GitHub Project for v2 tracking
-4. draft the first prototype section and lesson
-5. refuse broad content migration until the prototype is approved
+1. implement `curriculum.v2.json` for the first migrated section slice
+2. extend `scripts/validate_curriculum.go` with the first v2-aware metadata pass
+3. migrate Section 04 as the first live v2 pilot on `main`
+4. use the Section 04 pilot to scope the broader Sections 01-04 alpha wave
+5. keep v1 compatibility intact while the first live wave proves the transition model
+
+These steps are now tracked by:
+
+- `#97` `[EPIC] V2 Alpha Wave 1 Foundations Pilot`
+- `#98` `[IMPL] Introduce curriculum.v2.json for the Section 04 pilot slice`
+- `#99` `[IMPL] Extend validate_curriculum.go with the first v2 metadata pass`
+- `#100` `[SECTION] Migrate Section 04 Functions and Errors as the first live v2 pilot`
 
 ## Definition Of Readiness For Implementation
 
