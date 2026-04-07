@@ -12,10 +12,9 @@ implementation work is approved.
 ## Current Templates
 
 - [LESSON-TEMPLATE.md](./LESSON-TEMPLATE.md) - canonical v2 lesson template
+- [EXERCISE-TEMPLATE.md](./EXERCISE-TEMPLATE.md) - canonical v2 guided exercise template
+- [CHECKPOINT-TEMPLATE.md](./CHECKPOINT-TEMPLATE.md) - canonical v2 checkpoint template
 
 ## Planned Templates
 
-- exercise template
-- checkpoint template
 - mini-project template
-
