@@ -48,8 +48,7 @@ func parseConfig(content string) (map[string]string, error) {
 
 		matches := re.FindStringSubmatch(trimmedLine)
 		if matches == nil {
-			fmt.Printf("Line %d: %q is invalid\n", lineNo, line)
-			continue
+			return nil, fmt.Errorf("line %d: %q is invalid", lineNo, line)
 		}
 
 		key := matches[1]

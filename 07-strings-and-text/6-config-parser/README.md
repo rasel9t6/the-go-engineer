@@ -62,6 +62,7 @@ Your finished solution should:
 - compile the regex once instead of rebuilding it inside the scan loop
 - parse quoted and unquoted values into a map cleanly
 - skip comments and empty lines without special-case chaos
+- return malformed config lines as errors instead of printing from the parser
 - render output through a template instead of scattered print statements
 - pass the provided tests
 
