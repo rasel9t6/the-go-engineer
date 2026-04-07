@@ -140,6 +140,9 @@ This keeps the system honest about what can be automated and what cannot.
 The v2 validator should gradually evolve from the current curriculum checker into a broader system
 validator.
 
+The first implementation-ready rule set for that expansion is documented in
+`docs/v2/tooling/VALIDATOR-EXPANSION-PLAN.md`.
+
 It should eventually verify at least:
 
 - section ids and content ids are unique
