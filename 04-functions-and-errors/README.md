@@ -84,6 +84,18 @@ clearer learner-facing structure:
 
 That keeps the section honest for current learners while the wider v2 migration grows around it.
 
+## Legacy To Pilot Mapping
+
+This pilot intentionally avoids breaking the current Section 04 filesystem layout.
+
+- `FE.1` through `FE.8` keep their existing ids and lesson directories
+- `FE.9` stays at `04-functions-and-errors/8-error-handling`, but now has a dedicated README and a
+  solution/starter pair that match the same exercise contract
+- `FE.10` stays at `04-functions-and-errors/9-functional-options` as an optional stretch lesson
+
+In other words, this first live v2 slice upgrades the section surface before it renames or
+reorders the live lesson paths.
+
 ## References
 
 1. [Error handling and Go](https://go.dev/blog/error-handling-and-go)
