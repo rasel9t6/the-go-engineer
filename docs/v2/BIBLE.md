@@ -89,6 +89,7 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 | `docs/v2/04-LESSON-SPEC.md` | Canonical lesson contract and definition of done | Draft |
 | `docs/v2/05-EXERCISE-BANK-SYSTEM.md` | Exercise architecture and repo layout | Draft |
 | `docs/v2/06-PROJECT-LADDER.md` | Project ladder, capstones, and reuse strategy | Draft |
+| `docs/v2/07-LEARNING-PATHS.md` | Canonical learner routes, skip rules, and validation floors | Draft |
 | `docs/v2/08-CURRICULUM-MAP.md` | Proposed v2 phases and sections | Draft |
 | `docs/v2/09-FOLDER-STRUCTURE.md` | Directory rules and migration-safe repo layout | Draft |
 | `docs/v2/11-CURRICULUM-SCHEMA.md` | Metadata model and validator contract | Draft |
@@ -98,7 +99,6 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 
 The remaining planned docs can be added after the first review pass:
 
-- `07-LEARNING-PATHS.md`
 - `10-DOCS-NAVIGATION-SYSTEM.md`
 - `13-CONTRIBUTOR-WORKFLOW.md`
 - `14-QA-VALIDATION.md`
