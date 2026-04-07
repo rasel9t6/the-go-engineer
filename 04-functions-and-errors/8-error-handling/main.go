@@ -18,7 +18,8 @@ import (
 // WHAT YOU'LL LEARN:
 //   - Creating custom error types that carry structured context
 //   - Returning explicit failures from small math operations
-//   - Inspecting errors safely with errors.As
+//   - Wrapping low-level failures with extra context using %w
+//   - Inspecting errors safely with errors.As after wrapping
 //   - Using defer for small cleanup/completion reporting without hiding flow
 //
 // ENGINEERING DEPTH:
@@ -99,9 +100,20 @@ func safeSqrt(n float64) (float64, error) {
 	return math.Sqrt(n), nil
 }
 
+// buildSqrtReport wraps a lower-level math failure with higher-level context.
+// The wrapped error still preserves the underlying MathError for errors.As.
+func buildSqrtReport(n float64) (float64, error) {
+	result, err := safeSqrt(n)
+	if err != nil {
+		return 0, fmt.Errorf("build square-root report: %w", err)
+	}
+
+	return result, nil
+}
+
 // printMathErrorDetails demonstrates structured error inspection. The error
 // string is still useful for logs, but errors.As gives callers stable access
-// to the underlying data.
+// to the underlying data even after wrapping.
 func printMathErrorDetails(err error) {
 	var mathErr *MathError
 	if !errors.As(err, &mathErr) {
@@ -171,15 +183,16 @@ func main() {
 
 	fmt.Println("Square Root:")
 	runFloatOperation("sqrt success", func() (float64, error) {
-		return safeSqrt(16)
+		return buildSqrtReport(16)
 	})
 	runFloatOperation("sqrt failure", func() (float64, error) {
-		return safeSqrt(-4)
+		return buildSqrtReport(-4)
 	})
 
 	// KEY TAKEAWAY:
 	// - Ordinary failures should return explicit error values, not panic.
 	// - Custom errors make failure meaning inspectable and stable.
+	// - Wrapping adds context without destroying the original failure identity.
 	// - errors.As lets the caller recover structured details safely.
 	// - defer is useful for small cleanup or completion behavior, not as a
 	//   replacement for normal error handling.

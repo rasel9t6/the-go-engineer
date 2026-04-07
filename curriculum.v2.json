@@ -252,7 +252,7 @@
       "title": "Panic and Recover",
       "type": "lesson",
       "subtype": "integration",
-      "level": "stretch",
+      "level": "core",
       "verification_mode": "run",
       "estimated_time": 35,
       "summary": "Show where panic belongs, where it does not, and how recover works only at controlled defer boundaries.",
@@ -287,10 +287,10 @@
       "level": "core",
       "verification_mode": "mixed",
       "estimated_time": 60,
-      "summary": "Guide learners through combining custom errors, wrapping, and defer-based cleanup in one focused exercise.",
+      "summary": "Guide learners through combining custom errors, wrapped failures, and defer-based cleanup in one focused exercise.",
       "objectives": [
         "Build a small program that applies the section's explicit error-handling ideas together",
-        "Preserve useful failure context while still producing understandable output"
+        "Preserve useful failure context by wrapping low-level errors without hiding the underlying math failure"
       ],
       "prerequisites": [
         "FE.1",

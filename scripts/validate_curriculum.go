@@ -411,6 +411,13 @@ func validateV2Curriculum() (int, int, int, bool) {
 	}
 
 	for _, s := range cur.Sections {
+		for _, prereqID := range s.Prerequisites {
+			if _, exists := sectionIDs[prereqID]; !exists {
+				fmt.Printf("Invalid v2 section prerequisite: %s -> %s\n", s.ID, prereqID)
+				errorsFound++
+			}
+		}
+
 		for _, entryID := range s.EntryPoints {
 			if _, exists := itemIDs[entryID]; !exists {
 				fmt.Printf("Invalid v2 section entry point: %s -> %s\n", s.ID, entryID)

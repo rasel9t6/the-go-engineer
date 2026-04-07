@@ -19,13 +19,15 @@ import "fmt"
 //  3. [ ] Implement `safeDivide(a, b int) (float64, error)` - returns error on divide by zero
 //  4. [ ] Implement `safeModulo(a, b int) (int, error)` - returns error on modulo by zero
 //  5. [ ] Implement `safeSqrt(n float64) (float64, error)` - returns error on negative input
-//  6. [ ] Test all operations in main(), handling both success and error cases
-//  7. [ ] Use `errors.As` to inspect your custom error details in main()
+//  6. [ ] Wrap at least one low-level math failure with `fmt.Errorf("...: %w", err)`
+//  7. [ ] Test all operations in main(), handling both success and error cases
+//  8. [ ] Use `errors.As` to inspect your custom error details in main()
 //
 // HINTS:
 //   - The error interface: type error interface { Error() string }
 //   - Return &MathError{...} to create a pointer to your error struct
 //   - Use fmt.Sprintf to format the error message
+//   - Use `%w` in fmt.Errorf when you want to preserve the original error
 //   - A small helper with defer can keep repeated reporting code tidy
 //
 // RUN: go run ./04-functions-and-errors/8-error-handling/_starter
