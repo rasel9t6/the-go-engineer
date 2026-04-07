@@ -90,10 +90,10 @@ The exercise should use this metadata model in the prototype:
   ],
   "prerequisites": ["FEP.1", "FEP.2", "FEP.3", "FEP.4"],
   "production_relevance": "CLI and service code often process small batches, preserve per-item failure context, and continue work while still producing useful summaries.",
-  "path": "04-functions-and-errors/8-safe-operations-runner",
-  "run_command": "go run ./04-functions-and-errors/8-safe-operations-runner",
+  "path": "04-functions-and-errors/6-safe-operations-runner",
+  "run_command": "go run ./04-functions-and-errors/6-safe-operations-runner",
   "test_command": "",
-  "starter_path": "04-functions-and-errors/8-safe-operations-runner/_starter",
+  "starter_path": "04-functions-and-errors/6-safe-operations-runner/_starter",
   "next_items": ["FEP.5"],
   "tags": ["exercise", "functions", "errors", "wrapping", "batch-processing"]
 }
@@ -230,4 +230,3 @@ The exercise half of issue `#87` should be considered successful when maintainer
 - this is clearly more supported than a checkpoint
 - the starter gives enough help without solving the work
 - the verification criteria are concrete and honest
-

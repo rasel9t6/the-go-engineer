@@ -103,6 +103,10 @@ Each content item should include:
 - `next_items`
 - `tags`
 
+`next_items` should normally point to later content-item ids.
+At section or phase exits, it may also point to a section id when the next meaningful step is the
+entry into a new section rather than one more local item.
+
 ## Content Types
 
 At minimum, `type` should support:

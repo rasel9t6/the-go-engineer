@@ -185,3 +185,25 @@ Each decision should capture:
     instead
 - Follow-up: use this split in `#87` and carry it forward into later exercise and checkpoint
   templates unless a section has unusual setup burden
+
+### 2026-04-07: prototype local path numbering should follow canonical section order rather than inherited v1 item numbering
+
+- Status: Working decision
+- Why it matters: prototype paths should describe the learner-facing v2 flow clearly instead of
+  leaking numbering from the v1 source material
+- Alternatives:
+  - keep inherited v1-inspired numbers and accept ordering drift
+  - renumber the planned prototype paths so the exercise, integration lesson, checkpoint, and
+    mini-project follow the actual section order
+- Follow-up: use ordered prototype paths for `FEP.E1`, `FEP.5`, `FEP.C1`, and `FEP.P1`
+
+### 2026-04-07: the prototype mini-project should remain inside the section and may point `next_items` at the next section id
+
+- Status: Working decision
+- Why it matters: the first mini-project must prove section-level milestone behavior without
+  forcing a separate projects tree or an extra schema layer
+- Alternatives:
+  - move the first mini-project into a separate top-level project surface
+  - keep the mini-project inside Section 04 and allow section-exit navigation through the existing
+    `next_items` field
+- Follow-up: use this rule in `#88` and the first metadata example

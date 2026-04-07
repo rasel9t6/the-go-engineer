@@ -90,8 +90,8 @@ The checkpoint should use this metadata model in the prototype:
   ],
   "prerequisites": ["FEP.1", "FEP.2", "FEP.3", "FEP.4", "FEP.5"],
   "production_relevance": "Reliable worker and batch-style code needs bounded failure behavior, explicit cleanup, and useful summaries so one bad item does not destroy the whole run.",
-  "path": "04-functions-and-errors/9-reliable-batch-processor-checkpoint",
-  "run_command": "go run ./04-functions-and-errors/9-reliable-batch-processor-checkpoint",
+  "path": "04-functions-and-errors/8-reliable-batch-processor-checkpoint",
+  "run_command": "go run ./04-functions-and-errors/8-reliable-batch-processor-checkpoint",
   "test_command": "",
   "starter_path": "",
   "next_items": ["FEP.P1"],
@@ -220,4 +220,3 @@ The checkpoint half of issue `#87` should be considered successful when maintain
 - the pass criteria are concrete
 - the checkpoint proves the section's full control-flow arc
 - the scope is still smaller than a mini-project
-
