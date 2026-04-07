@@ -17,6 +17,25 @@
       "outputs": [
         "FE.9"
       ]
+    },
+    {
+      "id": "s05",
+      "number": "05",
+      "slug": "types-and-interfaces",
+      "title": "Types and Interfaces",
+      "phase": "foundations",
+      "summary": "Teach learners to model data with structs, attach behavior with methods, and rely on interfaces and generics to build reusable contracts.",
+      "status": "pilot",
+      "prerequisites": [
+        "s04"
+      ],
+      "path_prefix": "05-types-and-interfaces",
+      "entry_points": [
+        "TI.1"
+      ],
+      "outputs": [
+        "TI.6"
+      ]
     }
   ],
   "items": [
@@ -344,6 +363,234 @@
         "patterns",
         "configuration",
         "api-design"
+      ]
+    },
+    {
+      "id": "TI.1",
+      "section_id": "s05",
+      "slug": "structs",
+      "title": "Structs",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Introduce structs as Go's core data-modeling tool without inheritance or hidden class behavior.",
+      "objectives": [
+        "Define structs that group related data into readable shapes",
+        "Explain when passing a struct by value copies data and when a pointer avoids that cost"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Struct design is the basis for every later Go model, request payload, configuration shape, and domain type.",
+      "path": "05-types-and-interfaces/1-struct",
+      "run_command": "go run ./05-types-and-interfaces/1-struct",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.2"
+      ],
+      "tags": [
+        "structs",
+        "data-modeling",
+        "foundations"
+      ]
+    },
+    {
+      "id": "TI.2",
+      "section_id": "s05",
+      "slug": "methods",
+      "title": "Methods",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Show how methods attach behavior to types and why receiver choice affects semantics and performance.",
+      "objectives": [
+        "Define methods on concrete types with clear receiver intent",
+        "Explain the tradeoff between value receivers and pointer receivers"
+      ],
+      "prerequisites": [
+        "TI.1"
+      ],
+      "production_relevance": "Receiver choice affects mutability, method sets, and copy costs in real Go APIs, not just toy examples.",
+      "path": "05-types-and-interfaces/2-methods",
+      "run_command": "go run ./05-types-and-interfaces/2-methods",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.3"
+      ],
+      "tags": [
+        "methods",
+        "receivers",
+        "semantics"
+      ]
+    },
+    {
+      "id": "TI.3",
+      "section_id": "s05",
+      "slug": "interfaces",
+      "title": "Interfaces",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 40,
+      "summary": "Teach interface contracts, implicit satisfaction, and how Go achieves polymorphism without inheritance.",
+      "objectives": [
+        "Explain implicit interface satisfaction without relying on class-style inheritance",
+        "Use interfaces to describe behavior boundaries instead of concrete implementation details"
+      ],
+      "prerequisites": [
+        "TI.1",
+        "TI.2"
+      ],
+      "production_relevance": "Interfaces define seams for testing, package boundaries, and flexible architecture in production Go systems.",
+      "path": "05-types-and-interfaces/3-interfaces",
+      "run_command": "go run ./05-types-and-interfaces/3-interfaces",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.4"
+      ],
+      "tags": [
+        "interfaces",
+        "contracts",
+        "polymorphism"
+      ]
+    },
+    {
+      "id": "TI.4",
+      "section_id": "s05",
+      "slug": "stringer",
+      "title": "Stringer",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Use fmt.Stringer as the first standard-library interface integration point for custom types.",
+      "objectives": [
+        "Implement fmt.Stringer to give custom values readable string output",
+        "Connect concrete type methods to a standard-library interface contract"
+      ],
+      "prerequisites": [
+        "TI.2",
+        "TI.3"
+      ],
+      "production_relevance": "Readable String methods improve logs, debug output, and CLI feedback without scattering formatting logic everywhere.",
+      "path": "05-types-and-interfaces/4-stringer",
+      "run_command": "go run ./05-types-and-interfaces/4-stringer",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.5"
+      ],
+      "tags": [
+        "interfaces",
+        "stringer",
+        "standard-library"
+      ]
+    },
+    {
+      "id": "TI.5",
+      "section_id": "s05",
+      "slug": "generics",
+      "title": "Generics",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 40,
+      "summary": "Introduce type parameters and constraints as a way to write reusable, type-safe helpers without reflection.",
+      "objectives": [
+        "Use type parameters and constraints to generalize helper logic safely",
+        "Recognize when generics improve reuse and when a concrete function is clearer"
+      ],
+      "prerequisites": [
+        "TI.3",
+        "TI.4"
+      ],
+      "production_relevance": "Generics help remove duplicate collection helpers and reusable utilities while preserving compile-time type safety.",
+      "path": "05-types-and-interfaces/5-generics",
+      "run_command": "go run ./05-types-and-interfaces/5-generics",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.6"
+      ],
+      "tags": [
+        "generics",
+        "constraints",
+        "reuse"
+      ]
+    },
+    {
+      "id": "TI.6",
+      "section_id": "s05",
+      "slug": "payroll-processor-project",
+      "title": "Payroll Processor Project",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "mixed",
+      "estimated_time": 75,
+      "summary": "Combine structs, methods, interfaces, and a small generic helper into one polymorphic payroll exercise.",
+      "objectives": [
+        "Build a small payroll domain that relies on interface contracts instead of inheritance",
+        "Show that multiple concrete employee types can be processed through one common behavior boundary"
+      ],
+      "prerequisites": [
+        "TI.1",
+        "TI.2",
+        "TI.3",
+        "TI.4",
+        "TI.5"
+      ],
+      "production_relevance": "Real Go services often model multiple concrete types behind shared interfaces, especially in payment, billing, and reporting flows.",
+      "path": "05-types-and-interfaces/6-payroll-processor",
+      "run_command": "go run ./05-types-and-interfaces/6-payroll-processor",
+      "test_command": "go test ./05-types-and-interfaces/6-payroll-processor",
+      "starter_path": "05-types-and-interfaces/6-payroll-processor/_starter",
+      "next_items": [
+        "TI.7"
+      ],
+      "tags": [
+        "exercise",
+        "interfaces",
+        "polymorphism",
+        "generics"
+      ]
+    },
+    {
+      "id": "TI.7",
+      "section_id": "s05",
+      "slug": "advanced-generics",
+      "title": "Advanced Generics",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "stretch",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Push generics further with reusable collection operators and a clearer understanding of type inference limits.",
+      "objectives": [
+        "Use generic collection helpers like map and filter without losing type clarity",
+        "Explain where type inference helps and where generic APIs become too clever"
+      ],
+      "prerequisites": [
+        "TI.5"
+      ],
+      "production_relevance": "Advanced generic helpers can reduce repetition in utility layers, but they only help when the resulting API stays readable for teams.",
+      "path": "05-types-and-interfaces/7-advanced-generics",
+      "run_command": "go run ./05-types-and-interfaces/7-advanced-generics",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [],
+      "tags": [
+        "generics",
+        "advanced",
+        "collections"
       ]
     }
   ]

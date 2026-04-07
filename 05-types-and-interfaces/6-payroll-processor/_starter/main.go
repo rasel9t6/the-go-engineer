@@ -20,11 +20,13 @@ import "fmt"
 //  4. [ ] Implement `CommissionEmployee` — pay = BaseSalary + (CommissionRate * SalesAmount)
 //  5. [ ] Create a `ProcessPayroll(employees []Payable)` function that prints each
 //         employee's info, monthly pay, and calculates the total payroll cost
+//  6. [ ] Add one small generic helper for reusable employee summary output
 //
 // HINTS:
 //   - Any type implementing CalculatePay() and String() satisfies Payable
 //   - Use fmt.Sprintf in String() to format employee details
 //   - Range over the []Payable slice to process all employees generically
+//   - A small generic helper can constrain on `fmt.Stringer`
 //
 // RUN: go run ./05-types-and-interfaces/6-payroll-processor/_starter
 // SOLUTION: See the main.go file in the parent directory
