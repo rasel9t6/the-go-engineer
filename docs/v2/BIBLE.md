@@ -92,6 +92,7 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 | `docs/v2/07-LEARNING-PATHS.md` | Canonical learner routes, skip rules, and validation floors | Draft |
 | `docs/v2/08-CURRICULUM-MAP.md` | Proposed v2 phases and sections | Draft |
 | `docs/v2/09-FOLDER-STRUCTURE.md` | Directory rules and migration-safe repo layout | Draft |
+| `docs/v2/10-DOCS-NAVIGATION-SYSTEM.md` | Public documentation surfaces and navigation ownership rules | Draft |
 | `docs/v2/11-CURRICULUM-SCHEMA.md` | Metadata model and validator contract | Draft |
 | `docs/v2/12-MIGRATION-MAP-V1-TO-V2.md` | Content and docs migration rules | Draft |
 | `docs/v2/15-IMPLEMENTATION-ROADMAP.md` | Workstreams, issues, milestones, rollout | Draft |
@@ -99,7 +100,6 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 
 The remaining planned docs can be added after the first review pass:
 
-- `10-DOCS-NAVIGATION-SYSTEM.md`
 - `13-CONTRIBUTOR-WORKFLOW.md`
 - `14-QA-VALIDATION.md`
 - `16-RELEASE-ROLLOUT.md`
