@@ -135,6 +135,29 @@
       "outputs": [
         "DB.6"
       ]
+    },
+    {
+      "id": "s11",
+      "number": "11",
+      "slug": "concurrency",
+      "title": "Concurrency",
+      "phase": "systems",
+      "summary": "Teach goroutines, context-based cancellation, and timer-driven workflows through three practical concurrency tracks while leaving deeper reference lessons available for later alpha work.",
+      "status": "pilot",
+      "prerequisites": [
+        "s10"
+      ],
+      "path_prefix": "11-concurrency",
+      "entry_points": [
+        "GC.1",
+        "CT.1",
+        "TM.1"
+      ],
+      "outputs": [
+        "GC.7",
+        "CT.5",
+        "TM.7"
+      ]
     }
   ],
   "items": [
@@ -1886,6 +1909,527 @@
         "database",
         "repository",
         "transactions"
+      ]
+    },
+    {
+      "id": "GC.1",
+      "section_id": "s11",
+      "slug": "goroutines",
+      "title": "Goroutines",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Introduce goroutines, scheduler basics, and the closure-capture bug that surprises new concurrent code.",
+      "objectives": [
+        "Launch concurrent work with the go keyword",
+        "Explain why loop variables should be passed into goroutine closures explicitly"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Every later Go concurrency pattern starts with goroutine lifecycle awareness and the cost of unmanaged background work.",
+      "path": "11-concurrency/goroutines/1-goroutine",
+      "run_command": "go run ./11-concurrency/goroutines/1-goroutine",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.2"
+      ],
+      "tags": [
+        "concurrency",
+        "goroutines",
+        "scheduler"
+      ]
+    },
+    {
+      "id": "GC.2",
+      "section_id": "s11",
+      "slug": "wait-groups",
+      "title": "WaitGroups",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Teach the standard Add, Done, and Wait coordination pattern for concurrent tasks.",
+      "objectives": [
+        "Use sync.WaitGroup to wait for a fixed set of goroutines",
+        "Explain why WaitGroup values should be passed by pointer"
+      ],
+      "prerequisites": [
+        "GC.1"
+      ],
+      "production_relevance": "Services often fan out work across goroutines and still need one explicit boundary before the request can finish.",
+      "path": "11-concurrency/goroutines/2-wait-group",
+      "run_command": "go run ./11-concurrency/goroutines/2-wait-group",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.3"
+      ],
+      "tags": [
+        "concurrency",
+        "waitgroup",
+        "coordination"
+      ]
+    },
+    {
+      "id": "GC.3",
+      "section_id": "s11",
+      "slug": "channels",
+      "title": "Channels",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Introduce typed communication channels and the blocking behavior that synchronizes concurrent work.",
+      "objectives": [
+        "Send and receive values across channels safely",
+        "Explain the difference between synchronization and buffering"
+      ],
+      "prerequisites": [
+        "GC.1",
+        "GC.2"
+      ],
+      "production_relevance": "Channels are the default coordination tool when goroutines need to hand work or results to each other without shared mutable state.",
+      "path": "11-concurrency/goroutines/3-channels",
+      "run_command": "go run ./11-concurrency/goroutines/3-channels",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.4"
+      ],
+      "tags": [
+        "concurrency",
+        "channels",
+        "communication"
+      ]
+    },
+    {
+      "id": "GC.4",
+      "section_id": "s11",
+      "slug": "buffered-channels",
+      "title": "Buffered Channels",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Explain buffered channel capacity, bounded queues, and when asynchronous sends still block.",
+      "objectives": [
+        "Use buffered channels to decouple producers and consumers",
+        "Explain when buffered channels block on full or empty buffers"
+      ],
+      "prerequisites": [
+        "GC.3"
+      ],
+      "production_relevance": "Bounded channel buffers are a common backpressure tool when one stage of a pipeline is faster than another.",
+      "path": "11-concurrency/goroutines/4-channels-buffered",
+      "run_command": "go run ./11-concurrency/goroutines/4-channels-buffered",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.5"
+      ],
+      "tags": [
+        "concurrency",
+        "channels",
+        "buffering"
+      ]
+    },
+    {
+      "id": "GC.5",
+      "section_id": "s11",
+      "slug": "closing-channels",
+      "title": "Closing Channels",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Show how channel closure signals completion and why only senders should close channels.",
+      "objectives": [
+        "Use range and comma-ok patterns with closed channels",
+        "Explain why receivers should not close channels they do not own"
+      ],
+      "prerequisites": [
+        "GC.3",
+        "GC.4"
+      ],
+      "production_relevance": "Producer shutdown, worker drain logic, and broadcast completion all rely on clear channel ownership rules.",
+      "path": "11-concurrency/goroutines/5-channels-closing",
+      "run_command": "go run ./11-concurrency/goroutines/5-channels-closing",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.6"
+      ],
+      "tags": [
+        "concurrency",
+        "channels",
+        "shutdown"
+      ]
+    },
+    {
+      "id": "GC.6",
+      "section_id": "s11",
+      "slug": "pipeline-project",
+      "title": "Pipeline Project",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 40,
+      "summary": "Combine channel stages and cancellation into a small pipeline-shaped project.",
+      "objectives": [
+        "Coordinate multiple stages of work through channels",
+        "Use explicit cancellation boundaries to stop background work cleanly"
+      ],
+      "prerequisites": [
+        "GC.3",
+        "GC.4",
+        "GC.5"
+      ],
+      "production_relevance": "Real concurrent systems often look like pipelines with bounded stages, cancellation signals, and explicit hand-off points.",
+      "path": "11-concurrency/goroutines/6-project-1",
+      "run_command": "go run ./11-concurrency/goroutines/6-project-1",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GC.7"
+      ],
+      "tags": [
+        "concurrency",
+        "pipeline",
+        "channels"
+      ]
+    },
+    {
+      "id": "GC.7",
+      "section_id": "s11",
+      "slug": "concurrent-downloader",
+      "title": "Concurrent Downloader",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 90,
+      "summary": "Combine fan-out, result aggregation, and bounded concurrency in one downloader milestone.",
+      "objectives": [
+        "Coordinate one goroutine per download while keeping concurrency bounded",
+        "Aggregate download results without shared global state"
+      ],
+      "prerequisites": [
+        "GC.1",
+        "GC.2",
+        "GC.3",
+        "GC.4",
+        "GC.5",
+        "GC.6"
+      ],
+      "production_relevance": "Network-heavy tools need concurrency limits, explicit result aggregation, and graceful failure handling instead of unlimited fan-out.",
+      "path": "11-concurrency/goroutines/7-downloader",
+      "run_command": "go run ./11-concurrency/goroutines/7-downloader",
+      "test_command": "",
+      "starter_path": "11-concurrency/goroutines/7-downloader/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "concurrency",
+        "http",
+        "downloader"
+      ]
+    },
+    {
+      "id": "CT.1",
+      "section_id": "s11",
+      "slug": "background-and-todo",
+      "title": "Background and TODO",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 20,
+      "summary": "Introduce root contexts and the core methods that every context implementation exposes.",
+      "objectives": [
+        "Distinguish context.Background from context.TODO",
+        "Explain what Deadline, Done, Err, and Value represent"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Context is the standard control surface for I/O cancellation and scoped metadata in production Go code.",
+      "path": "11-concurrency/context/1-background",
+      "run_command": "go run ./11-concurrency/context/1-background",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CT.2"
+      ],
+      "tags": [
+        "context",
+        "cancellation",
+        "foundation"
+      ]
+    },
+    {
+      "id": "CT.2",
+      "section_id": "s11",
+      "slug": "with-cancel",
+      "title": "WithCancel",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Show how cancellation signals propagate through context trees.",
+      "objectives": [
+        "Create and cancel child contexts manually",
+        "Explain how ctx.Done helps stop background work"
+      ],
+      "prerequisites": [
+        "CT.1"
+      ],
+      "production_relevance": "Cancellation propagation prevents leaked goroutines and wasted I/O work after the caller no longer cares about the result.",
+      "path": "11-concurrency/context/2-with-cancel",
+      "run_command": "go run ./11-concurrency/context/2-with-cancel",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CT.3"
+      ],
+      "tags": [
+        "context",
+        "cancel",
+        "goroutine-lifecycle"
+      ]
+    },
+    {
+      "id": "CT.3",
+      "section_id": "s11",
+      "slug": "with-timeout",
+      "title": "WithTimeout and WithDeadline",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Teach deadline-based cancellation for bounded work and outbound calls.",
+      "objectives": [
+        "Use context.WithTimeout and context.WithDeadline correctly",
+        "Recognize context.DeadlineExceeded as the timeout signal"
+      ],
+      "prerequisites": [
+        "CT.1",
+        "CT.2"
+      ],
+      "production_relevance": "Timeouts are the production guardrail that keeps one slow downstream dependency from holding everything hostage.",
+      "path": "11-concurrency/context/3-with-timeout",
+      "run_command": "go run ./11-concurrency/context/3-with-timeout",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CT.4"
+      ],
+      "tags": [
+        "context",
+        "timeout",
+        "deadline"
+      ]
+    },
+    {
+      "id": "CT.4",
+      "section_id": "s11",
+      "slug": "with-value",
+      "title": "WithValue",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Explain request-scoped metadata and the narrow role of context values.",
+      "objectives": [
+        "Store request metadata with custom key types safely",
+        "Explain why context values should not replace normal dependencies"
+      ],
+      "prerequisites": [
+        "CT.1",
+        "CT.2",
+        "CT.3"
+      ],
+      "production_relevance": "Trace IDs, request IDs, and auth metadata often need to flow with a request without turning function signatures into global bags of state.",
+      "path": "11-concurrency/context/4-with-value",
+      "run_command": "go run ./11-concurrency/context/4-with-value",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CT.5"
+      ],
+      "tags": [
+        "context",
+        "metadata",
+        "request-scope"
+      ]
+    },
+    {
+      "id": "CT.5",
+      "section_id": "s11",
+      "slug": "timeout-aware-api-client",
+      "title": "Timeout-Aware API Client",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 60,
+      "summary": "Apply timeout-bound contexts to outbound HTTP requests and surface useful failure behavior.",
+      "objectives": [
+        "Attach a timeout-bound context directly to an HTTP request",
+        "Recognize and report timeout failures clearly"
+      ],
+      "prerequisites": [
+        "CT.1",
+        "CT.2",
+        "CT.3",
+        "CT.4"
+      ],
+      "production_relevance": "Outbound HTTP clients need cancellation boundaries or they become a common source of stuck goroutines and cascading failures.",
+      "path": "11-concurrency/context/5-timeout-client",
+      "run_command": "go run ./11-concurrency/context/5-timeout-client",
+      "test_command": "",
+      "starter_path": "11-concurrency/context/5-timeout-client/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "context",
+        "http",
+        "timeout"
+      ]
+    },
+    {
+      "id": "TM.1",
+      "section_id": "s11",
+      "slug": "time-basics",
+      "title": "Time Basics",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 20,
+      "summary": "Introduce time values, durations, and elapsed-time calculations.",
+      "objectives": [
+        "Create and compare time.Time values safely",
+        "Use time.Duration for sleep and elapsed-time calculations"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Correct time math underpins retries, deadlines, metrics, and any real program that measures work over time.",
+      "path": "11-concurrency/time-and-scheduling/1-time",
+      "run_command": "go run ./11-concurrency/time-and-scheduling/1-time",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TM.2"
+      ],
+      "tags": [
+        "time",
+        "duration",
+        "elapsed-time"
+      ]
+    },
+    {
+      "id": "TM.2",
+      "section_id": "s11",
+      "slug": "time-formatting",
+      "title": "Time Formatting",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Teach parsing and formatting with Go's reference-time layout model.",
+      "objectives": [
+        "Format time values with standard layouts and custom layouts",
+        "Parse time strings without guessing locale-specific formats"
+      ],
+      "prerequisites": [
+        "TM.1"
+      ],
+      "production_relevance": "APIs, logs, and schedulers all depend on predictable parse and format behavior across systems.",
+      "path": "11-concurrency/time-and-scheduling/2-formatting",
+      "run_command": "go run ./11-concurrency/time-and-scheduling/2-formatting",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TM.3"
+      ],
+      "tags": [
+        "time",
+        "formatting",
+        "parsing"
+      ]
+    },
+    {
+      "id": "TM.3",
+      "section_id": "s11",
+      "slug": "timers-and-tickers",
+      "title": "Timers and Tickers",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Explain one-shot and repeating timed events plus the cleanup rules that keep them safe.",
+      "objectives": [
+        "Use time.Timer and time.Ticker for one-shot and repeating events",
+        "Explain why ticker.Stop is part of the contract"
+      ],
+      "prerequisites": [
+        "TM.1",
+        "TM.2"
+      ],
+      "production_relevance": "Timers and tickers are the foundation for retries, timeouts, reminders, and recurring background work.",
+      "path": "11-concurrency/time-and-scheduling/3-timer-and-ticker",
+      "run_command": "go run ./11-concurrency/time-and-scheduling/3-timer-and-ticker",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TM.7"
+      ],
+      "tags": [
+        "time",
+        "timer",
+        "ticker"
+      ]
+    },
+    {
+      "id": "TM.7",
+      "section_id": "s11",
+      "slug": "console-reminder",
+      "title": "Console Reminder",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 50,
+      "summary": "Combine timers, tickers, and command-line input in one small reminder milestone.",
+      "objectives": [
+        "Schedule a one-shot reminder with time.AfterFunc",
+        "Drive a countdown loop with time.NewTicker and explicit cleanup"
+      ],
+      "prerequisites": [
+        "TM.1",
+        "TM.2",
+        "TM.3"
+      ],
+      "production_relevance": "Timer-driven programs need the same lifecycle care as larger services: explicit cleanup, bounded loops, and predictable exit behavior.",
+      "path": "11-concurrency/time-and-scheduling/7-reminder",
+      "run_command": "go run ./11-concurrency/time-and-scheduling/7-reminder",
+      "test_command": "",
+      "starter_path": "11-concurrency/time-and-scheduling/7-reminder/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "time",
+        "ticker",
+        "reminder"
       ]
     }
   ]

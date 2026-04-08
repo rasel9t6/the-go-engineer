@@ -5,24 +5,21 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling — Timers & Tickers
+// Section 11: Time & Scheduling - Timers & Tickers
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - `time.Timer` for one-off scheduled operations
 //   - `time.Ticker` for repeating background intervals
-//   - Listening to Timer channels `<-timer.C`
+//   - Listening to timer channels with `<-timer.C`
 //   - Resource cleanup using `ticker.Stop()`
 //
 // ENGINEERING DEPTH:
-//   A `Timer` or `Ticker` is essentially an OS-level thread sleep mapped to a Go
-//   Channel (`<-C`). The Go runtime maintains a global min-heap timer queue.
-//   When extreme accuracy is needed, the Go runtime automatically pushes the
-//   current `time.Time` into the channel `C` at the targeted hardware tick, unblocking
-//   your goroutine. ALWAYS `defer ticker.Stop()`, otherwise the Go Scheduler
-//   keeps it in the global min-heap forever, causing massive memory leaks in
-//   long-running daemons!
+//   A `Timer` or `Ticker` is backed by the Go runtime timer heap.
+//   When the target time arrives, the runtime delivers a value on the timer's
+//   channel and unblocks your goroutine. Always `defer ticker.Stop()`, or the
+//   runtime will keep the timer alive longer than necessary.
 //
 // RUN: go run ./11-concurrency/time-and-scheduling/3-timer-and-ticker
 // ============================================================================
@@ -40,22 +37,23 @@ func main() {
 	ticker := time.NewTicker(1 * time.Second)
 	counter := 0
 	defer ticker.Stop()
+
 	for range ticker.C {
 		counter++
 		fmt.Println("Tick")
 		if counter >= 5 {
 			fmt.Println("stopped")
-			return
+			break
 		}
 	}
+
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TM.5 scheduler")
+	fmt.Println("NEXT UP: TM.7 console reminder")
 	fmt.Println("   Current: TM.3 (timers & tickers)")
 	fmt.Println("---------------------------------------------------")
 }
 
 func timerExample() {
-
 	timer := time.NewTimer(5 * time.Second)
 
 	wg := sync.WaitGroup{}
@@ -64,7 +62,7 @@ func timerExample() {
 	go func() {
 		defer wg.Done()
 		<-timer.C
-		fmt.Println("After 1 second")
+		fmt.Println("After 5 seconds")
 	}()
 
 	fmt.Println("This is happening inside the main goroutine")

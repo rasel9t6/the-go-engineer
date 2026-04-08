@@ -12,22 +12,22 @@ import (
 )
 
 // ============================================================================
-// Section 11: Concurrency � WaitGroups
+// Section 11: Concurrency - WaitGroups
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - sync.WaitGroup: the standard tool for waiting on goroutines
-//   - The 3-step pattern: Add ? go func { defer Done } ? Wait
-//   - Why you MUST pass WaitGroup by pointer (never by value)
-//   - Common mistakes: Add inside goroutine, forgetting Done, copy WaitGroup
+//   - The 3-step pattern: Add -> go func { defer Done() } -> Wait
+//   - Why you must pass WaitGroup by pointer (never by value)
+//   - Common mistakes: Add inside goroutine, forgetting Done, copying WaitGroup
 //   - Real-world example: concurrent health checks
 //
 // ANALOGY:
 //   WaitGroup is like a boarding pass counter at an airport gate.
-//     wg.Add(1)  = "One more passenger to board"
-//     wg.Done()  = "One passenger has boarded"
-//     wg.Wait()  = "Don't close the gate until all passengers are aboard"
+//     wg.Add(1) = "One more passenger to board"
+//     wg.Done() = "One passenger has boarded"
+//     wg.Wait() = "Do not close the gate until all passengers are aboard"
 //
 // RUN: go run ./11-concurrency/goroutines/2-wait-group
 // ============================================================================
@@ -68,7 +68,7 @@ func main() {
 
 	results := make(chan ServiceStatus, len(services))
 
-	fmt.Printf("?? Health checking %d services concurrently...\n\n", len(services))
+	fmt.Printf("[RUN] Health checking %d services concurrently...\n\n", len(services))
 
 	for _, svc := range services {
 		wg.Add(1)
@@ -80,9 +80,9 @@ func main() {
 
 	allHealthy := true
 	for status := range results {
-		icon := "?"
+		icon := "[OK]"
 		if !status.Healthy {
-			icon = "?"
+			icon = "[WARN]"
 			allHealthy = false
 		}
 		fmt.Printf("  %s %-20s latency: %v\n", icon, status.Name, status.Latency)
@@ -90,20 +90,20 @@ func main() {
 
 	fmt.Println()
 	if allHealthy {
-		fmt.Println("?? All services healthy!")
+		fmt.Println("[OK] All services healthy!")
 	} else {
-		fmt.Println("??  Some services are degraded � check logs!")
+		fmt.Println("[WARN] Some services are degraded - check logs!")
 	}
 
 	fmt.Println()
 	fmt.Println("=== Common WaitGroup Mistakes ===")
-	fmt.Println("  ? wg.Add(1) INSIDE the goroutine ? race condition")
-	fmt.Println("  ? Passing wg by VALUE (not &wg)  ? Done() on copy, main deadlocks")
-	fmt.Println("  ❌ Forgetting defer wg.Done()     → counter never reaches 0, deadlock")
-	fmt.Println("  ❌ Calling wg.Add() after Wait()  → panic (negative counter)")
-	fmt.Println("  ✅ ALWAYS: Add() before go, &wg as pointer, defer Done() first line")
+	fmt.Println("  - wg.Add(1) inside the goroutine -> race condition")
+	fmt.Println("  - Passing wg by value (not &wg)  -> Done() on a copy, main deadlocks")
+	fmt.Println("  - Forgetting defer wg.Done()     -> counter never reaches 0, deadlock")
+	fmt.Println("  - Calling wg.Add() after Wait()  -> panic (negative counter)")
+	fmt.Println("  - Always: Add() before go, pass &wg, and defer Done() first")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GC.3 channels (unbuffered)")
+	fmt.Println("NEXT UP: GC.3 channels (unbuffered)")
 	fmt.Println("   Current: GC.2 (WaitGroups)")
 	fmt.Println("---------------------------------------------------")
 }

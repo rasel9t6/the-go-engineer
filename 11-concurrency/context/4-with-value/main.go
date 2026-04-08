@@ -10,28 +10,28 @@ import (
 )
 
 // ============================================================================
-// Section 11: Context — WithValue
+// Section 11: Context - WithValue
 // Level: Advanced
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - context.WithValue stores request-scoped data in the context
 //   - Using custom key types to prevent collisions
-//   - When to use (and NOT use) context values
+//   - When to use (and not use) context values
 //   - The request ID / user ID pattern used in production
 //
 // IMPORTANT RULE:
-//   Context values are for REQUEST-SCOPED data only.
-//   DO NOT use context to pass function parameters.
-//   Bad:  ctx = context.WithValue(ctx, "db", database)       ← Anti-pattern
-//   Good: ctx = context.WithValue(ctx, requestIDKey, "abc")  ← Request metadata
+//   Context values are for request-scoped data only.
+//   Do not use context to pass normal function parameters.
+//   Bad:  ctx = context.WithValue(ctx, "db", database)       // Anti-pattern
+//   Good: ctx = context.WithValue(ctx, requestIDKey, "abc")  // Request metadata
 //
 // ENGINEERING DEPTH:
 //   `WithValue` creates a `valueCtx` struct containing exactly one key-value pair
 //   and a pointer to its parent. Because Contexts are immutable, adding 5 values
 //   creates a chain of 5 nested Context wrappers. When you call `ctx.Value(key)`,
-//   Go walks UP the parent chain comparing keys until it finds a match or reaches
-//   the root. This is O(depth) — proportional to how many values were added.
+//   Go walks up the parent chain comparing keys until it finds a match or reaches
+//   the root. This is O(depth) - proportional to how many values were added.
 //
 // RUN: go run ./11-concurrency/context/4-with-value
 // ============================================================================
@@ -64,12 +64,12 @@ func main() {
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAYS:")
 	fmt.Println("  1. Use custom key types (not strings) to prevent collisions")
-	fmt.Println("  2. Context values are for REQUEST-SCOPED metadata only")
+	fmt.Println("  2. Context values are for request-scoped metadata only")
 	fmt.Println("  3. Good uses: request ID, user ID, trace ID, auth token")
 	fmt.Println("  4. Bad uses: database connections, loggers, config (use DI instead)")
 	fmt.Println("  5. Values are inherited by child contexts automatically")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TM.1 time basics")
+	fmt.Println("NEXT UP: CT.5 timeout-aware API client")
 	fmt.Println("   Current: CT.4 (WithValue)")
 	fmt.Println("---------------------------------------------------")
 }
