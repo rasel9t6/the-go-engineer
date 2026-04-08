@@ -1,40 +1,46 @@
-﻿# Section 15: Time & Scheduling
+# Track C: Time and Scheduling
 
-## Beginner ? Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-| --- | --- | --- | --- |
-| Timers | Beginner | High | Delayed execution |
-| Tickers | Intermediate | Medium | Scheduled recurrence |
-| Context | Advanced | Critical | Request-scoped deadlines |
+This track teaches you how Go models time values and timed events so you can build reminders,
+timeouts, and interval-based background work without leaking timers or tickers.
 
-## Engineering Depth
+## Track Map
 
-A common memory leak in Go is abandoning `time.Ticker` instances. The ticker uses a background
-goroutine to push to its channel. If you do not call `ticker.Stop()`, that goroutine lives forever.
-Contexts (`context.WithTimeout`) are the standard mechanism for passing scoped deadlines down call
-stacks without relying on global tickers.
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `TM.1` | Lesson | [time basics](./1-time) | Introduces `time.Time`, `time.Duration`, and elapsed-time calculations. | entry |
+| `TM.2` | Lesson | [formatting](./2-formatting) | Teaches parsing and formatting with Go's reference-time model. | `TM.1` |
+| `TM.3` | Lesson | [timers and tickers](./3-timer-and-ticker) | Explains one-shot and repeating timed events plus cleanup rules. | `TM.1`, `TM.2` |
+| `TM.7` | Exercise | [console reminder](./7-reminder) | Combines timers, tickers, and command-line input in one runnable milestone. | `TM.1`, `TM.2`, `TM.3` |
 
-## References
+## Suggested Order
 
-1. [Package time](https://pkg.go.dev/time)
+1. Work through `TM.1` to `TM.3` in order.
+2. Complete `TM.7` as the live time-track milestone.
+3. Use the legacy reference lessons later if you want deeper scheduling coverage.
 
-## Exercise: Console Reminder (`7-reminder`)
+## Track Milestone
 
-Build a countdown reminder that uses `time.NewTicker` and `time.AfterFunc`.
+`TM.7` is the current time-and-scheduling track milestone.
 
-```bash
-go run ./11-concurrency/time-and-scheduling/7-reminder/_starter 5 "Break time!"
-go run ./11-concurrency/time-and-scheduling/7-reminder 5 "Break time!"
-```
+If you can complete it and explain:
 
-## Learning Path
+- why `time.NewTicker` needs `Stop()` cleanup
+- why `time.AfterFunc` is useful for one-shot delayed work
+- why timer-driven programs still need explicit exit signaling
 
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| TM.1 | [time basics](./1-time) | `time.Time` � `Duration` � `Add` � `Sub` � wall vs monotonic clock | entry |
-| TM.2 | [formatting](./2-formatting) | Reference Time `2006-01-02 15:04:05` � `Parse` � `RFC3339` | TM.1 |
-| TM.3 | [timers & tickers](./3-timer-and-ticker) | `time.NewTimer` � `time.NewTicker` � `<-C` � `ticker.Stop()` leak | TM.1, TM.2 |
-| TM.4 | [random numbers](./4-random) | `rand/v2` � `IntN` � `Shuffle` � `Perm` � seeded PCG | TM.1 |
-| TM.5 | [scheduler](./5-schedule) | actor model � `ScheduleOnce` � `ScheduleInterval` � `StopAll` drain | TM.3 |
-| TM.6 | [timezones](./6-timezone) | `time.LoadLocation` � IANA database � `In()` � always store UTC | TM.1, TM.2 |
+then the time part of Section 11 is doing its job.
+
+## Legacy Reference Surfaces
+
+These lessons remain available, but they are not part of the live v2 track map yet:
+
+- `TM.4` random numbers
+- `TM.5` scheduler
+- `TM.6` timezones
+
+## Next Step
+
+After `TM.7`, continue to the [Section 11 overview](../README.md) or move on to
+[Section 12: Concurrency Patterns](../../12-concurrency-patterns).

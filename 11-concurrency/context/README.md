@@ -1,78 +1,38 @@
-# Section 11: Context
+# Track B: Context
 
-## Learning Objectives
+## Mission
 
-`context.Context` is the backbone of production Go code that performs I/O. It carries cancellation
-signals, deadlines, and request-scoped values through function chains.
+This track teaches you how Go propagates cancellation, deadlines, and request-scoped metadata
+through function chains so I/O work can stop cleanly when the caller is done.
 
-By the end of this section, you should understand:
+## Track Map
 
-- what `context.Context` is and why it exists
-- `context.Background()` and `context.TODO()`
-- `context.WithCancel()` for manual cancellation
-- `context.WithTimeout()` and `context.WithDeadline()` for automatic deadlines
-- `context.WithValue()` for request-scoped data
-- how context propagates through function chains
-- how HTTP handlers use `r.Context()`
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `CT.1` | Lesson | [background](./1-background) | Introduces root contexts and the `Context` interface. | entry |
+| `CT.2` | Lesson | [with cancel](./2-with-cancel) | Shows manual cancellation and goroutine cleanup. | `CT.1` |
+| `CT.3` | Lesson | [with timeout](./3-with-timeout) | Adds deadline-based cancellation for bounded work. | `CT.1`, `CT.2` |
+| `CT.4` | Lesson | [with value](./4-with-value) | Explains request-scoped metadata and the limits of context values. | `CT.1`, `CT.2`, `CT.3` |
+| `CT.5` | Exercise | [timeout-aware API client](./5-timeout-client) | Combines timeout control with a real HTTP request boundary. | `CT.1`, `CT.2`, `CT.3`, `CT.4` |
 
-## Beginner → Expert Mapping
+## Suggested Order
 
-| Topic | Level | Importance | Engineering Concept |
-| --- | --- | --- | --- |
-| Background & TODO | Beginner | High | Root context creation |
-| WithCancel | Intermediate | Critical | Manual cancellation propagation |
-| WithTimeout | Intermediate | Critical | Automatic deadline enforcement |
-| WithValue | Advanced | Medium | Request-scoped metadata |
-| HTTP Context | Advanced | Critical | Server request lifecycle |
+1. Work through `CT.1` to `CT.4` in order.
+2. Complete `CT.5` as the live context milestone.
 
-## Engineering Depth
+## Track Milestone
 
-Google's internal Go style guidance treats context as the first parameter of any function that does
-I/O or may run for a meaningful amount of time. The signature
-`func DoSomething(ctx context.Context, ...)` is not decoration — it is the contract that allows
-callers to stop downstream work cleanly.
+`CT.5` is the current context track milestone.
 
-Context solves the cancellation-propagation problem: if a user cancels an HTTP request, the
-database query, API call, and file write happening underneath it should stop too. Context creates a
-tree of cancellation signals that flows from parent to child automatically.
+If you can complete it and explain:
 
-## Contents
+- why `context.WithTimeout` should wrap outbound HTTP calls
+- why `http.NewRequestWithContext` is the real transport boundary
+- why context values should carry request metadata instead of general dependencies
 
-| Directory | Topic | Level |
-| --- | --- | --- |
-| `1-background/` | `context.Background()`, `context.TODO()` | Beginner |
-| `2-with-cancel/` | Manual cancellation with `context.WithCancel` | Intermediate |
-| `3-with-timeout/` | Automatic deadlines with `context.WithTimeout` | Intermediate |
-| `4-with-value/` | Request-scoped data with `context.WithValue` | Advanced |
+then the context part of Section 11 is doing its job.
 
-## How to Run
+## Next Step
 
-```bash
-go run ./11-concurrency/context/1-background
-go run ./11-concurrency/context/2-with-cancel
-go run ./11-concurrency/context/3-with-timeout
-go run ./11-concurrency/context/4-with-value
-```
-
-## Exercise: Timeout-Aware API Client (`5-timeout-client`)
-
-Build an HTTP client that uses `context.WithTimeout` to enforce request deadlines.
-
-```bash
-go run ./11-concurrency/context/5-timeout-client/_starter
-go run ./11-concurrency/context/5-timeout-client
-```
-
-## References
-
-- [Go Concurrency Patterns: Context](https://go.dev/blog/context)
-- [Package context documentation](https://pkg.go.dev/context)
-
-## Learning Path
-
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| CT.1 | [Background & TODO](./1-background) | Root context · Context interface (`Deadline`, `Done`, `Err`, `Value`) | entry |
-| CT.2 | [WithCancel](./2-with-cancel) | cancel func · `ctx.Done()` · goroutine leak prevention · tree propagation | CT.1 |
-| CT.3 | [WithTimeout](./3-with-timeout) | duration-based auto-cancel · `WithDeadline` · `DeadlineExceeded` | CT.1, CT.2 |
-| CT.4 | [WithValue](./4-with-value) | private key type · request-scoped metadata · `O(depth)` lookup | CT.1, CT.2, CT.3 |
+After `CT.5`, continue to the [Section 11 overview](../README.md) or move into the
+[Time and Scheduling track](../time-and-scheduling).
