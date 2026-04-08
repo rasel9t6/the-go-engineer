@@ -15,20 +15,19 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns � errgroup with Context Cancellation
+// Section 12: Concurrency Patterns - errgroup with Context Cancellation
 // Level: Advanced
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - errgroup.WithContext: automatic cancellation on first error
 //   - How to implement a fan-out/fan-in pipeline with errgroup
-//   - Producer + multiple consumers pattern (parallel processing pipeline)
+//   - Producer plus multiple consumers as a bounded processing pattern
 //
 // ENGINEERING DEPTH:
 //   errgroup.WithContext creates a context that is cancelled automatically
 //   the moment any goroutine returns a non-nil error. This is the answer to
-//   the "I launched 10 goroutines but one failed � how do I stop the other 9?"
-//   problem.
+//   "I launched 10 goroutines but one failed - how do I stop the other 9?"
 //
 // RUN: go run ./12-concurrency-patterns/2-errgroup-context
 // ============================================================================
@@ -98,27 +97,6 @@ func consumer(ctx context.Context, id int, jobs <-chan WorkItem, results chan<- 
 	}
 }
 
-func resultCollector(ctx context.Context, results <-chan Result) error {
-	var count int
-	for {
-		select {
-		case <-ctx.Done():
-			return nil
-		case r, ok := <-results:
-			if !ok {
-				slog.Info("collection complete", "count", count)
-				return nil
-			}
-			count++
-			status := "?"
-			if !r.StatusOK {
-				status = "?"
-			}
-			slog.Info("result", "status", status, "url", r.URL, "latency", r.Latency.Round(time.Millisecond))
-		}
-	}
-}
-
 func main() {
 	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, &slog.HandlerOptions{Level: slog.LevelInfo})))
 
@@ -129,6 +107,7 @@ func main() {
 
 	jobs := make(chan WorkItem, 10)
 	results := make(chan Result, 10)
+	errCh := make(chan error, 1)
 
 	g.Go(func() error {
 		return producer(ctx, jobs)
@@ -142,24 +121,29 @@ func main() {
 	}
 
 	go func() {
-		g.Wait()
+		errCh <- g.Wait()
 		close(results)
 	}()
 
 	var totalResults int
 	for r := range results {
 		totalResults++
-		_ = r
+		status := "[OK]"
+		if !r.StatusOK {
+			status = "[FAIL]"
+		}
+		slog.Info("result", "status", status, "url", r.URL, "latency", r.Latency.Round(time.Millisecond))
 	}
 
-	if err := g.Wait(); err != nil && err != context.Canceled {
-		fmt.Printf("? Pipeline failed: %v\n", err)
+	if err := <-errCh; err != nil && err != context.Canceled {
+		fmt.Printf("[FAIL] Pipeline failed: %v\n", err)
 	} else {
-		fmt.Printf("? Pipeline complete: %d results in %v\n", totalResults, time.Since(start).Round(time.Millisecond))
+		slog.Info("collection complete", "count", totalResults)
+		fmt.Printf("[OK] Pipeline complete: %d results in %v\n", totalResults, time.Since(start).Round(time.Millisecond))
 	}
 
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("?? NEXT UP: CP.3 sync.Pool")
+	fmt.Println("NEXT UP: CP.3 sync.Pool")
 	fmt.Println("   Current: CP.2 (errgroup + context)")
 	fmt.Println("---------------------------------------------------")
 }

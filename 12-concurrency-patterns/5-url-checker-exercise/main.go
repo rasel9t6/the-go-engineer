@@ -15,14 +15,13 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns — URL Health Checker (Exercise Solution)
+// Section 12: Concurrency Patterns - URL Health Checker (Exercise Solution)
 // Level: Advanced
 // ============================================================================
 //
 // RUN: go run ./12-concurrency-patterns/5-url-checker-exercise
 // ============================================================================
 
-// CheckResult holds the outcome of a single URL health check.
 type CheckResult struct {
 	URL        string
 	StatusCode int
@@ -30,9 +29,6 @@ type CheckResult struct {
 	Error      error
 }
 
-// clientPool reuses HTTP clients to avoid allocating a new one per request.
-// http.Client is safe for concurrent use — we pool it to avoid allocation,
-// NOT to avoid data races.
 var clientPool = sync.Pool{
 	New: func() any {
 		return &http.Client{
@@ -44,8 +40,6 @@ var clientPool = sync.Pool{
 	},
 }
 
-// checkURL performs a single HTTP HEAD request to url and returns the result.
-// It uses the pooled client and respects context cancellation.
 func checkURL(ctx context.Context, url string) CheckResult {
 	start := time.Now()
 
@@ -86,13 +80,13 @@ func main() {
 	results := make([]CheckResult, len(urls))
 
 	g, ctx := errgroup.WithContext(context.Background())
-	g.SetLimit(5) // Maximum 5 concurrent requests
+	g.SetLimit(5)
 
 	for i, url := range urls {
 		i, url := i, url
 		g.Go(func() error {
 			results[i] = checkURL(ctx, url)
-			return nil // We collect errors in CheckResult, not via errgroup
+			return nil
 		})
 	}
 
@@ -101,25 +95,24 @@ func main() {
 		return
 	}
 
-	// Sort by latency (fastest first)
 	sort.Slice(results, func(i, j int) bool {
 		return results[i].Latency < results[j].Latency
 	})
 
-	fmt.Printf("%-45s %-8s %s\n", "URL", "STATUS", "LATENCY")
-	fmt.Printf("%-45s %-8s %s\n", "---", "------", "-------")
+	fmt.Printf("%-7s %-45s %-8s %s\n", "RESULT", "URL", "STATUS", "LATENCY")
+	fmt.Printf("%-7s %-45s %-8s %s\n", "------", "---", "------", "-------")
 
 	for _, r := range results {
 		if r.Error != nil {
-			fmt.Printf("%-45s %-8s %s\n", r.URL, "ERROR", r.Error)
+			fmt.Printf("%-7s %-45s %-8s %s\n", "ERROR", r.URL, "-", r.Error)
 			continue
 		}
-		status := fmt.Sprintf("%d", r.StatusCode)
-		icon := "✅"
+
+		result := "OK"
 		if r.StatusCode >= 400 {
-			icon = "❌"
+			result = "FAIL"
 		}
-		fmt.Printf("%s %-43s %-8s %v\n", icon, r.URL, status, r.Latency.Round(time.Millisecond))
+		fmt.Printf("%-7s %-45s %-8d %v\n", result, r.URL, r.StatusCode, r.Latency.Round(time.Millisecond))
 	}
 
 	fmt.Printf("\nTotal time: %v (would be %v sequential)\n",

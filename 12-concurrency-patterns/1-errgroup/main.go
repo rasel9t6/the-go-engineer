@@ -12,21 +12,21 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns � errgroup Basics
+// Section 12: Concurrency Patterns - errgroup Basics
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - errgroup.Group: the idiomatic replacement for sync.WaitGroup when goroutines can fail
-//   - How errgroup collects errors without channels or mutexes
+//   - How errgroup collects errors without extra channels or mutexes
 //   - The difference between WaitGroup and errgroup
-//   - Go() vs TryGo(): bounded concurrency without a semaphore channel
+//   - Go vs TryGo and SetLimit for bounded concurrency
 //
 // ENGINEERING DEPTH:
 //   errgroup.Group stores exactly one error: the first non-nil error returned
 //   by any goroutine. All other errors are discarded. This is the right default
-//   because returning ALL errors is rarely useful � a single failed database
-//   connection explains the cascade of failures that follows it.
+//   because returning every error is rarely useful once one failed dependency
+//   already explains the cascade of failures that follows it.
 //
 // RUN: go run ./12-concurrency-patterns/1-errgroup
 // ============================================================================
@@ -70,9 +70,9 @@ func main() {
 	}
 
 	if err := g.Wait(); err != nil {
-		fmt.Printf("? Health check failed (%.0fms): %v\n", float64(time.Since(start).Milliseconds()), err)
+		fmt.Printf("[FAIL] Health check failed (%dms): %v\n", time.Since(start).Milliseconds(), err)
 	} else {
-		fmt.Printf("? All services healthy (%.0fms)\n", float64(time.Since(start).Milliseconds()))
+		fmt.Printf("[OK] All services healthy (%dms)\n", time.Since(start).Milliseconds())
 		for _, r := range results {
 			if r != nil {
 				fmt.Printf("   %-20s latency: %v\n", r.Name, r.Latency)
@@ -129,7 +129,7 @@ func main() {
 	g3.Wait()
 
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("?? NEXT UP: CP.2 errgroup + context")
+	fmt.Println("NEXT UP: CP.2 errgroup + context")
 	fmt.Println("   Current: CP.1 (errgroup basics)")
 	fmt.Println("---------------------------------------------------")
 }

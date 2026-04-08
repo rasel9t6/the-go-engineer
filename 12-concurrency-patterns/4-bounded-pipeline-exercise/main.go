@@ -16,13 +16,11 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns — Exercise: Image Resizer SOLUTION
+// Section 12: Concurrency Patterns - Exercise: Image Resizer Solution
 // ============================================================================
 
-// 1. Create the sync.Pool
 var bufPool = sync.Pool{
 	New: func() any {
-		// Pre-allocate 2MB capacity per buffer
 		return bytes.NewBuffer(make([]byte, 0, 2*1024*1024))
 	},
 }
@@ -33,47 +31,38 @@ func main() {
 	fmt.Println("Starting batch job...")
 	start := time.Now()
 
-	// 2. Initialize errgroup.WithContext
 	g, ctx := errgroup.WithContext(context.Background())
-
-	// 3. Limit concurrency to 4
 	g.SetLimit(4)
 
 	for _, id := range imageIDs {
-		id := id // Capture loop variable
-
-		// 4. Launch the job via g.Go
+		id := id
 		g.Go(func() error {
 			return processImage(ctx, id)
 		})
 	}
 
-	// 5. Wait for the group to finish
 	if err := g.Wait(); err != nil {
-		fmt.Printf("âŒ Batch job failed: %v\n", err)
+		fmt.Printf("[FAIL] Batch job failed: %v\n", err)
 	} else {
-		fmt.Printf("âœ… Batch job completed successfully in %v\n", time.Since(start))
+		fmt.Printf("[OK] Batch job completed successfully in %v\n", time.Since(start))
 	}
 }
 
 func processImage(ctx context.Context, id string) error {
-	// Respect cancellation
 	select {
 	case <-ctx.Done():
 		return ctx.Err()
 	default:
 	}
 
-	// 6. Get a buffer from the pool and ensure it returns
 	buf := bufPool.Get().(*bytes.Buffer)
 	defer func() {
 		buf.Reset()
 		bufPool.Put(buf)
 	}()
 
-	// Simulate heavy work
 	buf.WriteString("simulated image data for " + id)
-	time.Sleep(100 * time.Millisecond) // Simulate processing time
+	time.Sleep(100 * time.Millisecond)
 
 	if id == "imgError" {
 		return fmt.Errorf("corrupt image data for %s", id)

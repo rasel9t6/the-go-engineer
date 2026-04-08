@@ -1,44 +1,80 @@
-# Section 12: Concurrency Patterns (errgroup & sync.Pool)
+# Section 12: Concurrency Patterns
 
-## Beginner → Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-| --- | --- | --- | --- |
-| `errgroup.Group` | Intermediate | **Critical** | Concurrent error collection, idiomatic WaitGroup replacement |
-| `errgroup` + context | Advanced | **Critical** | Automatic cancellation on first error |
-| `sync.Pool` | Advanced | High | Object reuse, GC pressure reduction |
-| Bounded worker pool | Expert | High | Semaphore + errgroup, back-pressure |
+This section teaches you the first production-shaped concurrency patterns that sit on top of the
+goroutine and context fundamentals from Section 11.
 
-## Engineering Depth
+By the end of the live v2 slice, you should be comfortable:
 
-`errgroup` is the missing piece between WaitGroup and channels. WaitGroup tells you *when* goroutines finish but discards their errors. Channels collect errors but require manual synchronization. `errgroup.Group` does both: it waits for all goroutines and returns the first non-nil error, cancelling all remaining work via context.
+- replacing bare `sync.WaitGroup` coordination with `errgroup` when work can fail
+- using `errgroup.WithContext` to cancel sibling work on the first failure
+- using `sync.Pool` deliberately when short-lived allocations become a real hotspot
+- building bounded concurrent pipelines instead of launching unbounded background work
+- combining concurrency control and operational safety in small real exercises
 
-`sync.Pool` is the most impactful memory optimization available in Go. A pool holds recycled objects. Instead of `make([]byte, 4096)` on every request (triggering GC), you `Get()` a pre-allocated buffer, use it, and `Put()` it back. The standard library uses pools everywhere: `fmt`, `encoding/json`, `net/http` all have internal pools.
+## Who Should Start Here
 
-**When to use sync.Pool:**
+### Full Path
 
-- Object allocation appears in pprof heap profile hot path
-- Objects are temporary: used briefly, then discarded
-- Object size is non-trivial: byte buffers, structs with multiple fields
+Start here after completing Section 11 in order.
 
-**When NOT to use sync.Pool:**
+### Bridge Path
 
-- Objects hold state between requests (race condition)
-- Allocation is not the bottleneck (profile first!)
-- Objects outlive the goroutine that created them
+You can move faster if you already understand:
+
+- goroutines, channels, and WaitGroups
+- context cancellation and timeouts
+- why temporary allocations can pressure the garbage collector
+
+Even on the bridge path, do not skip `CP.1` or `CP.2`.
+They establish the control-flow model the exercises rely on.
+
+## Current Section Map
+
+| Surface | Status | Entry | Milestone | Focus |
+| --- | --- | --- | --- | --- |
+| errgroup path | Live v2 slice | `CP.1` | `CP.5` | errgroup, cancellation, sync.Pool, and bounded concurrency |
+| Worker pool reference | Legacy reference | `6-worker-pool/` | `6-worker-pool/` | robust worker-pool design and shutdown boundaries |
+
+## Suggested Order
+
+1. Work through `CP.1`, `CP.2`, and `CP.3` in order.
+2. Complete `CP.4` as the first bounded-concurrency exercise.
+3. Complete `CP.5` as the live section capstone exercise.
+4. Use `6-worker-pool` as legacy reference material after the live slice.
+
+## Section Milestones
+
+This live v2 slice has two promoted exercise surfaces:
+
+- `CP.4` bounded pipeline exercise
+- `CP.5` URL health checker
+
+If you can complete them and explain:
+
+- why `errgroup` is safer than a bare WaitGroup when goroutines can fail
+- why `errgroup.WithContext` is the clean stop signal for sibling work
+- why `sync.Pool` only makes sense after you can explain the allocation problem it solves
+- why bounded concurrency is a systems-design choice, not just a syntax trick
+
+then you are ready to move into testing, quality, and performance work in Section 13.
+
+## Pilot Role In V2
+
+This live v2 slice keeps the current `12-concurrency-patterns` layout intact while promoting the
+main errgroup and pool path into the public curriculum graph:
+
+- `CP.1` through `CP.3` are the core lessons
+- `CP.4` and `CP.5` are the live exercises
+- `6-worker-pool` remains a legacy reference surface for later alpha work
 
 ## References
 
-- [golang.org/x/sync/errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)
-- [sync.Pool](https://pkg.go.dev/sync#Pool)
-- [Go Blog: Profiling Go Programs](https://go.dev/blog/pprof)
+1. [golang.org/x/sync/errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)
+2. [Package sync](https://pkg.go.dev/sync)
+3. [Go Blog: Profiling Go Programs](https://go.dev/blog/pprof)
 
-## Learning Path
+## Next Step
 
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| CP.1 | [errgroup basics](./1-errgroup) | errgroup.Group · g.Go · g.Wait · first-error semantics | 🟢 entry |
-| CP.2 | [errgroup + context](./2-errgroup-context) | WithContext · auto-cancel on first error · fan-out pipeline | CP.1 |
-| CP.3 | [sync.Pool](./3-sync-pool) | Get → use → Reset → Put · GC eviction · zero-alloc buffers | 🟢 entry |
-| CP.4 | [bounded pipeline](./4-bounded-pipeline-exercise) | Semaphore + errgroup · backpressure · production-grade pipeline | CP.1, CP.2 |
-| CP.5 | [url checker](./5-url-checker-exercise) | Practical exercise combining errgroup and context | CP.1, CP.2 |
+After `CP.5`, continue to [Section 13: Quality and Performance](../13-quality-and-performance).

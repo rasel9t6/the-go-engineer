@@ -10,34 +10,27 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns � sync.Pool
+// Section 12: Concurrency Patterns - sync.Pool
 // Level: Advanced
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - sync.Pool: reuse temporary objects to reduce GC pressure
-//   - The correct Get() ? use ? reset ? Put() lifecycle
-//   - Why you MUST reset objects before Put()
-//   - Building a production-grade byte buffer pool (used by fmt, json, http)
+//   - The correct Get -> use -> Reset -> Put lifecycle
+//   - Why you must reset objects before Put
+//   - Building a byte-buffer pool similar to real standard-library patterns
 //   - How to benchmark pool impact with testing.B
 //
 // ENGINEERING DEPTH:
 //   Go's garbage collector runs when allocated heap exceeds a threshold.
-//   A service processing 10,000 requests/sec may allocate 10,000 * 4096 bytes
-//   = 40MB per second just for temporary buffers. When GC runs to reclaim this
-//   memory, every goroutine in the program is paused for microseconds (STW:
-//   Stop The World). At 99th percentile this becomes your latency spike.
+//   A service processing 10,000 requests per second may allocate tens of MB per
+//   second just for temporary buffers. When GC runs to reclaim this memory, you
+//   pay extra latency. sync.Pool reduces that churn by recycling short-lived
+//   objects between GC cycles.
 //
-//   sync.Pool solves this by keeping a set of pooled objects. Between GC cycles,
-//   Get() returns a recycled object and Put() returns it. During GC, the pool
-//   is cleared (the GC intentionally evicts pools to prevent memory leaks from
-//   objects that should have been freed). Objects MUST therefore be treated as
-//   temporary � never assume an object from the pool is clean or that a Put()
-//   object will be returned by the next Get().
-//
-//   PRODUCTION RULE: Reset the object (buf.Reset(), clear the struct) before
-//   Put(). Otherwise the next caller gets stale data � a serious security bug
-//   if the buffer contains HTTP headers or auth tokens.
+//   Pools are intentionally cleared during GC, so you must treat pooled objects
+//   as temporary. Never assume the next Get returns your previous Put, and
+//   always reset the object before handing it back.
 //
 // RUN: go run ./12-concurrency-patterns/3-sync-pool
 // ============================================================================
@@ -131,7 +124,7 @@ func main() {
 	fmt.Println("Processed:", processRequest("usr_99", "req_002"))
 
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("?? NEXT UP: TE.1 unit testing")
+	fmt.Println("NEXT UP: CP.4 bounded pipeline exercise")
 	fmt.Println("   Current: CP.3 (sync.Pool)")
 	fmt.Println("---------------------------------------------------")
 }

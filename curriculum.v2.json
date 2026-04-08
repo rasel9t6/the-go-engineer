@@ -158,6 +158,26 @@
         "CT.5",
         "TM.7"
       ]
+    },
+    {
+      "id": "s12",
+      "number": "12",
+      "slug": "concurrency-patterns",
+      "title": "Concurrency Patterns",
+      "phase": "systems",
+      "summary": "Teach errgroup, context-driven cancellation, and deliberate sync.Pool usage through bounded concurrency exercises while leaving the worker-pool reference surface available for later alpha work.",
+      "status": "pilot",
+      "prerequisites": [
+        "s11"
+      ],
+      "path_prefix": "12-concurrency-patterns",
+      "entry_points": [
+        "CP.1"
+      ],
+      "outputs": [
+        "CP.4",
+        "CP.5"
+      ]
     }
   ],
   "items": [
@@ -2430,6 +2450,170 @@
         "time",
         "ticker",
         "reminder"
+      ]
+    },
+    {
+      "id": "CP.1",
+      "section_id": "s12",
+      "slug": "errgroup-basics",
+      "title": "errgroup Basics",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Introduce errgroup as the safer coordination tool when concurrent work can fail.",
+      "objectives": [
+        "Use errgroup.Group to launch concurrent work that can return errors",
+        "Explain how errgroup differs from a bare sync.WaitGroup"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Concurrent service startup and fan-out flows often need one coordination point that can surface failure instead of silently discarding it.",
+      "path": "12-concurrency-patterns/1-errgroup",
+      "run_command": "go run ./12-concurrency-patterns/1-errgroup",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CP.2"
+      ],
+      "tags": [
+        "concurrency",
+        "errgroup",
+        "errors"
+      ]
+    },
+    {
+      "id": "CP.2",
+      "section_id": "s12",
+      "slug": "errgroup-with-context",
+      "title": "errgroup with Context Cancellation",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Teach automatic sibling cancellation with errgroup.WithContext in fan-out workflows.",
+      "objectives": [
+        "Use errgroup.WithContext to stop sibling goroutines on the first failure",
+        "Explain how context cancellation propagates through the worker pipeline"
+      ],
+      "prerequisites": [
+        "CP.1"
+      ],
+      "production_relevance": "Service fan-out paths need automatic stop signals or they keep wasting work after a failure already decided the outcome.",
+      "path": "12-concurrency-patterns/2-errgroup-context",
+      "run_command": "go run ./12-concurrency-patterns/2-errgroup-context",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CP.3"
+      ],
+      "tags": [
+        "concurrency",
+        "errgroup",
+        "context"
+      ]
+    },
+    {
+      "id": "CP.3",
+      "section_id": "s12",
+      "slug": "sync-pool",
+      "title": "sync.Pool",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "mixed",
+      "estimated_time": 35,
+      "summary": "Introduce sync.Pool for short-lived object reuse and the reset discipline it requires.",
+      "objectives": [
+        "Use Get, Reset, and Put safely with temporary pooled objects",
+        "Explain why sync.Pool is for measured allocation pressure, not default design"
+      ],
+      "prerequisites": [
+        "CP.1",
+        "CP.2"
+      ],
+      "production_relevance": "Pools help reduce allocation churn in hot paths, but only when used deliberately and reset correctly to avoid stale-data bugs.",
+      "path": "12-concurrency-patterns/3-sync-pool",
+      "run_command": "go run ./12-concurrency-patterns/3-sync-pool",
+      "test_command": "go test ./12-concurrency-patterns/3-sync-pool",
+      "starter_path": "",
+      "next_items": [
+        "CP.4"
+      ],
+      "tags": [
+        "concurrency",
+        "sync.Pool",
+        "memory"
+      ]
+    },
+    {
+      "id": "CP.4",
+      "section_id": "s12",
+      "slug": "bounded-pipeline-exercise",
+      "title": "Bounded Pipeline Exercise",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 75,
+      "summary": "Combine errgroup, cancellation, SetLimit, and sync.Pool in one bounded-concurrency exercise.",
+      "objectives": [
+        "Build a bounded concurrent pipeline that stops on the first failure",
+        "Reuse large temporary buffers instead of allocating one per work item"
+      ],
+      "prerequisites": [
+        "CP.1",
+        "CP.2",
+        "CP.3"
+      ],
+      "production_relevance": "Bounded fan-out plus buffer reuse is a common production pattern when throughput matters more than launching unlimited parallel work.",
+      "path": "12-concurrency-patterns/4-bounded-pipeline-exercise",
+      "run_command": "go run ./12-concurrency-patterns/4-bounded-pipeline-exercise",
+      "test_command": "",
+      "starter_path": "12-concurrency-patterns/4-bounded-pipeline-exercise/_starter",
+      "next_items": [
+        "CP.5"
+      ],
+      "tags": [
+        "exercise",
+        "concurrency",
+        "errgroup",
+        "sync.Pool"
+      ]
+    },
+    {
+      "id": "CP.5",
+      "section_id": "s12",
+      "slug": "url-health-checker",
+      "title": "URL Health Checker",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 80,
+      "summary": "Build a latency-aware URL checker with bounded fan-out and pooled clients.",
+      "objectives": [
+        "Run concurrent HTTP checks with errgroup and bounded fan-out",
+        "Collect stable, latency-sorted results without losing per-request detail"
+      ],
+      "prerequisites": [
+        "CP.1",
+        "CP.2",
+        "CP.3",
+        "CP.4"
+      ],
+      "production_relevance": "Health checks and outbound service probes are a real concurrency workload: they need limits, cancellation, and predictable result handling.",
+      "path": "12-concurrency-patterns/5-url-checker-exercise",
+      "run_command": "go run ./12-concurrency-patterns/5-url-checker-exercise",
+      "test_command": "",
+      "starter_path": "12-concurrency-patterns/5-url-checker-exercise/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "concurrency",
+        "http",
+        "health-check"
       ]
     }
   ]
