@@ -16,7 +16,7 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns â€” Exercise: Image Resizer SOLUTION
+// Section 12: Concurrency Patterns — Exercise: Image Resizer SOLUTION
 // ============================================================================
 
 // 1. Create the sync.Pool

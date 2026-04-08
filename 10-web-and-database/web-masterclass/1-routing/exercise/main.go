@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Web Masterclass â€” Routing Exercise
+// Section 10: Web Masterclass — Routing Exercise
 // Level: Beginner
 // ============================================================================
 //
@@ -55,7 +55,7 @@ func main() {
 
 	// Start the server
 	port := 8080
-	fmt.Printf("ðŸš€ Bookstore server starting exactly on http://localhost:%d\n", port)
+	fmt.Printf("🚀 Bookstore server starting exactly on http://localhost:%d\n", port)
 
 	// http.ListenAndServe blocks forever unless there's a fatal error.
 	err := http.ListenAndServe(fmt.Sprintf(":%d", port), mux)

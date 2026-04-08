@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Concurrency â€” Concurrent Downloader (Exercise)
+// Section 11: Concurrency — Concurrent Downloader (Exercise)
 // Level: Advanced
 // ============================================================================
 //

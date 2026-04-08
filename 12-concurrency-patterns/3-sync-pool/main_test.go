@@ -6,7 +6,7 @@ package main
 import "testing"
 
 // ============================================================================
-// Benchmarks â€” run with: go test -bench=. -benchmem ./12-concurrency-patterns/3-sync-pool
+// Benchmarks — run with: go test -bench=. -benchmem ./12-concurrency-patterns/3-sync-pool
 // ============================================================================
 
 func BenchmarkWithPool(b *testing.B) {
