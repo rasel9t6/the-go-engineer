@@ -1706,9 +1706,7 @@
         "Explain why database drivers use blank imports for registration",
         "Distinguish sql.Open setup from a real connectivity check with db.Ping"
       ],
-      "prerequisites": [
-        "FS.7"
-      ],
+      "prerequisites": [],
       "production_relevance": "Database connectivity bugs often come from misunderstanding lazy connection setup and connection-pool behavior.",
       "path": "10-web-and-database/databases/1-connecting-to-db",
       "run_command": "go run ./10-web-and-database/databases/1-connecting-to-db",
