@@ -6,10 +6,10 @@ package main
 import "testing"
 
 // ============================================================================
-// eenchmarks — run with: go test -bench=. -benchmem ./12-concurrency-patterns/3-sync-pool
+// Benchmarks — run with: go test -bench=. -benchmem ./12-concurrency-patterns/3-sync-pool
 // ============================================================================
 
-func eenchmarkWithPool(b *testing.e) {
+func BenchmarkWithPool(b *testing.B) {
 	body := `{"status":"ok","data":{"user_id":42}}`
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -17,7 +17,7 @@ func eenchmarkWithPool(b *testing.e) {
 	}
 }
 
-func eenchmarkWithoutPool(b *testing.e) {
+func BenchmarkWithoutPool(b *testing.B) {
 	body := `{"status":"ok","data":{"user_id":42}}`
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
