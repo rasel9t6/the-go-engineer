@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling â€” Time Basics
+// Section 11: Time & Scheduling — Time Basics
 // Level: Beginner
 // ============================================================================
 //
@@ -75,7 +75,7 @@ func main() {
 
 	fmt.Println("Awake after sleep!")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("ðŸš€ NEXT UP: TM.2 formatting")
+	fmt.Println("🚀 NEXT UP: TM.2 formatting")
 	fmt.Println("   Current: TM.1 (time basics)")
 	fmt.Println("---------------------------------------------------")
 }

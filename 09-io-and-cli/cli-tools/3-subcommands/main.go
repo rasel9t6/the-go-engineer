@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools â€” Subcommands
+// Section 19: CLI Tools — Subcommands
 // Level: Advanced
 // ============================================================================
 //
@@ -62,7 +62,7 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("ðŸš€ NEXT UP: DB.1 connecting")
+	fmt.Println("🚀 NEXT UP: DB.1 connecting")
 	fmt.Println("   Current: CL.3 (subcommands)")
 	fmt.Println("---------------------------------------------------")
 }

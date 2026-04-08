@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Time & Scheduling â€” Cron-like Scheduling
+// Section 11: Time & Scheduling — Cron-like Scheduling
 // Level: Advanced
 // ============================================================================
 //
@@ -218,7 +218,7 @@ func main() {
 
 	scheduler.globalWg.Wait()
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("ðŸš€ NEXT UP: TM.6 timezones")
+	fmt.Println("🚀 NEXT UP: TM.6 timezones")
 	fmt.Println("   Current: TM.5 (scheduler)")
 	fmt.Println("---------------------------------------------------")
 }

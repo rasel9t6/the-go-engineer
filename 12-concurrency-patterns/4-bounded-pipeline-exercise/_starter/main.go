@@ -14,7 +14,7 @@ import (
 )
 
 // ============================================================================
-// Section 12: Concurrency Patterns â€” Exercise: Image Resizer
+// Section 12: Concurrency Patterns — Exercise: Image Resizer
 // Level: Intermediate/Advanced
 // ============================================================================
 //

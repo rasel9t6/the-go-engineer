@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 11: Context â€” Timeout-Aware API Client (Exercise Starter)
+// Section 11: Context — Timeout-Aware API Client (Exercise Starter)
 // Level: Advanced
 // ============================================================================
 //

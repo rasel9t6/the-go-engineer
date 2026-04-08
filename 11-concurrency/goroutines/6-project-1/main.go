@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 11: Concurrency â€” Pipeline Project
+// Section 11: Concurrency — Pipeline Project
 // Level: Advanced
 // ============================================================================
 //
@@ -88,7 +88,7 @@ func main() {
 	<-done
 	fmt.Println("done")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("ðŸš€ NEXT UP: â­ GC.8 race conditions")
+	fmt.Println("🚀 NEXT UP: ⭐ GC.8 race conditions")
 	fmt.Println("   Current: GC.6 (pipeline project)")
 	fmt.Println("---------------------------------------------------")
 }

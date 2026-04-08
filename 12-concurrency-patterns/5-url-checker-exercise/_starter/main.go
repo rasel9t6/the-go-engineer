@@ -6,7 +6,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 12: Concurrency Patterns â€” URL Health Checker (Exercise Starter)
+// Section 12: Concurrency Patterns — URL Health Checker (Exercise Starter)
 // Level: Advanced
 // ============================================================================
 //
