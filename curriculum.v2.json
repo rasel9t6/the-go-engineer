@@ -178,6 +178,27 @@
         "CP.4",
         "CP.5"
       ]
+    },
+    {
+      "id": "s13",
+      "number": "13",
+      "slug": "quality-and-performance",
+      "title": "Quality and Performance",
+      "phase": "systems",
+      "summary": "Teach the core testing and profiling habits that help Go engineers prove correctness and investigate performance before reaching for bigger architecture changes.",
+      "status": "pilot",
+      "prerequisites": [
+        "s12"
+      ],
+      "path_prefix": "13-quality-and-performance",
+      "entry_points": [
+        "TE.1",
+        "PR.1"
+      ],
+      "outputs": [
+        "TE.4",
+        "PR.2"
+      ]
     }
   ],
   "items": [
@@ -2614,6 +2635,192 @@
         "concurrency",
         "http",
         "health-check"
+      ]
+    },
+    {
+      "id": "TE.1",
+      "section_id": "s13",
+      "slug": "unit-testing",
+      "title": "Unit Testing",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "test",
+      "estimated_time": 30,
+      "summary": "Introduce Go's built-in testing package through small focused unit tests.",
+      "objectives": [
+        "Write tests with testing.T and standard Go test file conventions",
+        "Explain why simple tests should stay close to the code they verify"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Reliable services depend on small fast tests that catch regressions before review and deployment.",
+      "path": "13-quality-and-performance/testing/user",
+      "run_command": "",
+      "test_command": "go test ./13-quality-and-performance/testing/user",
+      "starter_path": "",
+      "next_items": [
+        "TE.2"
+      ],
+      "tags": [
+        "testing",
+        "unit-test",
+        "quality"
+      ]
+    },
+    {
+      "id": "TE.2",
+      "section_id": "s13",
+      "slug": "table-driven-tests",
+      "title": "Table-Driven Tests",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "test",
+      "estimated_time": 30,
+      "summary": "Teach the idiomatic Go pattern for structured test case tables and sub-tests.",
+      "objectives": [
+        "Use a test-case table to cover multiple inputs without copy-pasting test functions",
+        "Use t.Run to isolate failures per case"
+      ],
+      "prerequisites": [
+        "TE.1"
+      ],
+      "production_relevance": "Table-driven tests scale better than one-off assertions when behavior has many input variations.",
+      "path": "13-quality-and-performance/testing/user",
+      "run_command": "",
+      "test_command": "go test ./13-quality-and-performance/testing/user",
+      "starter_path": "",
+      "next_items": [
+        "TE.3"
+      ],
+      "tags": [
+        "testing",
+        "table-driven",
+        "subtests"
+      ]
+    },
+    {
+      "id": "TE.3",
+      "section_id": "s13",
+      "slug": "http-handler-testing",
+      "title": "HTTP Handler Testing",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "test",
+      "estimated_time": 30,
+      "summary": "Show how to test handlers with httptest instead of starting a real HTTP server.",
+      "objectives": [
+        "Use httptest.NewRecorder and httptest.NewRequest to exercise handler behavior",
+        "Explain why handler tests should stay server-free at the unit level"
+      ],
+      "prerequisites": [
+        "TE.1",
+        "TE.2"
+      ],
+      "production_relevance": "Handler tests give fast confidence on status codes, bodies, and method handling without bringing network flakiness into the feedback loop.",
+      "path": "13-quality-and-performance/testing/user",
+      "run_command": "",
+      "test_command": "go test ./13-quality-and-performance/testing/user",
+      "starter_path": "",
+      "next_items": [
+        "TE.4"
+      ],
+      "tags": [
+        "testing",
+        "httptest",
+        "http"
+      ]
+    },
+    {
+      "id": "TE.4",
+      "section_id": "s13",
+      "slug": "benchmarking",
+      "title": "Benchmarking",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "test",
+      "estimated_time": 35,
+      "summary": "Introduce testing.B, sub-benchmarks, and allocation-aware benchmark interpretation.",
+      "objectives": [
+        "Write benchmarks with testing.B and b.ReportAllocs",
+        "Explain how setup and allocation noise can distort benchmark conclusions"
+      ],
+      "prerequisites": [
+        "TE.1",
+        "TE.2"
+      ],
+      "production_relevance": "Benchmarks let engineers validate performance claims before and after a change instead of arguing from intuition.",
+      "path": "13-quality-and-performance/testing/benchmarks",
+      "run_command": "",
+      "test_command": "go test -bench=. -benchmem ./13-quality-and-performance/testing/benchmarks",
+      "starter_path": "",
+      "next_items": [],
+      "tags": [
+        "testing",
+        "benchmark",
+        "performance"
+      ]
+    },
+    {
+      "id": "PR.1",
+      "section_id": "s13",
+      "slug": "cpu-profile",
+      "title": "CPU Profile",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Teach offline CPU profiling with runtime/pprof and the before-profile-after workflow.",
+      "objectives": [
+        "Capture a CPU profile and inspect it with go tool pprof",
+        "Explain the difference between flat and cumulative time"
+      ],
+      "prerequisites": [],
+      "production_relevance": "CPU profiles reveal hot paths and expensive functions that benchmarks alone cannot prioritize in a whole program.",
+      "path": "13-quality-and-performance/profiling/1-cpu-profile",
+      "run_command": "go run ./13-quality-and-performance/profiling/1-cpu-profile",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "PR.2"
+      ],
+      "tags": [
+        "profiling",
+        "pprof",
+        "cpu"
+      ]
+    },
+    {
+      "id": "PR.2",
+      "section_id": "s13",
+      "slug": "live-pprof-endpoint",
+      "title": "Live pprof Endpoint",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 40,
+      "summary": "Expose a live pprof endpoint on an internal-only port and inspect a running service under load.",
+      "objectives": [
+        "Expose live pprof endpoints safely on a separate internal port",
+        "Use live CPU and heap endpoints to inspect a running service"
+      ],
+      "prerequisites": [
+        "PR.1"
+      ],
+      "production_relevance": "Live pprof is how teams investigate CPU, heap, goroutine, and mutex behavior in production-like conditions without guessing.",
+      "path": "13-quality-and-performance/profiling/3-http-pprof",
+      "run_command": "go run ./13-quality-and-performance/profiling/3-http-pprof",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [],
+      "tags": [
+        "profiling",
+        "pprof",
+        "http"
       ]
     }
   ]

@@ -15,7 +15,7 @@ import (
 )
 
 // ============================================================================
-// Section 14: Testing — HTTP Handlers (`httptest`)
+// Section 13: Quality and Performance - HTTP Handlers (`httptest`)
 // Level: Intermediate
 // ============================================================================
 //
@@ -27,11 +27,9 @@ import (
 // ENGINEERING DEPTH:
 //   Starting a real web server (e.g. `http.ListenAndServe`) inside a unit
 //   test is slow, brittle, and can cause port conflicts.
-//   Instead, the `httptest` package provides a "fake" ResponseWriter
-//   (`ResponseRecorder`) that records exactly what the handler writes to it!
+//   Instead, the `httptest` package provides a fake ResponseWriter
+//   (`ResponseRecorder`) that records exactly what the handler writes to it.
 // ============================================================================
-
-// --- 1. The Handlers (Code Under Test) ---
 
 // HelloWorldHandler simply returns a static greeting.
 func HelloWorldHandler(w http.ResponseWriter, r *http.Request) {
@@ -56,40 +54,28 @@ func EchoHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(body)
 }
 
-// --- 2. The Tests ---
-
 func TestHelloWorldHandler(t *testing.T) {
-	// 1. Create a fake request
 	req := httptest.NewRequest(http.MethodGet, "/hello", nil)
-
-	// 2. Create a ResponseRecorder (our fake ResponseWriter)
 	recorder := httptest.NewRecorder()
 
-	// 3. Call the handler directly! No server needed.
 	HelloWorldHandler(recorder, req)
 
-	// 4. Assert the recorded response
 	assert.Equal(t, http.StatusOK, recorder.Code)
 
-	// Read the body that was captured by the recorder
 	bodyBytes, err := io.ReadAll(recorder.Body)
 	assert.NoError(t, err)
 	assert.Equal(t, "Hello World!", string(bodyBytes))
 }
 
 func TestEchoHandler(t *testing.T) {
-	// We want to test the POST echo functionality
 	payload := `{"id": 123, "action": "echo"}`
 	bodyReader := bytes.NewBufferString(payload)
 
-	// 1. Fake POST Request with a body
 	req := httptest.NewRequest(http.MethodPost, "/echo", bodyReader)
 	recorder := httptest.NewRecorder()
 
-	// 2. Execute
 	EchoHandler(recorder, req)
 
-	// 3. Assert Success
 	assert.Equal(t, http.StatusOK, recorder.Code)
 
 	responseBody, _ := io.ReadAll(recorder.Body)
@@ -97,17 +83,13 @@ func TestEchoHandler(t *testing.T) {
 }
 
 func TestEchoHandler_WrongMethod(t *testing.T) {
-	// 1. Fake GET Request (Handler expects POST)
 	req := httptest.NewRequest(http.MethodGet, "/echo", nil)
 	recorder := httptest.NewRecorder()
 
-	// 2. Execute
 	EchoHandler(recorder, req)
 
-	// 3. Assert Failure
 	assert.Equal(t, http.StatusMethodNotAllowed, recorder.Code)
 
-	// http.Error automatically adds a newline
 	responseBody, _ := io.ReadAll(recorder.Body)
 	assert.Equal(t, "Method not allowed\n", string(responseBody))
 }

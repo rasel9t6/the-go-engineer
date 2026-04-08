@@ -9,13 +9,13 @@ import (
 	"log/slog"
 	"math/rand"
 	"net/http"
-	_ "net/http/pprof" // Side-effect import: registers /debug/pprof/* handlers
+	_ "net/http/pprof"
 	"sync"
 	"time"
 )
 
 // ============================================================================
-// Section 25: Profiling — Live pprof HTTP Endpoint
+// Section 13: Quality and Performance - Live pprof HTTP Endpoint
 // Level: Advanced
 // ============================================================================
 //
@@ -28,24 +28,24 @@ import (
 // AFTER RUNNING THIS PROGRAM:
 //
 //   # 5-second CPU profile (captures what the server is doing right now)
-//   go tool pprof http://localhost:8080/debug/pprof/profile?seconds=5
+//   go tool pprof http://localhost:6060/debug/pprof/profile?seconds=5
 //
 //   # Heap / memory profile
-//   go tool pprof http://localhost:8080/debug/pprof/heap
+//   go tool pprof http://localhost:6060/debug/pprof/heap
 //
 //   # All currently running goroutines (detect goroutine leaks)
-//   curl http://localhost:8080/debug/pprof/goroutine?debug=2
+//   curl http://localhost:6060/debug/pprof/goroutine?debug=2
 //
 //   # Mutex contention profile (see which mutexes are blocking goroutines)
-//   go tool pprof http://localhost:8080/debug/pprof/mutex
+//   go tool pprof http://localhost:6060/debug/pprof/mutex
 //
 //   # Open interactive web UI for any profile:
-//   go tool pprof -http=:8090 http://localhost:8080/debug/pprof/profile?seconds=5
+//   go tool pprof -http=:8090 http://localhost:6060/debug/pprof/profile?seconds=5
 //
 // SECURITY NOTE:
 //   NEVER expose /debug/pprof on a public internet-facing port. pprof exposes
 //   symbol names, goroutine stacks (which may contain secrets), and heap contents.
-//   The standard pattern is to run a SEPARATE internal admin server on an
+//   The standard pattern is to run a separate internal admin server on an
 //   internal port that only VPN-connected engineers can reach:
 //
 //     go http.ListenAndServe(":6060", nil) // pprof on internal port
@@ -63,7 +63,7 @@ func simulateWork(intensity int) {
 	_ = sum
 }
 
-// contentionHotspot demonstrates mutex contention — visible in pprof mutex profile.
+// contentionHotspot demonstrates mutex contention visible in the pprof mutex profile.
 var sharedCache struct {
 	sync.RWMutex
 	data map[string]string
@@ -77,15 +77,12 @@ func initCache() {
 }
 
 func handleAPIRequest(w http.ResponseWriter, r *http.Request) {
-	// Simulate a compute-intensive operation (shows up in CPU profile)
 	simulateWork(10)
 
-	// Read from the shared cache (holds RLock briefly)
 	sharedCache.RLock()
 	val := sharedCache.data[fmt.Sprintf("key_%d", rand.Intn(1000))]
 	sharedCache.RUnlock()
 
-	// Occasionally write to the cache (holds full Lock — contention point)
 	if rand.Intn(20) == 0 {
 		key := fmt.Sprintf("key_%d", rand.Intn(1000))
 		sharedCache.Lock()
@@ -101,7 +98,6 @@ func handleHealthz(w http.ResponseWriter, r *http.Request) {
 }
 
 func generateLoad(duration time.Duration) {
-	// Send a constant stream of requests to the server to make profiles non-trivial.
 	client := &http.Client{Timeout: 2 * time.Second}
 	deadline := time.Now().Add(duration)
 	var wg sync.WaitGroup
@@ -115,7 +111,7 @@ func generateLoad(duration time.Duration) {
 				resp.Body.Close()
 			}
 		}()
-		time.Sleep(5 * time.Millisecond) // 200 req/s
+		time.Sleep(5 * time.Millisecond)
 	}
 	wg.Wait()
 }
@@ -123,32 +119,22 @@ func generateLoad(duration time.Duration) {
 func main() {
 	initCache()
 
-	// =========================================================================
-	// Two-port pattern: public API on :8080, pprof on :6060
-	// =========================================================================
-	// This is the production-safe way to run pprof. Port 6060 is only
-	// accessible via VPN or kubectl port-forward — never exposed publicly.
-
-	// Public API mux
+	// Two-port pattern: public API on :8080, pprof on :6060.
+	// This is the production-safe way to run pprof.
 	apiMux := http.NewServeMux()
 	apiMux.HandleFunc("GET /api/v1/data", handleAPIRequest)
 	apiMux.HandleFunc("GET /healthz", handleHealthz)
 
-	// Internal admin mux — pprof handlers registered via the blank import above.
-	// The blank import `_ "net/http/pprof"` registers all /debug/pprof/* handlers
-	// on the DEFAULT ServeMux (http.DefaultServeMux). We serve them separately.
-	// DO NOT add pprof to apiMux — that would expose it publicly.
-
+	// The blank import registers /debug/pprof/* handlers on DefaultServeMux.
+	// We serve them separately so profiling stays on an internal-only port.
 	slog.Info("public API starting", "addr", ":8080")
 	slog.Info("pprof admin starting", "addr", ":6060")
 	slog.Info("take a CPU profile with: go tool pprof http://localhost:6060/debug/pprof/profile?seconds=5")
 
-	// Start pprof server (internal only, uses DefaultServeMux)
 	go func() {
-		log.Fatal(http.ListenAndServe(":6060", nil)) // nil = DefaultServeMux with pprof
+		log.Fatal(http.ListenAndServe(":6060", nil))
 	}()
 
-	// Generate load after a short delay to let the server start
 	go func() {
 		time.Sleep(500 * time.Millisecond)
 		slog.Info("generating load for 30 seconds...")
@@ -156,18 +142,5 @@ func main() {
 		slog.Info("load generation complete")
 	}()
 
-	// Start public API server
 	log.Fatal(http.ListenAndServe(":8080", apiMux))
-
-	// KEY TAKEAWAY:
-	// - `_ "net/http/pprof"` registers /debug/pprof/* on DefaultServeMux
-	// - NEVER mix pprof with your public API mux — use a separate port
-	// - go tool pprof -http=:8090 <url> gives the full interactive web UI
-	// - Goroutine profile detects leaks: /debug/pprof/goroutine?debug=2
-	// - Mutex profile shows lock contention: /debug/pprof/mutex
-	// - Heap profile shows live allocations: /debug/pprof/heap
-	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: PD.1 naming")
-	fmt.Println("   Current: PR.2 (live pprof endpoint)")
-	fmt.Println("---------------------------------------------------")
 }
