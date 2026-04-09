@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 0: Getting Started — Hello, World!
+// Section 01: Core Foundations — Hello, World!
 // Level: Beginner
 // ============================================================================
 //
@@ -120,7 +120,7 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GS.3 how-go-works")
-	fmt.Println("   Current: GS.2 (hello-world)")
+	fmt.Println("🚀 NEXT UP: GT.3 how-go-works")
+	fmt.Println("   Current: GT.2 (hello-world)")
 	fmt.Println("---------------------------------------------------")
 }

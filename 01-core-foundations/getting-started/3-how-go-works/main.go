@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 0: Getting Started — How Go Works
+// Section 01: Core Foundations — How Go Works
 // Level: Beginner
 // ============================================================================
 //
@@ -152,7 +152,7 @@ func main() {
 	fmt.Println("  4. The standard library is massive — learn it before reaching for external packages")
 	fmt.Println()
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GS.4 dev-environment")
-	fmt.Println("   Current: GS.3 (how-go-works)")
+	fmt.Println("🚀 NEXT UP: GT.4 dev-environment")
+	fmt.Println("   Current: GT.3 (how-go-works)")
 	fmt.Println("---------------------------------------------------")
 }

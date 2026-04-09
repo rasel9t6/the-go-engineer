@@ -10,7 +10,7 @@ import (
 )
 
 // ============================================================================
-// Section 0: Getting Started — Installation Verification
+// Section 01: Core Foundations — Installation Verification
 // Level: Beginner
 // ============================================================================
 //
@@ -51,7 +51,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("🎉 Your Go development environment is ready to hack!")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: GS.2 hello-world")
-	fmt.Println("   Current: GS.1 (installation)")
+	fmt.Println("🚀 NEXT UP: GT.2 hello-world")
+	fmt.Println("   Current: GT.1 (installation)")
 	fmt.Println("---------------------------------------------------")
 }

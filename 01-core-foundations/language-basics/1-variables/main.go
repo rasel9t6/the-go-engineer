@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 1: Language Basics — Variables & Types
+// Section 01: Core Foundations — Variables & Types
 // Level: Beginner
 // ============================================================================
 //

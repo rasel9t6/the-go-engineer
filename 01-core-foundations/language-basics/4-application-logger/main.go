@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 1: Language Basics — Application Logger (Exercise)
+// Section 01: Core Foundations — Application Logger (Exercise)
 // Level: Beginner
 // ============================================================================
 //
@@ -87,4 +87,8 @@ func main() {
 	//   3. fmt.Stringer interface (String() method)
 	//   4. Defensive programming (bounds checking)
 	// These patterns appear in every production Go codebase.
+
+	fmt.Println()
+	fmt.Println("🎉 Section 01 complete! You're ready for Control Flow.")
+	fmt.Println("   Next: Section 02 Control Flow")
 }

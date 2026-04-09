@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 1: Language Basics — Constants
+// Section 01: Core Foundations — Constants
 // Level: Beginner
 // ============================================================================
 //

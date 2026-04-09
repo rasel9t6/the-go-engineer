@@ -2,6 +2,24 @@
   "schema_version": 1,
   "sections": [
     {
+      "id": "s01",
+      "number": "01",
+      "slug": "core-foundations",
+      "title": "Core Foundations",
+      "phase": "foundations",
+      "summary": "Teach learners to install Go, run their first programs, and build confidence with variables, constants, and enum-like values.",
+      "status": "pilot",
+      "prerequisites": [],
+      "path_prefix": "01-core-foundations",
+      "entry_points": [
+        "GT.1",
+        "LB.1"
+      ],
+      "outputs": [
+        "LB.4"
+      ]
+    },
+    {
       "id": "s04",
       "number": "04",
       "slug": "functions-and-errors",
@@ -244,6 +262,258 @@
     }
   ],
   "items": [
+    {
+      "id": "GT.1",
+      "section_id": "s01",
+      "slug": "installation",
+      "title": "Installation Verification",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 15,
+      "summary": "Verify a working Go installation and inspect the basic local Go environment.",
+      "objectives": [
+        "Confirm that Go is installed and runnable on the learner's machine",
+        "Explain what core environment details like GOOS, GOARCH, and GOPATH mean at a basic level"
+      ],
+      "prerequisites": [],
+      "production_relevance": "A learner cannot build reliable habits until the local Go toolchain and environment are actually working.",
+      "path": "01-core-foundations/getting-started/1-installation",
+      "run_command": "go run ./01-core-foundations/getting-started/1-installation",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GT.2"
+      ],
+      "tags": [
+        "setup",
+        "tooling",
+        "entry"
+      ]
+    },
+    {
+      "id": "GT.2",
+      "section_id": "s01",
+      "slug": "hello-world",
+      "title": "Hello World",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 20,
+      "summary": "Read and run the smallest complete Go program while learning the basic structure of main packages.",
+      "objectives": [
+        "Identify the role of package main and func main in a runnable Go program",
+        "Explain what import and fmt.Println are doing in the first example"
+      ],
+      "prerequisites": [
+        "GT.1"
+      ],
+      "production_relevance": "Understanding the minimal shape of a Go program makes later package, tool, and build concepts much easier to absorb.",
+      "path": "01-core-foundations/getting-started/2-hello-world",
+      "run_command": "go run ./01-core-foundations/getting-started/2-hello-world",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GT.3"
+      ],
+      "tags": [
+        "entry",
+        "main",
+        "syntax"
+      ]
+    },
+    {
+      "id": "GT.3",
+      "section_id": "s01",
+      "slug": "how-go-works",
+      "title": "How Go Works",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Explain packages, compilation, and exported names in approachable language for first-time learners.",
+      "objectives": [
+        "Describe the compile-run cycle at a beginner-friendly level",
+        "Recognize the meaning of exported and unexported names in Go"
+      ],
+      "prerequisites": [
+        "GT.2"
+      ],
+      "production_relevance": "Early package and compilation intuition reduces confusion once the curriculum reaches modules, testing, and architecture.",
+      "path": "01-core-foundations/getting-started/3-how-go-works",
+      "run_command": "go run ./01-core-foundations/getting-started/3-how-go-works",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "GT.4"
+      ],
+      "tags": [
+        "entry",
+        "packages",
+        "compilation"
+      ]
+    },
+    {
+      "id": "GT.4",
+      "section_id": "s01",
+      "slug": "dev-environment",
+      "title": "Development Environment",
+      "type": "lesson",
+      "subtype": "integration",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Establish the basic Go workflow with run, fmt, vet, build, and test.",
+      "objectives": [
+        "Use the core Go commands learners will rely on throughout the curriculum",
+        "Explain why formatting and validation belong in the normal development loop"
+      ],
+      "prerequisites": [
+        "GT.3"
+      ],
+      "production_relevance": "Teams rely on a repeatable tool loop long before they reach advanced architecture or deployment work.",
+      "path": "01-core-foundations/getting-started/4-dev-environment",
+      "run_command": "go run ./01-core-foundations/getting-started/4-dev-environment",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "LB.1"
+      ],
+      "tags": [
+        "tooling",
+        "workflow",
+        "entry"
+      ]
+    },
+    {
+      "id": "LB.1",
+      "section_id": "s01",
+      "slug": "variables",
+      "title": "Variables and Types",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Introduce basic variable declarations, zero values, and the main built-in value types learners meet first.",
+      "objectives": [
+        "Declare variables with var and short declaration syntax",
+        "Explain zero values for basic Go types"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Typed values and predictable zero values are the baseline for writing readable Go without hidden state.",
+      "path": "01-core-foundations/language-basics/1-variables",
+      "run_command": "go run ./01-core-foundations/language-basics/1-variables",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "LB.2"
+      ],
+      "tags": [
+        "variables",
+        "types",
+        "entry"
+      ]
+    },
+    {
+      "id": "LB.2",
+      "section_id": "s01",
+      "slug": "constants",
+      "title": "Constants",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 20,
+      "summary": "Teach fixed values, grouped constant declarations, and the difference between mutable and immutable program state.",
+      "objectives": [
+        "Declare constants with const and grouped const blocks",
+        "Explain when a constant is a better fit than a variable"
+      ],
+      "prerequisites": [
+        "LB.1"
+      ],
+      "production_relevance": "Well-named constants make early programs easier to read and later systems easier to maintain.",
+      "path": "01-core-foundations/language-basics/2-constants",
+      "run_command": "go run ./01-core-foundations/language-basics/2-constants",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "LB.3"
+      ],
+      "tags": [
+        "constants",
+        "immutability",
+        "basics"
+      ]
+    },
+    {
+      "id": "LB.3",
+      "section_id": "s01",
+      "slug": "enums",
+      "title": "Enums with iota",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Show how Go models enum-like values with named types and iota instead of a dedicated enum keyword.",
+      "objectives": [
+        "Use iota inside a const block to create ordered values",
+        "Explain why named types make enum-style values safer than raw integers"
+      ],
+      "prerequisites": [
+        "LB.2"
+      ],
+      "production_relevance": "Named enum-style values show up in logging, configuration, status modeling, and protocol work across real Go systems.",
+      "path": "01-core-foundations/language-basics/3-enums",
+      "run_command": "go run ./01-core-foundations/language-basics/3-enums",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "LB.4"
+      ],
+      "tags": [
+        "iota",
+        "enums",
+        "types"
+      ]
+    },
+    {
+      "id": "LB.4",
+      "section_id": "s01",
+      "slug": "application-logger",
+      "title": "Application Logger",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 35,
+      "summary": "Build a small logger that combines constants, iota, named types, formatting, and defensive checks.",
+      "objectives": [
+        "Implement a small enum-style log level model with readable output",
+        "Combine early language basics into one coherent runnable exercise"
+      ],
+      "prerequisites": [
+        "LB.1",
+        "LB.2",
+        "LB.3"
+      ],
+      "production_relevance": "Even simple real-world utilities depend on stable labels, readable output, and safe handling of invalid values.",
+      "path": "01-core-foundations/language-basics/4-application-logger",
+      "run_command": "go run ./01-core-foundations/language-basics/4-application-logger",
+      "test_command": "",
+      "starter_path": "01-core-foundations/language-basics/4-application-logger/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "logging",
+        "fundamentals"
+      ]
+    },
     {
       "id": "FE.1",
       "section_id": "s04",

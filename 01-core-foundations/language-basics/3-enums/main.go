@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 1: Language Basics — Enums with iota
+// Section 01: Core Foundations — Enums with iota
 // Level: Beginner → Intermediate
 // ============================================================================
 //
@@ -117,7 +117,7 @@ func main() {
 	// - Add a String() method so your enums print readable names.
 	// - Start at iota+1 when 0 should mean "unset/unknown".
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CF.1 for loop")
+	fmt.Println("🚀 NEXT UP: LB.4 application-logger")
 	fmt.Println("   Current: LB.3 (enums / iota)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -1,28 +1,49 @@
-# Section 1: Language Basics
+# Language Basics Track
 
-## Beginner → Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-|-------|-------|------------|---------------------|
-| Variables & Types | Beginner | High | Static typing, Zero values |
-| Constants | Beginner | Low | Immutable values |
-| Constants & iota | Intermediate | Medium | Enum simulation, bitmasking |
+This track teaches the first real Go fundamentals after installation and tooling.
+
+By the end of this track, a learner should be able to:
+
+- declare and update variables confidently
+- use constants for fixed values
+- model enum-like values with named types and `iota`
+- combine those pieces into one small, readable program
+
+## Track Map
+
+| ID | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- |
+| `LB.1` | [variables](./1-variables) | Introduces typed values, zero values, and the three common declaration styles. | entry |
+| `LB.2` | [constants](./2-constants) | Separates immutable values from ordinary variables and clarifies grouped declarations. | `LB.1` |
+| `LB.3` | [enums with iota](./3-enums) | Shows how Go models enum-like values without a dedicated enum keyword. | `LB.2` |
+| `LB.4` | [application logger](./4-application-logger) | Combines the track into one small milestone exercise with a useful output shape. | `LB.1`, `LB.2`, `LB.3` |
 
 ## Engineering Depth
-Go is a strictly typed language. Unlike dynamic languages, Go defines memory bounds at compile time. One of Go's unique features is the **Zero Value**. If you declare `var x int`, Go automatically zeroes the memory, meaning `x` is predictably `0`, not undefined. This removes a whole class of uninitialized variable bugs.
+
+Go is a strictly typed language. Unlike dynamic languages, Go makes the shape of your values
+explicit and gives every type a predictable zero value.
+
+That means:
+
+- less guessing about uninitialized state
+- clearer compile-time feedback
+- simpler reasoning about small programs before control flow becomes more complex
+
+## Live Milestone
+
+[`LB.4 application logger`](./4-application-logger) is the current milestone for this track.
+
+It is intentionally small, but it proves something important: a learner can already combine custom
+types, constants, formatting, and defensive checks into one coherent program.
 
 ## References
-1. **[Tour of Go]** [Variables](https://go.dev/tour/basics/8)
-2. **[Effective Go]** [Constants](https://go.dev/doc/effective_go#constants)
 
----
+1. [Tour of Go: Variables](https://go.dev/tour/basics/8)
+2. [Effective Go: Constants](https://go.dev/doc/effective_go#constants)
+3. [Go by Example: Constants](https://gobyexample.com/constants)
 
-## 🏗 Exercise: Application Logger (`4-application-logger`)
+## Next Step
 
-This introductory project proves your understanding of types and formats.
-
-### Step-by-Step Instructions & Hints
-1. **Define your constants:** Create severities (`INFO`, `WARNING`, `ERROR`) using the `iota` enumerator.
-2. **Create a log struct:** Build an `AppLog` type with fields for timestamp, severity, and message.
-3. **Write the formatter:** Create a `PrintLog()` function that uses `fmt.Printf` to format your log line cleanly.
-   - *Hint:* Use `%s` for strings, `%d` for numbers, and `%-10s` to right-pad text for perfect alignment!
+After `LB.4`, continue to Section 02: Control Flow.

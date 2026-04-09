@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 1: Language Basics — Application Logger (Exercise Starter)
+// Section 01: Core Foundations — Application Logger (Exercise Starter)
 // Level: Beginner
 // ============================================================================
 //
