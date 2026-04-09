@@ -99,9 +99,14 @@ The v2 Bible is split into focused docs so the planning system stays readable:
 | `docs/v2/14-QA-VALIDATION.md` | Quality layers, validator scope, CI responsibilities, and review gates | Draft |
 | `docs/v2/15-IMPLEMENTATION-ROADMAP.md` | Workstreams, issues, milestones, rollout | Draft |
 | `docs/v2/16-RELEASE-ROLLOUT.md` | Stage-by-stage public rollout from planning through v2 final | Draft |
+| `docs/v2/17-BETA-ARCHITECTURE-DECISION.md` | Beta-phase architecture freeze and regrouping rules | Draft |
 | `docs/v2/appendix/DECISION-LOG.md` | Open decisions and review outcomes | Live |
 
 The first-pass Gate 1 planning set is now complete.
+
+The beta architecture decision work may intentionally override some earlier conservative migration
+assumptions, especially where those assumptions were useful for prototype and alpha but are too
+narrow for a real learner-facing beta system.
 
 Further appendix or support docs can still be added later, but the core planning system no longer
 has missing top-level specification files.
@@ -115,6 +120,11 @@ These assumptions guide the first draft:
 - breaking change value will come from consistency, not from renaming everything for novelty.
 - migration should be wave-based and reversible.
 - stable users should not be forced onto v2 until the line is clearly better and documented.
+
+Beta note:
+
+- `docs/v2/17-BETA-ARCHITECTURE-DECISION.md` is the authority when beta architecture decisions
+  intentionally regroup or extend the alpha structure.
 
 ## What This Bible Must Produce
 

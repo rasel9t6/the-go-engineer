@@ -15,6 +15,18 @@ Each decision should capture:
 
 ## Working Decisions
 
+### 2026-04-09: beta is a learner-facing architecture redesign, not just alpha plus polish
+
+- Status: Working decision
+- Why it matters: alpha validated migration discipline, but beta must reshape the learner-facing
+  system so the repo actually functions as a zero-to-engineer training system
+- Alternatives:
+  - keep the alpha section architecture and mostly polish it
+  - use beta to regroup alpha content into a stage-based learning system with new beginner,
+    production, expert, and flagship layers
+- Follow-up: use `docs/v2/17-BETA-ARCHITECTURE-DECISION.md` as the baseline for beta planning and
+  implementation issue design
+
 ### 2026-04-07: v2 planning is ready to open prototype work
 
 - Status: Working decision
