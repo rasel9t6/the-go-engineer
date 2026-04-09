@@ -64,6 +64,11 @@ Purpose:
 
 - introduce computers, execution, memory, CLI, and tool basics before Go syntax takes over
 
+Current alpha source:
+
+- the `getting-started` track inside Section `01`
+- new beta-only mental-model and pre-Go support content
+
 ### 1. Language Fundamentals
 
 Purpose:
@@ -72,7 +77,8 @@ Purpose:
 
 Current alpha source:
 
-- Sections `01` to `04`
+- the `language-basics` track inside Section `01`
+- Sections `02` to `04`
 
 ### 2. Types And Design
 
@@ -132,7 +138,7 @@ Purpose:
 
 Current alpha source:
 
-- Section `14`
+- the package and service-structure portions of Section `14`
 
 ### 8. Production Engineering
 
@@ -141,9 +147,11 @@ Purpose:
 - add deployment, configuration, tracing, monitoring, and operating concerns that alpha does not yet
   represent as a first-class layer
 
-Current state:
+Current alpha source:
 
-- new beta layer
+- the operational tracks already present inside Section `14`, especially structured logging and
+  graceful shutdown
+- new beta-only production topics such as deployment, config, tracing, and monitoring
 
 ### 9. Expert Layer
 
@@ -179,11 +187,11 @@ Current alpha source:
 
 | Alpha source | Beta destination | Decision |
 | --- | --- | --- |
-| `01-core-foundations` | `1 Language Fundamentals` | regroup |
+| `01-core-foundations/getting-started` | `0 Foundation` | split and extend |
+| `01-core-foundations/language-basics` | `1 Language Fundamentals` | regroup |
 | `02-control-flow` | `1 Language Fundamentals` | regroup |
 | `03-data-structures` | `1 Language Fundamentals` | regroup |
 | `04-functions-and-errors` | `1 Language Fundamentals` | regroup |
-| none | `0 Foundation` | add |
 | `05-types-and-interfaces` | `2 Types And Design` | regroup |
 | `06-composition` | `2 Types And Design` | regroup |
 | `07-strings-and-text` | `2 Types And Design` | regroup |
@@ -193,8 +201,10 @@ Current alpha source:
 | `11-concurrency` | `5 Concurrency System` | regroup |
 | `12-concurrency-patterns` | `5 Concurrency System` | regroup |
 | `13-quality-and-performance` | `6 Quality And Performance` | regroup |
-| `14-application-architecture` | `7 Architecture` | regroup |
-| none | `8 Production Engineering` | add |
+| `14-application-architecture/package-design` | `7 Architecture` | split and regroup |
+| `14-application-architecture/structured-logging` | `8 Production Engineering` | split and regroup |
+| `14-application-architecture/graceful-shutdown` | `8 Production Engineering` | split and regroup |
+| other beta-only production topics | `8 Production Engineering` | add |
 | none | `9 Expert Layer` | add |
 | none | `10 Flagship Project` | add |
 | `15-code-generation` | `11 Code Generation` | keep as late-stage specialization |
@@ -261,6 +271,8 @@ That means:
 - beta should reuse and regroup alpha content rather than discard it
 - the public learner-facing architecture should change even if some internal folder movement remains phased
 - the stage model becomes the main navigation truth during beta work
+- some alpha sections will intentionally split across more than one beta stage when that reflects the
+  real learner-facing boundary better than keeping whole-section moves
 
 Practical rule:
 
