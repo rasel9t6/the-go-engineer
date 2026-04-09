@@ -49,7 +49,7 @@ func main() {
 	fmt.Println("\nIt then outputs type-safe Go code into internal/db/.")
 
 	fmt.Println("\nOnce generated, you can use the Querier interface like this:")
-	fmt.Println(`
+	_, _ = os.Stdout.WriteString(`
     func GetUserHandler(q db.Querier, id int64) {
         user, err := q.GetUser(context.Background(), id)
         if err != nil {
