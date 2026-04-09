@@ -10,8 +10,8 @@ import (
 )
 
 // ============================================================================
-// Section 14: Testing — Foundational Testing concepts
-// Level: Beginner → Intermediate
+// Section 13: Quality and Performance - Foundational Testing Concepts
+// Level: Beginner -> Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
@@ -49,7 +49,8 @@ func Login(username string) (bool, error) {
 		return false, errors.New("invalid username: must be 6+ chars and not contain admin")
 	}
 
-	// In a real application, we would check a database and compare password hashes
-	// See Section 12 (Databases) and Section 13 (Web) for the full implementation.
+	// In a real application, we would check a database and compare password hashes.
+	// See Section 10 (Web and Database) and Section 14 (Application Architecture)
+	// for larger production examples.
 	return true, nil
 }

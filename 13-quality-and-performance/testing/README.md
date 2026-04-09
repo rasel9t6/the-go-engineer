@@ -1,26 +1,37 @@
-# Section 14: Testing
+# Track A: Testing
 
-## Beginner → Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-|-------|-------|------------|---------------------|
-| Unit Testing | Beginner | **Critical** | `testing.T`, `go test` |
-| Benchmarking | Advanced | High | `testing.B`, allocation profiling |
-| Table-Driven | Intermediate| High | Data-isolated test matrices |
+This track teaches you how to prove behavior in Go with small, explicit tests instead of treating
+tests as a separate framework or a giant afterthought.
 
-## Engineering Depth
-Go builds testing directly into the language via the `testing` package rather than relying on external frameworks like Jest or JUnit. 
-- **Zero-Allocation Tracking:** `go test -bench=. -benchmem` gives instant feedback on Heap allocations `allocs/op`. The lower the allocations, the more you avoid triggering the Go Garbage Collector (GC), leading to microsecond sub-latency.
+## Track Map
 
-## References
-1. **[Go Docs]** [Package testing](https://pkg.go.dev/testing)
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `TE.1` | Lesson | [unit testing](./user) | Introduces `testing.T`, basic assertions, and test file structure. | entry |
+| `TE.2` | Lesson | [table-driven tests](./user) | Shows the idiomatic Go pattern for structured test cases and sub-tests. | `TE.1` |
+| `TE.3` | Lesson | [HTTP handler testing](./user) | Tests handlers with `httptest` instead of a real server. | `TE.1`, `TE.2` |
+| `TE.4` | Lesson | [benchmarking](./benchmarks) | Uses `testing.B` and `-benchmem` to compare performance choices. | `TE.1`, `TE.2` |
 
+## Suggested Order
 
-## Learning Path
+1. Work through `TE.1`, `TE.2`, and `TE.3` in order.
+2. Complete `TE.4` once the test-design mindset feels natural.
 
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| TE.1 | [unit testing](./user) | testing.T · t.Run · testify/assert · assert.NoError | 🟢 entry |
-| TE.2 | [table-driven tests](./user) | []struct table · t.Run per row · data-isolated sub-tests | TE.1 |
-| TE.3 | [HTTP handler testing](./user) | httptest.NewRecorder · httptest.NewRequest · no real server | TE.1, TE.2 |
-| TE.4 | [benchmarking](./benchmarks) | testing.B · b.ResetTimer · b.ReportAllocs · -benchmem | TE.1, TE.2 |
+## Track Milestone
+
+`TE.4` is the current testing-track output.
+
+If you can explain:
+
+- why table-driven tests are the default Go testing pattern
+- why `httptest` is better than spinning up a real server for unit-level handler tests
+- why `b.ReportAllocs()` matters when reading benchmark output
+
+then the testing part of Section 13 is doing its job.
+
+## Next Step
+
+After `TE.4`, continue to the [Profiling track](../profiling) or back to the
+[Section 13 overview](../README.md).

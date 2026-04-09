@@ -14,22 +14,22 @@ import (
 )
 
 // ============================================================================
-// Section 25: Profiling — CPU Profile
+// Section 13: Quality and Performance - CPU Profile
 // Level: Intermediate
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
 //   - runtime/pprof: writing CPU and memory profiles to files
 //   - go tool pprof: reading profiles in the terminal and as a web UI
-//   - Identifying hot functions and optimising them
-//   - The before/after pattern: benchmark → profile → fix → verify
+//   - Identifying hot functions and optimizing them
+//   - The before/after pattern: benchmark -> profile -> fix -> verify
 //
 // AFTER RUNNING THIS PROGRAM:
 //   1. Open the CPU profile:
 //      go tool pprof cpu.prof
-//      (pprof) top10          -- show top 10 functions by CPU time
-//      (pprof) list processLogs -- show annotated source for processLogs
-//      (pprof) web            -- open flame graph (requires graphviz)
+//      (pprof) top10           -- show top 10 functions by CPU time
+//      (pprof) list slowLogProcessor -- show annotated source for the hot path
+//      (pprof) web             -- open flame graph (requires graphviz)
 //
 //   2. Open as a web UI (much better):
 //      go tool pprof -http=:8090 cpu.prof
@@ -39,16 +39,12 @@ import (
 //   CPU profiling works by installing a signal handler (SIGPROF) that fires
 //   100 times per second. Each time it fires, the Go runtime records the current
 //   goroutine's call stack. After profiling ends, the tool counts how often each
-//   function appeared in a stack sample. High sample count = lots of CPU time.
+//   function appeared in a stack sample. High sample count means lots of CPU time.
 //
 //   "flat" time: time spent executing this function (not its callees)
-//   "cum" (cumulative) time: time in this function + everything it calls
+//   "cum" (cumulative) time: time in this function plus everything it calls
 //
 // RUN: go run ./13-quality-and-performance/profiling/1-cpu-profile
-// ============================================================================
-
-// ============================================================================
-// Intentionally slow implementations — we will profile and fix them
 // ============================================================================
 
 // slowLogProcessor compiles a regex and concatenates strings inside a hot loop.
@@ -56,12 +52,8 @@ import (
 func slowLogProcessor(lines []string) []string {
 	var results []string
 	for _, line := range lines {
-		// ANTI-PATTERN 1: Compiling regex inside a loop is O(N) compilations.
-		// The compiled DFA is thrown away after each iteration.
 		re := regexp.MustCompile(`ERROR|WARN|FATAL`)
 		if re.MatchString(line) {
-			// ANTI-PATTERN 2: String concatenation with += is O(N²).
-			// Each += allocates a new string and copies the old one.
 			result := ""
 			result += "[ALERT] "
 			result += strings.ToUpper(line)
@@ -72,10 +64,10 @@ func slowLogProcessor(lines []string) []string {
 }
 
 // fastLogProcessor fixes both anti-patterns discovered via profiling.
-var alertPattern = regexp.MustCompile(`ERROR|WARN|FATAL`) // Compiled ONCE at init
+var alertPattern = regexp.MustCompile(`ERROR|WARN|FATAL`)
 
 func fastLogProcessor(lines []string) []string {
-	results := make([]string, 0, len(lines)/10) // Pre-allocate estimate
+	results := make([]string, 0, len(lines)/10)
 	var sb strings.Builder
 	for _, line := range lines {
 		if alertPattern.MatchString(line) {
@@ -106,71 +98,50 @@ func generateLogs(n int) []string {
 }
 
 func main() {
-	// =========================================================================
-	// Step 1: Start CPU profiling
-	// =========================================================================
 	cpuFile, err := os.Create("cpu.prof")
 	if err != nil {
 		log.Fatal("could not create CPU profile:", err)
 	}
 	defer cpuFile.Close()
 
-	// pprof.StartCPUProfile begins sampling. The profiler writes samples to f
-	// until StopCPUProfile() is called or the program exits.
 	if err := pprof.StartCPUProfile(cpuFile); err != nil {
 		log.Fatal("could not start CPU profile:", err)
 	}
 
-	// =========================================================================
-	// Step 2: Run the workload under profiling
-	// =========================================================================
 	fmt.Println("Profiling CPU usage...")
 	logs := generateLogs(100_000)
 
-	// Run the SLOW version — we expect pprof to show regexp.Compile() as hot
 	alerts := slowLogProcessor(logs)
 	fmt.Printf("Found %d alerts (slow version)\n", len(alerts))
 
-	// Run the FAST version in the same profile to see the difference
 	alerts2 := fastLogProcessor(logs)
 	fmt.Printf("Found %d alerts (fast version)\n", len(alerts2))
 
-	// =========================================================================
-	// Step 3: Stop CPU profiling
-	// =========================================================================
 	pprof.StopCPUProfile()
 	fmt.Println("CPU profile written to cpu.prof")
 
-	// =========================================================================
-	// Step 4: Write Memory profile
-	// =========================================================================
 	memFile, err := os.Create("mem.prof")
 	if err != nil {
 		log.Fatal("could not create memory profile:", err)
 	}
 	defer memFile.Close()
 
-	// Force GC before writing the heap profile — gives cleaner data
 	runtime.GC()
 
-	// Lookup "allocs" for allocation profile (vs "heap" for inuse objects)
 	if err := pprof.Lookup("allocs").WriteTo(memFile, 0); err != nil {
 		log.Fatal("could not write memory profile:", err)
 	}
 	fmt.Println("Memory profile written to mem.prof")
 
-	// =========================================================================
-	// Step 5: What to look for in the profiles
-	// =========================================================================
 	fmt.Print(`
 Next steps:
   go tool pprof -http=:8090 cpu.prof
-  → Look for: regexp.Compile(), strings.Builder.copyCheck() in top functions
-  → After fix: regexp.Compile() should disappear from the hot path
+  -> Look for: regexp.Compile(), strings.Builder.copyCheck() in top functions
+  -> After fix: regexp.Compile() should disappear from the hot path
 
   go tool pprof -http=:8090 mem.prof
-  → Look for: runtime.mallocgc allocations in slowLogProcessor
-  → After fix: allocations from fastLogProcessor should be dramatically lower
+  -> Look for: runtime.mallocgc allocations in slowLogProcessor
+  -> After fix: allocations from fastLogProcessor should be dramatically lower
 
 KEY TAKEAWAY:
   - pprof.StartCPUProfile + StopCPUProfile writes a sampling profile to a file
@@ -179,7 +150,7 @@ KEY TAKEAWAY:
   - Top anti-patterns found via pprof: regex-in-loop, string +, json on large structs
 `)
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: PR.2 live pprof endpoint")
+	fmt.Println("NEXT UP: PR.2 live pprof endpoint")
 	fmt.Println("   Current: PR.1 (CPU profile)")
 	fmt.Println("---------------------------------------------------")
 }

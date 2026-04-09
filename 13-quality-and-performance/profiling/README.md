@@ -1,57 +1,35 @@
-﻿# Section 25: Profiling with pprof
+# Track B: Profiling
 
-## Beginner ? Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-| --- | --- | --- | --- |
-| CPU profiling | Intermediate | Critical | Flame graphs, hot path identification |
-| Memory profiling | Intermediate | Critical | Heap allocation, inuse vs alloc |
-| `net/http/pprof` | Advanced | High | Live production profiling endpoint |
-| `runtime/trace` | Expert | High | Goroutine scheduling, GC events |
+This track teaches you how to investigate CPU and runtime behavior with Go's built-in profiling
+tooling instead of guessing from intuition alone.
 
-## Engineering Depth
+## Track Map
 
-`pprof` answers questions no benchmark can: "Where does my service spend its time when serving real production traffic?" A benchmark tells you one function is 200 ns/op. `pprof` tells you that function runs 200,000 times per second and accounts for 40% of total CPU.
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `PR.1` | Lesson | [CPU profile](./1-cpu-profile) | Introduces offline CPU profiling and reading pprof output. | entry |
+| `PR.2` | Lesson | [live pprof endpoint](./3-http-pprof) | Exposes live profiling on an internal port for production-like inspection. | `PR.1` |
 
-**The profiling workflow:**
-1. Record a profile (`-cpuprofile` flag or `pprof.StartCPUProfile`)
-2. Visualise with `go tool pprof` � text, web, or flame graph
-3. Fix the bottleneck (usually one of: reflection, string building, excessive allocation, regex in a hot loop)
-4. Benchmark before and after to confirm the improvement
-5. Commit the benchmark so regressions surface in CI
+## Suggested Order
 
-**Common hotspots found via pprof:**
-- `runtime.mallocgc` � too many allocations (use sync.Pool or pre-allocate)
-- `runtime.gcBgMarkWorker` � GC running too frequently (same root cause)
-- `regexp.(*Regexp).FindAllString` � compiling regex inside a loop (pre-compile at package level)
-- `strings.Builder.copyCheck` � using `+=` in a loop (use `strings.Builder`)
-- `reflect.Value.Field` � `encoding/json` reflection on untagged large structs
+1. Start with `PR.1` to understand what a profile file actually contains.
+2. Move to `PR.2` once you can explain why live profiling must stay off public ports.
 
-## How to Run
+## Track Milestone
 
-```bash
-# CPU profile
-go run ./13-quality-and-performance/profiling/1-cpu-profile
-go tool pprof -http=:8090 cpu.prof
+`PR.2` is the current profiling-track output.
 
-# Memory profile workflow
-# Add runtime/pprof hooks to your own binary, then inspect the generated heap profile
+If you can explain:
 
-# Live pprof endpoint
-go run ./13-quality-and-performance/profiling/3-http-pprof
-# Then: go tool pprof http://localhost:8080/debug/pprof/profile?seconds=5
-```
+- why pprof answers different questions than a benchmark
+- why `flat` and `cum` time tell different stories
+- why live pprof endpoints should live on an internal-only port
 
-## References
+then the profiling part of Section 13 is doing its job.
 
-- [Go Blog: Profiling Go Programs](https://go.dev/blog/pprof)
-- [Package pprof](https://pkg.go.dev/net/http/pprof)
-- [Package runtime/pprof](https://pkg.go.dev/runtime/pprof)
-- [Package runtime/trace](https://pkg.go.dev/runtime/trace)
+## Next Step
 
-## Learning Path
-
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| PR.1 | [CPU profile](./1-cpu-profile) | `pprof.StartCPUProfile` � `StopCPUProfile` � `go tool pprof` � flat vs cum | entry |
-| PR.2 | [live pprof endpoint](./3-http-pprof) | `net/http/pprof` blank import � two-port pattern � goroutine leak | PR.1 |
+After `PR.2`, continue back to the [Section 13 overview](../README.md) or move on to
+[Section 14: Application Architecture](../../14-application-architecture).
