@@ -20,9 +20,9 @@ import "fmt"
 //  3. [ ] Create a `levelNames` slice mapping each level to its string name
 //  4. [ ] Implement the `fmt.Stringer` interface (a `String()` method)
 //         with bounds checking to prevent out-of-range panics
-//  5. [ ] Create a `Log(level LogLevel, message string)` function that prints
-//         formatted log messages like: [INFO] Server started
-//  6. [ ] Test it in main() by logging messages at different levels
+//  5. [ ] Create a `printLogLevel(level LogLevel)` helper that prints the
+//         numeric and readable form together
+//  6. [ ] Test it in main() with valid and invalid log levels
 //
 // HINTS:
 //   - iota starts at 0 and auto-increments
@@ -41,12 +41,12 @@ import "fmt"
 
 // TODO: Implement the String() method on LogLevel
 
-// TODO: Implement the Log function
+// TODO: Implement the printLogLevel function
 
 func main() {
 	fmt.Println("=== Application Logger Exercise ===")
 	fmt.Println()
-	fmt.Println("TODO: Implement your logger and test it here!")
+	fmt.Println("TODO: Implement your log level type and test it here!")
 	fmt.Println("See the REQUIREMENTS above for what to build.")
 	fmt.Println()
 	fmt.Println("When finished, compare your solution with main.go in this directory.")
