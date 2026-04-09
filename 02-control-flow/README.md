@@ -1,39 +1,67 @@
-# Section 2: Control Flow
+# Section 02: Control Flow
 
-## Beginner → Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-|-------|-------|------------|---------------------|
-| Conditionals (If) | Beginner | High | Early returns vs Else blocks |
-| Loops (For) | Beginner | High | The only looping construct in Go |
-| Switch | Intermediate | High | Type switches, empty conditionals |
+This section teaches learners how Go expresses decisions and repetition without adding extra
+syntax they do not need.
 
-## Engineering Depth
-Go purposefully omitted `while` and `do-while` loops to keep the compiler simple and the language predictable. `for` handles everything.
-A critical engineering rule in Go is: **Line of Sight**. You should avoid `else` blocks whenever possible by returning early (guard clauses). This keeps the main "happy path" aligned to the far left margin, which makes code significantly easier to read.
+By the end of Section 02, you should be comfortable with:
+
+- `for` as Go's only loop keyword
+- `if` for ordinary branching and guard clauses
+- `switch` for readable multi-branch logic
+- combining loops, branching, map lookups, and small helpers in one exercise
+
+## Who Should Start Here
+
+### Full Path
+
+Start here after completing Section 01.
+
+### Bridge Path
+
+If you already understand variables, constants, and enum-style values in Go, you can begin at
+`CF.1` directly.
+
+### Targeted Path
+
+If you only want the live milestone, review these first:
+
+- `CF.1` for loop
+- `CF.2` if / else
+- `CF.3` switch
+
+## Section Map
+
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `CF.1` | Lesson | [for loop](./1-for-loop) | Introduces the only loop keyword Go uses and the different shapes it can take. | entry |
+| `CF.2` | Lesson | [if / else](./2-if-else) | Teaches ordinary branching, early decisions, and the comma-ok pattern for safe checks. | `CF.1` |
+| `CF.3` | Lesson | [switch](./3-switch) | Shows cleaner multi-branch logic, tagless switches, and type switches. | `CF.1`, `CF.2` |
+| `CF.4` | Exercise | [pricing calculator](./4-pricing-calculator) | Combines loops, branching, map lookups, suffix handling, and subtotal calculation in one runnable milestone. | `CF.1`, `CF.2`, `CF.3` |
+
+## Suggested Order
+
+1. Work through `CF.1`, `CF.2`, and `CF.3` in order.
+2. Complete `CF.4` without copying the solution line by line.
+
+## Section Milestone
+
+`CF.4` is the current live milestone for this section.
+
+If you can complete it and explain:
+
+- why Go only needs `for`
+- why the comma-ok pattern is safer than assuming a map lookup succeeded
+- why `switch` often reads more clearly than long `if / else if` chains
+
+then you are ready to move into data structures in Section 03.
 
 ## References
-1. **[Effective Go]** [Control structures](https://go.dev/doc/effective_go#control-structures)
-2. **[Article]** [Return Early Pattern](https://medium.com/@matryer/line-of-sight-in-code-186dd7cdea88)
 
----
+1. [Effective Go: Control Structures](https://go.dev/doc/effective_go#control-structures)
+2. [A Tour of Go: Flow Control Statements](https://go.dev/tour/flowcontrol/1)
 
-## 🏗 Exercise: Pricing Calculator (`4-pricing-calculator`)
+## Next Step
 
-This project will force you to use switch statements and map lookups effectively.
-
-### Step-by-Step Instructions & Hints
-1. **Setup the store:** Create a map mapping item codes (like `TSHIRT`) to float64 prices.
-2. **Calculate price func:** Write a function `calculateItemPrice(code string) (float64, bool)`.
-   - *Hint:* Return `bool` to indicate if the item was found. This avoids relying on the `0.0` zero value which could be a legitimate free price.
-3. **Handle Sales:** If an item ends with `_SALE`, strip the suffix using `strings.TrimSuffix()`, find the base price, and apply a 20% discount.
-4. **Use Switch:** Use a switch statement on the boolean `found` flag to print success or error gracefully.
-
-
-## Learning Path
-
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| CF.1 | [for loop](./1-for-loop) | C-style · while-style · infinite · range | 🟢 entry |
-| CF.2 | [if / else](./2-if-else) | Guard clauses · if-with-init · comma-ok idiom | CF.1 |
-| CF.3 | [switch](./3-switch) | No fall-through · type switch · tagless switch | CF.1, CF.2 |
+After `CF.4`, continue to Section 03: Data Structures.

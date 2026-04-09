@@ -20,6 +20,25 @@
       ]
     },
     {
+      "id": "s02",
+      "number": "02",
+      "slug": "control-flow",
+      "title": "Control Flow",
+      "phase": "foundations",
+      "summary": "Teach learners how Go expresses looping and branching with for, if, and switch before moving into larger data models.",
+      "status": "pilot",
+      "prerequisites": [
+        "s01"
+      ],
+      "path_prefix": "02-control-flow",
+      "entry_points": [
+        "CF.1"
+      ],
+      "outputs": [
+        "CF.4"
+      ]
+    },
+    {
       "id": "s04",
       "number": "04",
       "slug": "functions-and-errors",
@@ -262,6 +281,133 @@
     }
   ],
   "items": [
+    {
+      "id": "CF.1",
+      "section_id": "s02",
+      "slug": "for-loop",
+      "title": "For Loop",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Introduce Go's single loop keyword and the main forms it can take in real code.",
+      "objectives": [
+        "Use for as a counted loop, condition loop, and range loop",
+        "Explain why Go does not need separate while and do-while keywords"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Loop shape decisions affect readability everywhere from simple scripts to production services.",
+      "path": "02-control-flow/1-for-loop",
+      "run_command": "go run ./02-control-flow/1-for-loop",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CF.2"
+      ],
+      "tags": [
+        "for",
+        "loops",
+        "control-flow"
+      ]
+    },
+    {
+      "id": "CF.2",
+      "section_id": "s02",
+      "slug": "if-else",
+      "title": "If / Else",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Teach ordinary branching, early returns, and the comma-ok pattern with approachable examples.",
+      "objectives": [
+        "Use if and else for clear branching decisions",
+        "Explain the comma-ok pattern as a safe way to check map lookup success"
+      ],
+      "prerequisites": [
+        "CF.1"
+      ],
+      "production_relevance": "Clear branching and explicit success checks prevent a lot of beginner bugs from turning into maintenance problems later.",
+      "path": "02-control-flow/2-if-else",
+      "run_command": "go run ./02-control-flow/2-if-else",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CF.3"
+      ],
+      "tags": [
+        "if",
+        "branching",
+        "comma-ok"
+      ]
+    },
+    {
+      "id": "CF.3",
+      "section_id": "s02",
+      "slug": "switch",
+      "title": "Switch",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Show how switch, tagless switch, and type switch make multi-branch logic more readable.",
+      "objectives": [
+        "Use switch for readable multi-branch logic",
+        "Recognize when a tagless switch or type switch is clearer than a long if chain"
+      ],
+      "prerequisites": [
+        "CF.1",
+        "CF.2"
+      ],
+      "production_relevance": "Switch statements keep branch-heavy code readable in parsers, routers, and state-handling logic.",
+      "path": "02-control-flow/3-switch",
+      "run_command": "go run ./02-control-flow/3-switch",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "CF.4"
+      ],
+      "tags": [
+        "switch",
+        "branching",
+        "control-flow"
+      ]
+    },
+    {
+      "id": "CF.4",
+      "section_id": "s02",
+      "slug": "pricing-calculator",
+      "title": "Pricing Calculator",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "mixed",
+      "estimated_time": 35,
+      "summary": "Build a small order processor that combines loops, branching, map lookups, and sale-price handling.",
+      "objectives": [
+        "Calculate regular and sale prices safely from a product map",
+        "Use loops and branching together to compute an order subtotal"
+      ],
+      "prerequisites": [
+        "CF.1",
+        "CF.2",
+        "CF.3"
+      ],
+      "production_relevance": "Real business rules often start as simple branch-heavy logic like discounting, validation, and subtotal calculation.",
+      "path": "02-control-flow/4-pricing-calculator",
+      "run_command": "go run ./02-control-flow/4-pricing-calculator",
+      "test_command": "go test ./02-control-flow/4-pricing-calculator",
+      "starter_path": "02-control-flow/4-pricing-calculator/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "pricing",
+        "maps"
+      ]
+    },
     {
       "id": "GT.1",
       "section_id": "s01",
