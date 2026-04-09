@@ -15,6 +15,52 @@ Each decision should capture:
 
 ## Working Decisions
 
+### 2026-04-09: beta is a learner-facing architecture redesign, not just alpha plus polish
+
+- Status: Working decision
+- Why it matters: alpha validated migration discipline, but beta must reshape the learner-facing
+  system so the repo actually functions as a zero-to-engineer training system
+- Alternatives:
+  - keep the alpha section architecture and mostly polish it
+  - use beta to regroup alpha content into a stage-based learning system with new beginner,
+    production, expert, and flagship layers
+- Follow-up: use `docs/v2/17-BETA-ARCHITECTURE-DECISION.md` as the baseline for beta planning and
+  implementation issue design
+
+### 2026-04-09: beta stage mapping may split alpha sections wherever learner-facing boundaries are stronger than current folder boundaries
+
+- Status: Working decision
+- Why it matters: the beta stage model cannot stay honest if alpha sections are treated as
+  indivisible when they already mix beginner setup, architecture, operations, and capstone work
+- Alternatives:
+  - regroup only whole alpha sections and accept fuzzy stage boundaries
+  - allow Section `01` and Section `14` style splits wherever the learner-facing architecture is
+    materially clearer
+- Follow-up: use `docs/v2/18-BETA-STAGE-MAPPING.md` as the concrete authority for `#173` and later
+  beta implementation issue design
+
+### 2026-04-09: beta exercise design separates type, difficulty, starter mode, and verification mode
+
+- Status: Working decision
+- Why it matters: exercise systems drift when one label is forced to carry format, challenge,
+  scaffolding, and proof all at once
+- Alternatives:
+  - keep a looser alpha-style exercise model and let sections improvise
+  - use separate axes so beta can scale a real exercise bank without muddy semantics
+- Follow-up: use `docs/v2/19-BETA-EXERCISE-RUBRIC-SYSTEM.md` as the authority for `#174` and later
+  beta practice implementation work
+
+### 2026-04-09: beta must treat foundation, production, expert pressure, and flagship work as first-class curriculum layers
+
+- Status: Working decision
+- Why it matters: beta cannot honestly claim zero-to-engineer scope if those layers remain implied
+  or optional
+- Alternatives:
+  - keep those concerns distributed loosely across existing stages
+  - define them explicitly so implementation work has owned outcomes and clearer rollout order
+- Follow-up: use `docs/v2/20-BETA-LAYER-DEFINITIONS.md` as the authority for `#175` and later beta
+  implementation design
+
 ### 2026-04-07: v2 planning is ready to open prototype work
 
 - Status: Working decision
