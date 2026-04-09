@@ -1,47 +1,72 @@
-﻿# Section 3: Collections and Pointers
+# Section 03: Data Structures
 
-## Beginner ? Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-|-------|-------|------------|---------------------|
-| Arrays | Beginner | Low | Contiguous fixed-size memory |
-| Slices | Intermediate | **Critical** | Dynamic window over underlying arrays, capacity vs length |
-| Maps | Intermediate | High | Hash table, $O(1)$ amortized lookups |
-| Pointers | Advanced | High | Stack vs Heap allocation, escape analysis |
+This section teaches learners how Go stores and moves collections of data in memory, then shows how
+that affects mutation and performance.
 
-## Engineering Depth
-In this section, you will learn the physical memory layout of Go collections.
-Unlike other languages, Go gives you direct control over memory behavior. You will understand why `append` operations can be $O(N)$ when capacity is breached (causing Heap re-allocations), and how to pre-allocate slices to maintain $O(1)$ performance.
+By the end of Section 03, you should be comfortable with:
+
+- arrays as fixed-size value types
+- slices as Go's main dynamic collection
+- maps for keyed lookup
+- pointers for mutation and nil-aware references
+- combining those pieces in one small in-memory program
+
+## Who Should Start Here
+
+### Full Path
+
+Start here after completing Section 02.
+
+### Bridge Path
+
+If loops, branching, and multiple return values already feel comfortable, begin at `DS.1`.
+
+### Targeted Path
+
+If you only want the live milestone, review these first:
+
+- `DS.1` arrays
+- `DS.2` slices
+- `DS.3` maps
+- `DS.4` pointers
+- `DS.5` advanced slicing
+
+## Section Map
+
+| ID | Type | Surface | Why It Matters | Requires |
+| --- | --- | --- | --- | --- |
+| `DS.1` | Lesson | [arrays](./1-array) | Introduces fixed-size collections and value-copy behavior. | entry |
+| `DS.2` | Lesson | [slices](./2-slices) | Teaches Go's primary dynamic collection type and the length/capacity model. | `DS.1` |
+| `DS.3` | Lesson | [maps](./3-maps) | Introduces keyed lookup and the comma-ok pattern for presence checks. | `DS.2` |
+| `DS.4` | Lesson | [pointers](./4-pointers) | Shows how Go models mutation and shared access without pointer arithmetic. | `DS.1`, `DS.2` |
+| `DS.5` | Lesson | [advanced slicing](./5-slices-2) | Explains shared backing arrays and the mutation traps that come with sub-slices. | `DS.2`, `DS.4` |
+| `DS.6` | Exercise | [contact manager](./6-contact-manager) | Combines slices, maps, pointers, and simple struct management in one runnable milestone. | `DS.1`, `DS.2`, `DS.3`, `DS.4`, `DS.5` |
+
+## Suggested Order
+
+1. Work through `DS.1` to `DS.5` in order.
+2. Complete `DS.6` without copying the finished solution line by line.
+
+## Section Milestone
+
+`DS.6` is the current live milestone for this section.
+
+If you can complete it and explain:
+
+- why slices and maps serve different jobs
+- why pointers matter when updates must stick
+- why shared backing arrays can surprise you when working with sub-slices
+
+then you are ready to move into functions and errors in Section 04.
 
 ## References
-1. **[Official Blog]** [Go Slices: usage and internals](https://go.dev/blog/slices-intro)
-2. **[Book]** Effective Go - [Data](https://go.dev/doc/effective_go#data)
-3. **[Official Blog]** [Go maps in action](https://go.dev/blog/maps)
 
----
+1. [Go Blog: Go Slices - usage and internals](https://go.dev/blog/slices-intro)
+2. [Go Blog: Go Maps in Action](https://go.dev/blog/maps)
+3. [Effective Go: Data](https://go.dev/doc/effective_go#data)
 
-## ?? Exercise: Contact Manager System (`6-contact-manager`)
+## Next Step
 
-This section's capstone forces you to manipulate slices and pointers safely.
-
-### Step-by-Step Instructions a Hints
-1. **Define the Data Model:** Create a `Contact` struct.
-2. **Setup the Storage:** Create a slice `[]Contact` to act as your in-memory database.
-   - *Hint:* Pre-allocate capacity using `make([]Contact, 0, 10)` to prevent early memory reallocation.
-3. **Implement Add:** Write a function that appends a new contact.
-   - *Hint:* Because `append` might allocate a new underlying array, return the mutated slice.
-4. **Implement Delete (Advanced):** Remove an element from the middle of the slice.
-   - *Hint:* Use `append(slice[:index], slice[index+1:]...)`. Understand that this shifts elements in memory and is an $O(N)$ operation.
-5. **Implement Update:**
-   - *Hint:* Pass the contact slice or a specific contact by **Pointer** (`*Contact`) so the modifications stick. Passing by value will only modify a copy!
-
-
-## Learning Path
-
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| DS.1 | [arrays](./1-array) | Fixed-size contiguous memory � value-type copy | ?? entry |
-| DS.2 | [slices](./2-slices) | Slice header � make � append � capacity growth | DS.1 |
-| DS.3 | [maps](./3-maps) | Hash table � O(1) lookup � comma-ok � delete | DS.2 |
-| DS.4 | [pointers](./4-pointers) | aamp; � * � pass-by-value vs reference � nil | DS.1, DS.2 |
-| DS.5 | [slices-2](./5-slices-2) | Sub-slicing � shared backing array � re-allocation trap | DS.2, DS.4 |
+After `DS.6`, continue to Section 04: Functions and Errors.

@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 3: Collections & Pointers — Pointers
+// Section 03: Data Structures — Pointers
 // Level: Beginner → Intermediate
 // ============================================================================
 //

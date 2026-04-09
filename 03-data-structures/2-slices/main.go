@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 3: Collections & Pointers — Slices
+// Section 03: Data Structures — Slices
 // Level: Beginner → Intermediate
 // ============================================================================
 //

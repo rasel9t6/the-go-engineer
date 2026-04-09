@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 3: Collections & Pointers — Contact Manager (Exercise)
+// Section 03: Data Structures — Contact Manager (Exercise)
 // Level: Beginner → Intermediate
 // ============================================================================
 //

@@ -39,6 +39,25 @@
       ]
     },
     {
+      "id": "s03",
+      "number": "03",
+      "slug": "data-structures",
+      "title": "Data Structures",
+      "phase": "foundations",
+      "summary": "Teach learners how arrays, slices, maps, and pointers behave in memory before the curriculum moves into function and error contracts.",
+      "status": "pilot",
+      "prerequisites": [
+        "s02"
+      ],
+      "path_prefix": "03-data-structures",
+      "entry_points": [
+        "DS.1"
+      ],
+      "outputs": [
+        "DS.6"
+      ]
+    },
+    {
       "id": "s04",
       "number": "04",
       "slug": "functions-and-errors",
@@ -406,6 +425,200 @@
         "exercise",
         "pricing",
         "maps"
+      ]
+    },
+    {
+      "id": "DS.1",
+      "section_id": "s03",
+      "slug": "arrays",
+      "title": "Arrays",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "foundation",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Introduce fixed-size collections and the fact that arrays are copied by value.",
+      "objectives": [
+        "Explain the fixed-size nature of arrays",
+        "Recognize that assigning an array creates a copy"
+      ],
+      "prerequisites": [],
+      "production_relevance": "Even when slices dominate day-to-day work, arrays still explain the memory model slices build on top of.",
+      "path": "03-data-structures/1-array",
+      "run_command": "go run ./03-data-structures/1-array",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "DS.2"
+      ],
+      "tags": [
+        "arrays",
+        "memory",
+        "foundations"
+      ]
+    },
+    {
+      "id": "DS.2",
+      "section_id": "s03",
+      "slug": "slices",
+      "title": "Slices",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Teach the slice header model, append growth, and pre-allocation with make.",
+      "objectives": [
+        "Explain the relationship between length, capacity, and append",
+        "Use make to pre-allocate a slice intentionally"
+      ],
+      "prerequisites": [
+        "DS.1"
+      ],
+      "production_relevance": "Slices are one of the most common Go data structures, so understanding their growth and sharing model matters early.",
+      "path": "03-data-structures/2-slices",
+      "run_command": "go run ./03-data-structures/2-slices",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "DS.3"
+      ],
+      "tags": [
+        "slices",
+        "append",
+        "capacity"
+      ]
+    },
+    {
+      "id": "DS.3",
+      "section_id": "s03",
+      "slug": "maps",
+      "title": "Maps",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 25,
+      "summary": "Introduce map lookup, insertion, deletion, and the comma-ok pattern for presence checks.",
+      "objectives": [
+        "Use maps for keyed lookup and updates",
+        "Explain why the comma-ok pattern matters for map reads"
+      ],
+      "prerequisites": [
+        "DS.2"
+      ],
+      "production_relevance": "Maps drive caches, indexes, routing tables, and lookup-heavy business logic in everyday Go systems.",
+      "path": "03-data-structures/3-maps",
+      "run_command": "go run ./03-data-structures/3-maps",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "DS.4"
+      ],
+      "tags": [
+        "maps",
+        "lookup",
+        "comma-ok"
+      ]
+    },
+    {
+      "id": "DS.4",
+      "section_id": "s03",
+      "slug": "pointers",
+      "title": "Pointers",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Show how pointers let Go code mutate existing values and represent optional results without pointer arithmetic.",
+      "objectives": [
+        "Use address-of and dereference safely",
+        "Explain when pointer-based mutation is the right tool"
+      ],
+      "prerequisites": [
+        "DS.1",
+        "DS.2"
+      ],
+      "production_relevance": "Pointers are a normal part of Go APIs for mutation, optional values, and large-struct efficiency.",
+      "path": "03-data-structures/4-pointers",
+      "run_command": "go run ./03-data-structures/4-pointers",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "DS.5"
+      ],
+      "tags": [
+        "pointers",
+        "mutation",
+        "memory"
+      ]
+    },
+    {
+      "id": "DS.5",
+      "section_id": "s03",
+      "slug": "advanced-slicing",
+      "title": "Advanced Slicing",
+      "type": "lesson",
+      "subtype": "pattern",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 30,
+      "summary": "Explain shared backing arrays, sub-slices, and the surprising mutation behavior that comes with them.",
+      "objectives": [
+        "Explain how sub-slices share backing arrays",
+        "Recognize when append can overwrite earlier data through shared capacity"
+      ],
+      "prerequisites": [
+        "DS.2",
+        "DS.4"
+      ],
+      "production_relevance": "Slice-sharing bugs are subtle and show up in real services when data pipelines reuse buffers or partial views carelessly.",
+      "path": "03-data-structures/5-slices-2",
+      "run_command": "go run ./03-data-structures/5-slices-2",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "DS.6"
+      ],
+      "tags": [
+        "slices",
+        "backing-array",
+        "mutation"
+      ]
+    },
+    {
+      "id": "DS.6",
+      "section_id": "s03",
+      "slug": "contact-manager",
+      "title": "Contact Manager",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 40,
+      "summary": "Build a small in-memory contact manager that combines slices, maps, pointers, and a simple data model.",
+      "objectives": [
+        "Model contacts with a struct and in-memory collections",
+        "Combine slices, maps, and pointers in one coherent runnable exercise"
+      ],
+      "prerequisites": [
+        "DS.1",
+        "DS.2",
+        "DS.3",
+        "DS.4",
+        "DS.5"
+      ],
+      "production_relevance": "Real applications routinely layer multiple data structures together to balance readability, lookup speed, and mutation behavior.",
+      "path": "03-data-structures/6-contact-manager",
+      "run_command": "go run ./03-data-structures/6-contact-manager",
+      "test_command": "",
+      "starter_path": "03-data-structures/6-contact-manager/_starter",
+      "next_items": [],
+      "tags": [
+        "exercise",
+        "contact-manager",
+        "data-structures"
       ]
     },
     {

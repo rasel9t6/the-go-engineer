@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 3: Collections & Pointers — Arrays
+// Section 03: Data Structures — Arrays
 // Level: Beginner
 // ============================================================================
 //
