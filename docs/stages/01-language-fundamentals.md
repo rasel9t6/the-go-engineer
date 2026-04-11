@@ -53,6 +53,15 @@ The stage is intentionally ordered from "what is a value?" to "what is a functio
 - [03-data-structures](../../03-data-structures/)
 - [04-functions-and-errors](../../04-functions-and-errors/)
 
+## Stage Support Docs
+
+Use these support docs when you want the beta-stage view without digging through four section
+READMEs:
+
+- [Language Fundamentals support index](./language-fundamentals/README.md)
+- [Stage map](./language-fundamentals/stage-map.md)
+- [Milestone guidance](./language-fundamentals/milestone-guidance.md)
+
 ## Where This Stage Starts
 
 This stage starts at [01-core-foundations/language-basics](../../01-core-foundations/language-basics/).
