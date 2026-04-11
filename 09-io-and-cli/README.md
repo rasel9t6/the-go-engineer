@@ -12,6 +12,15 @@ By the end of Section 09, you should be comfortable reading and writing:
 - filesystem tools that traverse directories, stream content, and keep I/O testable
 - runnable utilities that interact with the outside world without turning into fragile scripts
 
+## Beta Stage Ownership
+
+This section belongs to [3 Modules and IO](../docs/stages/03-modules-and-io.md).
+
+Within the beta public shell, it is the second and final part of that stage:
+
+1. Section 08 `modules-and-packages`
+2. Section 09 `io-and-cli`
+
 ## Who Should Start Here
 
 ### Full Path
@@ -92,5 +101,9 @@ That keeps the section useful for current learners while the broader v2 migratio
 
 ## Next Step
 
-After you finish the track or milestone you care about here, continue to
+After you finish the track or milestone you care about here, you have completed the core milestone
+path for [3 Modules and IO](../docs/stages/03-modules-and-io.md).
+
+From there, move to [4 Backend Engineering](../docs/stages/04-backend-engineering.md).
+The first source section in that next stage is
 [Section 10: Web and Database](../10-web-and-database).
