@@ -5,6 +5,14 @@
 This track teaches you how to organize a Go codebase so package boundaries reinforce the design
 instead of hiding problems behind generic folders and global helpers.
 
+## Beta Stage Ownership
+
+This track belongs to [7 Architecture](../../docs/stages/07-architecture.md).
+
+Within the beta public shell, it is the current live learner path for that stage.
+The other architecture-owned Section `14` surfaces remain valuable, but this track is where the
+beta proof path starts.
+
 ## Track Map
 
 | ID | Type | Surface | Why It Matters | Requires |
@@ -35,3 +43,6 @@ then the package-design part of Section 14 is doing its job.
 
 After `PD.3`, continue to the [Structured Logging track](../structured-logging) or back to the
 [Section 14 overview](../README.md).
+
+In the beta shell, the next public stage after Architecture is
+[8 Production Engineering](../../docs/stages/08-production-engineering.md).

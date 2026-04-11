@@ -1,80 +1,54 @@
-# Section 26: gRPC
+# Track D: gRPC Architecture Reference
 
-## Beginner → Expert Mapping
+## Mission
 
-| Topic | Level | Importance | Engineering Concept |
-|-------|-------|------------|---------------------|
-| Protocol Buffers | Beginner | **Critical** | Schema-first API definition |
-| Unary RPC | Beginner | **Critical** | Request/response like HTTP |
-| Server streaming | Intermediate | High | Real-time data push |
-| Client streaming | Advanced | High | Batch upload, chunked writes |
-| Bidirectional streaming | Advanced | High | Chat, live collaboration |
-| Interceptors | Advanced | **Critical** | Middleware for gRPC |
+This surface shows how schema-first service boundaries look in Go when transport contracts matter
+as much as handler code.
 
-## Engineering Depth
+It is intentionally treated as an architecture reference surface in beta, not as the main proof
+path for the stage.
 
-gRPC is Go's native RPC framework, built by Google. It uses Protocol Buffers (proto3) as its IDL — a schema language that generates type-safe client and server code in any language. A Go client can seamlessly call a Python server, a Rust server, or a Java server with zero manual serialization code.
+## Beta Stage Ownership
 
-**Why gRPC over REST:**
-- **2-10x faster**: Binary framing (HTTP/2) + protobuf encoding vs text JSON
-- **Streaming**: First-class bidirectional streaming over a single TCP connection
-- **Type safety**: The proto schema IS the contract — no drift between client and server
-- **Code generation**: Client stubs generated automatically, no manual HTTP client
+This track belongs to [7 Architecture](../../docs/stages/07-architecture.md).
 
-**Proto3 → Go generation workflow:**
-```bash
-# Install tools (one-time setup)
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-brew install protobuf  # or apt install protobuf-compiler
+Within the beta public shell, it is a reference surface for service contracts, generated boundary
+code, and RPC-style architecture after the package-design path is already clear.
 
-# Generate Go code from .proto
-protoc --go_out=. --go-grpc_out=. proto/service.proto
-```
+## Why This Surface Matters
 
-## Contents
+gRPC is useful here because it forces architecture decisions into explicit contracts:
 
-| Directory | Topic | Level |
-|-----------|-------|-------|
-| `proto/` | Service definition files | Beginner |
-| `gen/` | Generated Go code (committed so you can run without protoc) | — |
-| `1-unary/` | Simple request/response RPC | Beginner |
-| `2-streaming/` | Server-side streaming and interceptors | Intermediate |
+- messages and services are schema-first
+- client and server boundaries are typed
+- transport seams become visible and reviewable
+- code generation supports the contract instead of replacing design thinking
 
-## How to Run
+## Current Surface Shape
 
-```bash
-# Terminal 1: start the server
-go run ./14-application-architecture/grpc/1-unary/server
+| Area | Focus |
+| --- | --- |
+| `proto/` | service and message definitions |
+| `gen/` | generated Go code committed for runnable examples |
+| `1-unary/` | basic request/response RPC |
+| `2-streaming/` | streaming flows and interceptors |
 
-# Terminal 2: run the client
-go run ./14-application-architecture/grpc/1-unary/client
+## How To Use It In Beta
 
-# Terminal 1: start the streaming server
-go run ./14-application-architecture/grpc/2-streaming/server
-
-# Terminal 2: run the streaming client
-go run ./14-application-architecture/grpc/2-streaming/client
-```
-
-## Adding to go.mod
-
-```bash
-go get google.golang.org/grpc
-go get google.golang.org/protobuf
-```
+1. complete the live `package-design` path first
+2. read this surface when you want stronger intuition for service boundaries
+3. treat it as architectural reinforcement, not as a required milestone before continuing
 
 ## References
 
-- [gRPC Go Quick Start](https://grpc.io/docs/languages/go/quickstart/)
-- [Protocol Buffers Language Guide](https://protobuf.dev/programming-guides/proto3/)
-- [google.golang.org/grpc](https://pkg.go.dev/google.golang.org/grpc)
+1. [gRPC Go Quick Start](https://grpc.io/docs/languages/go/quickstart/)
+2. [Protocol Buffers Language Guide](https://protobuf.dev/programming-guides/proto3/)
+3. [google.golang.org/grpc](https://pkg.go.dev/google.golang.org/grpc)
 
+## Next Step
 
-## Learning Path
-
-| ID | Lesson | Concept | Requires |
-| --- | --- | --- | --- |
-| GR.1 | [proto definition + gen](./proto) | proto3 service/message · protoc · generated Go stubs | 🟢 entry |
-| GR.2 | [unary server](./server) | Implement generated interface · status codes · interceptors · metadata | GR.1 |
-| GR.3 | [unary client](./client) | grpc.NewClient · typed stub · context deadline · status.FromError | GR.1, GR.2 |
+After you use this surface, return to the
+[Architecture stage](../../docs/stages/07-architecture.md)
+or continue into
+[8 Production Engineering](../../docs/stages/08-production-engineering.md)
+if your current gap is operating systems safely.
