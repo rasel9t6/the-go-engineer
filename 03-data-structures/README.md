@@ -13,6 +13,17 @@ By the end of Section 03, you should be comfortable with:
 - pointers for mutation and nil-aware references
 - combining those pieces in one small in-memory program
 
+## Beta Stage Ownership
+
+This section belongs to [1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+
+Within the beta public shell, it is the third of four connected parts:
+
+1. Section 01 `language-basics`
+2. Section 02 `control-flow`
+3. Section 03 `data-structures`
+4. Section 04 `functions-and-errors`
+
 ## Who Should Start Here
 
 ### Full Path
@@ -70,3 +81,5 @@ then you are ready to move into functions and errors in Section 04.
 ## Next Step
 
 After `DS.6`, continue to Section 04: Functions and Errors.
+In the beta shell, that is still part of
+[1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).

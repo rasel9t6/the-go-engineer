@@ -14,6 +14,17 @@ By the end of Section 04, you should be comfortable reading and writing:
 - defer-based cleanup
 - panic and recover boundaries
 
+## Beta Stage Ownership
+
+This section belongs to [1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+
+Within the beta public shell, it is the fourth and final part of that stage:
+
+1. Section 01 `language-basics`
+2. Section 02 `control-flow`
+3. Section 03 `data-structures`
+4. Section 04 `functions-and-errors`
+
 ## Who Should Start Here
 
 ### Full Path
@@ -103,5 +114,11 @@ reorders the live lesson paths.
 
 ## Next Step
 
-After `FE.9`, continue to [Section 05: Types and Interfaces](../05-types-and-interfaces).
+After `FE.9`, you have completed the core milestone path for
+[1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+
+From there, move to [2 Types and Design](../docs/stages/02-types-and-design.md).
+The first source section in that next stage is
+[Section 05: Types and Interfaces](../05-types-and-interfaces).
+
 If you want one more pattern lesson before moving on, finish `FE.10` first.
