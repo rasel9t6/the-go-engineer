@@ -12,6 +12,17 @@ By the end of Section 02, you should be comfortable with:
 - `switch` for readable multi-branch logic
 - combining loops, branching, map lookups, and small helpers in one exercise
 
+## Beta Stage Ownership
+
+This section belongs to [1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+
+Within the beta public shell, it is the second of four connected parts:
+
+1. Section 01 `language-basics`
+2. Section 02 `control-flow`
+3. Section 03 `data-structures`
+4. Section 04 `functions-and-errors`
+
 ## Who Should Start Here
 
 ### Full Path
@@ -65,3 +76,5 @@ then you are ready to move into data structures in Section 03.
 ## Next Step
 
 After `CF.4`, continue to Section 03: Data Structures.
+In the beta shell, that keeps you inside
+[1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
