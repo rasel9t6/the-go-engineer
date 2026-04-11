@@ -51,6 +51,15 @@ broader Section `10` inventory.
 - [10-web-and-database/databases](../../10-web-and-database/databases/)
 - [10-web-and-database/database-migrations](../../10-web-and-database/database-migrations/)
 
+## Stage Support Docs
+
+Use these support docs when you want the beta-stage view without digging through the full Section
+`10` inventory:
+
+- [Backend Engineering support index](./backend-engineering/README.md)
+- [Stage map](./backend-engineering/stage-map.md)
+- [Milestone guidance](./backend-engineering/milestone-guidance.md)
+
 ## Where This Stage Starts
 
 Start with the databases track at
