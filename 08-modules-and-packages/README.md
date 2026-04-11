@@ -13,6 +13,15 @@ By the end of Section 08, you should be comfortable reading and writing:
 - local override workflows with `replace`
 - optional platform and test surfaces through build tags
 
+## Beta Stage Ownership
+
+This section belongs to [3 Modules and IO](../docs/stages/03-modules-and-io.md).
+
+Within the beta public shell, it is the first of two connected parts:
+
+1. Section 08 `modules-and-packages`
+2. Section 09 `io-and-cli`
+
 ## Who Should Start Here
 
 ### Full Path
@@ -94,4 +103,7 @@ This pilot intentionally avoids breaking the current Section 08 filesystem layou
 ## Next Step
 
 After `MP.3`, continue to [Section 09: I/O and CLI Tools](../09-io-and-cli).
+In the beta shell, that keeps you inside
+[3 Modules and IO](../docs/stages/03-modules-and-io.md).
+
 If you want one more stretch lesson before moving on, finish `MP.4` first.
