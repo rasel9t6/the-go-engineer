@@ -27,6 +27,12 @@ This is the strongest current stage proof.
 It asks you to combine cancellation, bounded concurrency, and failure-aware coordination in one
 small system.
 
+## Pressure Follow-Through
+
+After `CP.5`, use the seeded diagnosis task to practice evidence-based failure analysis:
+
+- [Diagnose CP.5 health checker failure](../expert-layer/tasks/diagnose-cp5-health-checker-failure.md)
+
 ## Bridge Path Check
 
 If you are moving quickly through this stage, make sure you can still explain:

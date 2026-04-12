@@ -111,6 +111,12 @@ The current live milestone backbone is:
 
 - `DB.6` repository pattern project
 
+## Pressure Follow-Through
+
+Once `DB.6` feels runnable, move one layer deeper with the seeded Expert Layer review task:
+
+- [Review DB.6 repository boundary](./expert-layer/tasks/review-db6-repository-boundary.md)
+
 That single live milestone is intentional for now.
 This stage is still promoting the databases path first before the broader Section `10` inventory is
 fully regrouped into beta surfaces.

@@ -17,6 +17,14 @@ of ad hoc debug strings.
 This proves that lifecycle behavior can be designed deliberately instead of being left to process
 termination luck.
 
+## Pressure Follow-Through
+
+After the milestone path, use the seeded Expert Layer tasks to turn the stage into review and
+redesign pressure:
+
+- [Review SL.5 redaction boundary](../expert-layer/tasks/review-sl5-redaction-boundary.md)
+- [Redesign GS.3 shutdown order](../expert-layer/tasks/redesign-gs3-shutdown-order.md)
+
 ## Bridge Path Check
 
 If you are moving quickly through this stage, make sure you can still explain:

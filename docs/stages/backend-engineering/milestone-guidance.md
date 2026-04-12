@@ -39,6 +39,12 @@ You are likely ready to leave this stage when:
 - you can reason about transaction boundaries and context-aware execution clearly
 - you can describe which Section `10` surfaces are live beta path versus reference-only
 
+## Pressure Follow-Through
+
+After `DB.6`, use the next pressure surface instead of treating the project as a dead end:
+
+- [Review DB.6 repository boundary](../expert-layer/tasks/review-db6-repository-boundary.md)
+
 ## If The Milestone Feels Too Hard
 
 That is usually a routing signal, not a failure signal.

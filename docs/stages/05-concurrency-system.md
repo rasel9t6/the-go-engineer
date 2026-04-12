@@ -123,6 +123,13 @@ The current live milestone backbone is:
 - `TM.7` console reminder
 - `CP.5` URL health checker
 
+## Pressure Follow-Through
+
+After `CP.5`, use the seeded diagnosis task that turns the milestone into a failure-analysis
+exercise:
+
+- [Diagnose CP.5 health checker failure](./expert-layer/tasks/diagnose-cp5-health-checker-failure.md)
+
 `CP.4` remains an important promoted exercise inside this stage because it is the first place where
 bounded-concurrency pressure becomes explicit.
 

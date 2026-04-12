@@ -113,6 +113,14 @@ The current live milestone backbone is:
 - `SL.5` PII redactor exercise
 - `GS.3` shutdown capstone
 
+## Pressure Follow-Through
+
+After the stage milestones, use the seeded Expert Layer tasks that turn runtime safety into review
+and redesign pressure:
+
+- [Review SL.5 redaction boundary](./expert-layer/tasks/review-sl5-redaction-boundary.md)
+- [Redesign GS.3 shutdown order](./expert-layer/tasks/redesign-gs3-shutdown-order.md)
+
 `docker-and-deployment` is an important production surface, but it is currently a reference layer
 instead of the main public beta proof path.
 
