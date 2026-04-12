@@ -59,7 +59,15 @@ The explanation should point to evidence in the current flagship seed.
 The learner should justify why the selected improvement matters more than a larger speculative
 redesign.
 
+## Common Weak Answers
+
+- calling a boundary “good” or “bad” without evidence from the current project structure
+- proposing a large rewrite instead of a bounded improvement
+- confusing operational concerns with architectural seams
+
 ## Next Step
 
-Move to the
+Use the
+[Architecture implementation slice](../slices/architecture-slice.md),
+then move to the
 [Operations checkpoint](./operations-checkpoint.md).

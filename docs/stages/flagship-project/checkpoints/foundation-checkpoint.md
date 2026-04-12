@@ -56,7 +56,15 @@ The run path and explanation should be grounded in the actual project surface.
 
 The learner should show judgment about what is still unclear and why that matters.
 
+## Common Weak Answers
+
+- reporting that the project runs without describing the main runtime pieces
+- naming directories without explaining what role they play in the system
+- proposing a change before showing enough understanding of the current system
+
 ## Next Step
 
-Move to the
+Start with the
+[Foundation implementation slice](../slices/foundation-slice.md),
+then move to the
 [Architecture checkpoint](./architecture-checkpoint.md).

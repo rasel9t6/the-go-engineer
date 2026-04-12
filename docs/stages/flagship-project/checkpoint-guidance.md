@@ -18,6 +18,7 @@ when you define new flagship checkpoints.
 The current public checkpoint set lives here:
 
 - [Checkpoint set index](./checkpoints/README.md)
+- [Implementation slices](./slices/README.md)
 
 ### Foundation checkpoint
 

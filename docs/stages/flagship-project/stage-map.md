@@ -24,6 +24,7 @@ work together.
 Use the published checkpoint set here:
 
 - [Checkpoint set](./checkpoints/README.md)
+- [Implementation slices](./slices/README.md)
 
 ## Handoff
 

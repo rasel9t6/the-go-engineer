@@ -57,8 +57,16 @@ The learner should define what evidence would prove the iteration was worthwhile
 
 The learner should justify why this improvement wins over plausible alternatives.
 
+## Common Weak Answers
+
+- choosing the most interesting change instead of the highest-leverage next step
+- describing a goal without defining how to prove the iteration helped
+- proposing an iteration that expands scope without a clear system reason
+
 ## Next Step
 
-After this checkpoint, either implement the chosen iteration or return to
+After this checkpoint, use the
+[First iteration slice](../slices/first-iteration-slice.md),
+then either implement the chosen iteration or return to
 [11 Code Generation](../../11-code-generation.md)
 once you have enough flagship context to use generation tools deliberately.

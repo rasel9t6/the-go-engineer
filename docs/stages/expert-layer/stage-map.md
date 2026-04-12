@@ -14,10 +14,16 @@ constraints.
 | Redesign tasks | practice trade-off reasoning under constraints |
 | Flagship-linked pressure tasks | prepare learners for the longer integrated project path |
 
+Use the public task index here:
+
+- [Task index](./tasks/README.md)
+
 ## First Public Task Seeds
 
 - [DB.6 repository boundary review](./tasks/review-db6-repository-boundary.md)
 - [CP.5 health checker diagnosis](./tasks/diagnose-cp5-health-checker-failure.md)
+- [SL.5 redaction boundary review](./tasks/review-sl5-redaction-boundary.md)
+- [GS.3 shutdown-order redesign](./tasks/redesign-gs3-shutdown-order.md)
 
 ## Entry Requirement
 
