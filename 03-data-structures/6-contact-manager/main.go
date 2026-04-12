@@ -1,30 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-// Commercial use is prohibited without permission.
+// See LICENSE for usage terms.
 
 package main
 
 import "fmt"
 
-// ============================================================================
 // Section 03: Data Structures - Contact Directory (Exercise)
-// Level: Beginner -> Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
-//   - Combining slices, maps, and pointers in one small program
-//   - Using a map to find slice positions quickly
-//   - Taking a pointer to a slice element so an update persists
-//   - Keeping the exercise inside Section 03 concepts only
+// Mental model:
+// This milestone is intentionally plain. It proves slices, maps, and pointers
+// directly before the curriculum moves on to functions, structs, and more
+// layered design.
 //
-// ENGINEERING DEPTH:
-//   This exercise intentionally does NOT use helper functions, methods, or a
-//   struct-heavy design yet. The goal is to prove today's tools directly:
-//   slices for ordered storage, a map for O(1) lookup of slice positions, and
-//   pointers for updates that must stick.
+// In this lesson:
+// - keep one contact's data aligned across parallel slices
+// - use a map for O(1) lookup of the slice index
+// - update a stored phone number through a pointer
 //
-// RUN: go run ./03-data-structures/6-contact-manager
-// ============================================================================
+// Watch for:
+// - all three slices must stay index-aligned
+// - only take the pointer after you know the lookup succeeded
+//
+// Run: go run ./03-data-structures/6-contact-manager
 
 func main() {
 	fmt.Println("=== Contact Directory ===")
@@ -89,9 +86,8 @@ func main() {
 		fmt.Println("Zack not found.")
 	}
 
-	// KEY TAKEAWAY:
-	// - Slices hold the ordered contact data.
-	// - The map tells us where each contact lives in those slices.
-	// - A pointer to a slice element lets an update persist.
-	// - This milestone stays intentionally simple so the data-structure choices stay visible.
+	fmt.Println("\n---------------------------------------------------")
+	fmt.Println("SECTION COMPLETE: DS.6 contact-directory")
+	fmt.Println("NEXT UP: FE.1 functions")
+	fmt.Println("---------------------------------------------------")
 }

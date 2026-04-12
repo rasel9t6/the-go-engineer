@@ -1,122 +1,62 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-// Commercial use is prohibited without permission.
+// See LICENSE for usage terms.
 
 package main
 
 import "fmt"
 
-// ============================================================================
-// Section 03: Data Structures — Pointers
-// Level: Beginner → Intermediate
-// ============================================================================
+// Section 03: Data Structures - Pointers
 //
-// WHAT YOU'LL LEARN:
-//   - What a pointer IS: a variable that stores a memory address
-//   - The & operator (address-of) and * operator (dereference)
-//   - Pass-by-value vs pass-by-reference
-//   - Why pointers exist: mutation, large struct efficiency, nil-ability
-//   - Pointer safety in Go (no pointer arithmetic)
+// Mental model:
+// A pointer stores the address of a value. You use it when you need to update
+// the original stored value instead of a copy.
 //
-// ENGINEERING DEPTH:
-//   A pointer is just an integer holding the numeric hexadecimal address of a
-//   byte in your computer's RAM (e.g. `0xc0000a6018`). In C++, you can freely
-//   add or subtract from this integer (Pointer Arithmetic), which is incredibly
-//   fast but is the #1 cause of catastrophic security exploits globally (buffer
-//   overflows). Go explicitly bans Pointer Arithmetic. You get raw memory performance
-//   without the devastating security risks.
+// In this lesson:
+// - create a pointer with &
+// - read and write through a pointer with *
+// - compare copy-based updates with pointer-based updates
+// - handle a nil pointer safely
+// - connect pointers to slice elements, which the Section 03 milestone needs
 //
-// RUN: go run ./03-data-structures/4-pointers
-// ============================================================================
-
-// modifyValue receives a COPY of the int.
-// Any changes to "val" inside this function do NOT affect the original.
-// This is "pass by value" — Go's default behavior for all types.
-func modifyValue(val int) {
-	val = val * 10
-	fmt.Printf("  Inside modifyValue: val = %d (this is a copy)\n", val)
-}
-
-// modifyPointer receives a POINTER to the int.
-// The pointer holds the MEMORY ADDRESS of the original variable.
-// Using *val (dereference) modifies the original variable.
-func modifyPointer(val *int) {
-	// Always check for nil before dereferencing.
-	// Dereferencing a nil pointer causes a runtime PANIC (crash).
-	if val == nil {
-		fmt.Println("  val is nil — cannot dereference")
-		return
-	}
-	*val = *val * 10 // *val reads/writes the value AT the address
-	fmt.Printf("  Inside modifyPointer: *val = %d (original modified!)\n", *val)
-}
+// Watch for:
+// - dereferencing a nil pointer will panic
+// - pointers are useful, but not every value needs one
+//
+// Run: go run ./03-data-structures/4-pointers
 
 func main() {
+	fmt.Println("=== Pointers ===")
 
-	// --- PASS BY VALUE (Default) ---
-	fmt.Println("=== Pass by Value ===")
-	num := 10
-	modifyValue(num)
-	fmt.Printf("  After modifyValue: num = %d (unchanged!)\n", num) // Still 10
+	score := 50
+	scorePtr := &score
 
-	fmt.Println()
+	fmt.Printf("score value:   %d\n", score)
+	fmt.Printf("score address: %p\n", &score)
+	fmt.Printf("scorePtr:      %p\n", scorePtr)
+	fmt.Printf("*scorePtr:     %d\n", *scorePtr)
 
-	// --- PASS BY POINTER (Reference) ---
-	// The & operator gets the MEMORY ADDRESS of a variable.
-	// &num means "the address where num is stored in memory"
-	fmt.Println("=== Pass by Pointer ===")
-	modifyPointer(&num)                                             // Pass the ADDRESS of num
-	fmt.Printf("  After modifyPointer: num = %d (changed!)\n", num) // Now 100
+	// Changing a copied value does not affect the original.
+	scoreCopy := score
+	scoreCopy = 95
+	fmt.Printf("\nAfter changing the copy: score=%d scoreCopy=%d\n", score, scoreCopy)
 
-	fmt.Println()
+	// Changing through the pointer updates the original.
+	*scorePtr = 95
+	fmt.Printf("After changing through the pointer: score=%d\n", score)
 
-	// --- POINTER BASICS ---
-	// A pointer variable stores a memory address, not a value.
-	//
-	// Type notation:
-	//   *int   = "pointer to an int" (the type)
-	//   &grade = "address of grade"  (create a pointer)
-	//   *ptr   = "value at address"  (dereference — read/write the value)
-	fmt.Println("=== Pointer Basics ===")
-	grade := 50
-	gradePtr := &grade // gradePtr now holds the memory address of grade
+	// Pointers work well with slice elements too.
+	phones := []string{"111-2222", "333-4444", "555-6666"}
+	bobPhone := &phones[1]
+	*bobPhone = "333-9999"
+	fmt.Printf("\nPhones after pointer update: %v\n", phones)
 
-	fmt.Printf("  grade value:   %d\n", grade)                    // 50
-	fmt.Printf("  grade address: %p\n", &grade)                   // 0xc0000b4008 (varies)
-	fmt.Printf("  gradePtr:      %p (same address)\n", gradePtr)  // Same as above
-	fmt.Printf("  *gradePtr:     %d (dereferenced)\n", *gradePtr) // 50
+	var optionalScore *int
+	if optionalScore == nil {
+		fmt.Println("optionalScore is nil, so there is nothing to dereference yet.")
+	}
 
-	// Modifying through the pointer changes the original
-	*gradePtr = 95
-	fmt.Printf("  After *gradePtr = 95: grade = %d\n", grade) // 95
-
-	// --- WHEN TO USE POINTERS ---
-	//
-	// 1. MUTATION: When a function needs to modify the caller's variable
-	//      func UpdateUser(u *User) { u.Name = "new" }
-	//
-	// 2. LARGE STRUCTS: Passing a 1MB struct by value copies 1MB to the stack.
-	//      Passing a pointer copies only 8 bytes (the address).
-	//      Rule of thumb: if a struct has more than 3-4 fields, use a pointer.
-	//
-	// 3. NIL-ABILITY: Pointers can be nil. Regular values cannot.
-	//      var p *int = nil  ← valid (means "no value")
-	//      var n int = nil   ← COMPILE ERROR
-	//
-	// 4. SHARING: When multiple parts of the code need the same data.
-	//
-	// SAFETY: Go has NO pointer arithmetic (unlike C/C++).
-	// You cannot do p++ to move to the next memory address.
-	// This eliminates an entire class of memory corruption bugs.
-
-	// KEY TAKEAWAY:
-	// - & creates a pointer (gets the address)
-	// - * dereferences a pointer (accesses the value at the address)
-	// - Go is pass-by-value by default. Use pointers to modify originals.
-	// - Always check for nil before dereferencing.
-	// - Go pointers are safe — no arithmetic, no manual memory management.
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DS.5 slices-2")
-	fmt.Println("   Current: DS.4 (pointers)")
+	fmt.Println("NEXT UP: DS.5 slice-sharing")
+	fmt.Println("Current: DS.4 (pointers)")
 	fmt.Println("---------------------------------------------------")
 }

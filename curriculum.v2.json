@@ -557,8 +557,8 @@
     {
       "id": "DS.5",
       "section_id": "s03",
-      "slug": "advanced-slicing",
-      "title": "Advanced Slicing",
+      "slug": "slice-sharing-and-capacity",
+      "title": "Slice Sharing and Capacity",
       "type": "lesson",
       "subtype": "pattern",
       "level": "core",
@@ -590,8 +590,8 @@
     {
       "id": "DS.6",
       "section_id": "s03",
-      "slug": "contact-manager",
-      "title": "Contact Manager",
+      "slug": "contact-directory",
+      "title": "Contact Directory",
       "type": "exercise",
       "subtype": "",
       "level": "core",

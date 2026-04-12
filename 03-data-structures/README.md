@@ -13,6 +13,14 @@ By the end of Section 03, you should be comfortable with:
 - pointers for mutation and nil-aware references
 - combining those pieces in one small in-memory program without leaning on later-section abstractions
 
+## Zero-Magic Rule
+
+This section intentionally stops before later-section abstractions like helper-function design,
+struct-heavy modeling, methods, and package layering.
+
+That means the Section 03 milestone should prove slices, maps, and pointers directly rather than
+smuggling in ideas from later sections.
+
 ## Beta Stage Ownership
 
 This section belongs to [1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
@@ -42,7 +50,7 @@ If you only want the live milestone, review these first:
 - `DS.2` slices
 - `DS.3` maps
 - `DS.4` pointers
-- `DS.5` advanced slicing
+- `DS.5` slice sharing and capacity
 
 ## Section Map
 

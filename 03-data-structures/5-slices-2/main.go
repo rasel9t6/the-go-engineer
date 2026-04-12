@@ -1,30 +1,28 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-// Commercial use is prohibited without permission.
+// See LICENSE for usage terms.
 
 package main
 
 import "fmt"
 
-// ============================================================================
 // Section 03: Data Structures - Slice Sharing and Capacity
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
-//   - How sub-slices share a backing array
-//   - How len and cap change when you slice a slice
-//   - How append can still mutate the original data when capacity remains
-//   - How to break the shared link by copying into a new slice
+// Mental model:
+// A sub-slice is usually just another view over the same backing array.
+// That keeps slicing cheap, but it also means two slices can still affect the
+// same stored data.
 //
-// ENGINEERING DEPTH:
-//   When you create a sub-slice like `s[2:5]`, Go usually allocates no new
-//   memory. It creates a new slice header that still points into the same
-//   backing array. That is why slicing is cheap and also why a small view can
-//   accidentally mutate or keep alive a much larger block of data.
+// In this lesson:
+// - inspect len and cap after slicing
+// - watch a sub-slice mutate the original data
+// - watch append reuse spare capacity
+// - break the shared link by copying into a new slice
 //
-// RUN: go run ./03-data-structures/5-slices-2
-// ============================================================================
+// Watch for:
+// - a small sub-slice can still have a large capacity
+// - if append fits, it can still write into the original array
+//
+// Run: go run ./03-data-structures/5-slices-2
 
 func main() {
 	fmt.Println("=== Slice Sharing and Capacity ===")
@@ -50,20 +48,18 @@ func main() {
 	fmt.Printf("After append(growth, 200), original: %v\n", original)
 
 	// Copying into a new slice breaks the shared link.
-	independent := append([]int(nil), original[2:4]...)
+	independent := make([]int, len(original[2:4]))
+	for i, value := range original[2:4] {
+		independent[i] = value
+	}
 	fmt.Printf("\nIndependent copy before change: %v\n", independent)
 
 	independent[0] = 500
 	fmt.Printf("Independent copy after change:  %v\n", independent)
 	fmt.Printf("Original after copy change:     %v\n", original)
 
-	// KEY TAKEAWAY:
-	// - Sub-slicing is fast because it usually shares the original backing array.
-	// - len tells you how much of the view you can read now; cap tells you how far the shared array extends.
-	// - append can still mutate the original if the sub-slice has spare capacity.
-	// - Copy into a new slice when you need an isolated view.
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("NEXT UP: DS.6 contact-manager")
+	fmt.Println("NEXT UP: DS.6 contact-directory")
 	fmt.Println("Current: DS.5 (slice sharing and capacity)")
 	fmt.Println("---------------------------------------------------")
 }

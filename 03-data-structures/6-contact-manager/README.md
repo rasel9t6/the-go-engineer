@@ -17,7 +17,7 @@ Complete these first:
 - `DS.2` slices
 - `DS.3` maps
 - `DS.4` pointers
-- `DS.5` advanced slicing
+- `DS.5` slice sharing and capacity
 
 ## What You Will Build
 
@@ -28,6 +28,14 @@ Implement a small contact directory that:
 3. updates stored data through a pointer to a slice element
 4. prints a small demonstration flow in `main()`
 5. stays inside the concepts already taught in Section 03
+
+## Why This Milestone Avoids Structs
+
+Structs matter, but they belong to a later section.
+
+This milestone is intentionally simpler than a real application because the goal here is to prove
+that the learner understands slices, maps, pointers, shared indexing, and persistent updates before
+adding new modeling tools.
 
 ## Files
 
