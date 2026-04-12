@@ -72,6 +72,7 @@ type Result struct {
 
 var runPathPattern = regexp.MustCompile(`\./[A-Za-z0-9._/\-]+`)
 var nextUpIDPattern = regexp.MustCompile(`NEXT UP:\s*([A-Z]{2,3}\.\d+)`)
+var markdownLinkPattern = regexp.MustCompile(`\[[^\]]+\]\(([^)]+)\)`)
 
 var (
 	allowedItemTypes = map[string]bool{
@@ -122,13 +123,15 @@ func Validate(root string, report func(string)) (Result, error) {
 		return Result{}, err
 	}
 
+	pressureErrors := validatePressureDocs(root, report)
+
 	return Result{
 		LessonCount:    lessonCount,
 		FilesScanned:   filesScanned,
 		V2SectionCount: v2SectionCount,
 		V2ItemCount:    v2ItemCount,
 		HasV2:          hasV2,
-		ErrorCount:     pathErrors + runErrors + v2Errors,
+		ErrorCount:     pathErrors + runErrors + v2Errors + pressureErrors,
 	}, nil
 }
 
@@ -637,6 +640,151 @@ func validateV2LessonNavigation(root string, items []V2Item, report func(string)
 		actualNextID := string(match[1])
 		if actualNextID != expectedNextID {
 			report(fmt.Sprintf("Invalid v2 lesson navigation footer: %s -> %s (expected %s)", item.ID, actualNextID, expectedNextID))
+			errorsFound++
+		}
+	}
+
+	return errorsFound
+}
+
+var rubricSurfaceHeadings = []string{
+	"## Mission",
+	"## Type",
+	"## Level",
+	"## Prerequisites",
+	"## Task",
+	"## Evidence",
+	"## Rubric",
+	"## Common Weak Answers",
+	"## Next Step",
+}
+
+func validatePressureDocs(root string, report func(string)) int {
+	errorsFound := 0
+
+	templatePath := "docs/templates/rubric-checkpoint-template.md"
+	if !pathExists(root, templatePath) {
+		report("Missing rubric template: docs/templates/rubric-checkpoint-template.md")
+		errorsFound++
+		return errorsFound
+	}
+
+	requiredLinks := map[string][]string{
+		"docs/stages/expert-layer/README.md":                  {"./tasks/README.md"},
+		"docs/stages/expert-layer/stage-map.md":               {"./tasks/README.md"},
+		"docs/stages/expert-layer/pressure-guidance.md":       {"./tasks/README.md"},
+		"docs/stages/flagship-project/README.md":              {"./checkpoints/README.md", "./slices/README.md"},
+		"docs/stages/flagship-project/stage-map.md":           {"./checkpoints/README.md", "./slices/README.md"},
+		"docs/stages/flagship-project/checkpoint-guidance.md": {"./checkpoints/README.md", "./slices/README.md"},
+	}
+
+	for relPath, links := range requiredLinks {
+		errorsFound += validateRequiredLinkPresence(root, relPath, links, report)
+		errorsFound += validateMarkdownLocalLinks(root, relPath, report)
+	}
+
+	errorsFound += validateMarkdownLocalLinks(root, "docs/stages/expert-layer/tasks/README.md", report)
+	errorsFound += validateMarkdownLocalLinks(root, "docs/stages/flagship-project/checkpoints/README.md", report)
+	errorsFound += validateMarkdownLocalLinks(root, "docs/stages/flagship-project/slices/README.md", report)
+
+	errorsFound += validateRubricSurfaceDirectory(root, "docs/stages/expert-layer/tasks", report)
+	errorsFound += validateRubricSurfaceDirectory(root, "docs/stages/flagship-project/checkpoints", report)
+
+	return errorsFound
+}
+
+func validateRubricSurfaceDirectory(root, relDir string, report func(string)) int {
+	errorsFound := 0
+	fullDir := filepath.Join(root, relDir)
+	entries, err := os.ReadDir(fullDir)
+	if err != nil {
+		report(fmt.Sprintf("Missing pressure-doc directory: %s", filepath.ToSlash(relDir)))
+		return 1
+	}
+
+	itemCount := 0
+	for _, entry := range entries {
+		if entry.IsDir() || filepath.Ext(entry.Name()) != ".md" || entry.Name() == "README.md" {
+			continue
+		}
+		itemCount++
+		relPath := filepath.ToSlash(filepath.Join(relDir, entry.Name()))
+		errorsFound += validateRequiredHeadings(root, relPath, rubricSurfaceHeadings, report)
+		errorsFound += validateMarkdownLocalLinks(root, relPath, report)
+	}
+
+	if itemCount == 0 {
+		report(fmt.Sprintf("Missing pressure-doc items in: %s", filepath.ToSlash(relDir)))
+		errorsFound++
+	}
+
+	return errorsFound
+}
+
+func validateRequiredHeadings(root, relPath string, headings []string, report func(string)) int {
+	data, err := os.ReadFile(filepath.Join(root, relPath))
+	if err != nil {
+		report(fmt.Sprintf("Failed to read pressure-doc surface: %s -> %v", filepath.ToSlash(relPath), err))
+		return 1
+	}
+
+	text := string(data)
+	errorsFound := 0
+	for _, heading := range headings {
+		if !strings.Contains(text, heading) {
+			report(fmt.Sprintf("Invalid rubric/checkpoint surface headings: %s missing %s", filepath.ToSlash(relPath), heading))
+			errorsFound++
+		}
+	}
+
+	return errorsFound
+}
+
+func validateRequiredLinkPresence(root, relPath string, links []string, report func(string)) int {
+	data, err := os.ReadFile(filepath.Join(root, relPath))
+	if err != nil {
+		report(fmt.Sprintf("Failed to read pressure-doc link surface: %s -> %v", filepath.ToSlash(relPath), err))
+		return 1
+	}
+
+	text := string(data)
+	errorsFound := 0
+	for _, link := range links {
+		if !strings.Contains(text, "("+link+")") {
+			report(fmt.Sprintf("Missing required pressure-doc link: %s -> %s", filepath.ToSlash(relPath), link))
+			errorsFound++
+		}
+	}
+
+	return errorsFound
+}
+
+func validateMarkdownLocalLinks(root, relPath string, report func(string)) int {
+	data, err := os.ReadFile(filepath.Join(root, relPath))
+	if err != nil {
+		report(fmt.Sprintf("Failed to read markdown surface: %s -> %v", filepath.ToSlash(relPath), err))
+		return 1
+	}
+
+	errorsFound := 0
+	for _, match := range markdownLinkPattern.FindAllStringSubmatch(string(data), -1) {
+		if len(match) < 2 {
+			continue
+		}
+
+		target := strings.TrimSpace(match[1])
+		if target == "" ||
+			strings.HasPrefix(target, "http://") ||
+			strings.HasPrefix(target, "https://") ||
+			strings.HasPrefix(target, "#") ||
+			strings.HasPrefix(target, "mailto:") {
+			continue
+		}
+
+		target = strings.SplitN(target, "#", 2)[0]
+		resolved := filepath.Clean(filepath.Join(filepath.Dir(relPath), filepath.FromSlash(target)))
+		if !pathExists(root, resolved) {
+			report(fmt.Sprintf("Broken local doc link: %s -> %s", filepath.ToSlash(relPath), target))
 			errorsFound++
 		}
 	}

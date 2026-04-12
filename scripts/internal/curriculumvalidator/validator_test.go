@@ -11,6 +11,7 @@ func TestValidateAcceptsValidV2Fixture(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -84,6 +85,7 @@ func TestValidateRejectsUnknownSectionPrerequisite(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -122,6 +124,7 @@ func TestValidateRejectsMixedContractWithoutCommands(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -178,6 +181,7 @@ func TestValidateRejectsLessonNavigationFooterMismatch(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -257,6 +261,7 @@ func TestValidateRejectsWrongSectionLabelInV2Source(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -318,6 +323,7 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
 	root := t.TempDir()
 
 	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
 	writeFile(t, root, "curriculum.v2.json", `{
   "schema_version": 1,
   "sections": [
@@ -370,6 +376,88 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
 	}
 }
 
+func TestValidateRejectsRubricSurfaceMissingRequiredHeading(t *testing.T) {
+	root := t.TempDir()
+
+	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
+	writeFile(t, root, "docs/stages/expert-layer/tasks/review-db6-repository-boundary.md", `# DB.6 Repository Boundary Review
+
+## Mission
+
+Review the surface.
+
+## Type
+
+- review task
+
+## Level
+
+- core
+
+## Prerequisites
+
+- item
+
+## Task
+
+1. do the review
+
+## Evidence
+
+- show evidence
+
+## Common Weak Answers
+
+- weak answer
+
+## Next Step
+
+next
+`)
+
+	var reports []string
+	result, err := Validate(root, func(message string) {
+		reports = append(reports, message)
+	})
+	if err != nil {
+		t.Fatalf("Validate returned error: %v", err)
+	}
+	if result.ErrorCount != 1 {
+		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
+	}
+	if !containsReport(reports, "Invalid rubric/checkpoint surface headings: docs/stages/expert-layer/tasks/review-db6-repository-boundary.md missing ## Rubric") {
+		t.Fatalf("expected missing-rubric-heading error in reports: %v", reports)
+	}
+}
+
+func TestValidateRejectsBrokenFlagshipCheckpointLink(t *testing.T) {
+	root := t.TempDir()
+
+	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
+	writeFile(t, root, "docs/stages/flagship-project/checkpoint-guidance.md", `# Flagship Project Checkpoint Guidance
+
+Use the checkpoint set:
+
+- [Checkpoint set index](./checkpoints/README.md)
+`)
+
+	var reports []string
+	result, err := Validate(root, func(message string) {
+		reports = append(reports, message)
+	})
+	if err != nil {
+		t.Fatalf("Validate returned error: %v", err)
+	}
+	if result.ErrorCount != 1 {
+		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
+	}
+	if !containsReport(reports, "Missing required pressure-doc link: docs/stages/flagship-project/checkpoint-guidance.md -> ./slices/README.md") {
+		t.Fatalf("expected missing-checkpoint-link error in reports: %v", reports)
+	}
+}
+
 func writeFile(t *testing.T, root, relativePath, contents string) {
 	t.Helper()
 
@@ -398,4 +486,96 @@ func containsReport(reports []string, want string) bool {
 	}
 
 	return false
+}
+
+func writeValidPressureDocs(t *testing.T, root string) {
+	t.Helper()
+
+	writeFile(t, root, "docs/templates/rubric-checkpoint-template.md", "# Template\n")
+	writeFile(t, root, "docs/stages/expert-layer/README.md", "# Expert\n\n[Task index](./tasks/README.md)\n")
+	writeFile(t, root, "docs/stages/expert-layer/stage-map.md", "# Stage Map\n\n[Task index](./tasks/README.md)\n")
+	writeFile(t, root, "docs/stages/expert-layer/pressure-guidance.md", "# Guidance\n\n[Task index](./tasks/README.md)\n")
+	writeFile(t, root, "docs/stages/expert-layer/tasks/README.md", "# Tasks\n\n- [Task](./review-db6-repository-boundary.md)\n")
+	writeFile(t, root, "docs/stages/expert-layer/tasks/review-db6-repository-boundary.md", `# Review
+
+## Mission
+
+mission
+
+## Type
+
+- review task
+
+## Level
+
+- core
+
+## Prerequisites
+
+- item
+
+## Task
+
+1. task
+
+## Evidence
+
+- evidence
+
+## Rubric
+
+rubric
+
+## Common Weak Answers
+
+- weak
+
+## Next Step
+
+next
+`)
+	writeFile(t, root, "docs/stages/flagship-project/README.md", "# Flagship\n\n[Checkpoint set](./checkpoints/README.md)\n[Implementation slices](./slices/README.md)\n")
+	writeFile(t, root, "docs/stages/flagship-project/stage-map.md", "# Stage Map\n\n[Checkpoint set](./checkpoints/README.md)\n[Implementation slices](./slices/README.md)\n")
+	writeFile(t, root, "docs/stages/flagship-project/checkpoint-guidance.md", "# Guidance\n\n[Checkpoint set index](./checkpoints/README.md)\n[Implementation slices](./slices/README.md)\n")
+	writeFile(t, root, "docs/stages/flagship-project/checkpoints/README.md", "# Checkpoints\n\n- [Foundation](./foundation-checkpoint.md)\n")
+	writeFile(t, root, "docs/stages/flagship-project/checkpoints/foundation-checkpoint.md", `# Foundation
+
+## Mission
+
+mission
+
+## Type
+
+- flagship checkpoint
+
+## Level
+
+- foundation
+
+## Prerequisites
+
+- item
+
+## Task
+
+1. task
+
+## Evidence
+
+- evidence
+
+## Rubric
+
+rubric
+
+## Common Weak Answers
+
+- weak
+
+## Next Step
+
+[Implementation slice](../slices/foundation-slice.md)
+`)
+	writeFile(t, root, "docs/stages/flagship-project/slices/README.md", "# Slices\n\n- [Foundation](./foundation-slice.md)\n")
+	writeFile(t, root, "docs/stages/flagship-project/slices/foundation-slice.md", "# Slice\n")
 }

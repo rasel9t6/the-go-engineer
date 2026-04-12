@@ -57,7 +57,15 @@ The explanation should rely on visible system evidence instead of guesses about 
 
 The learner should explain why the chosen operational risk matters before more feature work.
 
+## Common Weak Answers
+
+- talking about production in abstract terms without tying it to the current project surfaces
+- naming logs or shutdown as concerns without identifying the specific operational seam
+- proposing broad platform work before justifying a bounded safety improvement
+
 ## Next Step
 
-Move to the
+Use the
+[Operations implementation slice](../slices/operations-slice.md),
+then move to the
 [Iteration checkpoint](./iteration-checkpoint.md).
