@@ -17,6 +17,12 @@ It means tasks that force the learner to justify judgment:
 - redesign a weak boundary under explicit constraints
 - justify why one improvement should happen before another
 
+## Template
+
+Use the shared
+[rubric and checkpoint template](../../templates/rubric-checkpoint-template.md)
+when you define new expert-layer review or diagnosis tasks.
+
 ## Ready To Move On
 
 Move to [10 Flagship Project](../10-flagship-project.md) when review, diagnosis, and redesign work

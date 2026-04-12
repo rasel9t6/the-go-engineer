@@ -7,6 +7,12 @@ dump.
 
 Checkpoints keep the work reviewable, explainable, and tied to learning value.
 
+## Template
+
+Use the shared
+[rubric and checkpoint template](../../templates/rubric-checkpoint-template.md)
+when you define new flagship checkpoints.
+
 ## Current Checkpoints
 
 ### Foundation checkpoint

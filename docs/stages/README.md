@@ -15,6 +15,9 @@ If you want the public explanation of that relationship, read
 3. Follow the linked source sections and tracks inside the repo.
 4. Use the `Next stage` note at the bottom of each page when you are ready to move forward.
 
+For rubric-heavy work, checkpoints, and later-stage pressure tasks, use the beta templates in
+[../templates/README.md](../templates/README.md).
+
 ## Stage Doc Contract
 
 Every stage page uses the same shape:
