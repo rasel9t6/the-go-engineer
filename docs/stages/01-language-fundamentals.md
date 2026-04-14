@@ -50,7 +50,7 @@ The stage is intentionally ordered from "what is a value?" to "what is a functio
 
 - [01-core-foundations/language-basics](../../01-core-foundations/language-basics/)
 - [01-foundations/03-control-flow](../../01-foundations/03-control-flow/)
-- [03-data-structures](../../03-data-structures/)
+- [01-foundations/04-data-structures](../../01-foundations/04-data-structures/)
 - [04-functions-and-errors](../../04-functions-and-errors/)
 
 ## Stage Support Docs
@@ -80,7 +80,7 @@ Use this order across the source sections:
 
 1. [01-core-foundations/language-basics](../../01-core-foundations/language-basics/)
 2. [01-foundations/03-control-flow](../../01-foundations/03-control-flow/)
-3. [03-data-structures](../../03-data-structures/)
+3. [01-foundations/04-data-structures](../../01-foundations/04-data-structures/)
 4. [04-functions-and-errors](../../04-functions-and-errors/)
 
 Do not skip ahead from `language-basics` into functions and errors too early.

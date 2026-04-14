@@ -1,16 +1,11 @@
-# Section 03: Data Structures
-
-> Canonical learner-facing content for this section now lives at
-> [01-foundations/04-data-structures](../01-foundations/04-data-structures/).
-> This legacy path remains in the repo during the architecture migration, but it is no longer the
-> primary foundations route.
+# 04 Data Structures
 
 ## Mission
 
 This section teaches learners how Go stores and moves collections of data in memory, then shows how
 that affects mutation and performance.
 
-By the end of Section 03, you should be comfortable with:
+By the end of this section, you should be comfortable with:
 
 - arrays as fixed-size value types
 - slices as Go's main dynamic collection
@@ -23,25 +18,26 @@ By the end of Section 03, you should be comfortable with:
 This section intentionally stops before later-section abstractions like helper-function design,
 struct-heavy modeling, methods, and package layering.
 
-That means the Section 03 milestone should prove slices, maps, and pointers directly rather than
+That means the section milestone should prove slices, maps, and pointers directly rather than
 smuggling in ideas from later sections.
 
 ## Beta Stage Ownership
 
-This section belongs to [1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+This section belongs to [1 Language Fundamentals](../../docs/stages/01-language-fundamentals.md).
 
-Within the beta public shell, it is the third of four connected parts:
+Inside the new repo architecture, it is the fourth foundations section:
 
-1. Section 01 `language-basics`
-2. Section 02 `control-flow`
-3. Section 03 `data-structures`
-4. Section 04 `functions-and-errors`
+1. `01-getting-started`
+2. `02-language-basics`
+3. `03-control-flow`
+4. `04-data-structures`
+5. `05-functions-and-errors`
 
 ## Who Should Start Here
 
 ### Full Path
 
-Start here after completing Section 02.
+Start here after completing [03-control-flow](../03-control-flow/).
 
 ### Bridge Path
 
@@ -85,7 +81,7 @@ If you can complete it and explain:
 - why shared backing arrays can surprise you when working with sub-slices
 - why the milestone avoids helper-function and struct-heavy design on purpose at this stage
 
-then you are ready to move into functions and errors in Section 04.
+then you are ready to move into `05-functions-and-errors`.
 
 ## References
 
@@ -95,6 +91,6 @@ then you are ready to move into functions and errors in Section 04.
 
 ## Next Step
 
-After `DS.6`, continue to Section 04: Functions and Errors.
-In the beta shell, that is still part of
-[1 Language Fundamentals](../docs/stages/01-language-fundamentals.md).
+After `DS.6`, continue to [05-functions-and-errors](../05-functions-and-errors/).
+That keeps the new `01-foundations` sequence intact while the broader beta shell still groups both
+sections under [1 Language Fundamentals](../../docs/stages/01-language-fundamentals.md).

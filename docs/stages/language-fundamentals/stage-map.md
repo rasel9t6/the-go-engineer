@@ -16,7 +16,7 @@ error handling.
    - core job: teach loops, branching, and readable decision logic
    - milestone: `CF.5` pricing checkout
 3. `data-structures`
-   - source: [03-data-structures](../../../03-data-structures/)
+   - source: [01-foundations/04-data-structures](../../../01-foundations/04-data-structures/)
    - core job: teach slices, maps, pointers, and mutation-aware thinking
    - milestone: `DS.6` contact manager
 4. `functions-and-errors`
@@ -47,7 +47,8 @@ This is where the learner starts treating function signatures and errors as expl
 
 1. Finish the `language-basics` track first.
 2. Move through `01-foundations/03-control-flow` and complete `CF.5`.
-3. Move through Section `03` and complete `DS.6`.
+3. Move through [01-foundations/04-data-structures](../../../01-foundations/04-data-structures/)
+   and complete `DS.6`.
 4. Move through Section `04` and complete `FE.9`.
 
 ## Bridge-Path Reminder

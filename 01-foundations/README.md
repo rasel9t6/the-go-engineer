@@ -56,22 +56,21 @@ clearly and explained later in the proper section.
 
 ## Current Priority
 
-The first real rebuild under this architecture is `03-control-flow`.
+The next real rebuild under this architecture is `04-data-structures`.
 
-That section is where the learner stops writing only straight-line code and starts making programs
-that:
+That section is where the learner stops treating lists and lookups as tiny preview tools and starts
+working with:
 
-- decide
-- repeat
-- skip
-- stop
-- process simple lists of input
+- fixed-size values
+- dynamic collections
+- keyed lookup
+- pointer-based mutation
+- one small milestone that proves those ideas together
 
 ## Next Step
 
-After `03-control-flow`, the next foundations sections to make real are:
+After `04-data-structures`, the next foundations section to make real is:
 
-- `04-data-structures`
 - `05-functions-and-errors`
 
 Those three sections together are the main bridge from syntax exposure to engineering thinking.
