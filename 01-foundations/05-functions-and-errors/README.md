@@ -71,12 +71,9 @@ The canonical foundations order for this section is:
 | `FE.2` | Lesson | [parameters and returns](./2-parameters-and-returns) | teach input/output contracts |
 | `FE.3` | Lesson | [multiple return values](./3-multiple-return-values) | introduce Go's multi-result style |
 | `FE.4` | Lesson | [errors as values](./4-errors-as-values) | teach explicit failure handling |
-
-The next lessons in this rebuild are:
-
-- `FE.5` validation
-- `FE.6` orchestration
-- `FE.7` milestone project
+| `FE.5` | Lesson | [validation](./5-validation) | teach early input checks and explicit rejection |
+| `FE.6` | Lesson | [orchestration](./6-orchestration) | teach how one function coordinates smaller helpers |
+| `FE.7` | Exercise | [order summary](./7-order-summary) | prove reusable logic plus explicit failure handling in one small milestone |
 
 ## Current Rebuild Goal
 
@@ -98,8 +95,6 @@ This section is being rebuilt so that:
 
 ## Next Step
 
-The next implementation moves are:
-
-- finish the foundations lesson flow through validation and orchestration
-- rebuild the milestone around earned concepts only
-- leave later-section ideas on the legacy path instead of mixing them into the foundations route
+After `FE.7`, the learner should be ready to move into
+[2 Types and Design](../../docs/stages/02-types-and-design.md).
+That is where richer type modeling and design boundaries become the main topic.
