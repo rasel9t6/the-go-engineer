@@ -49,7 +49,7 @@
       "prerequisites": [
         "s02"
       ],
-      "path_prefix": "03-data-structures",
+      "path_prefix": "01-foundations/04-data-structures",
       "entry_points": [
         "DS.1"
       ],
@@ -478,8 +478,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Even when slices dominate day-to-day work, arrays still explain the memory model slices build on top of.",
-      "path": "03-data-structures/1-array",
-      "run_command": "go run ./03-data-structures/1-array",
+      "path": "01-foundations/04-data-structures/1-array",
+      "run_command": "go run ./01-foundations/04-data-structures/1-array",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -510,8 +510,8 @@
         "DS.1"
       ],
       "production_relevance": "Slices are one of the most common Go data structures, so understanding their growth and sharing model matters early.",
-      "path": "03-data-structures/2-slices",
-      "run_command": "go run ./03-data-structures/2-slices",
+      "path": "01-foundations/04-data-structures/2-slices",
+      "run_command": "go run ./01-foundations/04-data-structures/2-slices",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -542,8 +542,8 @@
         "DS.2"
       ],
       "production_relevance": "Maps drive caches, indexes, routing tables, and lookup-heavy business logic in everyday Go systems.",
-      "path": "03-data-structures/3-maps",
-      "run_command": "go run ./03-data-structures/3-maps",
+      "path": "01-foundations/04-data-structures/3-maps",
+      "run_command": "go run ./01-foundations/04-data-structures/3-maps",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -575,8 +575,8 @@
         "DS.2"
       ],
       "production_relevance": "Pointers are a normal part of Go APIs for mutation, optional values, and large-struct efficiency.",
-      "path": "03-data-structures/4-pointers",
-      "run_command": "go run ./03-data-structures/4-pointers",
+      "path": "01-foundations/04-data-structures/4-pointers",
+      "run_command": "go run ./01-foundations/04-data-structures/4-pointers",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -608,8 +608,8 @@
         "DS.4"
       ],
       "production_relevance": "Slice-sharing bugs are subtle and show up in real services when data pipelines reuse buffers or partial views carelessly.",
-      "path": "03-data-structures/5-slices-2",
-      "run_command": "go run ./03-data-structures/5-slices-2",
+      "path": "01-foundations/04-data-structures/5-slices-2",
+      "run_command": "go run ./01-foundations/04-data-structures/5-slices-2",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -644,10 +644,10 @@
         "DS.5"
       ],
       "production_relevance": "Real applications routinely layer multiple data structures together to balance readability, lookup speed, and mutation behavior.",
-      "path": "03-data-structures/6-contact-manager",
-      "run_command": "go run ./03-data-structures/6-contact-manager",
-      "test_command": "go test ./03-data-structures/6-contact-manager",
-      "starter_path": "03-data-structures/6-contact-manager/_starter",
+      "path": "01-foundations/04-data-structures/6-contact-manager",
+      "run_command": "go run ./01-foundations/04-data-structures/6-contact-manager",
+      "test_command": "go test ./01-foundations/04-data-structures/6-contact-manager",
+      "starter_path": "01-foundations/04-data-structures/6-contact-manager/_starter",
       "next_items": [],
       "tags": [
         "exercise",
