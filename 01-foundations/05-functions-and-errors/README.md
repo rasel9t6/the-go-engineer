@@ -61,21 +61,24 @@ Inside the new repo architecture, it is the fifth foundations section:
 4. `04-data-structures`
 5. `05-functions-and-errors`
 
-## Planned Section Shape
+## Section Map
 
 The canonical foundations order for this section is:
 
-| ID | Planned Surface | Core Job |
-| --- | --- | --- |
-| `FE.1` | functions basics | teach what a function boundary is |
-| `FE.2` | parameters and returns | teach input/output contracts |
-| `FE.3` | multiple return values | introduce Go's multi-result style |
-| `FE.4` | errors as values | teach explicit failure handling |
-| `FE.5` | validation | teach early input checks and honest failure |
-| `FE.6` | orchestration | combine small functions into one readable flow |
-| `FE.7` | milestone project | prove reusable logic plus explicit failure handling |
+| ID | Type | Surface | Core Job |
+| --- | --- | --- | --- |
+| `FE.1` | Lesson | [functions basics](./1-functions-basics) | teach what a function boundary is |
+| `FE.2` | Lesson | [parameters and returns](./2-parameters-and-returns) | teach input/output contracts |
+| `FE.3` | Lesson | [multiple return values](./3-multiple-return-values) | introduce Go's multi-result style |
+| `FE.4` | Lesson | [errors as values](./4-errors-as-values) | teach explicit failure handling |
 
-## Current Migration Goal
+The next lessons in this rebuild are:
+
+- `FE.5` validation
+- `FE.6` orchestration
+- `FE.7` milestone project
+
+## Current Rebuild Goal
 
 This section is being rebuilt so that:
 
@@ -85,7 +88,18 @@ This section is being rebuilt so that:
 - old Section `04` material can be kept as legacy reference where helpful without confusing the new
   primary path
 
+## Suggested Learning Flow
+
+1. Read each lesson `README.md` first.
+2. Open `main.go` only after the lesson mission and machine view are clear.
+3. Run the code and compare the output with the walkthrough.
+4. Change one thing at a time using the `Try It` prompts.
+5. Move to the milestone only after the early lessons stop feeling mechanical.
+
 ## Next Step
 
-The next implementation move is to rebuild the first lesson group under this section and then align
-the milestone around the new foundations scope.
+The next implementation moves are:
+
+- finish the foundations lesson flow through validation and orchestration
+- rebuild the milestone around earned concepts only
+- leave later-section ideas on the legacy path instead of mixing them into the foundations route
