@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// See LICENSE for usage terms.
+// Licensed under The Go Engineer License v1.0
 
 package main
 
@@ -43,4 +43,7 @@ func main() {
 	}
 
 	fmt.Printf("subtotal: %.2f\n", subtotal)
+
+	fmt.Println()
+	fmt.Println("Section 03 complete! Ready for Data Structures.")
 }

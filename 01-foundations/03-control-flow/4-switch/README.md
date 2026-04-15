@@ -2,13 +2,67 @@
 
 ## Mission
 
-Learn how to choose between several possible paths without writing long, hard-to-read branch
-chains.
+Learn how to choose between several possible paths without writing long, hard-to-read branch chains.
 
 ## Why This Lesson Exists Now
 
 `if / else if / else` works well for a small number of branches.
 When the number of cases grows, `switch` often reads more clearly.
+
+## Production Relevance
+
+In production Go code, switch matters because:
+
+- **State handling**: Map request states or HTTP status codes
+- **Command processing**: Handle different user commands or operations
+- **Mode selection**: Choose behavior based on configuration or environment
+- **Type handling**: Differentiate between categories or kinds
+
+Real services use switch for routing, status codes, and business rule engines.
+
+## Mental Model
+
+Switch is like a multi-way if-else but organized as a table of cases.
+
+Instead of checking each condition one by one, you check one value against many possibilities.
+
+The key: only ONE case runs, and you can group multiple values in one case.
+
+## Visual Model
+
+```text
+switch day {
+case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+    print "weekday"
+case "Saturday", "Sunday":
+    print "weekend"
+}
+```
+
+```text
+switch {
+case score >= 90:
+    print "A"
+case score >= 80:
+    print "B"
+default:
+    print "other"
+}
+```
+
+## Machine View
+
+A switch evaluates one expression and compares it against each case in order.
+
+Unlike some languages, Go does not fall through by default.
+Once a case matches and runs, the switch ends.
+
+The `default` case runs when no other case matches.
+
+## Prerequisites
+
+- `CF.1` if/else
+- `CF.2` for basics
 
 ## Run Instructions
 

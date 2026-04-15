@@ -2,8 +2,7 @@
 
 ## Mission
 
-Build one small checkout flow that turns the earlier control-flow lessons into a single readable,
-runnable program.
+Build one small checkout flow that turns the earlier control-flow lessons into a single readable, runnable program.
 
 This is the section milestone.
 
@@ -14,9 +13,19 @@ The earlier lessons each taught one control-flow idea in isolation.
 This milestone asks the learner to combine them:
 
 - `if` for ordinary decisions
-- `for` for repeated work
+- `for` repeated work
 - `switch` for readable multi-branch rules
 - `continue` for skipping invalid items
+
+## Production Relevance
+
+In production Go code, combining control flow matters because:
+
+- **Order processing**: Apply pricing rules, discounts, and validation
+- **Batch jobs**: Process multiple items with different handling rules
+- **Rule engines**: Execute different logic based on conditions
+
+Real services build pricing engines, shopping carts, and checkout flows using exactly these patterns.
 
 ## Zero-Magic Boundary
 

@@ -14,6 +14,62 @@ Now you need to decide what happens when those values mean different things.
 
 That is what `if`, `else if`, and `else` do.
 
+## Production Relevance
+
+In production Go code, branching matters because:
+
+- **Validation**: Check if input is valid before processing
+- **Authorization**: Verify permissions before allowing actions
+- **Error handling**: Decide what to do when something fails
+- **State machines**: Transition between different program states
+
+Real services use branching for every request validation, error response, and business rule.
+
+## Mental Model
+
+Branching is about questions that have limited answers.
+
+A program asks a yes/no question (or a which-one question) and picks exactly one path to follow.
+
+The key insight is: only ONE branch runs. The others are skipped.
+
+## Visual Model
+
+```text
+condition: temperature > 30?
+    |
+    +--> true  --> print "hot"
+    |
+    +--> false --> print "okay"
+```
+
+```text
+condition: score >= 90?
+    |
+    +--> true  --> "A"
+    +--> false --> check score >= 80
+                       |
+                       +--> true --> "B"
+                       +--> false --> check score >= 70
+                                          |
+                                          +--> true --> "C"
+                                          +--> false --> "F"
+```
+
+## Machine View
+
+When an `if` statement runs, the Go runtime evaluates the condition expression.
+
+If the result is true, it executes the first block and skips all `else if` and `else` blocks.
+If false, it checks each `else if` in order.
+If none match, it runs the `else` block (if it exists).
+
+Only the selected block's code runs. The other code never executes.
+
+## Prerequisites
+
+- `LB.4` application logger (or equivalent: variables, constants, iota)
+
 ## Run Instructions
 
 ```bash
