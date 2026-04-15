@@ -124,6 +124,7 @@ func Validate(root string, report func(string)) (Result, error) {
 	}
 
 	pressureErrors := validatePressureDocs(root, report)
+	templateErrors := validateTemplateDocs(root, report)
 
 	return Result{
 		LessonCount:    lessonCount,
@@ -131,7 +132,7 @@ func Validate(root string, report func(string)) (Result, error) {
 		V2SectionCount: v2SectionCount,
 		V2ItemCount:    v2ItemCount,
 		HasV2:          hasV2,
-		ErrorCount:     pathErrors + runErrors + v2Errors + pressureErrors,
+		ErrorCount:     pathErrors + runErrors + v2Errors + pressureErrors + templateErrors,
 	}, nil
 }
 
@@ -788,6 +789,28 @@ func validatePressureDocs(root string, report func(string)) int {
 
 	errorsFound += validateRubricSurfaceDirectory(root, "docs/stages/expert-layer/tasks", report)
 	errorsFound += validateRubricSurfaceDirectory(root, "docs/stages/flagship-project/checkpoints", report)
+
+	return errorsFound
+}
+
+func validateTemplateDocs(root string, report func(string)) int {
+	errorsFound := 0
+
+	templateDocs := []string{
+		"docs/templates/README.md",
+		"docs/templates/THINKING_SECTIONS_ADVANCED.md",
+		"docs/templates/PRODUCTION_NOTES_ADVANCED.md",
+		"docs/templates/FAILURE_SCENARIOS_ADVANCED.md",
+		"docs/templates/ADVANCED_CONTENT_ROADMAP.md",
+	}
+
+	for _, relPath := range templateDocs {
+		if !pathExists(root, relPath) {
+			continue
+		}
+
+		errorsFound += validateMarkdownLocalLinks(root, relPath, report)
+	}
 
 	return errorsFound
 }

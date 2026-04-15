@@ -458,6 +458,35 @@ Use the checkpoint set:
 	}
 }
 
+func TestValidateRejectsBrokenTemplateDocLink(t *testing.T) {
+	root := t.TempDir()
+
+	writeFile(t, root, "curriculum.json", `{"sections":[]}`)
+	writeValidPressureDocs(t, root)
+	writeFile(t, root, "docs/templates/README.md", `# Templates
+
+- [Roadmap](./ADVANCED_CONTENT_ROADMAP.md)
+`)
+	writeFile(t, root, "docs/templates/ADVANCED_CONTENT_ROADMAP.md", `# Roadmap
+
+- [Missing](./DOES_NOT_EXIST.md)
+`)
+
+	var reports []string
+	result, err := Validate(root, func(message string) {
+		reports = append(reports, message)
+	})
+	if err != nil {
+		t.Fatalf("Validate returned error: %v", err)
+	}
+	if result.ErrorCount != 1 {
+		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
+	}
+	if !containsReport(reports, "Broken local doc link: docs/templates/ADVANCED_CONTENT_ROADMAP.md -> ./DOES_NOT_EXIST.md") {
+		t.Fatalf("expected broken-template-link error in reports: %v", reports)
+	}
+}
+
 func TestValidateAcceptsFoundationsReadmeContract(t *testing.T) {
 	root := t.TempDir()
 
