@@ -15,6 +15,60 @@ After branching, the next question is:
 
 That is the loop question.
 
+## Production Relevance
+
+In production Go code, loops matter because:
+
+- **Data processing**: Iterate over database rows, API responses, or file contents
+- **Batch operations**: Process items in chunks or queues
+- **Initialization**: Set up structures or configurations
+- **Monitoring**: Repeatedly check status or health
+
+Every real service uses loops for processing requests, logging, and background jobs.
+
+## Mental Model
+
+A loop is a way to say "do this same work for each item" or "keep doing this until something changes."
+
+The key insight: the loop body can run zero times, once, or many times depending on the condition.
+
+## Visual Model
+
+```text
+for i := 1; i <= 5; i++ {
+    print i
+}
+```
+```
+i=1 --> print 1
+i=2 --> print 2
+i=3 --> print 3
+i=4 --> print 4
+i=5 --> print 5
+i=6 (stops, condition false)
+```
+
+```text
+for countdown > 0 {
+    print countdown
+    countdown--
+}
+```
+
+## Machine View
+
+A `for` loop has three optional parts:
+
+1. **Init**: Run once before the first iteration (`i := 1`)
+2. **Condition**: Check before each iteration (`i <= 5`)
+3. **Post**: Run after each iteration (`i++`)
+
+When the condition becomes false, the loop stops and the program continues after the loop block.
+
+## Prerequisites
+
+- `CF.1` if/else
+
 ## Run Instructions
 
 ```bash
