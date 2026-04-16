@@ -18,7 +18,7 @@ import (
 //   - Adding structured information to errors
 //   - Type assertions for specific error handling
 //
-// RUN: go run ./01-foundations/06-types-and-interfaces/7-custom-errors
+// RUN: go run ./01-foundations/06-types-and-interfaces/8-custom-errors
 // ============================================================================
 
 type ValidationError struct {
@@ -124,7 +124,7 @@ func main() {
 	fmt.Println("  - Add fields to carry structured error information")
 	fmt.Println("  - Use errors.As() to check specific error types")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.8 payroll processor")
-	fmt.Println("   Current: TI.7 (custom errors)")
+	fmt.Println("🚀 NEXT UP: TI.9 generics")
+	fmt.Println("   Current: TI.8 (custom errors)")
 	fmt.Println("---------------------------------------------------")
 }

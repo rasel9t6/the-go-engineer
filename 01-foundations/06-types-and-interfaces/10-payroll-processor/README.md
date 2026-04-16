@@ -18,6 +18,10 @@ You have learned all the individual pieces: structs for data, methods for behavi
 - `TI.5` Stringer
 - `TI.9` generics
 
+## Mental Model
+
+Think of this project like one payroll desk processing different employee records through one shared checklist. The desk does not need separate code paths for salaried, hourly, and commission employees. It just needs a shared contract for "something that can describe itself and calculate pay."
+
 ## What You Will Build
 
 Implement a small payroll processor that:
@@ -62,19 +66,19 @@ The payroll processor uses polymorphism to process different employee types thro
 Run the completed solution:
 
 ```bash
-go run ./01-foundations/06-types-and-interfaces/8-payroll-processor
+go run ./01-foundations/06-types-and-interfaces/10-payroll-processor
 ```
 
 Run the tests:
 
 ```bash
-go test ./01-foundations/06-types-and-interfaces/8-payroll-processor
+go test ./01-foundations/06-types-and-interfaces/10-payroll-processor
 ```
 
 Run the starter:
 
 ```bash
-go run ./01-foundations/06-types-and-interfaces/8-payroll-processor/_starter
+go run ./01-foundations/06-types-and-interfaces/10-payroll-processor/_starter
 ```
 
 ## Code Walkthrough
@@ -130,9 +134,9 @@ Your finished solution should:
 
 Use these proof surfaces together:
 
-1. `go run ./01-foundations/06-types-and-interfaces/8-payroll-processor`
-2. `go run ./01-foundations/06-types-and-interfaces/8-payroll-processor/_starter`
-3. `go test ./01-foundations/06-types-and-interfaces/8-payroll-processor`
+1. `go run ./01-foundations/06-types-and-interfaces/10-payroll-processor`
+2. `go run ./01-foundations/06-types-and-interfaces/10-payroll-processor/_starter`
+3. `go test ./01-foundations/06-types-and-interfaces/10-payroll-processor`
 
 ## Production Relevance
 
@@ -140,4 +144,4 @@ This exercise simulates real-world scenarios where different employee types (hou
 
 ## Next Step
 
-After you complete this exercise, move to `TI.7` advanced generics for a stretch lesson, or continue to the next section if you are ready to move on.
+After you complete this exercise, the canonical Section 06 path is complete. Move to **Composition** next, or explore `TI.10` through `TI.17` as optional stretch lessons.

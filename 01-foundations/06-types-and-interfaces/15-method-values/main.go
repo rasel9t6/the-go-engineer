@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -102,7 +102,7 @@ func main() {
 	fmt.Println("  - Use method values as callbacks and event handlers")
 	fmt.Println("  - Each instance's method value is independent")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 Section 06 complete!")
+	fmt.Println("NEXT UP: TI.16 complex generic constraints")
 	fmt.Println("   Current: TI.15 (method values)")
 	fmt.Println("---------------------------------------------------")
 }

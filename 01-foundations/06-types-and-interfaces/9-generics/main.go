@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -112,7 +112,7 @@ func main() {
 	fmt.Println("  - Use generics for data structures, algorithms, utilities")
 	fmt.Println("  - Use interfaces for behavior abstraction (polymorphism)")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.10 advanced generics")
+	fmt.Println("NEXT UP: TI.10 payroll processor")
 	fmt.Println("   Current: TI.9 (generics)")
 	fmt.Println("---------------------------------------------------")
 }

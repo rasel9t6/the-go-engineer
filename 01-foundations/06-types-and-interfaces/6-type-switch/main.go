@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -93,7 +93,7 @@ func main() {
 	fmt.Println("  - value.(type) extracts the concrete type")
 	fmt.Println("  - Default case handles unknown types")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.7 custom errors")
+	fmt.Println("NEXT UP: TI.7 custom errors")
 	fmt.Println("   Current: TI.6 (type switch)")
 	fmt.Println("---------------------------------------------------")
 }

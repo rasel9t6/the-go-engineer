@@ -1328,8 +1328,41 @@
         "type-assertion"
       ]
     },
-    {
+{
       "id": "TI.7",
+      "section_id": "s05",
+      "slug": "receiver-sets",
+      "title": "Receiver Sets",
+      "type": "lesson",
+      "subtype": "concept",
+      "level": "core",
+      "verification_mode": "run",
+      "estimated_time": 20,
+      "summary": "Learn the difference between value and pointer receivers and understand method sets.",
+      "objectives": [
+        "Explain value vs pointer receiver behavior",
+        "Understand method sets and interface satisfaction"
+      ],
+      "prerequisites": [
+        "TI.2",
+        "TI.3"
+      ],
+      "production_relevance": "Method sets affect interface satisfaction and API design.",
+      "path": "01-foundations/06-types-and-interfaces/7-receiver-sets",
+      "run_command": "go run ./01-foundations/06-types-and-interfaces/7-receiver-sets",
+      "test_command": "",
+      "starter_path": "",
+      "next_items": [
+        "TI.8"
+      ],
+      "tags": [
+        "methods",
+        "receivers",
+        "method-sets"
+      ]
+    },
+    {
+      "id": "TI.8",
       "section_id": "s05",
       "slug": "custom-errors",
       "title": "Custom Error Types",
@@ -1348,56 +1381,17 @@
         "TI.5"
       ],
       "production_relevance": "Custom errors are used in real applications for validation, API errors, and database errors.",
-      "path": "01-foundations/06-types-and-interfaces/7-custom-errors",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/7-custom-errors",
+      "path": "01-foundations/06-types-and-interfaces/8-custom-errors",
+      "run_command": "go run ./01-foundations/06-types-and-interfaces/8-custom-errors",
       "test_command": "",
       "starter_path": "",
       "next_items": [
-        "TI.8"
+        "TI.9"
       ],
       "tags": [
         "errors",
         "custom-types",
         "error-handling"
-      ]
-    },
-    {
-      "id": "TI.8",
-      "section_id": "s05",
-      "slug": "payroll-processor-project",
-      "title": "Payroll Processor Project",
-      "type": "exercise",
-      "subtype": "",
-      "level": "core",
-      "verification_mode": "mixed",
-      "estimated_time": 75,
-      "summary": "Combine structs, methods, interfaces, and a small generic helper into one polymorphic payroll exercise.",
-      "objectives": [
-        "Build a small payroll domain that relies on interface contracts instead of inheritance",
-        "Show that multiple concrete employee types can be processed through one common behavior boundary"
-      ],
-      "prerequisites": [
-        "TI.1",
-        "TI.2",
-        "TI.3",
-        "TI.4",
-        "TI.5",
-        "TI.6",
-        "TI.7"
-      ],
-      "production_relevance": "Real Go services often model multiple concrete types behind shared interfaces, especially in payment, billing, and reporting flows.",
-      "path": "01-foundations/06-types-and-interfaces/8-payroll-processor",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/8-payroll-processor",
-      "test_command": "go test ./01-foundations/06-types-and-interfaces/8-payroll-processor",
-      "starter_path": "01-foundations/06-types-and-interfaces/8-payroll-processor/_starter",
-      "next_items": [
-        "TI.9"
-      ],
-      "tags": [
-        "exercise",
-        "interfaces",
-        "polymorphism",
-        "generics"
       ]
     },
     {
@@ -1430,39 +1424,42 @@
       "tags": [
         "generics",
         "constraints",
-        "reuse"
+"reuse"
       ]
     },
     {
       "id": "TI.10",
       "section_id": "s05",
-      "slug": "advanced-generics",
-      "title": "Advanced Generics",
-      "type": "lesson",
-      "subtype": "pattern",
-      "level": "stretch",
-      "verification_mode": "run",
-      "estimated_time": 35,
-      "summary": "Push generics further with reusable collection operators and a clearer understanding of type inference limits.",
+      "slug": "payroll-processor-project",
+      "title": "Payroll Processor Project",
+      "type": "exercise",
+      "subtype": "",
+      "level": "core",
+      "verification_mode": "mixed",
+      "estimated_time": 75,
+      "summary": "Combine structs, methods, interfaces, and a small generic helper into one polymorphic payroll exercise.",
       "objectives": [
-        "Use generic collection helpers like map and filter without losing type clarity",
-        "Explain where type inference helps and where generic APIs become too clever"
+        "Build a small payroll domain that relies on interface contracts instead of inheritance",
+        "Show that multiple concrete employee types can be processed through one common behavior boundary"
       ],
       "prerequisites": [
+        "TI.1",
+        "TI.2",
+        "TI.3",
+        "TI.5",
         "TI.9"
       ],
-      "production_relevance": "Advanced generic helpers can reduce repetition in utility layers, but they only help when the resulting API stays readable for teams.",
-      "path": "01-foundations/06-types-and-interfaces/10-advanced-generics",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/10-advanced-generics",
-      "test_command": "",
-      "starter_path": "",
-      "next_items": [
-        "TI.11"
-      ],
+      "production_relevance": "Real Go services often model multiple concrete types behind shared interfaces, especially in payment, billing, and reporting flows.",
+      "path": "01-foundations/06-types-and-interfaces/10-payroll-processor",
+      "run_command": "go run ./01-foundations/06-types-and-interfaces/10-payroll-processor",
+      "test_command": "go test ./01-foundations/06-types-and-interfaces/10-payroll-processor",
+      "starter_path": "01-foundations/06-types-and-interfaces/10-payroll-processor/_starter",
+      "next_items": [],
       "tags": [
-        "generics",
-        "advanced",
-        "collections"
+        "exercise",
+        "interfaces",
+        "polymorphism",
+        "generics"
       ]
     },
     {
@@ -1472,7 +1469,7 @@
       "title": "Empty Interface",
       "type": "lesson",
       "subtype": "concept",
-      "level": "core",
+      "level": "stretch",
       "verification_mode": "run",
       "estimated_time": 25,
       "summary": "Learn about the empty interface (any) and when it is appropriate to use it.",
@@ -1504,7 +1501,7 @@
       "title": "Type Assertions",
       "type": "lesson",
       "subtype": "concept",
-      "level": "core",
+      "level": "stretch",
       "verification_mode": "run",
       "estimated_time": 25,
       "summary": "Learn how to extract concrete types from interface values using type assertions and the comma-ok pattern.",
@@ -1535,7 +1532,7 @@
       "title": "Nil Interfaces",
       "type": "lesson",
       "subtype": "concept",
-      "level": "core",
+      "level": "stretch",
       "verification_mode": "run",
       "estimated_time": 20,
       "summary": "Learn about nil interfaces, how they behave differently from typed nils, and how to handle them correctly.",
@@ -1566,7 +1563,7 @@
       "title": "Functional Options",
       "type": "lesson",
       "subtype": "pattern",
-      "level": "core",
+      "level": "stretch",
       "verification_mode": "run",
       "estimated_time": 30,
       "summary": "Learn the functional options pattern for building configurable APIs.",
@@ -1598,7 +1595,7 @@
       "title": "Method Values",
       "type": "lesson",
       "subtype": "concept",
-      "level": "core",
+      "level": "stretch",
       "verification_mode": "run",
       "estimated_time": 20,
       "summary": "Learn how to treat methods as first-class values.",
@@ -1614,7 +1611,9 @@
       "run_command": "go run ./01-foundations/06-types-and-interfaces/15-method-values",
       "test_command": "",
       "starter_path": "",
-      "next_items": [],
+      "next_items": [
+        "TI.16"
+      ],
       "tags": [
         "methods",
         "first-class"

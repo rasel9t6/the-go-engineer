@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 

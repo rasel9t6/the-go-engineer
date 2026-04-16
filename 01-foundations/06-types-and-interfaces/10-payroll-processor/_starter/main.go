@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -27,7 +27,7 @@ import "fmt"
 //   - Range over the []Payable slice to process all employees generically
 //   - A small generic helper can constrain on `fmt.Stringer`
 //
-// RUN: go run ./01-foundations/06-types-and-interfaces/8-payroll-processor/_starter
+// RUN: go run ./01-foundations/06-types-and-interfaces/10-payroll-processor/_starter
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -33,6 +33,13 @@ func process(w Writer) {
 		fmt.Println("  Writer is truly nil")
 		return
 	}
+
+	if nullWriter, ok := w.(*NullWriter); ok && nullWriter == nil {
+		fmt.Println("  Writer holds a typed nil pointer")
+		fmt.Println("  Guard before calling methods on it")
+		return
+	}
+
 	fmt.Println("  Writer is not nil, processing...")
 	w.Write([]byte("test"))
 }
@@ -72,7 +79,7 @@ func main() {
 	fmt.Println("  - Check interface == nil before using")
 	fmt.Println("  - A nil pointer stored in interface is NOT nil interface")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.14 functional options")
+	fmt.Println("NEXT UP: TI.14 functional options")
 	fmt.Println("   Current: TI.13 (nil interfaces)")
 	fmt.Println("---------------------------------------------------")
 }

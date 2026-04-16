@@ -31,6 +31,10 @@ type Serializer interface {
 }
 ```
 
+## Machine View
+
+Constraints are checked by the compiler before the program runs. They do not add dynamic type checks at each call site. They define which concrete types are allowed when the generic code is instantiated.
+
 ## Run Instructions
 
 ```bash

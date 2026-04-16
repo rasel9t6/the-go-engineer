@@ -38,7 +38,7 @@ This section intentionally stays inside foundations-ready ideas:
 - interface definition and implicit satisfaction
 - basic generics with constraints
 
-**Canonical Foundational Path** (TI.1 - TI.9):
+**Canonical Foundational Path** (`TI.1`-`TI.7`, `TI.9`, then `TI.8`):
 - Core types and interfaces concepts every learner needs
 - Ends with the payroll processor milestone
 
@@ -72,22 +72,23 @@ Inside the new repo architecture, it is the sixth foundations section:
 | `TI.4` | Lesson | [interface embedding](./4-interface-embedding) | teach embedding interfaces in interfaces |
 | `TI.5` | Lesson | [Stringer](./5-stringer) | teach fmt.Stringer implementation |
 | `TI.6` | Lesson | [type switch](./6-type-switch) | teach handling multiple types from interface |
-| `TI.7` | Lesson | [custom errors](./7-custom-errors) | teach custom error type definition |
-| `TI.8` | Exercise | [payroll processor](./8-payroll-processor) | prove structs+methods+interfaces+generics together |
+| `TI.7` | Lesson | [receiver sets](./7-receiver-sets) | teach value vs pointer receiver method sets |
 | `TI.9` | Lesson | [generics](./9-generics) | teach type parameters and constraints |
+| `TI.10` | Exercise | [payroll processor](./10-payroll-processor) | prove structs+methods+interfaces+generics together |
 
 ### Advanced/Optional Path (Stretch)
 
 | ID | Type | Surface | Core Job |
 | --- | --- | --- | --- |
-| `TI.10` | Lesson | [advanced generics](./10-advanced-generics) | push generics further |
-| `TI.11` | Lesson | [empty interface](./11-empty-interface) | teach any/interface{} usage |
-| `TI.12` | Lesson | [type assertions](./12-type-assertions) | teach extracting concrete types from interfaces |
-| `TI.13` | Lesson | [nil interfaces](./13-nil-interfaces) | teach nil vs typed-nil interface behavior |
-| `TI.14` | Lesson | [functional options](./14-functional-options) | teach configurable API pattern |
-| `TI.15` | Lesson | [method values](./15-method-values) | teach methods as first-class values |
-| `TI.16` | Lesson | [complex constraints](./16-complex-generics) | teach interface constraints, comparable |
-| `TI.17` | Lesson | [generic structures](./17-generic-structures) | teach Stack, Queue, Set |
+| `TI.8` | Lesson | [custom errors](./8-custom-errors) | teach custom error type definition |
+| `TI.11` | Lesson | [advanced generics](./10-advanced-generics) | push generics further |
+| `TI.12` | Lesson | [empty interface](./11-empty-interface) | teach any/interface{} usage |
+| `TI.13` | Lesson | [type assertions](./12-type-assertions) | teach extracting concrete types from interfaces |
+| `TI.14` | Lesson | [nil interfaces](./13-nil-interfaces) | teach nil vs typed-nil interface behavior |
+| `TI.15` | Lesson | [functional options](./14-functional-options) | teach configurable API pattern |
+| `TI.16` | Lesson | [method values](./15-method-values) | teach methods as first-class values |
+| `TI.17` | Lesson | [complex constraints](./16-complex-generics) | teach interface constraints, comparable |
+| `TI.18` | Lesson | [generic structures](./17-generic-structures) | teach Stack, Queue, Set |
 
 ## Current Rebuild Goal
 
@@ -108,6 +109,6 @@ This section is being rebuilt so that:
 
 ## Next Step
 
-After completing the canonical path (TI.1 through TI.9), the learner should be ready to move into the next section: **Composition** (s06).
+After completing the canonical path (`TI.1` through `TI.7`, then `TI.9`, then `TI.8`), the learner should be ready to move into the next section: **Composition** (`s06`).
 
 The advanced lessons (TI.10-TI.17) are optional/stretch and can be explored later or in parallel with other sections.

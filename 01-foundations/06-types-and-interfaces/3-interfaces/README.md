@@ -89,4 +89,4 @@ Interfaces are Go's primary tool for abstraction and testing. They let you write
 
 ## Next Step
 
-Continue to `TI.4` Stringer.
+Continue to `TI.4` interface embedding.

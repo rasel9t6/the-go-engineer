@@ -1,4 +1,4 @@
-# TI.7 Custom Error Types
+# TI.8 Custom Error Types
 
 ## Mission
 
@@ -6,7 +6,7 @@ Learn how to define custom error types that carry structured information for bet
 
 ## Why This Lesson Exists Now
 
-Go's built-in error interface is simple: just `Error() string`. But sometimes you need to carry more information—what went wrong, where, and additional context. Custom error types let you do this.
+Go's built-in error interface is simple: just `Error() string`. But sometimes you need more information—what went wrong, where, and additional context. Custom error types let you do this.
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ func (e ValidationError) Error() string {
 
 ## Machine View
 
-Custom errors implement the error interface by providing an Error() method. You can add any fields you want and use them in error handling logic.
+Custom errors implement the error interface by providing an Error() method. You can add any fields and use errors.As() to check specific error types.
 
 ## Run Instructions
 
 ```bash
-go run ./01-foundations/06-types-and-interfaces/7-custom-errors
+go run ./01-foundations/06-types-and-interfaces/8-custom-errors
 ```
 
 ## Code Walkthrough
@@ -53,12 +53,12 @@ Add fields to carry structured information.
 
 ### Type assertions for errors
 
-Check specific error types to handle them differently.
+Use errors.As() to check specific error types and handle them differently.
 
 ## Try It
 
 1. Create a custom error type with multiple fields.
-2. Use type assertion to check for your custom error and access its fields.
+2. Use errors.As() to check for your custom error and access its fields.
 3. Wrap multiple error types and handle each differently.
 
 ## Production Relevance
@@ -67,4 +67,4 @@ Custom errors are used in real applications for validation errors, API errors wi
 
 ## Next Step
 
-Continue to `TI.10` advanced generics (stretch) or move to next section.
+Continue to `TI.9` generics, then tackle the payroll milestone at `TI.10`.

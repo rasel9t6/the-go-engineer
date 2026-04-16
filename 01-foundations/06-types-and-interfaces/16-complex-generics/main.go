@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -130,7 +130,7 @@ func main() {
 	fmt.Println("  - comparable constraint allows == and !=")
 	fmt.Println("  - Type must implement all methods in constraint")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.17 generic data structures")
+	fmt.Println("NEXT UP: TI.17 generic data structures")
 	fmt.Println("   Current: TI.16 (complex generic constraints)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -32,6 +32,10 @@ incFunc()
 fmt.Println(counter.Value) // 2
 ```
 
+## Machine View
+
+When you capture a method value, Go binds the receiver to that function value. Calling the stored function later is like calling the original method with the same receiver already attached.
+
 ## Run Instructions
 
 ```bash
@@ -64,4 +68,4 @@ Method values are used in HTTP handlers, event systems, and anywhere you need to
 
 ## Next Step
 
-After `TI.15`, this section is complete. Move to the next section in the foundations path.
+Continue to `TI.16` complex generic constraints if you want to finish the optional stretch path.

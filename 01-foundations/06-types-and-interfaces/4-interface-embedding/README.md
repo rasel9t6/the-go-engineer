@@ -71,4 +71,4 @@ Interface embedding is used throughout the standard library (io.ReadWriter, io.R
 
 ## Next Step
 
-Continue to `TI.5` type switch.
+Continue to `TI.5` Stringer.

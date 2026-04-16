@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -77,7 +77,7 @@ func main() {
 	fmt.Println("  - Use comma-ok pattern to avoid panics")
 	fmt.Println("  - Type switch handles multiple types cleanly")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.13 nil interfaces")
+	fmt.Println("NEXT UP: TI.13 nil interfaces")
 	fmt.Println("   Current: TI.12 (type assertions)")
 	fmt.Println("---------------------------------------------------")
 }

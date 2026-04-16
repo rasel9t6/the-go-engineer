@@ -74,4 +74,4 @@ Empty interface is used in JSON decoding (encoding/json), reflection, and generi
 
 ## Next Step
 
-After `TI.11`, continue to `TI.8` (generics).
+Continue to `TI.12` type assertions.

@@ -1,4 +1,4 @@
-# TI.7 Advanced Generics
+# TI.10 Advanced Generics
 
 ## Mission
 
@@ -6,11 +6,29 @@ Push generic collection helpers further once the core section feels solid. This 
 
 ## Why This Lesson Exists Now
 
-You have completed the core generics lesson (TI.5) and the payroll processor milestone. This stretch lesson provides additional practice with generic patterns like Filter and Map on custom types.
+You have completed the core generics lesson (`TI.9`) and the payroll processor milestone. This stretch lesson provides additional practice with generic patterns like `Filter` and `Map` on custom types.
 
 ## Prerequisites
 
-- `TI.5` generics
+- `TI.9` generics
+
+## Mental Model
+
+Think of this lesson as the "extra tools" drawer after you already know how to use the core workshop safely. The foundational path taught when generics help. This stretch lesson asks how far you can push generic helpers before they become harder to read than the duplication they remove.
+
+## Visual Model
+
+```text
+[]User --Filter--> []User
+[]User --Map-----> []string
+
+same helper shape
+different concrete types
+```
+
+## Machine View
+
+Generic helper calls still compile into concrete versions for the types you use. The extra abstraction cost here is mostly readability and API design, not hidden runtime reflection.
 
 ## Run Instructions
 
@@ -50,4 +68,4 @@ Generic utilities like Filter and Map are common in real Go codebases. Understan
 
 ## Next Step
 
-After this stretch lesson, continue to the next section in the foundations path.
+Continue to `TI.11` empty interface if you want to keep exploring the optional stretch path.

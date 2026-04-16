@@ -30,6 +30,10 @@ NewServer(
 )
 ```
 
+## Machine View
+
+Each option is just a function that mutates or configures one target value. The pattern feels higher-level, but underneath it is still ordinary function calls applied one by one.
+
 ## Run Instructions
 
 ```bash

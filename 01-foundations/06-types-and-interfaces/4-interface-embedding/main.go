@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -75,7 +75,7 @@ func main() {
 	fmt.Println("  - io.ReadWriter = io.Reader + io.Writer")
 	fmt.Println("  - Embedding is static: compiler verifies all methods exist")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.5 Stringer")
+	fmt.Println("NEXT UP: TI.5 Stringer")
 	fmt.Println("   Current: TI.4 (interface embedding)")
 	fmt.Println("---------------------------------------------------")
 }

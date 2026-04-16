@@ -81,4 +81,4 @@ Stringer is essential for logging, debugging, and user-facing output. It makes y
 
 ## Next Step
 
-Continue to `TI.5` generics.
+Continue to `TI.6` type switch.

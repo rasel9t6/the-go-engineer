@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -124,7 +124,7 @@ func main() {
 	fmt.Println("  - Options are composable and reusable")
 	fmt.Println("  - Standard Go pattern for extensible APIs")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.15 method values")
+	fmt.Println("NEXT UP: TI.15 method values")
 	fmt.Println("   Current: TI.14 (functional options)")
 	fmt.Println("---------------------------------------------------")
 }

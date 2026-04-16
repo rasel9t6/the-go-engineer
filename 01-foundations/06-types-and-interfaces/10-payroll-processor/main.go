@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -8,7 +8,7 @@ package main
 // Level: Intermediate
 // ============================================================================
 //
-// RUN: go run ./01-foundations/06-types-and-interfaces/8-payroll-processor
+// RUN: go run ./01-foundations/06-types-and-interfaces/10-payroll-processor
 // ============================================================================
 
 import "fmt"

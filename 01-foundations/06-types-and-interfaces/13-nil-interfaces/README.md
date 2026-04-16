@@ -51,6 +51,10 @@ Type is set, but value is nil—this is not equal to nil!
 
 Always check if interface is nil before using it.
 
+### Guarding typed nils
+
+If an interface may contain a typed nil pointer, a plain `value == nil` check is not enough. Add a second guard for the concrete pointer type before calling its methods.
+
 ## Try It
 
 1. Create a function that returns an interface and see when it's nil vs typed nil.

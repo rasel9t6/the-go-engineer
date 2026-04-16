@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -142,7 +142,7 @@ func main() {
 	fmt.Println("  - Use type assertions (value, ok) to extract concrete types")
 	fmt.Println("  - Interfaces are Go's primary tool for abstraction and testing")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.4 interface embedding")
+	fmt.Println("NEXT UP: TI.4 interface embedding")
 	fmt.Println("   Current: TI.3 (interfaces)")
 	fmt.Println("---------------------------------------------------")
 }

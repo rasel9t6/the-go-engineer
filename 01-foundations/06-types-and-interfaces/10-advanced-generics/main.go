@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -76,7 +76,7 @@ func main() {
 	fmt.Printf("\nExtracted Active User Names: %v\n", activeUserNames)
 
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.11 empty interface")
+	fmt.Println("NEXT UP: TI.11 empty interface")
 	fmt.Println("   Current: TI.10 (advanced generics)")
 	fmt.Println("---------------------------------------------------")
 }

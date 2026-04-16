@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -94,7 +94,7 @@ func main() {
 	fmt.Println("  - Custom types (type X int) create new types with their own methods")
 	fmt.Println("  - Stringer is Go's most commonly implemented interface")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.6 type switch")
+	fmt.Println("NEXT UP: TI.6 type switch")
 	fmt.Println("   Current: TI.5 (Stringer)")
 	fmt.Println("---------------------------------------------------")
 }

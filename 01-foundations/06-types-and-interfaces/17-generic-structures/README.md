@@ -28,6 +28,10 @@ func (s *Stack[T]) Push(item T)
 func (s *Stack[T]) Pop() (T, bool)
 ```
 
+## Machine View
+
+These generic structures are still built from the same tools you already know: slices, maps, methods, and type parameters. Generics remove type duplication, but the underlying storage behavior is still slice growth and map lookup.
+
 ## Run Instructions
 
 ```bash
@@ -60,4 +64,4 @@ Generic data structures are used throughout Go codebases for type-safe collectio
 
 ## Next Step
 
-Section 06 complete! Move to Composition (s06).
+The optional stretch path is complete. Move to **Composition** next, or return to the Section 06 map whenever you want to review the core path again.

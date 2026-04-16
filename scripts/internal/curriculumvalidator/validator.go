@@ -586,6 +586,14 @@ func validateRequiredHeadingsForItem(root, readmePath string, item V2Item, repor
 		requiredHeadings = append(requiredHeadings, "## Machine View")
 	}
 
+	if strings.HasPrefix(itemPath, "01-foundations/06-types-and-interfaces/") {
+		requiredHeadings = append(requiredHeadings, "## Visual Model", "## Machine View")
+	}
+
+	if item.Type == "lesson" && strings.HasPrefix(itemPath, "01-foundations/06-types-and-interfaces/") {
+		requiredHeadings = append(requiredHeadings, "## Mental Model")
+	}
+
 	if item.StarterPath != "" || strings.TrimSpace(item.TestCommand) != "" || item.VerificationMode == "mixed" || item.VerificationMode == "test" {
 		requiredHeadings = append(requiredHeadings, "## Verification Surface")
 	}

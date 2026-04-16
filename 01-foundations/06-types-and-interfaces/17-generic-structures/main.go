@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -169,7 +169,7 @@ func main() {
 	fmt.Println("  - Queue: FIFO - Enqueue/Dequeue")
 	fmt.Println("  - Set: unique values using map[T]struct{}")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 Section 06 Types and Interfaces COMPLETE!")
+	fmt.Println("Section 06 Types and Interfaces COMPLETE!")
 	fmt.Println("   Current: TI.17 (generic data structures)")
 	fmt.Println("---------------------------------------------------")
 }

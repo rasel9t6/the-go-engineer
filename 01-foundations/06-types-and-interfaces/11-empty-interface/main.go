@@ -1,5 +1,5 @@
 // Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
+// See LICENSE for usage terms.
 
 package main
 
@@ -87,7 +87,7 @@ func main() {
 	fmt.Println("  - Use type assertions or switches to extract values")
 	fmt.Println("  - Prefer generics when possible for type safety")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: TI.12 type assertions")
+	fmt.Println("NEXT UP: TI.12 type assertions")
 	fmt.Println("   Current: TI.11 (empty interface)")
 	fmt.Println("---------------------------------------------------")
 }

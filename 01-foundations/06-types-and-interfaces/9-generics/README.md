@@ -11,7 +11,7 @@ You have interfaces for behavior abstraction. But sometimes you need to write ut
 ## Prerequisites
 
 - `TI.3` interfaces
-- `TI.4` Stringer
+- `TI.5` Stringer
 
 ## Mental Model
 
@@ -74,4 +74,4 @@ Generics are essential for building reusable data structures (maps, slices, tree
 
 ## Next Step
 
-Continue to `TI.8` payroll processor project.
+Continue to `TI.10` payroll processor project to use one small generic helper inside a larger interface-based exercise.
