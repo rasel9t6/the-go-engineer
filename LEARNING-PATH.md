@@ -12,7 +12,7 @@ Start with the stage pages:
 
 - [docs/stages/README.md](./docs/stages/README.md)
 - [docs/stages/00-foundation.md](./docs/stages/00-foundation.md)
-- [docs/stages/01-language-fundamentals.md](./docs/stages/01-language-fundamentals.md)
+- [docs/stages/01-language-fundamentals.md]../../docs/stages/02-language-basics.md)
 - [docs/stages/02-types-and-design.md](./docs/stages/02-types-and-design.md)
 - [docs/stages/03-modules-and-io.md](./docs/stages/03-modules-and-io.md)
 - [docs/stages/04-backend-engineering.md](./docs/stages/04-backend-engineering.md)
@@ -81,7 +81,7 @@ It optimizes for confidence, reinforcement, and fewer hidden gaps.
 ### Stage Flow
 
 - [0 Foundation](./docs/stages/00-foundation.md)
-- [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md)
+- [1 Language Fundamentals]../../docs/stages/02-language-basics.md)
 - [2 Types and Design](./docs/stages/02-types-and-design.md)
 - [3 Modules and IO](./docs/stages/03-modules-and-io.md)
 - [4 Backend Engineering](./docs/stages/04-backend-engineering.md)
@@ -133,7 +133,7 @@ Bridge learners should not skip:
 Start here:
 
 - [0 Foundation](./docs/stages/00-foundation.md) for a fast setup and tooling sanity pass
-- then move quickly into [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md)
+- then move quickly into [1 Language Fundamentals]../../docs/stages/02-language-basics.md)
 
 ### Why This Path Exists
 
@@ -166,7 +166,7 @@ Before entering a later stage, ask:
 
 | Goal | Start Here | Before You Start |
 | --- | --- | --- |
-| tighten Go fundamentals | [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md) | skim [0 Foundation](./docs/stages/00-foundation.md) if tooling or execution still feels shaky |
+| tighten Go fundamentals | [1 Language Fundamentals]../../docs/stages/02-language-basics.md) | skim [0 Foundation](./docs/stages/00-foundation.md) if tooling or execution still feels shaky |
 | improve data modeling and design | [2 Types and Design](./docs/stages/02-types-and-design.md) | be solid on functions, errors, and collections |
 | strengthen modules, files, encoding, or CLI work | [3 Modules and IO](./docs/stages/03-modules-and-io.md) | be comfortable with structs, errors, and basic package flow |
 | build backend applications | [4 Backend Engineering](./docs/stages/04-backend-engineering.md) | be solid on modules, IO, structs, interfaces, and error handling |
@@ -217,7 +217,7 @@ Start with [0 Foundation](./docs/stages/00-foundation.md), then follow the Full 
 ### Experienced Programmer New To Go
 
 Start with [0 Foundation](./docs/stages/00-foundation.md) for a quick environment and execution
-pass, then move into [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md) on the
+pass, then move into [1 Language Fundamentals]../../docs/stages/02-language-basics.md) on the
 Bridge Path.
 
 ### Working Go Developer
