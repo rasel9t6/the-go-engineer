@@ -24,7 +24,7 @@ We are building confidence with tools, files, the terminal, and the first execut
 
 ## Current Source Content
 
-- [01-foundations/01-getting-started](../../01-foundations/01-getting-started/)
+- [01-getting-started](../../01-getting-started/)
 
 ## Finish This Stage When
 

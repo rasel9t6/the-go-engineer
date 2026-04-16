@@ -24,7 +24,7 @@ explicitly.
 
 ## Current Source Content
 
-- [01-foundations/05-functions-and-errors](../../01-foundations/05-functions-and-errors/)
+- [03-functions-errors](../../03-functions-errors/)
 
 ## Finish This Stage When
 

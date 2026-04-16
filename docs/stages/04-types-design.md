@@ -23,7 +23,7 @@ This stage is where modeling starts to matter as much as syntax.
 
 ## Current Source Content
 
-- [01-foundations/06-types-and-interfaces](../../01-foundations/06-types-and-interfaces/)
+- [04-types-design](../../04-types-design/)
 - [05-composition](../../05-composition/)
 - [06-strings-and-text](../../06-strings-and-text/)
 

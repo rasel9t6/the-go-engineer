@@ -4,8 +4,8 @@ This guide explains how to move through the current public curriculum.
 
 The repo now uses an **11-stage learner-facing architecture**.
 Those stage pages are the navigation truth.
-Some source content is still being regrouped physically, but learners should navigate by stage
-first.
+The early stages already live at the new root-level paths, and the remaining stages now follow the
+same public architecture.
 
 ## Start With The Stage Index
 
@@ -73,7 +73,7 @@ Rule:
 
 - choose one stage intentionally
 - check its prerequisites honestly
-- complete that stage’s proof surface before claiming mastery
+- complete that stage's proof surface before claiming mastery
 
 ## Recommended Entry Points
 
@@ -98,13 +98,13 @@ Proof is not optional.
 
 - `Full Path`: complete every required milestone and stage proof surface
 - `Bridge Path`: complete the important stage proof surfaces even if you skim repetition
-- `Targeted Path`: complete the chosen stage’s proof surface before claiming mastery
+- `Targeted Path`: complete the chosen stage's proof surface before claiming mastery
 
 ## Current Repo Reality
 
 - the 11-stage model is the public navigation truth
-- some source content is already physically migrated into `01-foundations/`
-- later-stage source content is still regrouping while stage pages remain stable
+- early stages now live at the new root-level source paths
+- later-stage source content now follows the same migrated architecture
 
 If you want the transition explanation, read
 [docs/beta-public-architecture.md](./docs/beta-public-architecture.md).

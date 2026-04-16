@@ -510,7 +510,7 @@ func allowedPathPrefixesForSection(section V2Section) []string {
 	prefixes := []string{filepath.ToSlash(filepath.Clean(section.PathPrefix))}
 
 	if section.ID == "s01" {
-		prefixes = append(prefixes, "01-foundations/01-getting-started", "01-foundations/02-language-basics")
+		prefixes = append(prefixes, "01-foundations/01-getting-started", "01-foundations/02-language-basics", "01-getting-started", "02-language-basics")
 	}
 
 	return prefixes
@@ -531,7 +531,7 @@ func validateFoundationsReadmeContracts(root string, items []V2Item, report func
 
 	for _, item := range items {
 		itemPath := filepath.ToSlash(filepath.Clean(item.Path))
-		if !strings.HasPrefix(itemPath, "01-foundations/") {
+		if !strings.HasPrefix(itemPath, "01-getting-started/") && !strings.HasPrefix(itemPath, "02-language-basics/") && !strings.HasPrefix(itemPath, "03-functions-errors/") && !strings.HasPrefix(itemPath, "04-types-design/") {
 			continue
 		}
 
@@ -566,31 +566,31 @@ func validateRequiredHeadingsForItem(root, readmePath string, item V2Item, repor
 		errorsFound += validateAtLeastOneHeading(root, readmePath, item.ID, []string{"## Code Walkthrough", "## Solution Walkthrough"}, report)
 	}
 
-	if strings.HasPrefix(itemPath, "01-foundations/01-getting-started/") && item.Type == "lesson" {
+	if strings.HasPrefix(itemPath, "01-getting-started/") && item.Type == "lesson" {
 		requiredHeadings = append(requiredHeadings, "## Mental Model", "## Visual Model", "## Machine View")
 	}
 
-	if strings.HasPrefix(itemPath, "01-foundations/02-language-basics") && item.Type == "lesson" {
+	if strings.HasPrefix(itemPath, "02-language-basics") && item.Type == "lesson" {
 		requiredHeadings = append(requiredHeadings, "## Mental Model", "## Visual Model", "## Machine View")
 	}
 
-	if strings.HasPrefix(itemPath, "01-foundations/04-data-structures/") || strings.HasPrefix(itemPath, "01-foundations/05-functions-and-errors/") {
+	if strings.HasPrefix(itemPath, "02-language-basics/04-data-structures/") || strings.HasPrefix(itemPath, "03-functions-errors/") {
 		requiredHeadings = append(requiredHeadings, "## Visual Model")
 	}
 
-	if item.Type == "lesson" && (strings.HasPrefix(itemPath, "01-foundations/04-data-structures/") || strings.HasPrefix(itemPath, "01-foundations/05-functions-and-errors/")) {
+	if item.Type == "lesson" && (strings.HasPrefix(itemPath, "02-language-basics/04-data-structures/") || strings.HasPrefix(itemPath, "03-functions-errors/")) {
 		requiredHeadings = append(requiredHeadings, "## Mental Model")
 	}
 
-	if strings.HasPrefix(itemPath, "01-foundations/05-functions-and-errors/") {
+	if strings.HasPrefix(itemPath, "03-functions-errors/") {
 		requiredHeadings = append(requiredHeadings, "## Machine View")
 	}
 
-	if strings.HasPrefix(itemPath, "01-foundations/06-types-and-interfaces/") {
+	if strings.HasPrefix(itemPath, "04-types-design/") {
 		requiredHeadings = append(requiredHeadings, "## Visual Model", "## Machine View")
 	}
 
-	if item.Type == "lesson" && strings.HasPrefix(itemPath, "01-foundations/06-types-and-interfaces/") {
+	if item.Type == "lesson" && strings.HasPrefix(itemPath, "04-types-design/") {
 		requiredHeadings = append(requiredHeadings, "## Mental Model")
 	}
 

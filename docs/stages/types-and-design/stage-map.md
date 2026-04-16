@@ -8,9 +8,9 @@ transformation and rendering workflows that depend on those design choices.
 ## Stage Flow
 
 1. `types-and-interfaces`
-   - source: [01-foundations/06-types-and-interfaces](../../../01-foundations/06-types-and-interfaces/)
+   - source: [04-types-design](../../../04-types-design/)
    - core job: teach structs, methods, interfaces, and small generic helpers
-   - milestone: `TI.6` payroll processor project
+   - milestone: `TI.10` payroll processor project
 2. `composition`
    - source: [05-composition](../../../05-composition/)
    - core job: teach explicit reuse, embedding, promoted behavior, and shadowing
@@ -49,7 +49,7 @@ If structs, methods, and interfaces already feel familiar, you can move faster t
 repetition.
 What you should not skip is proof:
 
-- `TI.6`
+- `TI.10`
 - `CO.3`
 - `ST.6`
 

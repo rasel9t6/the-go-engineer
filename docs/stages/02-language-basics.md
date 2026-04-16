@@ -23,9 +23,9 @@ It is the stage where small programs stop feeling mysterious.
 
 ## Current Source Content
 
-- [01-foundations/02-language-basics](../../01-foundations/02-language-basics/)
-- [01-foundations/03-control-flow](../../01-foundations/03-control-flow/)
-- [01-foundations/04-data-structures](../../01-foundations/04-data-structures/)
+- [02-language-basics](../../02-language-basics/)
+- [02-language-basics/03-control-flow](../../02-language-basics/03-control-flow/)
+- [02-language-basics/04-data-structures](../../02-language-basics/04-data-structures/)
 
 ## Finish This Stage When
 

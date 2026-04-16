@@ -12,7 +12,7 @@ Use these docs when you want a stage-level view of how the current Section `05` 
 
 Then work through the source sections in order:
 
-1. [01-foundations/06-types-and-interfaces](../../../01-foundations/06-types-and-interfaces/)
+1. [04-types-design](../../../04-types-design/)
 2. [05-composition](../../../05-composition/)
 3. [06-strings-and-text](../../../06-strings-and-text/)
 

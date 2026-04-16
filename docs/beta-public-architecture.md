@@ -42,10 +42,10 @@ These 11 stage pages are the public routing surfaces for the curriculum.
 
 The current source inventory feeds the 11-stage model like this:
 
-- `01-foundations/01-getting-started` -> `01 Getting Started`
-- `01-foundations/02-language-basics`, `01-foundations/03-control-flow`, `01-foundations/04-data-structures` -> `02 Language Basics`
-- `01-foundations/05-functions-and-errors` -> `03 Functions & Errors`
-- `01-foundations/06-types-and-interfaces`, `05-composition`, `06-strings-and-text` -> `04 Types & Design`
+- `01-getting-started` -> `01 Getting Started`
+- `02-language-basics`, `02-language-basics/03-control-flow`, `02-language-basics/04-data-structures` -> `02 Language Basics`
+- `03-functions-errors` -> `03 Functions & Errors`
+- `04-types-design`, `05-composition`, `06-strings-and-text` -> `04 Types & Design`
 - `07-modules-and-packages`, `08-io-and-cli` -> `05 Packages & IO`
 - `09-web-and-database` -> `06 Backend & DB`
 - `10-concurrency`, `11-concurrency-patterns` -> `07 Concurrency`

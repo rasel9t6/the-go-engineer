@@ -37,7 +37,7 @@ git clone https://github.com/rasel9t6/the-go-engineer.git
 cd the-go-engineer
 go mod download
 go version
-go run ./01-foundations/01-getting-started/2-hello-world
+go run ./01-getting-started/2-hello-world
 ```
 
 ## Public Curriculum (11 Stages)
@@ -46,10 +46,10 @@ The curriculum is organized into 11 stages. Each stage has a dedicated entry pag
 
 | Stage | Focus | Sections | Source |
 | --- | --- | --- | --- |
-| [01 Getting Started](./docs/stages/01-getting-started.md) | install, hello world, dev setup | s01 | [01-foundations/01-getting-started](./01-foundations/01-getting-started/) |
-| [02 Language Basics](./docs/stages/02-language-basics.md) | variables, types, control flow, data structures | s02-s03 | [01-foundations/02-language-basics](./01-foundations/02-language-basics/), [01-foundations/03-control-flow](./01-foundations/03-control-flow/), [01-foundations/04-data-structures](./01-foundations/04-data-structures/) |
-| [03 Functions & Errors](./docs/stages/03-functions-errors.md) | functions, params, error handling | s04 | [01-foundations/05-functions-and-errors](./01-foundations/05-functions-and-errors/) |
-| [04 Types & Design](./docs/stages/04-types-design.md) | structs, interfaces, composition, strings | s05-s07 | [01-foundations/06-types-and-interfaces](./01-foundations/06-types-and-interfaces/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) |
+| [01 Getting Started](./docs/stages/01-getting-started.md) | install, hello world, dev setup | s01 | [01-getting-started](./01-getting-started/) |
+| [02 Language Basics](./docs/stages/02-language-basics.md) | variables, types, control flow, data structures | s02-s03 | [02-language-basics](./02-language-basics/) |
+| [03 Functions & Errors](./docs/stages/03-functions-errors.md) | functions, params, error handling | s04 | [03-functions-errors](./03-functions-errors/) |
+| [04 Types & Design](./docs/stages/04-types-design.md) | structs, interfaces, composition, strings | s05-s07 | [04-types-design](./04-types-design/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) |
 | [05 Packages & IO](./docs/stages/05-packages-io.md) | modules, packages, CLI, files | s08-s09 | [07-modules-and-packages](./07-modules-and-packages/), [08-io-and-cli](./08-io-and-cli/) |
 | [06 Backend & DB](./docs/stages/06-backend-db.md) | HTTP, databases, handlers | s10 | [09-web-and-database](./09-web-and-database/) |
 | [07 Concurrency](./docs/stages/07-concurrency.md) | goroutines, channels, patterns | s11-s12 | [10-concurrency](./10-concurrency/), [11-concurrency-patterns](./11-concurrency-patterns/) |
@@ -126,13 +126,13 @@ For the full explanation of that relationship, see
 
 ```bash
 # run a lesson
-go run ./01-foundations/01-getting-started/2-hello-world
+go run ./01-getting-started/2-hello-world
 
 # run a starter exercise
-go run ./01-foundations/05-functions-and-errors/7-order-summary/_starter
+go run ./03-functions-errors/7-order-summary/_starter
 
 # compare with the canonical solution
-go run ./01-foundations/05-functions-and-errors/7-order-summary
+go run ./03-functions-errors/7-order-summary
 ```
 
 ## Validate The Repo
