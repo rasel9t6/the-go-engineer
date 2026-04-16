@@ -16,7 +16,7 @@ become a risk if it grows carelessly.
 ## Prerequisites
 
 - [Foundation checkpoint](./foundation-checkpoint.md)
-- [7 Architecture](../../07-architecture.md)
+- [9 Architecture](../../09-architecture.md)
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
 ## Task

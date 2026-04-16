@@ -16,7 +16,7 @@ step.
 ## Prerequisites
 
 - [Operations checkpoint](./operations-checkpoint.md)
-- [9 Expert Layer](../../09-expert-layer.md)
+- [11 Flagship Project](../../11-flagship.md)
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
 ## Task
@@ -68,5 +68,5 @@ The learner should justify why this improvement wins over plausible alternatives
 After this checkpoint, use the
 [First iteration slice](../slices/first-iteration-slice.md),
 then either implement the chosen iteration or return to
-[11 Code Generation](../../11-code-generation.md)
+[11 Code Generation](../../11-flagship.md)
 once you have enough flagship context to use generation tools deliberately.

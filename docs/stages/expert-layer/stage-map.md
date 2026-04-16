@@ -32,5 +32,5 @@ stages.
 
 ## Handoff
 
-The natural handoff from this stage is [10 Flagship Project](../10-flagship-project.md), where the
+The natural handoff from this stage is [10 Flagship Project](../11-flagship.md), where the
 same judgment skills need to hold up over a larger system.

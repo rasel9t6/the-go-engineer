@@ -15,7 +15,7 @@ for a small backend service.
 
 ## Prerequisites
 
-- [4 Backend Engineering](../../04-backend-engineering.md)
+- [4 Backend Engineering](../../06-backend-db.md)
 - `DB.6`
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
@@ -70,5 +70,5 @@ The learner should justify why the top issue matters most instead of only listin
 Move to the diagnosis task at
 [CP.5 health checker diagnosis](./diagnose-cp5-health-checker-failure.md)
 or continue to the
-[Flagship Project stage](../../10-flagship-project.md)
+[Flagship Project stage](../../11-flagship.md)
 if you want longer-form pressure next.

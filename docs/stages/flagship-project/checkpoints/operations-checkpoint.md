@@ -16,7 +16,7 @@ that matters before feature expansion.
 ## Prerequisites
 
 - [Architecture checkpoint](./architecture-checkpoint.md)
-- [8 Production Engineering](../../08-production-engineering.md)
+- [10 Production](../../10-production.md)
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
 ## Task

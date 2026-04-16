@@ -1,11 +1,11 @@
-# Beta Stage Guide
+# Stage Guide
 
-The beta curriculum is organized by engineering stage instead of the alpha-era section numbering.
+The curriculum is organized into 11 stages.
 
-These stage pages are the public learner-facing entry surfaces for the beta model.
-The source content still lives in the current section folders while the regrouping work continues.
+These stage pages are the public learner-facing entry surfaces.
+The source content still lives in the current section folders while migration continues.
 
-If you want the public explanation of that relationship, read
+For explanation of the source vs public relationship, read
 [../beta-public-architecture.md](../beta-public-architecture.md).
 
 ## How To Use These Docs
@@ -13,10 +13,7 @@ If you want the public explanation of that relationship, read
 1. Pick the stage that matches your current goal.
 2. Read the stage page first so you know what the stage owns.
 3. Follow the linked source sections and tracks inside the repo.
-4. Use the `Next stage` note at the bottom of each page when you are ready to move forward.
-
-For rubric-heavy work, checkpoints, and later-stage pressure tasks, use the beta templates in
-[../templates/README.md](../templates/README.md).
+4. Use the `Next stage` note at the bottom of each page when ready to move forward.
 
 ## Stage Doc Contract
 
@@ -26,26 +23,22 @@ Every stage page uses the same shape:
 - `Who this is for`: the learner profile that should start here
 - `Mental model`: the framing idea learners should carry while studying the stage
 - `What you should learn here`: the main outcomes
-- `Current source content`: the alpha sections or tracks that currently feed the stage
+- `Current source content`: the sections or tracks that currently feed the stage
 - `Finish this stage when`: the signs that the learner is ready to move on
 - `Next stage`: the most natural follow-up
 
-This keeps the public learner experience consistent even while the physical folder layout is still
-being regrouped.
+## 11 Stages
 
-## Beta Stages
-
-| Stage | Entry doc |
-| --- | --- |
-| `0 Foundation` | [00-foundation.md](./00-foundation.md) |
-| `1 Language Fundamentals` | [01-language-fundamentals.md](./01-language-fundamentals.md) |
-| `2 Types and Design` | [02-types-and-design.md](./02-types-and-design.md) |
-| `3 Modules and IO` | [03-modules-and-io.md](./03-modules-and-io.md) |
-| `4 Backend Engineering` | [04-backend-engineering.md](./04-backend-engineering.md) |
-| `5 Concurrency System` | [05-concurrency-system.md](./05-concurrency-system.md) |
-| `6 Quality and Performance` | [06-quality-and-performance.md](./06-quality-and-performance.md) |
-| `7 Architecture` | [07-architecture.md](./07-architecture.md) |
-| `8 Production Engineering` | [08-production-engineering.md](./08-production-engineering.md) |
-| `9 Expert Layer` | [09-expert-layer.md](./09-expert-layer.md) |
-| `10 Flagship Project` | [10-flagship-project.md](./10-flagship-project.md) |
-| `11 Code Generation` | [11-code-generation.md](./11-code-generation.md) |
+| Stage | Entry doc | Sections |
+| --- | --- | --- |
+| `01 Getting Started` | [01-getting-started.md](./01-getting-started.md) | s01 |
+| `02 Language Basics` | [02-language-basics.md](./02-language-basics.md) | s02-s03 |
+| `03 Functions & Errors` | [03-functions-errors.md](./03-functions-errors.md) | s04 |
+| `04 Types & Design` | [04-types-design.md](./04-types-design.md) | s05-s07 |
+| `05 Packages & IO` | [05-packages-io.md](./05-packages-io.md) | s08-s09 |
+| `06 Backend & DB` | [06-backend-db.md](./06-backend-db.md) | s10 |
+| `07 Concurrency` | [07-concurrency.md](./07-concurrency.md) | s11-s12 |
+| `08 Quality & Test` | [08-quality-test.md](./08-quality-test.md) | s13 |
+| `09 Architecture` | [09-architecture.md](./09-architecture.md) | s14 |
+| `10 Production` | [10-production.md](./10-production.md) | s14b |
+| `11 Flagship` | [11-flagship.md](./11-flagship.md) | s15-s17 |
