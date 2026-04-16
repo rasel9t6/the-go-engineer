@@ -15,7 +15,7 @@ meaningful change.
 
 ## Prerequisites
 
-- [10 Flagship Project](../../10-flagship-project.md)
+- [11 Flagship Project](../../11-flagship.md)
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
 ## Task

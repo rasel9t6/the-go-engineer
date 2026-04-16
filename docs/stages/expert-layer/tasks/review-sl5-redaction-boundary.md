@@ -15,7 +15,7 @@ the right place.
 
 ## Prerequisites
 
-- [8 Production Engineering](../../08-production-engineering.md)
+- [10 Production](../../10-production.md)
 - `SL.5`
 - [rubric and checkpoint template](../../../templates/rubric-checkpoint-template.md)
 
@@ -70,5 +70,5 @@ The learner should explain why the top risk matters most under production pressu
 Continue to the redesign task at
 [GS.3 shutdown-order redesign](./redesign-gs3-shutdown-order.md)
 or move into the
-[Flagship Project stage](../../10-flagship-project.md)
+[Flagship Project stage](../../11-flagship.md)
 if you want system-scale pressure next.

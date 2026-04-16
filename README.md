@@ -40,47 +40,45 @@ go version
 go run ./01-foundations/01-getting-started/2-hello-world
 ```
 
-## Beta Public Curriculum
+## Public Curriculum (11 Stages)
 
-The beta curriculum is organized by engineering stage.
-Each stage now has a dedicated public entry page under [docs/stages](./docs/stages/README.md).
+The curriculum is organized into 11 stages. Each stage has a dedicated entry page under [docs/stages](./docs/stages/README.md).
 
-| Beta stage | Focus | Current source content |
-| --- | --- | --- |
-| [0 Foundation](./docs/stages/00-foundation.md) | tools, execution, terminal confidence, first-run mental models | [01-foundations/01-getting-started](./01-foundations/01-getting-started/) |
-| [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md) | syntax, control flow, data structures, functions, errors | [01-core-foundations/language-basics](./01-core-foundations/language-basics/), [01-foundations/03-control-flow](./01-foundations/03-control-flow/), [01-foundations/04-data-structures](./01-foundations/04-data-structures/), [01-foundations/05-functions-and-errors](./01-foundations/05-functions-and-errors/) |
-| [2 Types and Design](./docs/stages/02-types-and-design.md) | structs, interfaces, composition, text and data modeling | [05-types-and-interfaces](./05-types-and-interfaces/), [06-composition](./06-composition/), [07-strings-and-text](./07-strings-and-text/) |
-| [3 Modules and IO](./docs/stages/03-modules-and-io.md) | packages, modules, encoding, filesystems, CLI boundaries | [08-modules-and-packages](./08-modules-and-packages/), [09-io-and-cli](./09-io-and-cli/) |
-| [4 Backend Engineering](./docs/stages/04-backend-engineering.md) | HTTP, databases, handlers, application boundaries | [10-web-and-database](./10-web-and-database/) |
-| [5 Concurrency System](./docs/stages/05-concurrency-system.md) | goroutines, context, scheduling, bounded patterns | [11-concurrency](./11-concurrency/), [12-concurrency-patterns](./12-concurrency-patterns/) |
-| [6 Quality and Performance](./docs/stages/06-quality-and-performance.md) | testing, benchmarking, profiling, trust in code | [13-quality-and-performance](./13-quality-and-performance/) |
-| [7 Architecture](./docs/stages/07-architecture.md) | package design, service structure, system boundaries | [14-application-architecture/package-design](./14-application-architecture/package-design/), [14-application-architecture/grpc](./14-application-architecture/grpc/) |
-| [8 Production Engineering](./docs/stages/08-production-engineering.md) | logging, shutdown, deployment, operating software | [14-application-architecture/structured-logging](./14-application-architecture/structured-logging/), [14-application-architecture/graceful-shutdown](./14-application-architecture/graceful-shutdown/), [14-application-architecture/docker-and-deployment](./14-application-architecture/docker-and-deployment/) |
-| [9 Expert Layer](./docs/stages/09-expert-layer.md) | review, diagnosis, anti-patterns, trade-offs | beta additions planned |
-| [10 Flagship Project](./docs/stages/10-flagship-project.md) | one long-running proof-of-skill product spine | [14-application-architecture/enterprise-capstone](./14-application-architecture/enterprise-capstone/) plus milestone projects across the repo |
-| [11 Code Generation](./docs/stages/11-code-generation.md) | generation after understanding the code it produces | [15-code-generation](./15-code-generation/) |
+| Stage | Focus | Sections | Source |
+| --- | --- | --- | --- |
+| [01 Getting Started](./docs/stages/01-getting-started.md) | install, hello world, dev setup | s01 | [01-foundations/01-getting-started](./01-foundations/01-getting-started/) |
+| [02 Language Basics](./docs/stages/02-language-basics.md) | variables, types, control flow, data structures | s02-s03 | [01-foundations/02-language-basics](./01-foundations/02-language-basics/), [01-foundations/03-control-flow](./01-foundations/03-control-flow/), [01-foundations/04-data-structures](./01-foundations/04-data-structures/) |
+| [03 Functions & Errors](./docs/stages/03-functions-errors.md) | functions, params, error handling | s04 | [01-foundations/05-functions-and-errors](./01-foundations/05-functions-and-errors/) |
+| [04 Types & Design](./docs/stages/04-types-design.md) | structs, interfaces, composition, strings | s05-s07 | [01-foundations/06-types-and-interfaces](./01-foundations/06-types-and-interfaces/), [06-composition](./06-composition/), [07-strings-and-text](./07-strings-and-text/) |
+| [05 Packages & IO](./docs/stages/05-packages-io.md) | modules, packages, CLI, files | s08-s09 | [08-modules-and-packages](./08-modules-and-packages/), [09-io-and-cli](./09-io-and-cli/) |
+| [06 Backend & DB](./docs/stages/06-backend-db.md) | HTTP, databases, handlers | s10 | [10-web-and-database](./10-web-and-database/) |
+| [07 Concurrency](./docs/stages/07-concurrency.md) | goroutines, channels, patterns | s11-s12 | [11-concurrency](./11-concurrency/), [12-concurrency-patterns](./12-concurrency-patterns/) |
+| [08 Quality & Test](./docs/stages/08-quality-test.md) | testing, benchmarking, profiling | s13 | [13-quality-and-performance](./13-quality-and-performance/) |
+| [09 Architecture](./docs/stages/09-architecture.md) | package design, services | s14 | [14-application-architecture/package-design](./14-application-architecture/package-design/), [14-application-architecture/grpc](./14-application-architecture/grpc/) |
+| [10 Production](./docs/stages/10-production.md) | logging, shutdown, deployment | s14b | [14-application-architecture/structured-logging](./14-application-architecture/structured-logging/), [14-application-architecture/graceful-shutdown](./14-application-architecture/graceful-shutdown/), [14-application-architecture/docker-and-deployment](./14-application-architecture/docker-and-deployment/) |
+| [11 Flagship](./docs/stages/11-flagship.md) | full GoScale project | s15-s17 | [14-application-architecture/enterprise-capstone](./14-application-architecture/enterprise-capstone/), [15-code-generation](./15-code-generation/) |
 
 ## Best Entry Point By Learner Type
 
 ### Complete beginner
 
-Start at [0 Foundation](./docs/stages/00-foundation.md).
+Start at [Stage 01: Getting Started](./docs/stages/01-getting-started.md).
 That stage page points to the current source surface for beginner setup and first-run work.
 
 ### Experienced programmer new to Go
 
-Start at [1 Language Fundamentals](./docs/stages/01-language-fundamentals.md).
-If you want a faster ramp, skim [0 Foundation](./docs/stages/00-foundation.md) first and then use
+Start at [Stage 02: Language Basics](./docs/stages/02-language-basics.md).
+If you want a faster ramp, skim [Stage 01](./docs/stages/01-getting-started.md) first and then use
 the stage page to jump into the current source sections.
 
 ### Experienced Go developer
 
 Jump to the stage you want to strengthen:
 
-- concurrency: [5 Concurrency System](./docs/stages/05-concurrency-system.md)
-- quality and performance: [6 Quality and Performance](./docs/stages/06-quality-and-performance.md)
-- architecture: [7 Architecture](./docs/stages/07-architecture.md)
-- production and operations: [8 Production Engineering](./docs/stages/08-production-engineering.md)
+- concurrency: [Stage 07: Concurrency](./docs/stages/07-concurrency.md)
+- quality and test: [Stage 08: Quality & Test](./docs/stages/08-quality-test.md)
+- architecture: [Stage 09: Architecture](./docs/stages/09-architecture.md)
+- production: [Stage 10: Production](./docs/stages/10-production.md)
 
 ## What You Will Build
 
@@ -95,35 +93,31 @@ You will work through:
 
 ## Current Docs
 
-These docs are still useful during the beta shell rollout:
+These docs are still useful:
 
 | Document | Purpose |
 | --- | --- |
-| [LEARNING-PATH.md](./LEARNING-PATH.md) | current learning guide during the beta routing transition |
-| [docs/stages/README.md](./docs/stages/README.md) | beta stage entry index and stage-by-stage public routing |
-| [docs/beta-public-architecture.md](./docs/beta-public-architecture.md) | explanation of alpha source inventory versus beta public architecture |
-| [docs/curriculum/README.md](./docs/curriculum/README.md) | alpha source inventory and section-by-section curriculum map |
+| [LEARNING-PATH.md](./LEARNING-PATH.md) | current learning guide |
+| [docs/stages/README.md](./docs/stages/README.md) | stage entry index |
+| [docs/beta-public-architecture.md](./docs/beta-public-architecture.md) | explanation of source vs public architecture |
+| [docs/curriculum/README.md](./docs/curriculum/README.md) | section-by-section curriculum map |
 | [COMMON-MISTAKES.md](./COMMON-MISTAKES.md) | common Go bugs and fixes |
-| [ROADMAP.md](./ROADMAP.md) | public roadmap and release direction |
+| [ROADMAP.md](./ROADMAP.md) | public roadmap |
 | [CHANGELOG.md](./CHANGELOG.md) | change history |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | contribution workflow and repo rules |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | contribution workflow |
 | [RELEASE.md](./RELEASE.md) | release process |
 
-Maintainers and contributors can follow the beta planning set on
+Maintainers and contributors can follow planning on
 [`planning/v2`](https://github.com/rasel9t6/the-go-engineer/tree/planning/v2/docs/v2).
 
 ## Current Repo Reality
 
-During the beta rollout:
-
-- the beta stage model is the public navigation truth
+- the 11-stage model is the public navigation truth
 - the current section folders remain the source inventory
-- some stages regroup content from multiple alpha sections
-- some alpha sections split across more than one beta stage
-- stage entry docs and deeper beta routing are being added incrementally
+- content is being migrated to `01-foundations/` incrementally
 
-That means the README now presents the curriculum by beta stage even though the physical folder
-layout is still mostly the alpha-era section structure.
+That means the README now presents the curriculum by stage even though the physical folder
+layout is still migrating to the new format.
 
 For the full explanation of that relationship, see
 [docs/beta-public-architecture.md](./docs/beta-public-architecture.md).

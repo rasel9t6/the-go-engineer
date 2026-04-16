@@ -28,6 +28,6 @@ Use the published checkpoint set here:
 
 ## Handoff
 
-After the flagship path is meaningful, [11 Code Generation](../11-code-generation.md) becomes much
+After the flagship path is meaningful, [11 Flagship](../11-flagship.md) becomes much
 more useful because there is now a real system context for deciding what should and should not be
 generated.

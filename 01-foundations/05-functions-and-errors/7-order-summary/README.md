@@ -204,4 +204,4 @@ Use these three proof surfaces together:
 ## Next Step
 
 After this milestone, move to
-[2 Types and Design](../../../docs/stages/02-types-and-design.md).
+[4 Types & Design](../../../docs/stages/04-types-design.md).
