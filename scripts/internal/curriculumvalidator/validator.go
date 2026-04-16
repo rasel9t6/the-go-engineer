@@ -510,7 +510,7 @@ func allowedPathPrefixesForSection(section V2Section) []string {
 	prefixes := []string{filepath.ToSlash(filepath.Clean(section.PathPrefix))}
 
 	if section.ID == "s01" {
-		prefixes = append(prefixes, "01-foundations/01-getting-started", "01-foundations/02-language-basics")
+		prefixes = append(prefixes, "01-foundations/01-getting-started", "01-foundations/02-language-basics", "01-getting-started", "02-language-basics")
 	}
 
 	return prefixes

@@ -10,7 +10,7 @@
       "summary": "Teach learners to install Go, run their first programs, and build confidence with variables, constants, and enum-like values.",
       "status": "pilot",
       "prerequisites": [],
-      "path_prefix": "01-foundations/01-getting-started",
+      "path_prefix": "01-getting-started",
       "entry_points": [
         "GT.1",
         "LB.1"
@@ -30,7 +30,7 @@
       "prerequisites": [
         "s01"
       ],
-      "path_prefix": "01-foundations/03-control-flow",
+      "path_prefix": "02-language-basics",
       "entry_points": [
         "CF.1"
       ],
@@ -49,7 +49,7 @@
       "prerequisites": [
         "s02"
       ],
-      "path_prefix": "01-foundations/04-data-structures",
+      "path_prefix": "02-language-basics",
       "entry_points": [
         "DS.1"
       ],
@@ -68,7 +68,7 @@
       "prerequisites": [
         "s03"
       ],
-      "path_prefix": "01-foundations/05-functions-and-errors",
+      "path_prefix": "03-functions-errors",
       "entry_points": [
         "FE.1"
       ],
@@ -87,7 +87,7 @@
       "prerequisites": [
         "s04"
       ],
-      "path_prefix": "01-foundations/06-types-and-interfaces",
+      "path_prefix": "04-types-design",
       "entry_points": [
         "TI.1"
       ],
@@ -319,8 +319,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Branching is the basis for validation, access checks, and early decision logic in all production software.",
-      "path": "01-foundations/03-control-flow/1-if-else",
-      "run_command": "go run ./01-foundations/03-control-flow/1-if-else",
+      "path": "02-language-basics/03-control-flow/1-if-else",
+      "run_command": "go run ./02-language-basics/03-control-flow/1-if-else",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -351,8 +351,8 @@
         "CF.1"
       ],
       "production_relevance": "Loop shape decisions affect readability everywhere from simple scripts to production services.",
-      "path": "01-foundations/03-control-flow/2-for-basics",
-      "run_command": "go run ./01-foundations/03-control-flow/2-for-basics",
+      "path": "02-language-basics/03-control-flow/2-for-basics",
+      "run_command": "go run ./02-language-basics/03-control-flow/2-for-basics",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -383,8 +383,8 @@
         "CF.2"
       ],
       "production_relevance": "Selective skipping and early termination show up in search loops, validation passes, and stream-like processing.",
-      "path": "01-foundations/03-control-flow/3-break-continue",
-      "run_command": "go run ./01-foundations/03-control-flow/3-break-continue",
+      "path": "02-language-basics/03-control-flow/3-break-continue",
+      "run_command": "go run ./02-language-basics/03-control-flow/3-break-continue",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -417,8 +417,8 @@
         "CF.3"
       ],
       "production_relevance": "Switch statements keep branch-heavy code readable in parsers, routers, and state-handling logic.",
-      "path": "01-foundations/03-control-flow/4-switch",
-      "run_command": "go run ./01-foundations/03-control-flow/4-switch",
+      "path": "02-language-basics/03-control-flow/4-switch",
+      "run_command": "go run ./02-language-basics/03-control-flow/4-switch",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -452,10 +452,10 @@
         "CF.4"
       ],
       "production_relevance": "Real business rules often start as simple branch-heavy logic like categorization, skipping bad inputs, and subtotal calculation.",
-      "path": "01-foundations/03-control-flow/5-pricing-checkout",
-      "run_command": "go run ./01-foundations/03-control-flow/5-pricing-checkout",
+      "path": "02-language-basics/03-control-flow/5-pricing-checkout",
+      "run_command": "go run ./02-language-basics/03-control-flow/5-pricing-checkout",
       "test_command": "",
-      "starter_path": "01-foundations/03-control-flow/5-pricing-checkout/_starter",
+      "starter_path": "02-language-basics/03-control-flow/5-pricing-checkout/_starter",
       "next_items": [],
       "tags": [
         "exercise",
@@ -480,8 +480,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Even when slices dominate day-to-day work, arrays still explain the memory model slices build on top of.",
-      "path": "01-foundations/04-data-structures/1-array",
-      "run_command": "go run ./01-foundations/04-data-structures/1-array",
+      "path": "02-language-basics/04-data-structures/1-array",
+      "run_command": "go run ./02-language-basics/04-data-structures/1-array",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -512,8 +512,8 @@
         "DS.1"
       ],
       "production_relevance": "Slices are one of the most common Go data structures, so understanding their growth and sharing model matters early.",
-      "path": "01-foundations/04-data-structures/2-slices",
-      "run_command": "go run ./01-foundations/04-data-structures/2-slices",
+      "path": "02-language-basics/04-data-structures/2-slices",
+      "run_command": "go run ./02-language-basics/04-data-structures/2-slices",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -544,8 +544,8 @@
         "DS.2"
       ],
       "production_relevance": "Maps drive caches, indexes, routing tables, and lookup-heavy business logic in everyday Go systems.",
-      "path": "01-foundations/04-data-structures/3-maps",
-      "run_command": "go run ./01-foundations/04-data-structures/3-maps",
+      "path": "02-language-basics/04-data-structures/3-maps",
+      "run_command": "go run ./02-language-basics/04-data-structures/3-maps",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -577,8 +577,8 @@
         "DS.2"
       ],
       "production_relevance": "Pointers are a normal part of Go APIs for mutation, optional values, and large-struct efficiency.",
-      "path": "01-foundations/04-data-structures/4-pointers",
-      "run_command": "go run ./01-foundations/04-data-structures/4-pointers",
+      "path": "02-language-basics/04-data-structures/4-pointers",
+      "run_command": "go run ./02-language-basics/04-data-structures/4-pointers",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -610,8 +610,8 @@
         "DS.4"
       ],
       "production_relevance": "Slice-sharing bugs are subtle and show up in real services when data pipelines reuse buffers or partial views carelessly.",
-      "path": "01-foundations/04-data-structures/5-slices-2",
-      "run_command": "go run ./01-foundations/04-data-structures/5-slices-2",
+      "path": "02-language-basics/04-data-structures/5-slices-2",
+      "run_command": "go run ./02-language-basics/04-data-structures/5-slices-2",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -646,10 +646,10 @@
         "DS.5"
       ],
       "production_relevance": "Real applications routinely layer multiple data structures together to balance readability, lookup speed, and mutation behavior.",
-      "path": "01-foundations/04-data-structures/6-contact-manager",
-      "run_command": "go run ./01-foundations/04-data-structures/6-contact-manager",
-      "test_command": "go test ./01-foundations/04-data-structures/6-contact-manager",
-      "starter_path": "01-foundations/04-data-structures/6-contact-manager/_starter",
+      "path": "02-language-basics/04-data-structures/6-contact-manager",
+      "run_command": "go run ./02-language-basics/04-data-structures/6-contact-manager",
+      "test_command": "go test ./02-language-basics/04-data-structures/6-contact-manager",
+      "starter_path": "02-language-basics/04-data-structures/6-contact-manager/_starter",
       "next_items": [],
       "tags": [
         "exercise",
@@ -674,8 +674,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "A learner cannot build reliable habits until the local Go toolchain and environment are actually working.",
-      "path": "01-foundations/01-getting-started/1-installation",
-      "run_command": "go run ./01-foundations/01-getting-started/1-installation",
+      "path": "01-getting-started/1-installation",
+      "run_command": "go run ./01-getting-started/1-installation",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -706,8 +706,8 @@
         "GT.1"
       ],
       "production_relevance": "Understanding the minimal shape of a Go program makes later package, tool, and build concepts much easier to absorb.",
-      "path": "01-foundations/01-getting-started/2-hello-world",
-      "run_command": "go run ./01-foundations/01-getting-started/2-hello-world",
+      "path": "01-getting-started/2-hello-world",
+      "run_command": "go run ./01-getting-started/2-hello-world",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -738,8 +738,8 @@
         "GT.2"
       ],
       "production_relevance": "Early package and compilation intuition reduces confusion once the curriculum reaches modules, testing, and architecture.",
-      "path": "01-foundations/01-getting-started/3-how-go-works",
-      "run_command": "go run ./01-foundations/01-getting-started/3-how-go-works",
+      "path": "01-getting-started/3-how-go-works",
+      "run_command": "go run ./01-getting-started/3-how-go-works",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -770,8 +770,8 @@
         "GT.3"
       ],
       "production_relevance": "Teams rely on a repeatable tool loop long before they reach advanced architecture or deployment work.",
-      "path": "01-foundations/01-getting-started/4-dev-environment",
-      "run_command": "go run ./01-foundations/01-getting-started/4-dev-environment",
+      "path": "01-getting-started/4-dev-environment",
+      "run_command": "go run ./01-getting-started/4-dev-environment",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -785,7 +785,7 @@
     },
     {
       "id": "LB.1",
-      "section_id": "s01",
+      "section_id": "s02",
       "slug": "variables",
       "title": "Variables and Types",
       "type": "lesson",
@@ -800,8 +800,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Typed values and predictable zero values are the baseline for writing readable Go without hidden state.",
-      "path": "01-foundations/02-language-basics/1-variables",
-      "run_command": "go run ./01-foundations/02-language-basics/1-variables",
+      "path": "02-language-basics/1-variables",
+      "run_command": "go run ./02-language-basics/1-variables",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -832,8 +832,8 @@
         "LB.1"
       ],
       "production_relevance": "Well-named constants make early programs easier to read and later systems easier to maintain.",
-      "path": "01-foundations/02-language-basics/2-constants",
-      "run_command": "go run ./01-foundations/02-language-basics/2-constants",
+      "path": "02-language-basics/2-constants",
+      "run_command": "go run ./02-language-basics/2-constants",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -864,8 +864,8 @@
         "LB.2"
       ],
       "production_relevance": "Named enum-style values show up in logging, configuration, status modeling, and protocol work across real Go systems.",
-      "path": "01-foundations/02-language-basics/3-enums",
-      "run_command": "go run ./01-foundations/02-language-basics/3-enums",
+      "path": "02-language-basics/3-enums",
+      "run_command": "go run ./02-language-basics/3-enums",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -898,10 +898,10 @@
         "LB.3"
       ],
       "production_relevance": "Even simple real-world utilities depend on stable labels, readable output, and safe handling of invalid values.",
-      "path": "01-foundations/02-language-basics/4-application-logger",
-      "run_command": "go run ./01-foundations/02-language-basics/4-application-logger",
+      "path": "02-language-basics/4-application-logger",
+      "run_command": "go run ./02-language-basics/4-application-logger",
       "test_command": "",
-      "starter_path": "01-foundations/02-language-basics/4-application-logger/_starter",
+      "starter_path": "02-language-basics/4-application-logger/_starter",
       "next_items": [],
       "tags": [
         "exercise",
@@ -926,8 +926,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Readable Go programs stop scaling when every action stays inline, so named function boundaries matter early.",
-      "path": "01-foundations/05-functions-and-errors/1-functions-basics",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/1-functions-basics",
+      "path": "03-functions-errors/1-functions-basics",
+      "run_command": "go run ./03-functions-errors/1-functions-basics",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -958,8 +958,8 @@
         "FE.1"
       ],
       "production_relevance": "Inputs and outputs are the base contract of application logic, helpers, handlers, and later interfaces.",
-      "path": "01-foundations/05-functions-and-errors/2-parameters-and-returns",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/2-parameters-and-returns",
+      "path": "03-functions-errors/2-parameters-and-returns",
+      "run_command": "go run ./03-functions-errors/2-parameters-and-returns",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -990,8 +990,8 @@
         "FE.2"
       ],
       "production_relevance": "Multiple return values make Go contracts more explicit and prepare learners for the `(value, error)` pattern.",
-      "path": "01-foundations/05-functions-and-errors/3-multiple-return-values",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/3-multiple-return-values",
+      "path": "03-functions-errors/3-multiple-return-values",
+      "run_command": "go run ./03-functions-errors/3-multiple-return-values",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1022,8 +1022,8 @@
         "FE.3"
       ],
       "production_relevance": "Multiple return values are the base contract for idiomatic Go error handling and explicit control flow.",
-      "path": "01-foundations/05-functions-and-errors/4-errors-as-values",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/4-errors-as-values",
+      "path": "03-functions-errors/4-errors-as-values",
+      "run_command": "go run ./03-functions-errors/4-errors-as-values",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1054,8 +1054,8 @@
         "FE.4"
       ],
       "production_relevance": "Validation keeps later logic honest by stopping clearly broken input before it spreads through the program.",
-      "path": "01-foundations/05-functions-and-errors/5-validation",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/5-validation",
+      "path": "03-functions-errors/5-validation",
+      "run_command": "go run ./03-functions-errors/5-validation",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1086,8 +1086,8 @@
         "FE.5"
       ],
       "production_relevance": "Readable application flow often comes from one coordinating function rather than one giant block of inline logic.",
-      "path": "01-foundations/05-functions-and-errors/6-orchestration",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/6-orchestration",
+      "path": "03-functions-errors/6-orchestration",
+      "run_command": "go run ./03-functions-errors/6-orchestration",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1123,10 +1123,10 @@
         "FE.6"
       ],
       "production_relevance": "Small real-world tools often need to validate input, stop honestly on failure, and keep the happy path readable.",
-      "path": "01-foundations/05-functions-and-errors/7-order-summary",
-      "run_command": "go run ./01-foundations/05-functions-and-errors/7-order-summary",
-      "test_command": "go test ./01-foundations/05-functions-and-errors/7-order-summary",
-      "starter_path": "01-foundations/05-functions-and-errors/7-order-summary/_starter",
+      "path": "03-functions-errors/7-order-summary",
+      "run_command": "go run ./03-functions-errors/7-order-summary",
+      "test_command": "go test ./03-functions-errors/7-order-summary",
+      "starter_path": "03-functions-errors/7-order-summary/_starter",
       "next_items": [],
       "tags": [
         "exercise",
@@ -1153,8 +1153,8 @@
       ],
       "prerequisites": [],
       "production_relevance": "Struct design is the basis for every later Go model, request payload, configuration shape, and domain type.",
-      "path": "01-foundations/06-types-and-interfaces/1-struct",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/1-struct",
+      "path": "04-types-design/1-struct",
+      "run_command": "go run ./04-types-design/1-struct",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1185,8 +1185,8 @@
         "TI.1"
       ],
       "production_relevance": "Receiver choice affects mutability, method sets, and copy costs in real Go APIs, not just toy examples.",
-      "path": "01-foundations/06-types-and-interfaces/2-methods",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/2-methods",
+      "path": "04-types-design/2-methods",
+      "run_command": "go run ./04-types-design/2-methods",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1218,8 +1218,8 @@
         "TI.2"
       ],
       "production_relevance": "Interfaces define seams for testing, package boundaries, and flexible architecture in production Go systems.",
-      "path": "01-foundations/06-types-and-interfaces/3-interfaces",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/3-interfaces",
+      "path": "04-types-design/3-interfaces",
+      "run_command": "go run ./04-types-design/3-interfaces",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1250,8 +1250,8 @@
         "TI.3"
       ],
       "production_relevance": "Interface embedding is used throughout the standard library and in real APIs to compose behavior contracts.",
-      "path": "01-foundations/06-types-and-interfaces/4-interface-embedding",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/4-interface-embedding",
+      "path": "04-types-design/4-interface-embedding",
+      "run_command": "go run ./04-types-design/4-interface-embedding",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1283,8 +1283,8 @@
         "TI.3"
       ],
       "production_relevance": "Readable String methods improve logs, debug output, and CLI feedback without scattering formatting logic everywhere.",
-      "path": "01-foundations/06-types-and-interfaces/5-stringer",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/5-stringer",
+      "path": "04-types-design/5-stringer",
+      "run_command": "go run ./04-types-design/5-stringer",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1315,8 +1315,8 @@
         "TI.3"
       ],
       "production_relevance": "Type switches are used in serialization, reflection, and handling API responses.",
-      "path": "01-foundations/06-types-and-interfaces/6-type-switch",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/6-type-switch",
+      "path": "04-types-design/6-type-switch",
+      "run_command": "go run ./04-types-design/6-type-switch",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1348,8 +1348,8 @@
         "TI.3"
       ],
       "production_relevance": "Method sets affect interface satisfaction and API design.",
-      "path": "01-foundations/06-types-and-interfaces/7-receiver-sets",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/7-receiver-sets",
+      "path": "04-types-design/7-receiver-sets",
+      "run_command": "go run ./04-types-design/7-receiver-sets",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1381,8 +1381,8 @@
         "TI.5"
       ],
       "production_relevance": "Custom errors are used in real applications for validation, API errors, and database errors.",
-      "path": "01-foundations/06-types-and-interfaces/8-custom-errors",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/8-custom-errors",
+      "path": "04-types-design/8-custom-errors",
+      "run_command": "go run ./04-types-design/8-custom-errors",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1414,8 +1414,8 @@
         "TI.4"
       ],
       "production_relevance": "Generics help remove duplicate collection helpers and reusable utilities while preserving compile-time type safety.",
-      "path": "01-foundations/06-types-and-interfaces/9-generics",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/9-generics",
+      "path": "04-types-design/9-generics",
+      "run_command": "go run ./04-types-design/9-generics",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1450,10 +1450,10 @@
         "TI.9"
       ],
       "production_relevance": "Real Go services often model multiple concrete types behind shared interfaces, especially in payment, billing, and reporting flows.",
-      "path": "01-foundations/06-types-and-interfaces/10-payroll-processor",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/10-payroll-processor",
-      "test_command": "go test ./01-foundations/06-types-and-interfaces/10-payroll-processor",
-      "starter_path": "01-foundations/06-types-and-interfaces/10-payroll-processor/_starter",
+      "path": "04-types-design/10-payroll-processor",
+      "run_command": "go run ./04-types-design/10-payroll-processor",
+      "test_command": "go test ./04-types-design/10-payroll-processor",
+      "starter_path": "04-types-design/10-payroll-processor/_starter",
       "next_items": [],
       "tags": [
         "exercise",
@@ -1481,8 +1481,8 @@
         "TI.3"
       ],
       "production_relevance": "Empty interface is used in JSON decoding, reflection, and generic logging utilities.",
-      "path": "01-foundations/06-types-and-interfaces/11-empty-interface",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/11-empty-interface",
+      "path": "04-types-design/11-empty-interface",
+      "run_command": "go run ./04-types-design/11-empty-interface",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1513,8 +1513,8 @@
         "TI.3"
       ],
       "production_relevance": "Type assertions are used when reading from generic containers, handling dynamic data.",
-      "path": "01-foundations/06-types-and-interfaces/12-type-assertions",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/12-type-assertions",
+      "path": "04-types-design/12-type-assertions",
+      "run_command": "go run ./04-types-design/12-type-assertions",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1544,8 +1544,8 @@
         "TI.3"
       ],
       "production_relevance": "Nil interface handling is crucial for database results, file operations.",
-      "path": "01-foundations/06-types-and-interfaces/13-nil-interfaces",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/13-nil-interfaces",
+      "path": "04-types-design/13-nil-interfaces",
+      "run_command": "go run ./04-types-design/13-nil-interfaces",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1575,8 +1575,8 @@
         "TI.2"
       ],
       "production_relevance": "Functional options are used throughout Go APIs (gRPC, Cobra, Terraform).",
-      "path": "01-foundations/06-types-and-interfaces/14-functional-options",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/14-functional-options",
+      "path": "04-types-design/14-functional-options",
+      "run_command": "go run ./04-types-design/14-functional-options",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1607,8 +1607,8 @@
         "TI.2"
       ],
       "production_relevance": "Method values are used in HTTP handlers, event systems.",
-      "path": "01-foundations/06-types-and-interfaces/15-method-values",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/15-method-values",
+      "path": "04-types-design/15-method-values",
+      "run_command": "go run ./04-types-design/15-method-values",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1639,8 +1639,8 @@
         "TI.9"
       ],
       "production_relevance": "Complex constraints are used in real Go code for data structures, serialization.",
-      "path": "01-foundations/06-types-and-interfaces/16-complex-generics",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/16-complex-generics",
+      "path": "04-types-design/16-complex-generics",
+      "run_command": "go run ./04-types-design/16-complex-generics",
       "test_command": "",
       "starter_path": "",
       "next_items": [
@@ -1673,8 +1673,8 @@
         "TI.16"
       ],
       "production_relevance": "Generic data structures are used throughout Go codebases.",
-      "path": "01-foundations/06-types-and-interfaces/17-generic-structures",
-      "run_command": "go run ./01-foundations/06-types-and-interfaces/17-generic-structures",
+      "path": "04-types-design/17-generic-structures",
+      "run_command": "go run ./04-types-design/17-generic-structures",
       "test_command": "",
       "starter_path": "",
       "next_items": [],
