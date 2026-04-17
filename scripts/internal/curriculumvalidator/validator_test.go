@@ -424,8 +424,6 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
 	}
 }
 
-
-
 func TestValidateAcceptsFoundationsReadmeContract(t *testing.T) {
 	root := t.TempDir()
 
