@@ -71,12 +71,14 @@ The curriculum is split into 5 phases. See `ARCHITECTURE.md` for the exact 21 se
 These sections must feel safe, explicit, and zero-magic.
 
 Required elements:
+
 - mission
 - mental model
 - literal or near-literal walkthroughs
 - clean runnable code
 
 Avoid:
+
 - premature scale pressure
 - advanced security catalogs
 - abstract design jargon before the learner has concrete examples
@@ -86,6 +88,7 @@ Avoid:
 These sections should start increasing engineering judgment.
 
 Add more of:
+
 - trade-off explanations
 - failure cases
 - safer defaults
@@ -97,6 +100,7 @@ Add more of:
 ### Phase 5: Flagship Project (GoScale)
 
 This phase should carry heavier:
+
 - integrated project proof
 - production deployment
 - operational pressure

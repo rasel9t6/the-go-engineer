@@ -18,11 +18,13 @@ The central source of truth for all curriculum content is [ARCHITECTURE.md](./AR
 ### Full Path
 
 Best for:
+
 - complete beginners
 - learners new to programming
 - learners new to Go who want the most support
 
 Rule:
+
 - follow the 21 sections in order
 - complete the required milestone or proof surface in each section
 - do not skip repetition by default
@@ -30,15 +32,18 @@ Rule:
 ### Bridge Path
 
 Best for:
+
 - experienced programmers who are new to Go
 - learners who know programming already but need Go-specific instincts
 
 Rule:
+
 - keep the same section order
 - skim setup repetition where appropriate
 - do not skip proof surfaces just because the syntax feels familiar
 
 Suggested route:
+
 1. `01-foundations` as a short sanity pass
 2. Skim through Phase 1.
 3. Slow down at Phase 2 (Engineering Foundation) where Go's explicit error handling and interface design become critical.
@@ -47,11 +52,13 @@ Suggested route:
 ### Targeted Path
 
 Best for:
+
 - working Go developers
 - learners strengthening one weak area
 - learners returning to improve a specific skill without replaying everything
 
 Rule:
+
 - choose one phase or section intentionally
 - check its prerequisites honestly
 - complete that section's proof surface before claiming mastery

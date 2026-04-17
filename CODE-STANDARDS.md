@@ -187,6 +187,7 @@ Use logging for non-critical errors that shouldn't stop execution.
 ### Pattern 5: The Engineering Error Framework
 
 In v2, we strictly follow the three-tier error framework:
+
 - **UserError**: Client fault (e.g., validation). Safe to return to client. HTTP 400.
 - **SystemError**: Server fault (e.g., database down). Log internal details, return safe message to client. HTTP 500.
 - **FatalError**: Unrecoverable state. Crash the process gracefully.

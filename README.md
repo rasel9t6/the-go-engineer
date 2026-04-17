@@ -7,7 +7,7 @@
 
 Learn Go by building, testing, and operating real software.
 
-The Go Engineer is a repo-first Go software engineering learning system built around a progressive 5-Phase, 21-Section architecture. 
+The Go Engineer is a repo-first Go software engineering learning system built around a progressive 5-Phase, 21-Section architecture.
 
 It takes you from absolute beginner syntax to building, testing, and deploying a production-grade SaaS Backend ("GoScale").
 
