@@ -101,4 +101,3 @@ func main() {
 	fmt.Println("   Current: MP.1 (module basics)")
 	fmt.Println("---------------------------------------------------")
 }
-

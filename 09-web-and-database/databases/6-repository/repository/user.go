@@ -155,4 +155,3 @@ func (r *SQLUserRepository) GetUsers() ([]models.User, error) {
 
 	return users, nil
 }
-

@@ -24,4 +24,3 @@ func BenchmarkWithoutPool(b *testing.B) {
 		_ = buildHTTPResponseWithoutPool(200, body)
 	}
 }
-

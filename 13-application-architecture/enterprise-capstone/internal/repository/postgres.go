@@ -96,4 +96,3 @@ func (r *PostgresRepo) GetAll(ctx context.Context) ([]models.Post, error) {
 	}
 	return posts, nil
 }
-

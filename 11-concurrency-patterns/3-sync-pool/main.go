@@ -128,4 +128,3 @@ func main() {
 	fmt.Println("   Current: CP.3 (sync.Pool)")
 	fmt.Println("---------------------------------------------------")
 }
-

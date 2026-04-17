@@ -133,4 +133,3 @@ func main() {
 	fmt.Println("   Current: CP.1 (errgroup basics)")
 	fmt.Println("---------------------------------------------------")
 }
-

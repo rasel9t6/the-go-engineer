@@ -147,4 +147,3 @@ func main() {
 	fmt.Println("   Current: CP.2 (errgroup + context)")
 	fmt.Println("---------------------------------------------------")
 }
-

@@ -71,4 +71,3 @@ func processImage(ctx context.Context, id string) error {
 	log.Printf("Processed %s (buffer capacity: %d)", id, buf.Cap())
 	return nil
 }
-

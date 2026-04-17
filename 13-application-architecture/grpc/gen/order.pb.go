@@ -605,4 +605,3 @@ func file_proto_order_proto_init() {
 	file_proto_order_proto_goTypes = nil
 	file_proto_order_proto_depIdxs = nil
 }
-

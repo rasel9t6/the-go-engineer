@@ -84,4 +84,3 @@ func TestRepositoryGetUsersReturnsCreatedRows(t *testing.T) {
 		t.Fatalf("expected 2 users, got %d", len(users))
 	}
 }
-

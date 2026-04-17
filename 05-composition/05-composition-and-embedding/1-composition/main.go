@@ -182,6 +182,3 @@ func main() {
 	fmt.Println("   Current: CO.1 (composition)")
 	fmt.Println("---------------------------------------------------")
 }
-
-
-

@@ -127,4 +127,3 @@ func sumLatencies(results []CheckResult) time.Duration {
 	}
 	return total
 }
-

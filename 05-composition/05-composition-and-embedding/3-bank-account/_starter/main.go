@@ -49,6 +49,3 @@ func main() {
 	fmt.Println()
 	fmt.Println("When finished, compare your solution with ../main.go")
 }
-
-
-

@@ -157,6 +157,3 @@ func main() {
 
 	fmt.Println("Final Overdraft Details:", ovdAcc.Account.String())
 }
-
-
-

@@ -182,6 +182,3 @@ func main() {
 	fmt.Println("   Current: CO.2 (embedding)")
 	fmt.Println("---------------------------------------------------")
 }
-
-
-
