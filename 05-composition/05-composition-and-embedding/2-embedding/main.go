@@ -26,7 +26,7 @@ import "fmt"
 //   You can call phone.TakePhoto() directly instead of phone.Camera.TakePhoto().
 //   The camera is still there - you just get a shortcut.
 //
-// RUN: go run ./05-composition./05-composition-and-embedding/2-embedding
+// RUN: go run ./05-composition/05-composition-and-embedding/2-embedding
 // ============================================================================
 
 // --- COMPONENT TYPES ---

@@ -39,19 +39,19 @@ Implement a small bank-account model that:
 Run the completed solution:
 
 ```bash
-go run ./05-composition./05-composition-and-embedding/3-bank-account
+go run ./05-composition/05-composition-and-embedding/3-bank-account
 ```
 
 Run the tests:
 
 ```bash
-go test ./05-composition./05-composition-and-embedding/3-bank-account
+go test ./05-composition/05-composition-and-embedding/3-bank-account
 ```
 
 Run the starter:
 
 ```bash
-go run ./05-composition./05-composition-and-embedding/3-bank-account/_starter
+go run ./05-composition/05-composition-and-embedding/3-bank-account/_starter
 ```
 
 ## Success Criteria

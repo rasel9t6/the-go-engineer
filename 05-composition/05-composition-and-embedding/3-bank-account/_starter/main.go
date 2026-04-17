@@ -22,7 +22,7 @@ import "fmt"
 //  6. [ ] Define `OverdraftAccount` embedding `Account` plus an OverdraftLimit field
 //  7. [ ] Shadow Withdraw on OverdraftAccount to allow overdraft behavior
 //  8. [ ] Demonstrate both account types clearly in main()
-//  9. [ ] Make `go test ./05-composition./05-composition-and-embedding/3-bank-account` pass
+//  9. [ ] Make `go test ./05-composition/05-composition-and-embedding/3-bank-account` pass
 //
 // HINTS:
 //   - Use pointer receivers (*Account) for methods that modify Balance
@@ -30,8 +30,8 @@ import "fmt"
 //   - Promoted fields mean `sa.Balance` accesses `sa.Account.Balance`
 //   - OverdraftAccount should reuse the embedded Account fields while changing Withdraw behavior
 //
-// RUN: go run ./05-composition./05-composition-and-embedding/3-bank-account/_starter
-// TEST: go test ./05-composition./05-composition-and-embedding/3-bank-account
+// RUN: go run ./05-composition/05-composition-and-embedding/3-bank-account/_starter
+// TEST: go test ./05-composition/05-composition-and-embedding/3-bank-account
 // SOLUTION: See the main.go file in the parent directory
 // ============================================================================
 

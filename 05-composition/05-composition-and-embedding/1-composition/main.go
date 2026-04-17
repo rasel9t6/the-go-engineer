@@ -36,7 +36,7 @@ import "fmt"
 //   Composition keeps each piece independent and swappable.
 //   Go has NO class inheritance. Period. Composition is the way.
 //
-// RUN: go run ./05-composition./05-composition-and-embedding/1-composition
+// RUN: go run ./05-composition/05-composition-and-embedding/1-composition
 // ============================================================================
 
 // --- COMPONENT TYPES (small, focused, reusable) ---
