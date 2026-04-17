@@ -1,4 +1,4 @@
-# FE.7 Order Summary
+﻿# FE.7 Order Summary
 
 ## Mission
 
@@ -204,4 +204,4 @@ Use these three proof surfaces together:
 ## Next Step
 
 After this milestone, move to
-[4 Types & Design](../../docs/stages/04-types-design.md).
+[4 Types & Design](../../ARCHITECTURE.md).
