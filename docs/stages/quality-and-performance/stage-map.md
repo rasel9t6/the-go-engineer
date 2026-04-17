@@ -9,10 +9,10 @@ about either one.
 
 | Track | Source Surface | Role In Stage |
 | --- | --- | --- |
-| Testing | [testing](../../../12-quality-and-performance/testing/) | teaches unit tests, table-driven tests, handler tests, and benchmarking |
-| Profiling | [profiling](../../../12-quality-and-performance/profiling/) | teaches offline CPU profiling and live `pprof` inspection |
-| Reference | [http-client-testing](../../../12-quality-and-performance/http-client-testing/) | extra testing depth outside the current public path |
-| Reference | [4-testcontainers](../../../12-quality-and-performance/4-testcontainers/) | environment-shaped testing beyond the current public path |
+| Testing | [testing](../../../08-quality-test/01-quality-and-performance/testing/) | teaches unit tests, table-driven tests, handler tests, and benchmarking |
+| Profiling | [profiling](../../../08-quality-test/01-quality-and-performance/profiling/) | teaches offline CPU profiling and live `pprof` inspection |
+| Reference | [http-client-testing](../../../08-quality-test/01-quality-and-performance/http-client-testing/) | extra testing depth outside the current public path |
+| Reference | [4-testcontainers](../../../08-quality-test/01-quality-and-performance/4-testcontainers/) | environment-shaped testing beyond the current public path |
 
 ## Live Milestone Backbone
 

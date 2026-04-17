@@ -24,7 +24,7 @@ It is evidence that code behaves correctly, is measurable, and can be improved i
 
 ## Current Source Content
 
-- [12-quality-and-performance](../../12-quality-and-performance/)
+- [08-quality-test/01-quality-and-performance](../../08-quality-test/01-quality-and-performance/)
 
 ## Stage Support Docs
 

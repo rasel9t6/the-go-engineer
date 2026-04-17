@@ -12,6 +12,6 @@ inventory in one pass.
 
 `08 Quality & Test` currently draws from:
 
-- [12-quality-and-performance](../../../12-quality-and-performance/)
+- [08-quality-test/01-quality-and-performance](../../../08-quality-test/01-quality-and-performance/)
 
 The public beta route promotes the testing and profiling tracks first.

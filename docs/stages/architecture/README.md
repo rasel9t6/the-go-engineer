@@ -12,6 +12,6 @@ Section `14` surface directly.
 
 `09 Architecture` currently draws from:
 
-- [13-application-architecture/package-design](../../../13-application-architecture/package-design/)
-- [13-application-architecture/grpc](../../../13-application-architecture/grpc/)
-- architectural slices of [13-application-architecture/enterprise-capstone](../../../13-application-architecture/enterprise-capstone/)
+- [09-architecture/01-package-design](../../../09-architecture/01-package-design/)
+- [09-architecture/02-grpc](../../../09-architecture/02-grpc/)
+- architectural slices of [11-flagship/01-enterprise-capstone](../../../11-flagship/01-enterprise-capstone/)

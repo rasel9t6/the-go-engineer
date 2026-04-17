@@ -9,7 +9,7 @@ already exists.
 
 | Surface | Role In Stage |
 | --- | --- |
-| [14-code-generation](../../../14-code-generation/) | supporting path for `go generate`, generated mocks, and schema-driven SQL generation |
+| [11-flagship/02-code-generation](../../../11-flagship/02-code-generation/) | supporting path for `go generate`, generated mocks, and schema-driven SQL generation |
 
 ## Live Milestone Backbone
 

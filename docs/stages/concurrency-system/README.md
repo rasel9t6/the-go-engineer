@@ -12,7 +12,7 @@ between the two source inventories that currently feed it.
 
 `07 Concurrency` currently spans:
 
-- [10-concurrency](../../../10-concurrency/)
-- [11-concurrency-patterns](../../../11-concurrency-patterns/)
+- [07-concurrency/01-concurrency](../../../07-concurrency/01-concurrency/)
+- [07-concurrency/02-concurrency-patterns](../../../07-concurrency/02-concurrency-patterns/)
 
-The public route starts with `10-concurrency` and then moves into `11-concurrency-patterns`.
+The public route starts with `07-concurrency/01-concurrency` and then moves into `07-concurrency/02-concurrency-patterns`.

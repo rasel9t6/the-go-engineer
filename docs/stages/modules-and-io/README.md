@@ -12,10 +12,10 @@ Use these docs when you want a stage-level view of how the current Section `08` 
 
 Then work through the source surfaces in order:
 
-1. [07-modules-and-packages](../../../07-modules-and-packages/)
-2. [08-io-and-cli/cli-tools](../../../08-io-and-cli/cli-tools/)
-3. [08-io-and-cli/encoding](../../../08-io-and-cli/encoding/)
-4. [08-io-and-cli/filesystem](../../../08-io-and-cli/filesystem/)
+1. [05-packages-io/01-modules-and-packages](../../../05-packages-io/01-modules-and-packages/)
+2. [05-packages-io/02-io-and-cli/cli-tools](../../../05-packages-io/02-io-and-cli/cli-tools/)
+3. [05-packages-io/02-io-and-cli/encoding](../../../05-packages-io/02-io-and-cli/encoding/)
+4. [05-packages-io/02-io-and-cli/filesystem](../../../05-packages-io/02-io-and-cli/filesystem/)
 
 ## What These Docs Are For
 

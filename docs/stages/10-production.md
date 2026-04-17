@@ -24,9 +24,9 @@ less guesswork.
 
 ## Current Source Content
 
-- [13-application-architecture/structured-logging](../../13-application-architecture/structured-logging/)
-- [13-application-architecture/graceful-shutdown](../../13-application-architecture/graceful-shutdown/)
-- [13-application-architecture/docker-and-deployment](../../13-application-architecture/docker-and-deployment/)
+- [10-production/01-structured-logging](../../10-production/01-structured-logging/)
+- [10-production/02-graceful-shutdown](../../10-production/02-graceful-shutdown/)
+- [10-production/03-docker-and-deployment](../../10-production/03-docker-and-deployment/)
 
 ## Stage Support Docs
 

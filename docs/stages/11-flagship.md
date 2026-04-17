@@ -23,8 +23,8 @@ to interact inside one evolving system.
 
 ## Current Source Content
 
-- [13-application-architecture/enterprise-capstone](../../13-application-architecture/enterprise-capstone/)
-- [14-code-generation](../../14-code-generation/)
+- [11-flagship/01-enterprise-capstone](../../11-flagship/01-enterprise-capstone/)
+- [11-flagship/02-code-generation](../../11-flagship/02-code-generation/)
 
 ## Stage Support Docs
 

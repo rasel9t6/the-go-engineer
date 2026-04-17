@@ -14,6 +14,6 @@ it from the source tree alone.
 
 `11 Flagship` currently draws from:
 
-- [13-application-architecture/enterprise-capstone](../../../13-application-architecture/enterprise-capstone/)
-- [14-code-generation](../../../14-code-generation/)
+- [11-flagship/01-enterprise-capstone](../../../11-flagship/01-enterprise-capstone/)
+- [11-flagship/02-code-generation](../../../11-flagship/02-code-generation/)
 - milestone project patterns already used across the alpha curriculum

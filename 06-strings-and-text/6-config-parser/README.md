@@ -75,5 +75,5 @@ Your finished solution should:
 
 ## Next Step
 
-After you complete this exercise, continue to [Section 08](../../07-modules-and-packages) if you
+After you complete this exercise, continue to [Section 08](../../05-packages-io/01-modules-and-packages) if you
 are ready to move on.

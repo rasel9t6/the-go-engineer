@@ -123,7 +123,7 @@ As of April 7, 2026, the v2 transition is in the public planning and prototype-d
 
 ## Windows Setup Note
 
-The `09-web-and-database/databases` and `13-application-architecture/enterprise-capstone` sections depend on `github.com/mattn/go-sqlite3` which requires CGO and a C compiler. On Windows without WSL:
+The `06-backend-db/01-web-and-database/databases` and `11-flagship/01-enterprise-capstone` sections depend on `github.com/mattn/go-sqlite3` which requires CGO and a C compiler. On Windows without WSL:
 
 1. Install [TDM-GCC](https://jmeubank.github.io/tdm-gcc/) or [MinGW-w64](https://www.mingw-w64.org/)
 2. Ensure `gcc` is in your PATH: `gcc --version`

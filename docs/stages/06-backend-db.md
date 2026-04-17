@@ -25,7 +25,7 @@ application understandable.
 
 ## Current Source Content
 
-- [09-web-and-database](../../09-web-and-database/)
+- [06-backend-db/01-web-and-database](../../06-backend-db/01-web-and-database/)
 
 ## Stage Support Docs
 

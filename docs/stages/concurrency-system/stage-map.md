@@ -9,8 +9,8 @@ and stop without turning the program into hidden chaos.
 
 | Part | Source Surface | Role In Stage |
 | --- | --- | --- |
-| Foundations | [10-concurrency](../../../10-concurrency/) | teaches goroutines, context, timers, and the vocabulary of controlled concurrent work |
-| Patterns | [11-concurrency-patterns](../../../11-concurrency-patterns/) | teaches `errgroup`, bounded pipelines, and pressure-aware concurrency patterns |
+| Foundations | [07-concurrency/01-concurrency](../../../07-concurrency/01-concurrency/) | teaches goroutines, context, timers, and the vocabulary of controlled concurrent work |
+| Patterns | [07-concurrency/02-concurrency-patterns](../../../07-concurrency/02-concurrency-patterns/) | teaches `errgroup`, bounded pipelines, and pressure-aware concurrency patterns |
 
 ## Live Milestone Backbone
 

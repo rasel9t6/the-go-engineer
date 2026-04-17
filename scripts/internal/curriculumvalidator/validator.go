@@ -513,6 +513,10 @@ func allowedPathPrefixesForSection(section V2Section) []string {
 		prefixes = append(prefixes, "01-foundations/01-getting-started", "01-foundations/02-language-basics", "01-getting-started", "02-language-basics")
 	}
 
+	if section.ID == "s04" {
+		prefixes = append(prefixes, "05-composition", "06-strings-and-text")
+	}
+
 	return prefixes
 }
 
@@ -715,7 +719,8 @@ func validateV2SectionLabels(root string, sections map[string]V2Section, items [
 			continue
 		}
 
-		expectedLabel := fmt.Sprintf("Section %s", section.Number)
+		expectedSectionLabel := fmt.Sprintf("Section %s", section.Number)
+		expectedStageLabel := fmt.Sprintf("Stage %s", section.Number)
 		candidateFiles := []string{
 			filepath.Join(item.Path, "main.go"),
 		}
@@ -736,8 +741,9 @@ func validateV2SectionLabels(root string, sections map[string]V2Section, items [
 				continue
 			}
 
-			if !strings.Contains(string(data), expectedLabel) {
-				report(fmt.Sprintf("Invalid v2 section label: %s -> %s (expected %s)", item.ID, filepath.ToSlash(rel), expectedLabel))
+			text := string(data)
+			if !strings.Contains(text, expectedSectionLabel) && !strings.Contains(text, expectedStageLabel) {
+				report(fmt.Sprintf("Invalid v2 section label: %s -> %s (expected %s or %s)", item.ID, filepath.ToSlash(rel), expectedSectionLabel, expectedStageLabel))
 				errorsFound++
 			}
 		}

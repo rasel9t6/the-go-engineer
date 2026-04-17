@@ -12,4 +12,4 @@ section first.
 
 This supporting surface now feeds 11 Flagship through:
 
-- [14-code-generation](../../../14-code-generation/)
+- [11-flagship/02-code-generation](../../../11-flagship/02-code-generation/)

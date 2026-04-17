@@ -8,14 +8,14 @@ operations that interact with the outside world.
 ## Stage Flow
 
 1. `modules-and-packages`
-   - source: [07-modules-and-packages](../../../07-modules-and-packages/)
+   - source: [05-packages-io/01-modules-and-packages](../../../05-packages-io/01-modules-and-packages/)
    - core job: teach module boundaries, dependency management, versioning, and build-surface reasoning
    - milestone: `MP.3` versioning workshop
 2. `io-and-cli`
    - source surfaces:
-     - [08-io-and-cli/cli-tools](../../../08-io-and-cli/cli-tools/)
-     - [08-io-and-cli/encoding](../../../08-io-and-cli/encoding/)
-     - [08-io-and-cli/filesystem](../../../08-io-and-cli/filesystem/)
+     - [05-packages-io/02-io-and-cli/cli-tools](../../../05-packages-io/02-io-and-cli/cli-tools/)
+     - [05-packages-io/02-io-and-cli/encoding](../../../05-packages-io/02-io-and-cli/encoding/)
+     - [05-packages-io/02-io-and-cli/filesystem](../../../05-packages-io/02-io-and-cli/filesystem/)
    - core job: teach CLI flows, encoding workflows, and filesystem tooling patterns
    - milestone backbone: `CL.4`, `EN.6`, `FS.7`
 

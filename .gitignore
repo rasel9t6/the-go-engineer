@@ -18,6 +18,7 @@ vendor/
 
 # Go workspace file
 go.work
+.gocache/
 
 # Environment variables
 .env

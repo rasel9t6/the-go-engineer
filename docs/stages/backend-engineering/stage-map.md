@@ -8,15 +8,15 @@ tree available as reference material.
 ## Stage Flow
 
 1. `databases`
-   - source: [09-web-and-database/databases](../../../09-web-and-database/databases/)
+   - source: [06-backend-db/01-web-and-database/databases](../../../06-backend-db/01-web-and-database/databases/)
    - core job: teach `database/sql`, transactions, repository boundaries, and context-aware
      persistence
    - milestone: `DB.6` repository pattern project
 2. `http-client`, `database-migrations`, and `web-masterclass`
    - source surfaces:
-     - [09-web-and-database/http-client](../../../09-web-and-database/http-client/)
-     - [09-web-and-database/database-migrations](../../../09-web-and-database/database-migrations/)
-     - [09-web-and-database/web-masterclass](../../../09-web-and-database/web-masterclass/)
+     - [06-backend-db/01-web-and-database/http-client](../../../06-backend-db/01-web-and-database/http-client/)
+     - [06-backend-db/01-web-and-database/database-migrations](../../../06-backend-db/01-web-and-database/database-migrations/)
+     - [06-backend-db/01-web-and-database/web-masterclass](../../../06-backend-db/01-web-and-database/web-masterclass/)
    - core job: provide broader backend reference material while the live beta route is still
      focused on the databases path first
 

@@ -24,8 +24,8 @@ change safely.
 
 ## Current Source Content
 
-- [13-application-architecture/package-design](../../13-application-architecture/package-design/)
-- [13-application-architecture/grpc](../../13-application-architecture/grpc/)
+- [09-architecture/01-package-design](../../09-architecture/01-package-design/)
+- [09-architecture/02-grpc](../../09-architecture/02-grpc/)
 
 ## Stage Support Docs
 

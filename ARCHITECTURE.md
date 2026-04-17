@@ -44,13 +44,13 @@ each stage.
 | `02 Language Basics` | values, control flow, collections, pointer-aware mutation | [02-language-basics](./02-language-basics/) |
 | `03 Functions & Errors` | reusable logic, explicit failure handling, validation | [03-functions-errors](./03-functions-errors/) |
 | `04 Types & Design` | structs, methods, interfaces, composition, text-heavy modeling | [04-types-design](./04-types-design/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) |
-| `05 Packages & IO` | modules, packages, filesystem work, encoding, CLI tooling | [07-modules-and-packages](./07-modules-and-packages/), [08-io-and-cli](./08-io-and-cli/) |
-| `06 Backend & DB` | HTTP servers, handlers, clients, repositories, database workflows | [09-web-and-database](./09-web-and-database/) |
-| `07 Concurrency` | goroutines, channels, context, concurrency patterns, scheduling | [10-concurrency](./10-concurrency/), [11-concurrency-patterns](./11-concurrency-patterns/) |
-| `08 Quality & Test` | testing, mocks, benchmarks, profiling | [12-quality-and-performance](./12-quality-and-performance/) |
-| `09 Architecture` | package design, service boundaries, gRPC, system structure | [13-application-architecture/package-design](./13-application-architecture/package-design/), [13-application-architecture/grpc](./13-application-architecture/grpc/) |
-| `10 Production` | structured logging, graceful shutdown, deployment, runtime behavior | [13-application-architecture/structured-logging](./13-application-architecture/structured-logging/), [13-application-architecture/graceful-shutdown](./13-application-architecture/graceful-shutdown/), [13-application-architecture/docker-and-deployment](./13-application-architecture/docker-and-deployment/) |
-| `11 Flagship` | integrated project work and late-stage system proof | [13-application-architecture/enterprise-capstone](./13-application-architecture/enterprise-capstone/), [14-code-generation](./14-code-generation/) |
+| `05 Packages & IO` | modules, packages, filesystem work, encoding, CLI tooling | [05-packages-io/01-modules-and-packages](./05-packages-io/01-modules-and-packages/), [05-packages-io/02-io-and-cli](./05-packages-io/02-io-and-cli/) |
+| `06 Backend & DB` | HTTP servers, handlers, clients, repositories, database workflows | [06-backend-db/01-web-and-database](./06-backend-db/01-web-and-database/) |
+| `07 Concurrency` | goroutines, channels, context, concurrency patterns, scheduling | [07-concurrency/01-concurrency](./07-concurrency/01-concurrency/), [07-concurrency/02-concurrency-patterns](./07-concurrency/02-concurrency-patterns/) |
+| `08 Quality & Test` | testing, mocks, benchmarks, profiling | [08-quality-test/01-quality-and-performance](./08-quality-test/01-quality-and-performance/) |
+| `09 Architecture` | package design, service boundaries, gRPC, system structure | [09-architecture/01-package-design](./09-architecture/01-package-design/), [09-architecture/02-grpc](./09-architecture/02-grpc/) |
+| `10 Production` | structured logging, graceful shutdown, deployment, runtime behavior | [10-production/01-structured-logging](./10-production/01-structured-logging/), [10-production/02-graceful-shutdown](./10-production/02-graceful-shutdown/), [10-production/03-docker-and-deployment](./10-production/03-docker-and-deployment/) |
+| `11 Flagship` | integrated project work and late-stage system proof | [11-flagship/01-enterprise-capstone](./11-flagship/01-enterprise-capstone/), [11-flagship/02-code-generation](./11-flagship/02-code-generation/) |
 
 ## Progression Model
 
@@ -143,7 +143,7 @@ For learner-facing content, the teaching contract is:
 That rule applies across the architecture, even though the density of explanation can change by
 stage.
 
-## What “Complete Beta Migration” Means
+## What "Complete Beta Migration" Means
 
 The beta migration is complete when all of these are true:
 

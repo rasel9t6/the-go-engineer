@@ -7,12 +7,11 @@
 
 Learn Go by building, testing, and operating real software.
 
-The Go Engineer is a repo-first Go software engineering learning system. The curriculum is moving
-from an alpha-era section inventory to a beta stage model that is easier for learners to navigate
-from zero to production-minded engineering work.
+The Go Engineer is a repo-first Go software engineering learning system built around the beta
+11-stage architecture.
 
-The beta public architecture is now the main learner-facing direction. The source content still
-lives in the current section folders while the beta shell is rolled out incrementally.
+That public stage model is now matched by the main learner-facing source surfaces in this repo, so
+learners can follow the curriculum by stage without translating between competing folder systems.
 
 If you want the public explanation of that transition model, read
 [docs/beta-public-architecture.md](./docs/beta-public-architecture.md).
@@ -46,17 +45,17 @@ The curriculum is organized into 11 stages. Each stage has a dedicated entry pag
 
 | Stage | Focus | Sections | Source |
 | --- | --- | --- | --- |
-| [01 Getting Started](./docs/stages/01-getting-started.md) | install, hello world, dev setup | s01 | [01-getting-started](./01-getting-started/) |
-| [02 Language Basics](./docs/stages/02-language-basics.md) | variables, types, control flow, data structures | s02-s03 | [02-language-basics](./02-language-basics/) |
-| [03 Functions & Errors](./docs/stages/03-functions-errors.md) | functions, params, error handling | s04 | [03-functions-errors](./03-functions-errors/) |
-| [04 Types & Design](./docs/stages/04-types-design.md) | structs, interfaces, composition, strings | s05-s07 | [04-types-design](./04-types-design/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) |
-| [05 Packages & IO](./docs/stages/05-packages-io.md) | modules, packages, CLI, files | s08-s09 | [07-modules-and-packages](./07-modules-and-packages/), [08-io-and-cli](./08-io-and-cli/) |
-| [06 Backend & DB](./docs/stages/06-backend-db.md) | HTTP, databases, handlers | s10 | [09-web-and-database](./09-web-and-database/) |
-| [07 Concurrency](./docs/stages/07-concurrency.md) | goroutines, channels, patterns | s11-s12 | [10-concurrency](./10-concurrency/), [11-concurrency-patterns](./11-concurrency-patterns/) |
-| [08 Quality & Test](./docs/stages/08-quality-test.md) | testing, benchmarking, profiling | s13 | [12-quality-and-performance](./12-quality-and-performance/) |
-| [09 Architecture](./docs/stages/09-architecture.md) | package design, services | s14 | [13-application-architecture/package-design](./13-application-architecture/package-design/), [13-application-architecture/grpc](./13-application-architecture/grpc/) |
-| [10 Production](./docs/stages/10-production.md) | logging, shutdown, deployment | s14b | [13-application-architecture/structured-logging](./13-application-architecture/structured-logging/), [13-application-architecture/graceful-shutdown](./13-application-architecture/graceful-shutdown/), [13-application-architecture/docker-and-deployment](./13-application-architecture/docker-and-deployment/) |
-| [11 Flagship](./docs/stages/11-flagship.md) | full GoScale project | s15-s17 | [13-application-architecture/enterprise-capstone](./13-application-architecture/enterprise-capstone/), [14-code-generation](./14-code-generation/) |
+| [01 Getting Started](./docs/stages/01-getting-started.md) | install, hello world, dev setup | stage 01 | [01-getting-started](./01-getting-started/) |
+| [02 Language Basics](./docs/stages/02-language-basics.md) | variables, types, control flow, data structures | stage 02 | [02-language-basics](./02-language-basics/) |
+| [03 Functions & Errors](./docs/stages/03-functions-errors.md) | functions, params, error handling | stage 03 | [03-functions-errors](./03-functions-errors/) |
+| [04 Types & Design](./docs/stages/04-types-design.md) | structs, interfaces, composition, strings | stage 04 | [04-types-design](./04-types-design/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) |
+| [05 Packages & IO](./docs/stages/05-packages-io.md) | modules, packages, CLI, files | stage 05 | [05-packages-io/01-modules-and-packages](./05-packages-io/01-modules-and-packages/), [05-packages-io/02-io-and-cli](./05-packages-io/02-io-and-cli/) |
+| [06 Backend & DB](./docs/stages/06-backend-db.md) | HTTP, databases, handlers | stage 06 | [06-backend-db/01-web-and-database](./06-backend-db/01-web-and-database/) |
+| [07 Concurrency](./docs/stages/07-concurrency.md) | goroutines, channels, patterns | stage 07 | [07-concurrency/01-concurrency](./07-concurrency/01-concurrency/), [07-concurrency/02-concurrency-patterns](./07-concurrency/02-concurrency-patterns/) |
+| [08 Quality & Test](./docs/stages/08-quality-test.md) | testing, benchmarking, profiling | stage 08 | [08-quality-test/01-quality-and-performance](./08-quality-test/01-quality-and-performance/) |
+| [09 Architecture](./docs/stages/09-architecture.md) | package design, services | stage 09 | [09-architecture/01-package-design](./09-architecture/01-package-design/), [09-architecture/02-grpc](./09-architecture/02-grpc/) |
+| [10 Production](./docs/stages/10-production.md) | logging, shutdown, deployment | stage 10 | [10-production/01-structured-logging](./10-production/01-structured-logging/), [10-production/02-graceful-shutdown](./10-production/02-graceful-shutdown/), [10-production/03-docker-and-deployment](./10-production/03-docker-and-deployment/) |
+| [11 Flagship](./docs/stages/11-flagship.md) | full GoScale project | stage 11 | [11-flagship/01-enterprise-capstone](./11-flagship/01-enterprise-capstone/), [11-flagship/02-code-generation](./11-flagship/02-code-generation/) |
 
 ## Best Entry Point By Learner Type
 
@@ -113,11 +112,10 @@ Maintainers and contributors can follow planning on
 ## Current Repo Reality
 
 - the 11-stage model is the public navigation truth
-- the current section folders remain the source inventory
-- content is being migrated to `01-foundations/` incrementally
-
-That means the README now presents the curriculum by stage even though the physical folder
-layout is still migrating to the new format.
+- the 11-stage model is the learner-facing navigation truth
+- the root stage folders from `01-getting-started` through `11-flagship` are now the canonical
+  public source surfaces
+- some older top-level folders remain only as legacy redirects or contributor history
 
 For the full explanation of that relationship, see
 [docs/beta-public-architecture.md](./docs/beta-public-architecture.md).

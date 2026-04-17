@@ -24,8 +24,8 @@ plumbing chaos.
 
 ## Current Source Content
 
-- [07-modules-and-packages](../../07-modules-and-packages/)
-- [08-io-and-cli](../../08-io-and-cli/)
+- [05-packages-io/01-modules-and-packages](../../05-packages-io/01-modules-and-packages/)
+- [05-packages-io/02-io-and-cli](../../05-packages-io/02-io-and-cli/)
 
 ## Stage Support Docs
 

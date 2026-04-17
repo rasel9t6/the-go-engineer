@@ -318,7 +318,7 @@ func TestValidateRejectsWrongSectionLabelInV2Source(t *testing.T) {
       "number": "09",
       "slug": "io-and-cli",
       "title": "I/O and CLI",
-      "path_prefix": "08-io-and-cli",
+      "path_prefix": "05-packages-io/02-io-and-cli",
       "entry_points": ["CL.1"],
       "outputs": ["CL.1"],
       "prerequisites": []
@@ -334,9 +334,9 @@ func TestValidateRejectsWrongSectionLabelInV2Source(t *testing.T) {
       "subtype": "concept",
       "level": "foundation",
       "verification_mode": "run",
-      "path": "08-io-and-cli/cli-tools/1-args",
+      "path": "05-packages-io/02-io-and-cli/cli-tools/1-args",
       "prerequisites": [],
-      "run_command": "go run ./08-io-and-cli/cli-tools/1-args",
+      "run_command": "go run ./05-packages-io/02-io-and-cli/cli-tools/1-args",
       "test_command": "",
       "starter_path": "",
       "next_items": []
@@ -344,8 +344,8 @@ func TestValidateRejectsWrongSectionLabelInV2Source(t *testing.T) {
   ]
 }`)
 
-	mustMkdir(t, root, "08-io-and-cli/cli-tools/1-args")
-	writeFile(t, root, "08-io-and-cli/cli-tools/1-args/main.go", `package main
+	mustMkdir(t, root, "05-packages-io/02-io-and-cli/cli-tools/1-args")
+	writeFile(t, root, "05-packages-io/02-io-and-cli/cli-tools/1-args/main.go", `package main
 
 // Section 19: CLI Tools - Command-Line Arguments
 
@@ -362,7 +362,7 @@ func main() {}
 	if result.ErrorCount != 1 {
 		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
 	}
-	if !containsReport(reports, "Invalid v2 section label: CL.1 -> 08-io-and-cli/cli-tools/1-args/main.go (expected Section 09)") {
+	if !containsReport(reports, "Invalid v2 section label: CL.1 -> 05-packages-io/02-io-and-cli/cli-tools/1-args/main.go (expected Section 09 or Stage 09)") {
 		t.Fatalf("expected section-label error in reports: %v", reports)
 	}
 }
@@ -380,7 +380,7 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
       "number": "09",
       "slug": "io-and-cli",
       "title": "I/O and CLI",
-      "path_prefix": "08-io-and-cli",
+      "path_prefix": "05-packages-io/02-io-and-cli",
       "entry_points": ["FS.1"],
       "outputs": ["FS.1"],
       "prerequisites": []
@@ -396,9 +396,9 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
       "subtype": "concept",
       "level": "foundation",
       "verification_mode": "run",
-      "path": "08-io-and-cli/filesystem/1-files",
+      "path": "05-packages-io/02-io-and-cli/filesystem/1-files",
       "prerequisites": [],
-      "run_command": "go run ./08-io-and-cli/filesystem/1-files",
+      "run_command": "go run ./05-packages-io/02-io-and-cli/filesystem/1-files",
       "test_command": "",
       "starter_path": "",
       "next_items": []
@@ -406,8 +406,8 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
   ]
 }`)
 
-	mustMkdir(t, root, "08-io-and-cli/filesystem/1-files")
-	writeFile(t, root, "08-io-and-cli/filesystem/1-files/main.go", "package main\n\n// Section 09: Filesystem\n\nfunc main() {\n\tprintln(\"\u00e2\u0153\u2026 broken text\")\n}\n")
+	mustMkdir(t, root, "05-packages-io/02-io-and-cli/filesystem/1-files")
+	writeFile(t, root, "05-packages-io/02-io-and-cli/filesystem/1-files/main.go", "package main\n\n// Section 09: Filesystem\n\nfunc main() {\n\tprintln(\"\u00e2\u0153\u2026 broken text\")\n}\n")
 
 	var reports []string
 	result, err := Validate(root, func(message string) {
@@ -419,7 +419,7 @@ func TestValidateRejectsMojibakeInV2TextSurface(t *testing.T) {
 	if result.ErrorCount != 1 {
 		t.Fatalf("expected 1 validation error, got %d with reports %v", result.ErrorCount, reports)
 	}
-	if !containsReport(reports, "Possible mojibake in v2 text surface: FS.1 -> 08-io-and-cli/filesystem/1-files/main.go") {
+	if !containsReport(reports, "Possible mojibake in v2 text surface: FS.1 -> 05-packages-io/02-io-and-cli/filesystem/1-files/main.go") {
 		t.Fatalf("expected mojibake error in reports: %v", reports)
 	}
 }

@@ -26,8 +26,8 @@ and fail in controlled ways.
 
 ## Current Source Content
 
-- [10-concurrency](../../10-concurrency/)
-- [11-concurrency-patterns](../../11-concurrency-patterns/)
+- [07-concurrency/01-concurrency](../../07-concurrency/01-concurrency/)
+- [07-concurrency/02-concurrency-patterns](../../07-concurrency/02-concurrency-patterns/)
 
 ## Stage Support Docs
 
