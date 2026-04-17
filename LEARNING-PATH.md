@@ -1,123 +1,86 @@
 # The Go Engineer Learning Path
 
-This guide explains how to move through the current public curriculum.
+This guide explains how to move through the v2 curriculum.
 
-The repo now uses an **11-stage learner-facing architecture**.
-Those stage pages are the navigation truth.
-The early stages already live at the new root-level paths, and the remaining stages now follow the
-same public architecture.
+The repo uses a **5-Phase, 21-Section architecture**.
+The central source of truth for all curriculum content is [ARCHITECTURE.md](./ARCHITECTURE.md).
 
-## Start With The Stage Index
+## The 5 Phases
 
-- [docs/stages/README.md](./docs/stages/README.md)
-
-## The 11 Stages
-
-1. [01 Getting Started](./docs/stages/01-getting-started.md)
-2. [02 Language Basics](./docs/stages/02-language-basics.md)
-3. [03 Functions & Errors](./docs/stages/03-functions-errors.md)
-4. [04 Types & Design](./docs/stages/04-types-design.md)
-5. [05 Packages & IO](./docs/stages/05-packages-io.md)
-6. [06 Backend & DB](./docs/stages/06-backend-db.md)
-7. [07 Concurrency](./docs/stages/07-concurrency.md)
-8. [08 Quality & Test](./docs/stages/08-quality-test.md)
-9. [09 Architecture](./docs/stages/09-architecture.md)
-10. [10 Production](./docs/stages/10-production.md)
-11. [11 Flagship](./docs/stages/11-flagship.md)
+1. **Phase 1: Syntax Foundation** (Sections 01-06)
+2. **Phase 2: Engineering Foundation** (Sections 07-11)
+3. **Phase 3: Production Engineering** (Sections 12-15)
+4. **Phase 4: Systems Engineering** (Sections 16-19)
+5. **Phase 5: Flagship Project** (Sections 20-21)
 
 ## Three Ways To Move
 
 ### Full Path
 
 Best for:
-
 - complete beginners
 - learners new to programming
 - learners new to Go who want the most support
 
 Rule:
-
-- follow the 11 stages in order
-- complete the required milestone or proof surface in each stage
+- follow the 21 sections in order
+- complete the required milestone or proof surface in each section
 - do not skip repetition by default
 
 ### Bridge Path
 
 Best for:
-
 - experienced programmers who are new to Go
 - learners who know programming already but need Go-specific instincts
 
 Rule:
-
-- keep the same stage order
+- keep the same section order
 - skim setup repetition where appropriate
 - do not skip proof surfaces just because the syntax feels familiar
 
 Suggested route:
-
-1. `01 Getting Started` as a short sanity pass
-2. `02 Language Basics`
-3. `03 Functions & Errors`
-4. continue through the remaining stages in order
+1. `01-foundations` as a short sanity pass
+2. Skim through Phase 1.
+3. Slow down at Phase 2 (Engineering Foundation) where Go's explicit error handling and interface design become critical.
+4. Continue through the remaining phases in order.
 
 ### Targeted Path
 
 Best for:
-
 - working Go developers
 - learners strengthening one weak area
 - learners returning to improve a specific skill without replaying everything
 
 Rule:
-
-- choose one stage intentionally
+- choose one phase or section intentionally
 - check its prerequisites honestly
-- complete that stage's proof surface before claiming mastery
+- complete that section's proof surface before claiming mastery
 
 ## Recommended Entry Points
 
 | Goal | Start Here | Before You Start |
 | --- | --- | --- |
-| first Go setup and execution | [01 Getting Started](./docs/stages/01-getting-started.md) | none |
-| strengthen fundamentals | [02 Language Basics](./docs/stages/02-language-basics.md) | skim Stage 01 if tooling still feels shaky |
-| improve function boundaries and error flow | [03 Functions & Errors](./docs/stages/03-functions-errors.md) | be comfortable with values, control flow, and collections |
-| improve modeling and design | [04 Types & Design](./docs/stages/04-types-design.md) | be solid on functions and explicit error handling |
-| improve modules, files, encoding, or CLI work | [05 Packages & IO](./docs/stages/05-packages-io.md) | be comfortable with types and design basics |
-| build backend applications | [06 Backend & DB](./docs/stages/06-backend-db.md) | be solid on packages, IO, structs, interfaces, and error handling |
-| improve concurrency | [07 Concurrency](./docs/stages/07-concurrency.md) | be solid on backend flow, errors, and context-aware thinking |
-| improve testing or profiling | [08 Quality & Test](./docs/stages/08-quality-test.md) | be able to build meaningful programs first |
-| improve structure and boundaries | [09 Architecture](./docs/stages/09-architecture.md) | be solid on packages, backend boundaries, and testing |
-| improve runtime and deployment instincts | [10 Production](./docs/stages/10-production.md) | be comfortable with backend and architecture concerns |
-| build a portfolio-level integrated system | [11 Flagship](./docs/stages/11-flagship.md) | have backend, concurrency, testing, architecture, and production depth |
+| First Go setup and execution | **Phase 1: 01 Foundations** | None |
+| Strengthen fundamentals and interfaces | **Phase 2: Engineering Foundation** | Skim Phase 1 if tooling or generics still feel shaky |
+| Improve testing, profiling, and concurrency | **Phase 3: Production Engineering** | Be solid on structs, interfaces, and explicit error handling |
+| Build backend APIs, gRPC, and deployment | **Phase 4: Systems Engineering** | Be comfortable with Context, HTTP fundamentals, and Concurrency |
+| Build a portfolio-level integrated system | **Phase 5: Flagship Project** | Have full-stack Go depth across all previous phases |
 
 ## Validation Floors
 
-Fast paths are allowed.
-Proof is not optional.
+Fast paths are allowed. Proof is not optional.
 
-- `Full Path`: complete every required milestone and stage proof surface
-- `Bridge Path`: complete the important stage proof surfaces even if you skim repetition
-- `Targeted Path`: complete the chosen stage's proof surface before claiming mastery
-
-## Current Repo Reality
-
-- the 11-stage model is the public navigation truth
-- early stages now live at the new root-level source paths
-- later-stage source content now follows the same migrated architecture
-
-If you want the transition explanation, read
-[docs/beta-public-architecture.md](./docs/beta-public-architecture.md).
+- `Full Path`: complete every required milestone and section proof surface
+- `Bridge Path`: complete the important section proof surfaces even if you skim repetition
+- `Targeted Path`: complete the chosen section's proof surface before claiming mastery
 
 ## Companion Docs
 
 - [README.md](./README.md)
-- [docs/stages/README.md](./docs/stages/README.md)
-- [docs/beta-public-architecture.md](./docs/beta-public-architecture.md)
-- [docs/curriculum/README.md](./docs/curriculum/README.md)
+- [ARCHITECTURE.md](./ARCHITECTURE.md)
+- [CURRICULUM-BLUEPRINT.md](./CURRICULUM-BLUEPRINT.md)
 - [COMMON-MISTAKES.md](./COMMON-MISTAKES.md)
 
 ## Bottom Line
 
-Choose the stage that matches your real background, follow the stage page first, then use the
-linked source content from there.
+Choose the phase that matches your real background, read the section's `README.md` first, then run the linked source code.
