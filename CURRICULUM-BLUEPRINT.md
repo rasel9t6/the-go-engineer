@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines how the 11-stage architecture should behave as a learning system.
+This document defines how the 21-section v2 architecture should behave as a learning system.
 
 It is not just a list of topics.
 It is the curriculum contract for how we teach:
@@ -38,9 +38,8 @@ We explain the code, then run the code, then modify the code.
 
 ### 3. Zero magic
 
-Each stage teaches only what has been earned.
-If a concept depends on later ideas, it belongs later or must be reduced to a clearly labeled
-preview.
+Each section teaches only what has been earned.
+If a concept depends on later ideas, it belongs later or must be reduced to a clearly labeled preview.
 
 ### 4. Explanation should answer how, why, and what changes
 
@@ -63,48 +62,30 @@ We do want:
 But we add them at the right layer.
 We do not dump senior-level pressure framing into beginner lessons just to sound impressive.
 
-## Canonical 11 Stages
+## Phase-Level Blueprint
 
-| Stage | Goal | Current Source Surface | Required Proof Style |
-| --- | --- | --- | --- |
-| `01 Getting Started` | build environment confidence and first execution trust | [01-getting-started](./01-getting-started/) | first-run execution |
-| `02 Language Basics` | build value, control-flow, and data-structure fluency | [02-language-basics](./02-language-basics/) | small runnable milestones |
-| `03 Functions & Errors` | turn inline logic into reusable, honest function boundaries | [03-functions-errors](./03-functions-errors/) | starter + runnable + test-backed milestone |
-| `04 Types & Design` | shape programs with types, interfaces, composition, and text workflows | [04-types-design](./04-types-design/), [05-composition](./05-composition/), [06-strings-and-text](./06-strings-and-text/) | multiple section milestones inside one stage |
-| `05 Packages & IO` | make code navigable across modules and useful across files, encodings, and CLI surfaces | [05-packages-io/01-modules-and-packages](./05-packages-io/01-modules-and-packages/), [05-packages-io/02-io-and-cli](./05-packages-io/02-io-and-cli/) | track-based proof surfaces |
-| `06 Backend & DB` | build HTTP and database behavior that feels like real application code | [06-backend-db/01-web-and-database](./06-backend-db/01-web-and-database/) | integrated backend milestone |
-| `07 Concurrency` | teach coordination, cancellation, and bounded concurrent work | [07-concurrency/01-concurrency](./07-concurrency/01-concurrency/), [07-concurrency/02-concurrency-patterns](./07-concurrency/02-concurrency-patterns/) | runnable concurrency capstones |
-| `08 Quality & Test` | verify, benchmark, and profile code instead of guessing | [08-quality-test/01-quality-and-performance](./08-quality-test/01-quality-and-performance/) | test and benchmark proof |
-| `09 Architecture` | reason about package, service, and boundary design | [09-architecture/01-package-design](./09-architecture/01-package-design/), [09-architecture/02-grpc](./09-architecture/02-grpc/) | design-oriented milestones |
-| `10 Production` | think about runtime behavior, observability, shutdown, and deployment | [10-production/01-structured-logging](./10-production/01-structured-logging/), [10-production/02-graceful-shutdown](./10-production/02-graceful-shutdown/), [10-production/03-docker-and-deployment](./10-production/03-docker-and-deployment/) | operational proof surfaces |
-| `11 Flagship` | integrate multiple engineering layers into one project | [11-flagship/01-enterprise-capstone](./11-flagship/01-enterprise-capstone/), [11-flagship/02-code-generation](./11-flagship/02-code-generation/) | flagship checkpoints and integrated system proof |
+The curriculum is split into 5 phases. See `ARCHITECTURE.md` for the exact 21 sections within these phases.
 
-## Stage-Level Blueprint
+### Phase 1 & 2: Syntax & Engineering Foundation
 
-### Stages 01-04: Beginner-to-Builder
-
-These stages must feel safe, explicit, and zero-magic.
+These sections must feel safe, explicit, and zero-magic.
 
 Required elements:
 
 - mission
 - mental model
-- visual model where useful
-- machine view where useful
 - literal or near-literal walkthroughs
-- `Try It` prompts
 - clean runnable code
 
 Avoid:
 
 - premature scale pressure
 - advanced security catalogs
-- concurrency failure systems
 - abstract design jargon before the learner has concrete examples
 
-### Stages 05-08: Builder-to-Engineer
+### Phase 3 & 4: Production & Systems Engineering
 
-These stages should start increasing engineering judgment.
+These sections should start increasing engineering judgment.
 
 Add more of:
 
@@ -113,16 +94,16 @@ Add more of:
 - safer defaults
 - tests and verification surfaces
 - performance and maintainability reasoning
-
-### Stages 09-11: Engineer-to-System Thinker
-
-These stages should carry heavier:
-
 - architecture trade-offs
 - production notes
-- failure scenarios
-- judgment-heavy exercises
+
+### Phase 5: Flagship Project (GoScale)
+
+This phase should carry heavier:
+
 - integrated project proof
+- production deployment
+- operational pressure
 
 ## Canonical Lesson Contract
 
@@ -146,8 +127,6 @@ Each lesson README should include, as appropriate:
 - mission
 - prerequisites
 - mental model
-- visual model
-- machine view
 - run instructions
 - code walkthrough
 - `Try It`
@@ -168,7 +147,7 @@ Do not use code headers as the main teaching surface.
 
 ## Canonical Milestone Contract
 
-Every stage needs proof, not just lessons.
+Every section needs proof, not just lessons.
 
 A milestone should usually provide:
 
@@ -177,65 +156,20 @@ A milestone should usually provide:
 - a starter surface when the learner is expected to implement
 - tests when the behavior should be provable
 
-## Stage Support Docs
-
-Stage support docs under [docs/stages](./docs/stages/README.md) should do three jobs only:
-
-1. explain stage purpose
-2. route learners to the current source surfaces
-3. explain proof expectations
-
-They should not become replacements for lesson teaching.
-
-## Advanced Overlays
-
-We do want advanced thinking, failure, and production overlays.
-We just apply them by stage.
-
-### Early stages
-
-Use only the local README-first contract with small, grounded production relevance.
-
-### Later stages
-
-Use the advanced templates in [docs/templates](./docs/templates/README.md) when they genuinely help:
-
-- thinking questions
-- failure scenarios
-- production notes
-
 ## How To Add New Lessons Without Breaking The Architecture
 
 If the curriculum needs more depth:
 
-1. add the lesson inside an existing stage
-2. keep the learner-facing stage count at 11
-3. update stage docs and metadata honestly
-4. add or update the stage proof surface if the change shifts readiness expectations
+1. Add the lesson inside an existing section.
+2. Keep the learner-facing section count at exactly 21.
+3. Update `ARCHITECTURE.md` if the scope of the section expands.
 
-Examples:
-
-- add another language-basics lesson inside Stage `02`
-- add another backend lesson inside Stage `06`
-- add another production lesson inside Stage `10`
-
-Do not solve content growth by inventing a new public stage unless the entire architecture is being
-reworked intentionally.
-
-## Beta Completion Standard
-
-We should treat the beta migration as complete only when:
-
-- the 11-stage architecture is consistent across the repo
-- the major learner-facing sections are migrated to the current teaching contract
-- stale 15-stage and 17-stage public narratives are retired
-- the validator supports the current contract
-- the active learner path no longer depends on hidden legacy assumptions
+Do not solve content growth by inventing a new root-level section unless the entire architecture is being reworked intentionally.
 
 ## Bottom Line
 
 The Go Engineer should feel like one coherent engineering learning system.
 
-The 11 stages give us the public spine.
+The 21 sections give us the public spine.
 The README-first teaching contract gives us the delivery standard.
-Future expansion should deepen the stages we have, not fragment the learner path again.
+Future expansion should deepen the sections we have, not fragment the learner path again.
