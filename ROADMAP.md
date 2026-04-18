@@ -39,17 +39,20 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 | ID  | Section              | Status | Notes                                     |
 | --- | -------------------- | ------ | ----------------------------------------- |
-| s00 | How Computers Work   | 🚧     | Lessons HC.1–HC.5 exist on disk. **Not registered in curriculum.v2.json.** Must be fixed immediately. |
+| s00 | How Computers Work   | ✅     | Lessons HC.1–HC.8 are registered, runnable, and covered by foundations validation. |
 
 ### Lessons (s00)
 
 | ID   | Lesson                        | Status |
 | ---- | ----------------------------- | ------ |
-| HC.1 | What is a program?            | 🚧 exists on disk, not in JSON |
-| HC.2 | How code becomes execution    | 🚧 exists on disk, not in JSON |
-| HC.3 | Memory basics — stack vs heap | 🚧 exists on disk, not in JSON |
-| HC.4 | Terminal confidence           | 🚧 exists on disk, not in JSON |
-| HC.5 | How the OS manages processes  | 🚧 exists on disk, not in JSON |
+| HC.1 | What is a program?            | ✅     |
+| HC.2 | How code becomes execution    | ✅     |
+| HC.3 | Memory basics — stack vs heap | ✅     |
+| HC.4 | Terminal confidence           | ✅     |
+| HC.5 | How the OS manages processes  | ✅     |
+| HC.6 | CPU cache and performance     | ✅     |
+| HC.7 | Syscalls                      | ✅     |
+| HC.8 | Blocking vs non-blocking I/O  | ✅     |
 
 ---
 
@@ -60,7 +63,7 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 | s01 | Getting Started   | 🚧     | GT.1–GT.4 exist. GT.5–GT.6 not in JSON.     |
 | s02 | Language Basics   | 🚧     | LB, DS exist. CF missing CF.5–CF.6 (defer). |
 | s03 | Functions & Errors | 🚧     | FE.1–FE.7 exist. FE.8–FE.10 not created.    |
-| s04 | Types & Design    | ✅     | TI, CO, ST all exist and registered.         |
+| s04 | Types & Design    | ✅     | TI, CO, and ST are registered, and validation now covers their alternate path families. |
 
 ### Lessons (s01)
 
@@ -220,16 +223,15 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Immediate Priorities (ordered)
 
-1. Register HC.1–HC.5 in curriculum.v2.json (s00 section)
-2. Register GT.5–GT.6 in curriculum.v2.json
-3. Create CF.5–CF.6 (defer) + add cross-reference notes to FS.1 and DB.3
-4. Create FE.8–FE.10 (closures, first-class functions, panic/recover)
-5. Create HS.1–HS.10 (HTTP servers) — largest content gap
-6. Create API.1–API.9 (REST design + gRPC)
-7. Create SY.1–SY.6 (sync primitives)
-8. Create TE.5–TE.10, PR.3–PR.5
-9. Create ARCH.1–ARCH.9 + SEC.1–SEC.11
-10. Create CFG.1–CFG.5 + OPS.1–OPS.5 + DOCKER.1–DEPLOY.3
+1. Register GT.5–GT.6 in curriculum.v2.json
+2. Create CF.6 (defer) + add cross-reference notes to FS.1 and DB.3
+3. Create FE.8–FE.10 (closures, first-class functions, panic/recover)
+4. Create HS.1–HS.10 (HTTP servers) — largest content gap
+5. Create API.1–API.9 (REST design + gRPC)
+6. Create SY.1–SY.6 (sync primitives)
+7. Create TE.5–TE.10, PR.3–PR.5
+8. Create ARCH.1–ARCH.9 + SEC.1–SEC.11
+9. Create CFG.1–CFG.5 + OPS.1–OPS.5 + DOCKER.1–DEPLOY.3
 
 ## Doc Fixes Required
 
