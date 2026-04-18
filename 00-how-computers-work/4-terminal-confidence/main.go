@@ -1,28 +1,41 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 00: How Computers Work — Terminal Confidence
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - How to output to stdout vs stderr
+//   - How programs interact with the terminal
+//
+// WHY THIS MATTERS:
+//   Production logs often split standard output and errors. Understanding how to
+//   write to them is critical for observability.
+//
+// RUN: go run ./00-how-computers-work/4-terminal-confidence
+// ============================================================================
+
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 )
 
-// Section 00: How Computers Work
-
 func main() {
-	// 1. Write to stdout asking for input
-	fmt.Print("Enter your name (data for stdin): ")
+	// Standard Output (stdout)
+	fmt.Println("This goes to standard output (stdout)")
 
-	// 2. Open the stdin pipe and listen for data
-	reader := bufio.NewReader(os.Stdin)
+	// Standard Error (stderr)
+	fmt.Fprintln(os.Stderr, "This goes to standard error (stderr)")
 
-	// Read until the user presses Enter (newline character)
-	input, _ := reader.ReadString('\n')
-
-	// 3. Write the captured data back out to stdout
-	fmt.Printf("Hello, %s! Your data flowed through the pipes successfully.\n", input)
-
-	// 4. Write to stderr (usually appears on the same screen, but is technically a separate pipe)
-	fmt.Fprintln(os.Stderr, "(This message was secretly sent through the stderr pipe!)")
-
-	fmt.Println("NEXT UP: HC.5 os-processes")
+	// KEY TAKEAWAY:
+	// - Programs can write to multiple output streams
+	fmt.Println("\n---------------------------------------------------")
+	fmt.Println("NEXT UP: HC.5 5-os-processes")
+	fmt.Println("Run    : go run ./00-how-computers-work/5-os-processes")
+	fmt.Println("Current: HC.4 (4-terminal-confidence)")
+	fmt.Println("---------------------------------------------------")
 }
