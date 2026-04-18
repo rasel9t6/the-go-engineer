@@ -18,7 +18,7 @@ That is what structs do.
 
 ## Mental Model
 
-Think of a struct like a passport. A passport groups related data about one person: name, nationality, date of birth, photo, passport number. You would not scatter this data across 6 separate variablesâ€”you would put it in one structured document. That is exactly what a struct does in code.
+Think of a struct like a passport. A passport groups related data about one person: name, nationality, date of birth, photo, passport number. You would not scatter this data across 6 separate variables—you would put it in one structured document. That is exactly what a struct does in code.
 
 ## Visual Model
 
@@ -27,20 +27,17 @@ graph TD
     A["data"] --> B["type definition"]
     B --> C["methods or interface behavior"]
 ```
-```text
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  Server struct                              â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  ID       int                               â”‚
-â”‚  Hostname string                            â”‚
-â”‚  IP       string                            â”‚
-â”‚  Region   string                            â”‚
-â”‚  CPUCores int                               â”‚
-â”‚  MemoryGB int                              â”‚
-â”‚  IsOnline bool                              â”‚
-â”‚  BootedAt time.Time                        â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-```
+
+| Field Name | Type        |
+| ---------- | ----------- |
+| `ID`       | `int`       |
+| `Hostname` | `string`    |
+| `IP`       | `string`    |
+| `Region`   | `string`    |
+| `CPUCores` | `int`       |
+| `MemoryGB` | `int`       |
+| `IsOnline` | `bool`      |
+| `BootedAt` | `time.Time` |
 
 ## Machine View
 
@@ -83,6 +80,7 @@ Access fields with dot notation: structVar.FieldName.
 3. Try accessing a field that was not initialized and observe the zero value.
 
 ## ⚠️ In Production
+
 Structs are the foundation of data modeling in Go. Every API request, database record, and configuration object is modeled as a struct. Understanding how to design structs is essential for writing real applications.
 
 ## 🤔 Thinking Questions
@@ -90,6 +88,7 @@ Structs are the foundation of data modeling in Go. Every API request, database r
 1. What problem is this lesson trying to solve?
 2. What would change if you removed this idea from the program?
 3. Where do you expect to see this pattern again in real Go code?
+
 ## Next Step
 
 Continue to `TI.2` methods.

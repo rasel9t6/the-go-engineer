@@ -26,20 +26,20 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Status Legend
 
-| Symbol | Meaning                              |
-| ------ | ------------------------------------ |
+| Symbol | Meaning                                              |
+| ------ | ---------------------------------------------------- |
 | ✅     | Content exists, registered in JSON, validator passes |
-| 🚧     | Content partially exists or in progress |
-| 📋     | Planned, not started                 |
-| ❌     | Critical gap — blocking learner path |
+| 🚧     | Content partially exists or in progress              |
+| 📋     | Planned, not started                                 |
+| ❌     | Critical gap — blocking learner path                 |
 
 ---
 
 ## Phase 0: Machine Foundation
 
-| ID  | Section              | Status | Notes                                     |
-| --- | -------------------- | ------ | ----------------------------------------- |
-| s00 | How Computers Work   | ✅     | Lessons HC.1–HC.8 are registered, runnable, and covered by foundations validation. |
+| ID  | Section            | Status | Notes                                                                              |
+| --- | ------------------ | ------ | ---------------------------------------------------------------------------------- |
+| s00 | How Computers Work | ✅     | Lessons HC.1–HC.8 are registered, runnable, and covered by foundations validation. |
 
 ### Lessons (s00)
 
@@ -58,49 +58,49 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Phase 1: Language Foundation
 
-| ID  | Section           | Status | Notes                                       |
-| --- | ----------------- | ------ | ------------------------------------------- |
-| s01 | Getting Started   | 🚧     | GT.1–GT.4 exist. GT.5–GT.6 not in JSON.     |
-| s02 | Language Basics   | 🚧     | LB, DS exist. CF missing CF.5–CF.6 (defer). |
-| s03 | Functions & Errors | 🚧     | FE.1–FE.7 exist. FE.8–FE.10 not created.    |
-| s04 | Types & Design    | ✅     | TI, CO, and ST are registered, and validation now covers their alternate path families. |
+| ID  | Section            | Status | Notes                                                                                   |
+| --- | ------------------ | ------ | --------------------------------------------------------------------------------------- |
+| s01 | Getting Started    | 🚧     | GT.1–GT.4 exist. GT.5–GT.6 not in JSON.                                                 |
+| s02 | Language Basics    | 🚧     | LB, DS exist. CF missing CF.5–CF.6 (defer).                                             |
+| s03 | Functions & Errors | 🚧     | FE.1–FE.7 exist. FE.8–FE.10 not created.                                                |
+| s04 | Types & Design     | ✅     | TI, CO, and ST are registered, and validation now covers their alternate path families. |
 
 ### Lessons (s01)
 
-| ID   | Lesson                        | Status |
-| ---- | ----------------------------- | ------ |
-| GT.1 | Installation verification     | ✅     |
-| GT.2 | Hello World                   | ✅     |
-| GT.3 | How Go works                  | ✅     |
-| GT.4 | Development environment       | ✅     |
-| GT.5 | go fmt, go vet, go doc        | 🚧 content written, not in JSON |
-| GT.6 | Reading compiler errors       | 🚧 content written, not in JSON |
+| ID   | Lesson                    | Status                          |
+| ---- | ------------------------- | ------------------------------- |
+| GT.1 | Installation verification | ✅                              |
+| GT.2 | Hello World               | ✅                              |
+| GT.3 | How Go works              | ✅                              |
+| GT.4 | Development environment   | ✅                              |
+| GT.5 | go fmt, go vet, go doc    | 🚧 content written, not in JSON |
+| GT.6 | Reading compiler errors   | 🚧 content written, not in JSON |
 
 ### Lessons (s02) — new items only
 
-| ID   | Lesson                      | Status  |
-| ---- | --------------------------- | ------- |
-| CF.5 | Defer — mechanics & order   | ❌ not created; blocks DB.3 and FS.1 |
-| CF.6 | Defer in real use cases     | ❌ not created                        |
+| ID   | Lesson                    | Status                               |
+| ---- | ------------------------- | ------------------------------------ |
+| CF.5 | Defer — mechanics & order | ❌ not created; blocks DB.3 and FS.1 |
+| CF.6 | Defer in real use cases   | ❌ not created                       |
 
 ### Lessons (s03) — new items only
 
-| ID    | Lesson                       | Status  |
-| ----- | ---------------------------- | ------- |
-| FE.8  | First-class functions        | ❌ not created; blocks GC.1 understanding |
-| FE.9  | Closures — mechanics         | ❌ not created; blocks goroutine capture understanding |
-| FE.10 | panic & recover              | ❌ not created; blocks HTTP middleware understanding |
+| ID    | Lesson                | Status                                                 |
+| ----- | --------------------- | ------------------------------------------------------ |
+| FE.8  | First-class functions | ❌ not created; blocks GC.1 understanding              |
+| FE.9  | Closures — mechanics  | ❌ not created; blocks goroutine capture understanding |
+| FE.10 | panic & recover       | ❌ not created; blocks HTTP middleware understanding   |
 
 ---
 
 ## Phase 2: Engineering Core
 
-| ID  | Section                     | Status | Notes                                                      |
-| --- | --------------------------- | ------ | ---------------------------------------------------------- |
-| s05 | Packages, I/O & CLI         | ✅     | MP, CL, EN, FS all exist and registered.                   |
-| s06 | Backend, APIs & Databases   | ❌     | **DB exists. HS (HTTP) and API (gRPC) completely missing.** |
-| s07 | Concurrency                 | 🚧     | GC, CT, TM, CP exist. SY (sync primitives) missing.       |
-| s08 | Quality & Testing           | 🚧     | TE.1–TE.4 exist. TE.5–TE.10 and PR.3–PR.5 missing.       |
+| ID  | Section                   | Status | Notes                                                       |
+| --- | ------------------------- | ------ | ----------------------------------------------------------- |
+| s05 | Packages, I/O & CLI       | ✅     | MP, CL, EN, FS all exist and registered.                    |
+| s06 | Backend, APIs & Databases | ❌     | **DB exists. HS (HTTP) and API (gRPC) completely missing.** |
+| s07 | Concurrency               | 🚧     | GC, CT, TM, CP exist. SY (sync primitives) missing.         |
+| s08 | Quality & Testing         | 🚧     | TE.1–TE.4 exist. TE.5–TE.10 and PR.3–PR.5 missing.          |
 
 ### Lessons (s06) — new items
 
@@ -157,56 +157,56 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Phase 3: Systems Engineering
 
-| ID  | Section                   | Status | Notes                                                         |
-| --- | ------------------------- | ------ | ------------------------------------------------------------- |
-| s09 | Architecture & Security   | ❌     | PD.1–PD.3 exist. ARCH (9 lessons) and SEC (11 lessons) missing. |
-| s10 | Production Operations     | 🚧     | SL and GS exist. CFG, OPS, DOCKER/DEPLOY, CG to be added/registered. |
+| ID  | Section                 | Status | Notes                                                                |
+| --- | ----------------------- | ------ | -------------------------------------------------------------------- |
+| s09 | Architecture & Security | ❌     | PD.1–PD.3 exist. ARCH (9 lessons) and SEC (11 lessons) missing.      |
+| s10 | Production Operations   | 🚧     | SL and GS exist. CFG, OPS, DOCKER/DEPLOY, CG to be added/registered. |
 
 ### Lessons (s09) — new items
 
-| ID      | Lesson                                       | Status |
-| ------- | -------------------------------------------- | ------ |
+| ID      | Lesson                                        | Status |
+| ------- | --------------------------------------------- | ------ |
 | ARCH.1  | Monolith vs Modular Monolith vs Microservices | ❌     |
-| ARCH.2  | Domain-Driven Design basics                  | ❌     |
-| ARCH.3  | Hexagonal architecture in Go                 | ❌     |
-| ARCH.4  | Repository pattern deep dive                 | ❌     |
-| ARCH.5  | Service layer pattern                        | ❌     |
-| ARCH.6  | Event-driven architecture                    | ❌     |
-| ARCH.7  | CQRS basics                                  | ❌     |
-| ARCH.8  | When to split services                       | ❌     |
-| ARCH.9  | Modular Refactor                             | ❌     |
-| SEC.1   | Input validation patterns                    | ❌     |
-| SEC.2   | SQL injection prevention                     | ❌     |
-| SEC.3   | XSS & CSRF                                   | ❌     |
-| SEC.4   | Authentication basics                        | ❌     |
-| SEC.5   | JWT — implementation & risks                 | ❌     |
-| SEC.6   | Password hashing                             | ❌     |
-| SEC.7   | Rate limiting patterns                       | ❌     |
-| SEC.8   | TLS & HTTPS in Go                            | ❌     |
-| SEC.9   | Secrets management                           | ❌     |
-| SEC.10  | OWASP Top 10 for Go                          | ❌     |
-| SEC.11  | Secure API                                   | ❌     |
+| ARCH.2  | Domain-Driven Design basics                   | ❌     |
+| ARCH.3  | Hexagonal architecture in Go                  | ❌     |
+| ARCH.4  | Repository pattern deep dive                  | ❌     |
+| ARCH.5  | Service layer pattern                         | ❌     |
+| ARCH.6  | Event-driven architecture                     | ❌     |
+| ARCH.7  | CQRS basics                                   | ❌     |
+| ARCH.8  | When to split services                        | ❌     |
+| ARCH.9  | Modular Refactor                              | ❌     |
+| SEC.1   | Input validation patterns                     | ❌     |
+| SEC.2   | SQL injection prevention                      | ❌     |
+| SEC.3   | XSS & CSRF                                    | ❌     |
+| SEC.4   | Authentication basics                         | ❌     |
+| SEC.5   | JWT — implementation & risks                  | ❌     |
+| SEC.6   | Password hashing                              | ❌     |
+| SEC.7   | Rate limiting patterns                        | ❌     |
+| SEC.8   | TLS & HTTPS in Go                             | ❌     |
+| SEC.9   | Secrets management                            | ❌     |
+| SEC.10  | OWASP Top 10 for Go                           | ❌     |
+| SEC.11  | Secure API                                    | ❌     |
 
 ### Lessons (s10) — new items
 
-| ID       | Lesson                        | Status |
-| -------- | ----------------------------- | ------ |
-| CFG.1    | Environment variables         | ❌     |
-| CFG.2    | Configuration files           | ❌     |
-| CFG.3    | Flag parsing                  | ❌     |
-| CFG.4    | 12-Factor App principles      | ❌     |
-| CFG.5    | Config validation on boot     | ❌     |
-| OPS.1    | Metrics basics                | ❌     |
-| OPS.2    | Prometheus integration        | ❌     |
-| OPS.3    | Distributed tracing basics    | ❌     |
-| OPS.4    | Feature flags                 | ❌     |
-| OPS.5    | Alerting mindset              | ❌     |
-| DOCKER.1 | Docker basics                 | ❌     |
-| DOCKER.2 | Multi-stage builds            | ❌     |
-| DOCKER.3 | Docker Compose                | ❌     |
-| DEPLOY.1 | CI/CD pipelines               | ❌     |
-| DEPLOY.2 | Blue/green & rollback         | ❌     |
-| DEPLOY.3 | Dockerised Service            | ❌     |
+| ID       | Lesson                        | Status                 |
+| -------- | ----------------------------- | ---------------------- |
+| CFG.1    | Environment variables         | ❌                     |
+| CFG.2    | Configuration files           | ❌                     |
+| CFG.3    | Flag parsing                  | ❌                     |
+| CFG.4    | 12-Factor App principles      | ❌                     |
+| CFG.5    | Config validation on boot     | ❌                     |
+| OPS.1    | Metrics basics                | ❌                     |
+| OPS.2    | Prometheus integration        | ❌                     |
+| OPS.3    | Distributed tracing basics    | ❌                     |
+| OPS.4    | Feature flags                 | ❌                     |
+| OPS.5    | Alerting mindset              | ❌                     |
+| DOCKER.1 | Docker basics                 | ❌                     |
+| DOCKER.2 | Multi-stage builds            | ❌                     |
+| DOCKER.3 | Docker Compose                | ❌                     |
+| DEPLOY.1 | CI/CD pipelines               | ❌                     |
+| DEPLOY.2 | Blue/green & rollback         | ❌                     |
+| DEPLOY.3 | Dockerised Service            | ❌                     |
 | CG.1     | go generate primer            | ✅ (move from old s11) |
 | CG.2     | Mockery workflow              | ✅ (move from old s11) |
 | CG.3     | sqlc workflow                 | ✅ (move from old s11) |
@@ -215,9 +215,9 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Phase 4: Flagship Project
 
-| ID  | Section             | Status | Notes                                       |
-| --- | ------------------- | ------ | ------------------------------------------- |
-| s11 | GoScale Flagship    | 🚧     | Skeleton exists. Full modules not built out. |
+| ID  | Section          | Status | Notes                                        |
+| --- | ---------------- | ------ | -------------------------------------------- |
+| s11 | GoScale Flagship | 🚧     | Skeleton exists. Full modules not built out. |
 
 ---
 
@@ -244,12 +244,12 @@ The 12-section v2.1 architecture is approved. Active structural migration is und
 
 ## Version Plan
 
-| Version | Target          | Criteria                                    |
-| ------- | --------------- | ------------------------------------------- |
-| v2.0-alpha | current      | s01–s11 with existing content registered   |
-| v2.0-beta  | near-term    | HC registered + HS + API + SY added        |
-| v2.0-rc    | mid-term     | ARCH + SEC + CFG + DOCKER complete          |
-| v2.0       | release      | All 12 sections complete, validator green   |
-| v2.1       | post-release | GoScale modules fully implemented          |
+| Version    | Target       | Criteria                                  |
+| ---------- | ------------ | ----------------------------------------- |
+| v2.0-alpha | current      | s01–s11 with existing content registered  |
+| v2.0-beta  | near-term    | HC registered + HS + API + SY added       |
+| v2.0-rc    | mid-term     | ARCH + SEC + CFG + DOCKER complete        |
+| v2.0       | release      | All 12 sections complete, validator green |
+| v2.1       | post-release | GoScale modules fully implemented         |
 
 ---
