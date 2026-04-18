@@ -19,7 +19,7 @@ Work through this section slowly. These five lessons are the foundation everythi
 | ID | Type | Surface | Core Job |
 | --- | --- | --- | --- |
 | `HC.1` | Lesson | [what-is-a-program](./1-what-is-a-program) | fetch-decode-execute cycle |
-| `HC.2` | Lesson | [compilation-journey](./2-compilation-journey) | ast and compilation |
+| `HC.2` | Lesson | [code-to-execution](./2-code-to-execution) | ast and compilation |
 | `HC.3` | Lesson | [memory-basics](./3-memory-basics) | stack and heap |
 | `HC.4` | Lesson | [terminal-confidence](./4-terminal-confidence) | stdout/stderr |
 | `HC.5` | Lesson | [os-processes](./5-os-processes) | signals and fds |

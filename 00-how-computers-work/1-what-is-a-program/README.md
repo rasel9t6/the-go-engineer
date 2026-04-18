@@ -48,4 +48,4 @@ Because programs are stored in memory just like data, security vulnerabilities o
 3. If your program is stored in memory like data, what happens if you run the same program twice at the same time?
 
 ## Next Step
-[HC.2 How Code Becomes Execution](../2-compilation-journey)
+[HC.2 How Code Becomes Execution](../2-code-to-execution)
