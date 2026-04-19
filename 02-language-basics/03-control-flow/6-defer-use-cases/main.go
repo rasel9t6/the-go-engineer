@@ -32,7 +32,7 @@ func main() {
 	// KEY TAKEAWAY:
 	// - Defer cleanup immediately after a resource is successfully acquired.
 	// - This ensures that even if subsequent logic fails, resources are released.
-	
+
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.7 pricing-checkout")
@@ -42,12 +42,12 @@ func main() {
 
 func simulateFileOperation() {
 	fmt.Println("[Step 1] Opening simulated file 'data.txt'...")
-	
+
 	// Idiomatic pattern: defer the cleanup right after the "open" succeeds
 	defer fmt.Println("[Step 4] File 'data.txt' closed automatically by defer.")
 
 	fmt.Println("[Step 2] Reading data from file...")
-	
+
 	// Simulate some work or potential early return
 	fmt.Println("[Step 3] Processing data complete.")
 }

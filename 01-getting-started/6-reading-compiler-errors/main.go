@@ -26,7 +26,7 @@ import (
 func main() {
 	fmt.Println("GT.6: Reading Compiler Errors")
 	fmt.Println("--------------------------------")
-	
+
 	fmt.Println("To learn from the compiler:")
 	fmt.Println("1. Look at the filename and line number.")
 	fmt.Println("2. Read the error message carefully.")
@@ -35,7 +35,7 @@ func main() {
 	// KEY TAKEAWAY:
 	// - Compiler errors are your friends, not enemies.
 	// - Go enforces clean code through strict compilation rules.
-	
+
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: LB.1 variables")

@@ -64,11 +64,10 @@ func main() {
 	// - Use switch for discrete value matching.
 	// - Use if/else for conditional logic and ranges.
 	// - Use continue to skip invalid or unhandled items in a loop.
-	
+
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.1 arrays")
 	fmt.Println("Current: CF.7 (pricing-checkout)")
 	fmt.Println("---------------------------------------------------")
 }
-

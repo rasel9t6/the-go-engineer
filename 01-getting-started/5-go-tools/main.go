@@ -26,7 +26,7 @@ import (
 func main() {
 	fmt.Println("GT.5: Mastering Go Tools")
 	fmt.Println("--------------------------------")
-	
+
 	fmt.Println("1. go fmt: Formats your code.")
 	fmt.Println("2. go vet: Examines source code and reports suspicious constructs.")
 	fmt.Println("3. go doc: Prints documentation for symbols.")
@@ -35,7 +35,7 @@ func main() {
 	// - Use go fmt to keep code clean and readable.
 	// - Use go vet to catch bugs before they run.
 	// - Use go doc to understand the tools you use.
-	
+
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: GT.6 reading-compiler-errors")

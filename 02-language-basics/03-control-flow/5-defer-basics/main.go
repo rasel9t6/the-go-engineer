@@ -29,14 +29,14 @@ func main() {
 
 	defer fmt.Println("  (Defer 1) This runs LAST")
 	defer fmt.Println("  (Defer 2) This runs SECOND")
-	
+
 	fmt.Println("Performing main work...")
 	fmt.Println("Work complete. Returning now.")
 
 	// KEY TAKEAWAY:
 	// - defer schedules a function call to run when the surrounding function returns.
 	// - Multiple defers run in Last-In-First-Out (LIFO) order.
-	
+
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.6 defer-use-cases")
