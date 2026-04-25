@@ -47,6 +47,32 @@ func TestRequireAuthAddsIdentityToRequestContext(t *testing.T) {
 	}
 }
 
+func TestRequireAuthAcceptsCaseInsensitiveBearerScheme(t *testing.T) {
+	t.Parallel()
+
+	tokens := newTestTokenManager(t, time.Now().UTC(), time.Hour)
+	token, err := tokens.Issue(Identity{
+		UserID:   42,
+		TenantID: 7,
+		Email:    "admin@example.com",
+		Role:     models.UserRoleAdmin,
+	})
+	if err != nil {
+		t.Fatalf("Issue returned error: %v", err)
+	}
+
+	handler := RequireAuth(tokens)(http.HandlerFunc(func(http.ResponseWriter, *http.Request) {}))
+	req := httptest.NewRequest(http.MethodGet, "/me", nil)
+	req.Header.Set("Authorization", "bearer "+token)
+	res := httptest.NewRecorder()
+
+	handler.ServeHTTP(res, req)
+
+	if res.Code != http.StatusOK {
+		t.Fatalf("status = %d, want %d", res.Code, http.StatusOK)
+	}
+}
+
 func TestRequireAuthRejectsMissingBearerToken(t *testing.T) {
 	t.Parallel()
 

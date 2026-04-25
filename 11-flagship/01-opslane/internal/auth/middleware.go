@@ -34,12 +34,16 @@ func IdentityFromRequest(tokens *TokenManager, r *http.Request) (Identity, error
 		return Identity{}, ErrInvalidToken
 	}
 
-	const prefix = "Bearer "
-	if !strings.HasPrefix(header, prefix) {
+	parts := strings.Fields(header)
+	if len(parts) != 2 {
 		return Identity{}, ErrInvalidToken
 	}
 
-	token := strings.TrimSpace(strings.TrimPrefix(header, prefix))
+	if !strings.EqualFold(parts[0], "Bearer") {
+		return Identity{}, ErrInvalidToken
+	}
+
+	token := strings.TrimSpace(parts[1])
 	if token == "" {
 		return Identity{}, ErrInvalidToken
 	}
