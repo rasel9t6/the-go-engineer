@@ -133,6 +133,14 @@ func TestStoreSupportsTenantScopedRecords(t *testing.T) {
 	if len(payments) != 1 {
 		t.Fatalf("payments len = %d, want 1", len(payments))
 	}
+
+	if _, err := database.ExecContext(ctx, `DELETE FROM tenants WHERE id = $1`, tenantA.ID); err != nil {
+		t.Fatalf("delete tenant with users, orders, and payments: %v", err)
+	}
+
+	assertRowCount(t, ctx, database, "users", "tenant_id", tenantA.ID, 0)
+	assertRowCount(t, ctx, database, "orders", "tenant_id", tenantA.ID, 0)
+	assertRowCount(t, ctx, database, "payments", "tenant_id", tenantA.ID, 0)
 }
 
 func TestWithTxRollsBackOnPanic(t *testing.T) {
@@ -232,4 +240,17 @@ func openPostgresTestDatabase(t *testing.T, ctx context.Context) *sql.DB {
 	}
 
 	return database
+}
+
+func assertRowCount(t *testing.T, ctx context.Context, database *sql.DB, table, column string, value int64, want int) {
+	t.Helper()
+
+	var count int
+	query := fmt.Sprintf(`SELECT COUNT(*) FROM %s WHERE %s = $1`, table, column)
+	if err := database.QueryRowContext(ctx, query, value).Scan(&count); err != nil {
+		t.Fatalf("count %s rows: %v", table, err)
+	}
+	if count != want {
+		t.Fatalf("%s row count = %d, want %d", table, count, want)
+	}
 }

@@ -41,7 +41,7 @@ var schemaStatements = []string{
 		UNIQUE (tenant_id, id),
 		UNIQUE (tenant_id, idempotency_key),
 		FOREIGN KEY (tenant_id) REFERENCES tenants(id) ON DELETE CASCADE,
-		FOREIGN KEY (tenant_id, user_id) REFERENCES users(tenant_id, id) ON DELETE RESTRICT
+		FOREIGN KEY (tenant_id, user_id) REFERENCES users(tenant_id, id) ON DELETE NO ACTION
 	);`,
 	`CREATE TABLE IF NOT EXISTS payments (
 		id BIGSERIAL PRIMARY KEY,
