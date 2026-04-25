@@ -4,13 +4,17 @@
 package handlers
 
 import (
+	"context"
 	"encoding/json"
 	"log/slog"
 	"net/http"
+	"time"
 
 	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/db"
 	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/middleware"
 )
+
+const healthDatabaseTimeout = 2 * time.Second
 
 type Application struct {
 	Logger      *slog.Logger
@@ -46,7 +50,10 @@ func (app *Application) handleHealth(w http.ResponseWriter, r *http.Request) {
 	databaseStatus := "ok"
 	serviceStatus := "ok"
 
-	if err := app.Store.Ping(r.Context()); err != nil {
+	pingCtx, cancelPing := context.WithTimeout(r.Context(), healthDatabaseTimeout)
+	defer cancelPing()
+
+	if err := app.Store.Ping(pingCtx); err != nil {
 		statusCode = http.StatusServiceUnavailable
 		databaseStatus = "degraded"
 		serviceStatus = "degraded"

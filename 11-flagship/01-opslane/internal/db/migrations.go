@@ -57,8 +57,6 @@ var schemaStatements = []string{
 		FOREIGN KEY (tenant_id) REFERENCES tenants(id) ON DELETE CASCADE,
 		FOREIGN KEY (tenant_id, order_id) REFERENCES orders(tenant_id, id) ON DELETE CASCADE
 	);`,
-	`CREATE INDEX IF NOT EXISTS idx_tenants_slug ON tenants(slug);`,
-	`CREATE INDEX IF NOT EXISTS idx_users_tenant_email ON users(tenant_id, email);`,
 	`CREATE INDEX IF NOT EXISTS idx_orders_tenant_status ON orders(tenant_id, status);`,
 	`CREATE INDEX IF NOT EXISTS idx_orders_tenant_created_at ON orders(tenant_id, created_at DESC);`,
 	`CREATE INDEX IF NOT EXISTS idx_payments_tenant_order ON payments(tenant_id, order_id);`,

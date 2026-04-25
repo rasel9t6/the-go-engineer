@@ -19,6 +19,10 @@ func TestSchemaStatementsCoverCoreOpslaneTables(t *testing.T) {
 		"idx_orders_tenant_status",
 		"idx_payments_tenant_order",
 	}
+	redundantSnippets := []string{
+		"idx_tenants_slug",
+		"idx_users_tenant_email",
+	}
 
 	joined := ""
 	for _, statement := range schemaStatements {
@@ -28,6 +32,12 @@ func TestSchemaStatementsCoverCoreOpslaneTables(t *testing.T) {
 	for _, snippet := range wantSnippets {
 		if !strings.Contains(joined, snippet) {
 			t.Fatalf("schema statements missing %q", snippet)
+		}
+	}
+
+	for _, snippet := range redundantSnippets {
+		if strings.Contains(joined, snippet) {
+			t.Fatalf("schema statements contain redundant index %q", snippet)
 		}
 	}
 }
