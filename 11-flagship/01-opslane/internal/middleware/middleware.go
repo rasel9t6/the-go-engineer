@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/http"
 	"runtime/debug"
+	"strings"
 	"sync"
 	"time"
 )
@@ -152,6 +153,19 @@ func SecureHeaders(next http.Handler) http.Handler {
 }
 
 func clientAddress(r *http.Request) string {
+	if forwardedFor := strings.TrimSpace(r.Header.Get("X-Forwarded-For")); forwardedFor != "" {
+		firstHop := strings.TrimSpace(strings.Split(forwardedFor, ",")[0])
+		if ip := net.ParseIP(firstHop); ip != nil {
+			return ip.String()
+		}
+	}
+
+	if realIP := strings.TrimSpace(r.Header.Get("X-Real-Ip")); realIP != "" {
+		if ip := net.ParseIP(realIP); ip != nil {
+			return ip.String()
+		}
+	}
+
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err == nil {
 		return host

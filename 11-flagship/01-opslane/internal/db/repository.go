@@ -17,8 +17,10 @@ import (
 
 // ErrInvalidReference means a tenant-scoped row points at a parent row that does not exist.
 var ErrInvalidReference = errors.New("invalid tenant-scoped reference")
+var ErrDuplicateValue = errors.New("duplicate value")
 
 const postgresForeignKeyViolation = "23503"
+const postgresUniqueViolation = "23505"
 
 type TenantRepository interface {
 	CreateTenant(ctx context.Context, tenant *models.Tenant) error
@@ -225,6 +227,9 @@ func (s *Store) CreateOrder(ctx context.Context, order *models.Order) error {
 		order.UpdatedAt,
 	).Scan(&order.ID)
 	if err != nil {
+		if isUniqueViolation(err) {
+			return fmt.Errorf("insert order: %w", ErrDuplicateValue)
+		}
 		return fmt.Errorf("insert order: %w", err)
 	}
 
@@ -348,4 +353,9 @@ func (s *Store) ListPaymentsByOrder(ctx context.Context, tenantID, orderID int64
 func isForeignKeyViolation(err error) bool {
 	var pqErr *pq.Error
 	return errors.As(err, &pqErr) && string(pqErr.Code) == postgresForeignKeyViolation
+}
+
+func isUniqueViolation(err error) bool {
+	var pqErr *pq.Error
+	return errors.As(err, &pqErr) && string(pqErr.Code) == postgresUniqueViolation
 }

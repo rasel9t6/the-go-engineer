@@ -202,6 +202,10 @@ func (app *Application) handleCreateOrder(w http.ResponseWriter, r *http.Request
 		IdempotencyKey: strings.TrimSpace(req.IdempotencyKey),
 	}
 	if err := app.Store.CreateOrder(r.Context(), &order); err != nil {
+		if errors.Is(err, db.ErrDuplicateValue) {
+			app.writeError(w, r, http.StatusConflict, "duplicate_idempotency_key", "an order with this idempotency_key already exists for this tenant")
+			return
+		}
 		app.writeError(w, r, http.StatusInternalServerError, "order_create_failed", "failed to create order")
 		return
 	}

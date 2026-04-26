@@ -201,6 +201,41 @@ func TestCreateOrderUsesAuthenticatedTenantAndUser(t *testing.T) {
 	}
 }
 
+func TestCreateOrderReturnsConflictForDuplicateIdempotencyKey(t *testing.T) {
+	t.Parallel()
+
+	store := &fakeStore{createOrderErr: db.ErrDuplicateValue}
+	app := newTestApplication(t, store)
+	token := issueHandlerTestToken(t, app.Tokens, auth.Identity{
+		UserID:   42,
+		TenantID: 7,
+		Email:    "admin@example.com",
+		Role:     models.UserRoleAdmin,
+	})
+	req := httptest.NewRequest(http.MethodPost, "/api/v1/orders", bytes.NewBufferString(`{
+		"total_cents": 2500,
+		"currency": "usd",
+		"idempotency_key": "checkout-123"
+	}`))
+	req.Header.Set("Authorization", "Bearer "+token)
+	res := httptest.NewRecorder()
+
+	app.Routes().ServeHTTP(res, req)
+
+	if res.Code != http.StatusConflict {
+		t.Fatalf("status = %d, want %d", res.Code, http.StatusConflict)
+	}
+
+	var payload map[string]map[string]string
+	if err := json.NewDecoder(res.Body).Decode(&payload); err != nil {
+		t.Fatalf("decode response: %v", err)
+	}
+
+	if payload["error"]["code"] != "duplicate_idempotency_key" {
+		t.Fatalf("error code = %q, want duplicate_idempotency_key", payload["error"]["code"])
+	}
+}
+
 func TestListOrdersRejectsAnonymousRequest(t *testing.T) {
 	t.Parallel()
 
@@ -368,6 +403,7 @@ type fakeStore struct {
 	createdUser          models.User
 	userByEmail          models.User
 	createdOrder         models.Order
+	createOrderErr       error
 	createdPayment       models.Payment
 	createPaymentErr     error
 	listPaymentsTenantID int64
@@ -397,6 +433,10 @@ func (s *fakeStore) GetUserByEmail(context.Context, int64, string) (models.User,
 }
 
 func (s *fakeStore) CreateOrder(_ context.Context, order *models.Order) error {
+	if s.createOrderErr != nil {
+		return s.createOrderErr
+	}
+
 	order.ID = 101
 	order.CreatedAt = time.Now().UTC()
 	order.UpdatedAt = order.CreatedAt

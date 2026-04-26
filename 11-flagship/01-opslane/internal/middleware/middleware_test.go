@@ -56,6 +56,34 @@ func TestRateLimitRejectsRequestsOverLimit(t *testing.T) {
 	}
 }
 
+func TestRateLimitUsesForwardedClientIP(t *testing.T) {
+	t.Parallel()
+
+	handler := RateLimit(1, time.Minute)(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}))
+
+	firstReq := httptest.NewRequest(http.MethodGet, "/api/v1/orders", nil)
+	firstReq.RemoteAddr = "10.0.0.10:1234"
+	firstReq.Header.Set("X-Forwarded-For", "203.0.113.10")
+	first := httptest.NewRecorder()
+	handler.ServeHTTP(first, firstReq)
+
+	secondReq := httptest.NewRequest(http.MethodGet, "/api/v1/orders", nil)
+	secondReq.RemoteAddr = "10.0.0.10:5678"
+	secondReq.Header.Set("X-Forwarded-For", "203.0.113.11")
+	second := httptest.NewRecorder()
+	handler.ServeHTTP(second, secondReq)
+
+	if first.Code != http.StatusOK {
+		t.Fatalf("first status = %d, want %d", first.Code, http.StatusOK)
+	}
+
+	if second.Code != http.StatusOK {
+		t.Fatalf("second status = %d, want %d", second.Code, http.StatusOK)
+	}
+}
+
 func TestPruneExpiredClientWindows(t *testing.T) {
 	t.Parallel()
 
