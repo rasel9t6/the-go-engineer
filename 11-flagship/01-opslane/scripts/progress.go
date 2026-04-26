@@ -314,8 +314,8 @@ func findOpslaneRoot() (string, string, error) {
 
 	repoRoot := filepath.Dir(filepath.Dir(root))
 	repoMarkers := []string{
+		"go.mod",
 		"curriculum.v2.json",
-		".github/workflows/ci.yml",
 	}
 
 	for _, marker := range repoMarkers {
