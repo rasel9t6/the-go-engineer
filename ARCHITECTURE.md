@@ -19,7 +19,7 @@ This file is the curriculum shape after the restructure plan has been applied.
 | s08 | Quality & Testing | TE, PR | TE.10, PR.6 |
 | s09 | Architecture & Security | PD, ARCH, SEC | PD.3, ARCH.9, SEC.11 |
 | s10 | Production Operations | SL, GS, CFG, OPS, DOCKER, DEPLOY, CG | SL.5, GS.3, CFG.5, OPS.5, DEPLOY.3, CG.3 |
-| s11 | Flagship | FG | FG.1 |
+| s11 | Flagship | OPSL (+ future flagship prefixes) | OPSL.10 |
 
 ## Structural Notes
 
@@ -31,3 +31,4 @@ This file is the curriculum shape after the restructure plan has been applied.
 - Section 09 now includes both architecture-pattern and security tracks.
 - Section 10 now includes configuration, observability, deployment, and code-generation tracks alongside logging and shutdown.
 - Code generation is locked into Section 10 because learners usually first meet `go generate` inside Docker and CI workflows before they apply it inside the flagship capstone.
+- `FG` is now a human-facing umbrella for Stage 11, while individual flagship projects use their own prefixes such as `OPSL`.

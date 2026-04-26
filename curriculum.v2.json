@@ -256,10 +256,10 @@
       "summary": "Integrate larger project work into one final proof stage after the production tooling path is already established.",
       "status": "pilot",
       "entry_points": [
-        "FG.1"
+        "OPSL.1"
       ],
       "outputs": [
-        "FG.1"
+        "OPSL.10"
       ],
       "prerequisites": [
         "s10"
@@ -4586,22 +4586,211 @@
       "test_command": "",
       "starter_path": "",
       "next_items": [
-        "FG.1"
+        "OPSL.1"
       ]
     },
     {
-      "id": "FG.1",
+      "id": "OPSL.1",
       "section_id": "s11",
-      "slug": "opslane",
-      "title": "Opslane",
-      "type": "capstone",
+      "slug": "foundation-and-configuration",
+      "title": "Opslane Foundation and Configuration",
+      "type": "checkpoint",
       "subtype": "",
       "level": "production",
       "status": "implemented",
-      "verification_mode": "rubric",
-      "path": "11-flagship/01-opslane",
+      "verification_mode": "mixed",
+      "path": "11-flagship/01-opslane/modules/01-foundation",
       "prerequisites": [
         "CG.3"
+      ],
+      "run_command": "go run ./11-flagship/01-opslane/cmd/server",
+      "test_command": "go test ./11-flagship/01-opslane/internal/config/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.2"
+      ]
+    },
+    {
+      "id": "OPSL.2",
+      "section_id": "s11",
+      "slug": "database-and-models",
+      "title": "Opslane Database and Models",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "implemented",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/02-database",
+      "prerequisites": [
+        "OPSL.1"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/db/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.3"
+      ]
+    },
+    {
+      "id": "OPSL.3",
+      "section_id": "s11",
+      "slug": "authentication-and-tenant-isolation",
+      "title": "Opslane Authentication and Tenant Isolation",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "implemented",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/03-auth",
+      "prerequisites": [
+        "OPSL.2"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/auth/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.4"
+      ]
+    },
+    {
+      "id": "OPSL.4",
+      "section_id": "s11",
+      "slug": "http-api-layer",
+      "title": "Opslane HTTP API Layer",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "implemented",
+      "verification_mode": "mixed",
+      "path": "11-flagship/01-opslane/modules/04-http-api",
+      "prerequisites": [
+        "OPSL.3"
+      ],
+      "run_command": "go run ./11-flagship/01-opslane/cmd/server",
+      "test_command": "go test ./11-flagship/01-opslane/internal/handlers/... ./11-flagship/01-opslane/internal/middleware/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.5"
+      ]
+    },
+    {
+      "id": "OPSL.5",
+      "section_id": "s11",
+      "slug": "order-processing",
+      "title": "Opslane Order Processing",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/05-order-processing",
+      "prerequisites": [
+        "OPSL.4"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/services/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.6"
+      ]
+    },
+    {
+      "id": "OPSL.6",
+      "section_id": "s11",
+      "slug": "payment-pipeline",
+      "title": "Opslane Payment Pipeline",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/06-payment-pipeline",
+      "prerequisites": [
+        "OPSL.5"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/payment/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.7"
+      ]
+    },
+    {
+      "id": "OPSL.7",
+      "section_id": "s11",
+      "slug": "event-bus-and-worker-pools",
+      "title": "Opslane Event Bus and Worker Pools",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/07-event-workers",
+      "prerequisites": [
+        "OPSL.6"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/events/... ./11-flagship/01-opslane/internal/workers/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.8"
+      ]
+    },
+    {
+      "id": "OPSL.8",
+      "section_id": "s11",
+      "slug": "caching-layer",
+      "title": "Opslane Caching Layer",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/08-caching",
+      "prerequisites": [
+        "OPSL.7"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/cache/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.9"
+      ]
+    },
+    {
+      "id": "OPSL.9",
+      "section_id": "s11",
+      "slug": "observability",
+      "title": "Opslane Observability",
+      "type": "checkpoint",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "test",
+      "path": "11-flagship/01-opslane/modules/09-observability",
+      "prerequisites": [
+        "OPSL.8"
+      ],
+      "run_command": "",
+      "test_command": "go test ./11-flagship/01-opslane/internal/logging/... ./11-flagship/01-opslane/internal/metrics/...",
+      "starter_path": "",
+      "next_items": [
+        "OPSL.10"
+      ]
+    },
+    {
+      "id": "OPSL.10",
+      "section_id": "s11",
+      "slug": "graceful-shutdown-and-deployment",
+      "title": "Opslane Graceful Shutdown and Deployment",
+      "type": "capstone",
+      "subtype": "",
+      "level": "production",
+      "status": "placeholder",
+      "verification_mode": "rubric",
+      "path": "11-flagship/01-opslane/modules/10-shutdown-deploy",
+      "prerequisites": [
+        "OPSL.9"
       ],
       "run_command": "",
       "test_command": "",

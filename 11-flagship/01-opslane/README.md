@@ -34,9 +34,35 @@ This project exists so the curriculum has one integrated system where earlier st
 | `docker-compose.yml` | runs the application with PostgreSQL and the flagship API |
 | `internal/` | holds the application boundaries that later modules will deepen |
 
-## Module 4 Focus
+## Current Progress
 
-Module 4 establishes:
+Opslane now uses an explicit module system instead of one static flagship label.
+
+The current repository state is:
+
+- `OPSL.1` complete: foundation and configuration
+- `OPSL.2` complete: database and models
+- `OPSL.3` complete: authentication and tenant isolation
+- `OPSL.4` complete: HTTP API layer
+- `OPSL.5` next: order processing
+
+Use the progress surface instead of guessing:
+
+```bash
+go run ./11-flagship/01-opslane/scripts/progress.go
+```
+
+Then use the learner map:
+
+- [Opslane module map](./MODULES.md)
+- [OPSL.1 module spec](./modules/01-foundation/README.md)
+- [OPSL.2 module spec](./modules/02-database/README.md)
+- [OPSL.3 module spec](./modules/03-auth/README.md)
+- [OPSL.4 module spec](./modules/04-http-api/README.md)
+
+## Module 4 Snapshot
+
+`OPSL.4` establishes:
 
 - public JSON API routes for tenant setup, user setup, and login
 - protected order and payment routes that use authenticated tenant identity
@@ -44,9 +70,8 @@ Module 4 establishes:
 - CORS and simple in-process rate limiting middleware
 
 This slice turns the auth and persistence foundation into a runnable HTTP contract.
-The important rule is still zero magic: protected handlers do not accept tenant IDs from request
-bodies. They read tenant and user identity from verified auth context, then pass that trusted
-identity into repository calls.
+Protected handlers do not accept tenant IDs from request bodies. They read tenant and user identity
+from verified auth context, then pass that trusted identity into repository calls.
 
 ## Run the Project
 
@@ -134,5 +159,6 @@ curl http://localhost:8080/api/v1/orders/1/payments \
 
 ## Next Step
 
-After Module 4 is in place, the next build slice is order processing so Opslane can move from CRUD
-surfaces into explicit business state transitions and failure-aware workflows.
+After `OPSL.4`, continue to [OPSL.5](./modules/05-order-processing/README.md).
+That module moves Opslane from CRUD surfaces into explicit business state transitions and
+failure-aware workflows.

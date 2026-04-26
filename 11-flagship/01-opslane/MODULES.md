@@ -1,0 +1,244 @@
+# Opslane Module Progress Map
+
+This file is the learner-facing map for the Opslane flagship.
+
+Use it together with the checker:
+
+```bash
+go run ./11-flagship/01-opslane/scripts/progress.go
+```
+
+The checker is authoritative about what is complete in the current tree.
+This file explains what each module means, what proof looks like, and what comes next.
+
+## How To Use This Map
+
+1. Run the progress checker from the repository root.
+2. Open the matching module README in `11-flagship/01-opslane/modules/`.
+3. Finish the proof surface for that module before moving on.
+4. Re-run the checker to confirm the next module unlocked.
+
+## Required Path
+
+| ID | Module | Current repository state |
+| --- | --- | --- |
+| `OPSL.1` | Foundation and Configuration | complete |
+| `OPSL.2` | Database and Models | complete |
+| `OPSL.3` | Authentication and Tenant Isolation | complete |
+| `OPSL.4` | HTTP API Layer | complete |
+| `OPSL.5` | Order Processing | next |
+| `OPSL.6` | Payment Pipeline | locked |
+| `OPSL.7` | Event Bus and Worker Pools | locked |
+| `OPSL.8` | Caching Layer | locked |
+| `OPSL.9` | Observability | locked |
+| `OPSL.10` | Graceful Shutdown and Deployment | locked |
+
+## OPSL.1 Foundation and Configuration
+
+What you build: the runnable server shell and validated startup configuration.
+
+Proof surface:
+
+```bash
+go test ./11-flagship/01-opslane/internal/config/...
+go run ./11-flagship/01-opslane/cmd/server
+```
+
+Required files:
+
+- `cmd/server/main.go`
+- `internal/config/config.go`
+- `internal/config/environment.go`
+- `.env.example`
+- `Dockerfile`
+- `docker-compose.yml`
+
+Module spec: [modules/01-foundation/README.md](./modules/01-foundation/README.md)
+
+## OPSL.2 Database and Models
+
+What you build: the multi-tenant PostgreSQL schema, models, and repository seams.
+
+Proof surface:
+
+```bash
+go test ./11-flagship/01-opslane/internal/db/...
+```
+
+Required files:
+
+- `internal/db/migrations.go`
+- `internal/db/repository.go`
+- `internal/models/tenant.go`
+- `internal/models/user.go`
+- `internal/models/order.go`
+- `internal/models/payment.go`
+
+Module spec: [modules/02-database/README.md](./modules/02-database/README.md)
+
+## OPSL.3 Authentication and Tenant Isolation
+
+What you build: token issuance, password hashing, auth middleware, and trusted tenant identity flow.
+
+Proof surface:
+
+```bash
+go test ./11-flagship/01-opslane/internal/auth/...
+```
+
+Required files:
+
+- `internal/auth/token.go`
+- `internal/auth/password.go`
+- `internal/auth/service.go`
+- `internal/auth/middleware.go`
+- `internal/auth/context.go`
+
+Module spec: [modules/03-auth/README.md](./modules/03-auth/README.md)
+
+## OPSL.4 HTTP API Layer
+
+What you build: the public JSON contract, protected routes, rate limiting, and CORS behavior.
+
+Proof surface:
+
+```bash
+go test ./11-flagship/01-opslane/internal/handlers/...
+go test ./11-flagship/01-opslane/internal/middleware/...
+```
+
+Manual spot checks:
+
+```bash
+curl http://localhost:8080/health
+curl -X POST http://localhost:8080/api/v1/auth/login -H "Content-Type: application/json" -d "{\"tenant_id\":1,\"email\":\"admin@example.com\",\"password\":\"CorrectHorse7Battery\"}"
+```
+
+Required files:
+
+- `internal/handlers/handlers.go`
+- `internal/handlers/api.go`
+- `internal/middleware/middleware.go`
+
+Module spec: [modules/04-http-api/README.md](./modules/04-http-api/README.md)
+
+## OPSL.5 Order Processing
+
+What you build: the order state machine, validation rules, inventory coordination, and idempotent workflow entry.
+
+Target proof surface once this module is implemented:
+
+- `go test` passes for the future `11-flagship/01-opslane/internal/services` package
+- order state transition tests prove valid and invalid transitions
+- idempotent order creation does not duplicate work on retries
+
+Required files:
+
+- `internal/services/order.go`
+- `internal/services/inventory.go`
+- `internal/services/validation.go`
+
+Read this before starting:
+
+- [modules/05-order-processing/README.md](./modules/05-order-processing/README.md)
+
+## OPSL.6 Payment Pipeline
+
+What you build: payment retries, duplicate protection, and reconciliation-safe gateway flow.
+
+Target proof surface once this module is implemented:
+
+- `go test` passes for the future `11-flagship/01-opslane/internal/payment` package
+- retry and reconciliation tests prove duplicate protection
+- timeout handling is explicit and bounded
+
+Required files:
+
+- `internal/payment/gateway.go`
+- `internal/payment/worker.go`
+- `internal/services/payment.go`
+
+Read this before starting:
+
+- [modules/06-payment-pipeline/README.md](./modules/06-payment-pipeline/README.md)
+
+## OPSL.7 Event Bus and Worker Pools
+
+What you build: bounded asynchronous work, observable worker lifecycle, and queue-pressure handling.
+
+Target proof surface once this module is implemented:
+
+- `go test` passes for the future `internal/events` and `internal/workers` packages
+- pool saturation tests prove backpressure behavior
+- shutdown tests prove workers drain or stop intentionally
+
+Required files:
+
+- `internal/events/bus.go`
+- `internal/events/types.go`
+- `internal/workers/pool.go`
+- `internal/workers/order_processor.go`
+- `internal/workers/payment_processor.go`
+- `internal/workers/notification_worker.go`
+
+Read this before starting:
+
+- [modules/07-event-workers/README.md](./modules/07-event-workers/README.md)
+
+## OPSL.8 Caching Layer
+
+What you build: cache-aside reads, invalidation boundaries, and bounded TTL behavior.
+
+Target proof surface once this module is implemented:
+
+- `go test` passes for the future `11-flagship/01-opslane/internal/cache` package
+- cache invalidation tests prove stale order and payment data is not served indefinitely
+
+Required files:
+
+- `internal/cache/cache.go`
+- `internal/cache/store.go`
+- `internal/middleware/cache.go`
+
+Read this before starting:
+
+- [modules/08-caching/README.md](./modules/08-caching/README.md)
+
+## OPSL.9 Observability
+
+What you build: structured logs, correlation IDs, metrics, and trace-friendly request flow.
+
+Target proof surface once this module is implemented:
+
+- `go test` passes for the future `internal/logging` and `internal/metrics` packages
+- request correlation tests prove one order can be traced across layers
+
+Required files:
+
+- `internal/logging/logger.go`
+- `internal/logging/middleware.go`
+- `internal/metrics/metrics.go`
+- `internal/tracing/tracing.go`
+
+Read this before starting:
+
+- [modules/09-observability/README.md](./modules/09-observability/README.md)
+
+## OPSL.10 Graceful Shutdown and Deployment
+
+What you build: safe drain behavior, deployment packaging, and final integrated system proof.
+
+Target proof surface once this module is implemented:
+
+- `go build` succeeds for the Opslane server
+- the full Opslane test suite stays green
+- drain behavior is verified under shutdown pressure
+
+Required files:
+
+- `cmd/server/shutdown.go`
+- `.github/workflows/ci.yml`
+
+Read this before starting:
+
+- [modules/10-shutdown-deploy/README.md](./modules/10-shutdown-deploy/README.md)
