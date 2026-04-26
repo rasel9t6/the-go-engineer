@@ -8,6 +8,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -72,9 +74,10 @@ type Result struct {
 	ErrorCount       int
 }
 
-var runPathPattern = regexp.MustCompile(`\./[A-Za-z0-9._/\-]+`)
+var runPathPattern = regexp.MustCompile(`\./[A-Za-z0-9._/\-]+(?:/\.\.\.)?`)
 var nextUpIDPattern = regexp.MustCompile(`NEXT UP:\s*([A-Z]{2,6}\.\d+)`)
 var markdownLinkPattern = regexp.MustCompile(`\[[^\]]+\]\(([^)]+)\)`)
+var flagshipPrefixPattern = regexp.MustCompile(`^[A-Z]{3,6}$`)
 
 var (
 	allowedItemTypes = map[string]bool{
@@ -174,18 +177,31 @@ func pathExists(root, path string) bool {
 	return err == nil
 }
 
-func extractCommandTarget(command string) (string, error) {
+func extractCommandTargets(command string) ([]string, error) {
 	command = strings.TrimSpace(command)
 	if command == "" {
-		return "", errors.New("command is empty")
+		return nil, errors.New("command is empty")
 	}
 
-	match := runPathPattern.FindString(command)
-	if match == "" || match == "./..." || isPlaceholderPath(match) {
-		return "", fmt.Errorf("command does not contain a concrete ./path target: %q", command)
+	matches := runPathPattern.FindAllString(command, -1)
+	if len(matches) == 0 {
+		return nil, fmt.Errorf("command does not contain a concrete ./path target: %q", command)
 	}
 
-	return filepath.Clean(strings.TrimPrefix(match, "./")), nil
+	targets := make([]string, 0, len(matches))
+	for _, match := range matches {
+		if match == "./..." || isPlaceholderPath(match) {
+			continue
+		}
+		target := strings.TrimSuffix(match, "/...")
+		targets = append(targets, filepath.Clean(strings.TrimPrefix(target, "./")))
+	}
+
+	if len(targets) == 0 {
+		return nil, fmt.Errorf("command does not contain a concrete ./path target: %q", command)
+	}
+
+	return targets, nil
 }
 
 func validateCurriculumPaths(root string, report func(string)) (int, int, error) {
@@ -223,6 +239,9 @@ func validateCurriculumPaths(root string, report func(string)) (int, int, error)
 
 func shouldScanRunPaths(path string) bool {
 	if filepath.Ext(path) == ".go" {
+		if strings.HasSuffix(filepath.Base(path), "_test.go") {
+			return false
+		}
 		return true
 	}
 
@@ -287,8 +306,9 @@ func validateRunPaths(root string, report func(string)) (int, int, error) {
 					continue
 				}
 
-				target := filepath.Clean(strings.TrimPrefix(match, "./"))
-				alternateTarget := filepath.Clean(filepath.Join(filepath.Dir(cleanPath), strings.TrimPrefix(match, "./")))
+				trimmedMatch := strings.TrimSuffix(match, "/...")
+				target := filepath.Clean(strings.TrimPrefix(trimmedMatch, "./"))
+				alternateTarget := filepath.Clean(filepath.Join(filepath.Dir(cleanPath), strings.TrimPrefix(trimmedMatch, "./")))
 
 				if pathExists(root, target) || pathExists(root, alternateTarget) {
 					continue
@@ -437,24 +457,34 @@ func validateV2Curriculum(root string, report func(string)) (int, int, int, int,
 		}
 
 		if item.RunCommand != "" {
-			target, err := extractCommandTarget(item.RunCommand)
+			targets, err := extractCommandTargets(item.RunCommand)
 			if err != nil {
 				report(fmt.Sprintf("Invalid v2 run command: %s -> %v", item.ID, err))
 				errorsFound++
-			} else if !pathExists(root, target) {
-				report(fmt.Sprintf("Invalid v2 run command target: %s -> %s", item.ID, item.RunCommand))
-				errorsFound++
+			} else {
+				for _, target := range targets {
+					if !pathExists(root, target) {
+						report(fmt.Sprintf("Invalid v2 run command target: %s -> %s", item.ID, item.RunCommand))
+						errorsFound++
+						break
+					}
+				}
 			}
 		}
 
 		if item.TestCommand != "" {
-			target, err := extractCommandTarget(item.TestCommand)
+			targets, err := extractCommandTargets(item.TestCommand)
 			if err != nil {
 				report(fmt.Sprintf("Invalid v2 test command: %s -> %v", item.ID, err))
 				errorsFound++
-			} else if !pathExists(root, target) {
-				report(fmt.Sprintf("Invalid v2 test command target: %s -> %s", item.ID, item.TestCommand))
-				errorsFound++
+			} else {
+				for _, target := range targets {
+					if !pathExists(root, target) {
+						report(fmt.Sprintf("Invalid v2 test command target: %s -> %s", item.ID, item.TestCommand))
+						errorsFound++
+						break
+					}
+				}
 			}
 		}
 
@@ -532,11 +562,200 @@ func validateV2Curriculum(root string, report func(string)) (int, int, int, int,
 	}
 
 	errorsFound += validateV2LessonNavigation(root, cur.Items, report)
+	errorsFound += validateFlagshipProjects(root, sectionIDs, cur.Items, report)
 	errorsFound += validateV2SectionLabels(root, sectionIDs, cur.Items, report)
 	errorsFound += validateV2TextEncoding(root, sectionIDs, cur.Items, report)
 	errorsFound += validateFoundationsReadmeContracts(root, cur.Items, report)
 
 	return len(cur.Sections), len(cur.Items), placeholderCount, errorsFound, true, nil
+}
+
+func validateFlagshipProjects(root string, sections map[string]V2Section, items []V2Item, report func(string)) int {
+	stage, exists := sections["s11"]
+	if !exists {
+		return 0
+	}
+
+	errorsFound := 0
+	reservedPrefixes := make(map[string]bool)
+	type groupedItem struct {
+		item   V2Item
+		number int
+	}
+
+	projectItems := make(map[string][]groupedItem)
+	projectRoots := make(map[string]string)
+	rootOwners := make(map[string]string)
+
+	for _, item := range items {
+		prefix, _, ok := splitCurriculumID(item.ID)
+		if !ok {
+			continue
+		}
+
+		if item.SectionID != "s11" {
+			reservedPrefixes[prefix] = true
+		}
+	}
+
+	for _, item := range items {
+		prefix, number, ok := splitCurriculumID(item.ID)
+		if !ok || item.SectionID != "s11" {
+			continue
+		}
+
+		if reservedPrefixes[prefix] {
+			report(fmt.Sprintf("Invalid flagship project prefix: %s -> %s is already used outside s11", item.ID, prefix))
+			errorsFound++
+		}
+
+		projectItems[prefix] = append(projectItems[prefix], groupedItem{item: item, number: number})
+
+		projectRoot, ok := flagshipProjectRoot(item.Path)
+		if !ok {
+			report(fmt.Sprintf("Invalid flagship project path: %s -> %s", item.ID, item.Path))
+			errorsFound++
+			continue
+		}
+
+		if existingRoot, exists := projectRoots[prefix]; exists && existingRoot != projectRoot {
+			report(fmt.Sprintf("Invalid flagship project root alignment: %s -> %s and %s", prefix, existingRoot, projectRoot))
+			errorsFound++
+		} else {
+			projectRoots[prefix] = projectRoot
+		}
+
+		if existingPrefix, exists := rootOwners[projectRoot]; exists && existingPrefix != prefix {
+			report(fmt.Sprintf("Invalid flagship project root reuse: %s and %s both map to %s", existingPrefix, prefix, projectRoot))
+			errorsFound++
+		} else {
+			rootOwners[projectRoot] = prefix
+		}
+	}
+
+	if len(stage.EntryPoints) != 1 {
+		report(fmt.Sprintf("Invalid flagship stage contract: s11 requires exactly 1 entry point, found %d", len(stage.EntryPoints)))
+		errorsFound++
+	}
+	if len(stage.Outputs) != 1 {
+		report(fmt.Sprintf("Invalid flagship stage contract: s11 requires exactly 1 output, found %d", len(stage.Outputs)))
+		errorsFound++
+	}
+
+	canonicalPrefix := ""
+	if len(stage.EntryPoints) == 1 {
+		prefix, number, ok := splitCurriculumID(stage.EntryPoints[0])
+		if !ok || number != 1 {
+			report(fmt.Sprintf("Invalid flagship stage entry point: s11 -> %s", stage.EntryPoints[0]))
+			errorsFound++
+		} else {
+			canonicalPrefix = prefix
+		}
+	}
+	if len(stage.Outputs) == 1 {
+		outputPrefix, _, ok := splitCurriculumID(stage.Outputs[0])
+		if !ok {
+			report(fmt.Sprintf("Invalid flagship stage output: s11 -> %s", stage.Outputs[0]))
+			errorsFound++
+		} else if canonicalPrefix != "" && outputPrefix != canonicalPrefix {
+			report(fmt.Sprintf("Invalid flagship stage contract: s11 entry prefix %s does not match output prefix %s", canonicalPrefix, outputPrefix))
+			errorsFound++
+		}
+	}
+
+	for prefix, grouped := range projectItems {
+		if !flagshipPrefixPattern.MatchString(prefix) {
+			report(fmt.Sprintf("Invalid flagship project prefix: %s must be 3-6 uppercase letters", prefix))
+			errorsFound++
+		}
+
+		sort.Slice(grouped, func(i, j int) bool {
+			return grouped[i].number < grouped[j].number
+		})
+
+		for idx, entry := range grouped {
+			expectedNumber := idx + 1
+			if entry.number != expectedNumber {
+				report(fmt.Sprintf("Invalid flagship module numbering: %s expected %s.%d", entry.item.ID, prefix, expectedNumber))
+				errorsFound++
+			}
+		}
+
+		for idx, entry := range grouped {
+			if idx == len(grouped)-1 {
+				if len(entry.item.NextItems) != 0 {
+					report(fmt.Sprintf("Invalid flagship module chain: %s must terminate the project chain", entry.item.ID))
+					errorsFound++
+				}
+				continue
+			}
+
+			expectedNext := grouped[idx+1].item.ID
+			if len(entry.item.NextItems) != 1 || entry.item.NextItems[0] != expectedNext {
+				report(fmt.Sprintf("Invalid flagship module chain: %s must point to %s", entry.item.ID, expectedNext))
+				errorsFound++
+			}
+		}
+
+		projectRoot := projectRoots[prefix]
+		if projectRoot == "" {
+			continue
+		}
+
+		if !pathExists(root, filepath.ToSlash(filepath.Join(projectRoot, "README.md"))) {
+			report(fmt.Sprintf("Missing flagship project README: %s -> %s/README.md", prefix, filepath.ToSlash(projectRoot)))
+			errorsFound++
+		}
+		if !pathExists(root, filepath.ToSlash(filepath.Join(projectRoot, "MODULES.md"))) {
+			report(fmt.Sprintf("Missing flagship project module map: %s -> %s/MODULES.md", prefix, filepath.ToSlash(projectRoot)))
+			errorsFound++
+		}
+
+		implementedProject := false
+		for _, entry := range grouped {
+			if isImplementedItem(entry.item) {
+				implementedProject = true
+				break
+			}
+		}
+		if implementedProject && !pathExists(root, filepath.ToSlash(filepath.Join(projectRoot, "scripts", "progress.go"))) {
+			report(fmt.Sprintf("Missing flagship progress checker: %s -> %s/scripts/progress.go", prefix, filepath.ToSlash(projectRoot)))
+			errorsFound++
+		}
+
+		if canonicalPrefix == prefix && len(stage.Outputs) == 1 {
+			expectedFinal := grouped[len(grouped)-1].item.ID
+			if stage.Outputs[0] != expectedFinal {
+				report(fmt.Sprintf("Invalid flagship stage output: s11 -> %s (expected %s)", stage.Outputs[0], expectedFinal))
+				errorsFound++
+			}
+		}
+	}
+
+	return errorsFound
+}
+
+func splitCurriculumID(id string) (string, int, bool) {
+	prefix, suffix, found := strings.Cut(id, ".")
+	if !found || prefix == "" || suffix == "" {
+		return "", 0, false
+	}
+
+	number, err := strconv.Atoi(suffix)
+	if err != nil {
+		return "", 0, false
+	}
+
+	return prefix, number, true
+}
+
+func flagshipProjectRoot(itemPath string) (string, bool) {
+	parts := strings.Split(filepath.ToSlash(filepath.Clean(itemPath)), "/")
+	if len(parts) < 2 || parts[0] != "11-flagship" {
+		return "", false
+	}
+
+	return filepath.ToSlash(filepath.Join(parts[0], parts[1])), true
 }
 
 func allowedPathPrefixesForSection(section V2Section) []string {
