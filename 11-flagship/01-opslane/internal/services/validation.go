@@ -78,3 +78,7 @@ func shouldReleaseForTransition(current, next models.OrderStatus) bool {
 		return false
 	}
 }
+
+func shouldRetryReleaseForSameStatus(status models.OrderStatus) bool {
+	return status == models.OrderStatusFailed || status == models.OrderStatusCancelled
+}

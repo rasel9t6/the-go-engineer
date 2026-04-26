@@ -135,6 +135,40 @@ func TestOrderServiceCreateOrderReleasesInventoryAfterDuplicateInsertRace(t *tes
 	}
 }
 
+func TestOrderServiceCreateOrderSurfacesRollbackReleaseFailure(t *testing.T) {
+	t.Parallel()
+
+	createErr := errors.New("insert failed")
+
+	repo := newStubOrderRepository()
+	repo.createErr = createErr
+
+	inventory := &stubInventoryCoordinator{
+		releaseErr: errors.New("release failed"),
+	}
+	service := NewOrderService(repo, inventory)
+
+	_, err := service.CreateOrder(context.Background(), CreateOrderInput{
+		TenantID:       7,
+		UserID:         42,
+		TotalCents:     2500,
+		Currency:       "USD",
+		IdempotencyKey: "checkout-123",
+	})
+	if err == nil {
+		t.Fatal("CreateOrder error = nil, want failure")
+	}
+	if !errors.Is(err, createErr) {
+		t.Fatalf("CreateOrder error = %v, want wrapped create error", err)
+	}
+	if !errors.Is(err, ErrInventoryUnavailable) {
+		t.Fatalf("CreateOrder error = %v, want ErrInventoryUnavailable", err)
+	}
+	if len(inventory.releaseCalls) != 1 {
+		t.Fatalf("release calls = %d, want 1", len(inventory.releaseCalls))
+	}
+}
+
 func TestOrderServiceCreateOrderRejectsInvalidInput(t *testing.T) {
 	t.Parallel()
 
@@ -243,6 +277,39 @@ func TestOrderServiceTransitionOrderReservesInventoryForRetry(t *testing.T) {
 	}
 	if len(inventory.reserveCalls) != 1 {
 		t.Fatalf("reserve calls = %d, want 1", len(inventory.reserveCalls))
+	}
+}
+
+func TestOrderServiceTransitionOrderRetriesReleaseForIdempotentTerminalState(t *testing.T) {
+	t.Parallel()
+
+	repo := newStubOrderRepository()
+	repo.seedOrder(models.Order{
+		ID:             101,
+		TenantID:       7,
+		UserID:         42,
+		Status:         models.OrderStatusFailed,
+		TotalCents:     2500,
+		Currency:       "USD",
+		IdempotencyKey: "checkout-123",
+	})
+
+	inventory := &stubInventoryCoordinator{}
+	service := NewOrderService(repo, inventory)
+
+	order, err := service.TransitionOrder(context.Background(), TransitionOrderRequest{
+		TenantID: 7,
+		OrderID:  101,
+		Status:   models.OrderStatusFailed,
+	})
+	if err != nil {
+		t.Fatalf("TransitionOrder returned error: %v", err)
+	}
+	if order.Status != models.OrderStatusFailed {
+		t.Fatalf("status = %q, want failed", order.Status)
+	}
+	if len(inventory.releaseCalls) != 1 {
+		t.Fatalf("release calls = %d, want 1", len(inventory.releaseCalls))
 	}
 }
 

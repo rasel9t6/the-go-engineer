@@ -112,7 +112,9 @@ func (s *OrderService) CreateOrder(ctx context.Context, input CreateOrderInput) 
 			return CreateOrderResult{}, fmt.Errorf("load duplicate order by idempotency key: %w", lookupErr)
 		}
 
-		_ = s.inventory.Release(ctx, reservation)
+		if releaseErr := s.inventory.Release(ctx, reservation); releaseErr != nil {
+			return CreateOrderResult{}, fmt.Errorf("create order: %w; rollback inventory reservation: %w: %v", err, ErrInventoryUnavailable, releaseErr)
+		}
 		return CreateOrderResult{}, fmt.Errorf("create order: %w", err)
 	}
 
@@ -142,13 +144,6 @@ func (s *OrderService) TransitionOrder(ctx context.Context, req TransitionOrderR
 		return models.Order{}, fmt.Errorf("get order by id: %w", err)
 	}
 
-	if current.Status == req.Status {
-		return current, nil
-	}
-	if !canTransitionOrder(current.Status, req.Status) {
-		return models.Order{}, ErrInvalidStatusTransition
-	}
-
 	reservation := InventoryReservation{
 		TenantID:       current.TenantID,
 		UserID:         current.UserID,
@@ -156,6 +151,18 @@ func (s *OrderService) TransitionOrder(ctx context.Context, req TransitionOrderR
 		TotalCents:     current.TotalCents,
 		Currency:       current.Currency,
 		IdempotencyKey: current.IdempotencyKey,
+	}
+
+	if current.Status == req.Status {
+		if shouldRetryReleaseForSameStatus(current.Status) {
+			if err := s.inventory.Release(ctx, reservation); err != nil {
+				return current, fmt.Errorf("release inventory on idempotent terminal transition: %w: %v", ErrInventoryUnavailable, err)
+			}
+		}
+		return current, nil
+	}
+	if !canTransitionOrder(current.Status, req.Status) {
+		return models.Order{}, ErrInvalidStatusTransition
 	}
 
 	if shouldReserveForTransition(current.Status, req.Status) {
