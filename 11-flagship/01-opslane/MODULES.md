@@ -237,7 +237,7 @@ Target proof surface once this module is implemented:
 Required files:
 
 - `cmd/server/shutdown.go`
-- `.github/workflows/ci.yml`
+- repository root `.github/workflows/ci.yml`
 
 Read this before starting:
 

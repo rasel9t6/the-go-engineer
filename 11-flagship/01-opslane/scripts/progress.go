@@ -15,12 +15,13 @@ import (
 )
 
 type moduleSpec struct {
-	id            string
-	title         string
-	testPkgs      []string
-	requiredFiles []string
-	readmeDir     string
-	nextStep      string
+	id                string
+	title             string
+	testPkgs          []string
+	requiredFiles     []string
+	requiredRepoFiles []string
+	readmeDir         string
+	nextStep          string
 }
 
 var modules = []moduleSpec{
@@ -173,6 +174,8 @@ var modules = []moduleSpec{
 		},
 		requiredFiles: []string{
 			"cmd/server/shutdown.go",
+		},
+		requiredRepoFiles: []string{
 			".github/workflows/ci.yml",
 		},
 		readmeDir: "modules/10-shutdown-deploy",
@@ -187,7 +190,7 @@ type moduleResult struct {
 }
 
 func main() {
-	root, err := findOpslaneRoot()
+	root, repoRoot, err := findOpslaneRoot()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error:", err)
 		os.Exit(1)
@@ -200,7 +203,7 @@ func main() {
 	currentIndex := -1
 
 	for i, module := range modules {
-		results[i] = checkModule(root, module)
+		results[i] = checkModule(root, repoRoot, module)
 		if currentIndex == -1 && !results[i].complete {
 			currentIndex = i
 		}
@@ -248,12 +251,18 @@ func main() {
 	fmt.Printf("  %s\n", module.nextStep)
 }
 
-func checkModule(root string, module moduleSpec) moduleResult {
+func checkModule(root, repoRoot string, module moduleSpec) moduleResult {
 	result := moduleResult{}
 
 	for _, relativePath := range module.requiredFiles {
 		if _, err := os.Stat(filepath.Join(root, filepath.FromSlash(relativePath))); os.IsNotExist(err) {
 			result.missingFiles = append(result.missingFiles, relativePath)
+		}
+	}
+
+	for _, relativePath := range module.requiredRepoFiles {
+		if _, err := os.Stat(filepath.Join(repoRoot, filepath.FromSlash(relativePath))); os.IsNotExist(err) {
+			result.missingFiles = append(result.missingFiles, "repo:"+relativePath)
 		}
 	}
 
@@ -284,10 +293,10 @@ func checkModule(root string, module moduleSpec) moduleResult {
 	return result
 }
 
-func findOpslaneRoot() (string, error) {
+func findOpslaneRoot() (string, string, error) {
 	_, currentFile, _, ok := runtime.Caller(0)
 	if !ok {
-		return "", fmt.Errorf("cannot determine progress.go location")
+		return "", "", fmt.Errorf("cannot determine progress.go location")
 	}
 
 	root := filepath.Dir(filepath.Dir(currentFile))
@@ -299,9 +308,21 @@ func findOpslaneRoot() (string, error) {
 
 	for _, marker := range markers {
 		if _, err := os.Stat(filepath.Join(root, filepath.FromSlash(marker))); err != nil {
-			return "", fmt.Errorf("cannot find Opslane root from %s", currentFile)
+			return "", "", fmt.Errorf("cannot find Opslane root from %s", currentFile)
 		}
 	}
 
-	return root, nil
+	repoRoot := filepath.Dir(filepath.Dir(root))
+	repoMarkers := []string{
+		"curriculum.v2.json",
+		".github/workflows/ci.yml",
+	}
+
+	for _, marker := range repoMarkers {
+		if _, err := os.Stat(filepath.Join(repoRoot, filepath.FromSlash(marker))); err != nil {
+			return "", "", fmt.Errorf("cannot find repository root from %s", currentFile)
+		}
+	}
+
+	return root, repoRoot, nil
 }

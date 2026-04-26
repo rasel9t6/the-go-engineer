@@ -36,7 +36,7 @@ Existing deployment surfaces that should still participate:
 
 - `Dockerfile`
 - `docker-compose.yml`
-- `.github/workflows/ci.yml`
+- repository root `.github/workflows/ci.yml`
 
 ## Required Files and Boundaries
 
