@@ -91,14 +91,16 @@ func (b *Bus) Publish(ctx context.Context, event Event) error {
 	select {
 	case b.events <- event:
 		return nil
+	case <-ctx.Done():
+		return ctx.Err()
 	default:
 	}
 
 	select {
+	case b.events <- event:
+		return nil
 	case <-ctx.Done():
 		return ctx.Err()
-	default:
-		return ErrQueueFull
 	}
 }
 

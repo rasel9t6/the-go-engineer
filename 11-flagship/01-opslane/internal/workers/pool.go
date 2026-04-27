@@ -105,14 +105,16 @@ func (p *Pool) Submit(ctx context.Context, event events.Event) error {
 	select {
 	case p.jobs <- event:
 		return nil
+	case <-ctx.Done():
+		return ctx.Err()
 	default:
 	}
 
 	select {
+	case p.jobs <- event:
+		return nil
 	case <-ctx.Done():
 		return ctx.Err()
-	default:
-		return ErrQueueFull
 	}
 }
 
@@ -175,13 +177,27 @@ func (p *Pool) runWorker(ctx context.Context) {
 	for {
 		select {
 		case <-ctx.Done():
-			return
 		case event, ok := <-p.jobs:
 			if !ok {
 				return
 			}
 			if err := p.handler(ctx, event); err != nil && p.onError != nil {
 				p.onError(event, err)
+			}
+			continue
+		}
+
+		for {
+			select {
+			case event, ok := <-p.jobs:
+				if !ok {
+					return
+				}
+				if err := p.handler(ctx, event); err != nil && p.onError != nil {
+					p.onError(event, err)
+				}
+			default:
+				return
 			}
 		}
 	}
