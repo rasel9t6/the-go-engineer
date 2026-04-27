@@ -17,9 +17,9 @@ import (
 )
 
 var (
-	ErrInvalidPayment    = errors.New("invalid payment")
-	ErrPaymentNotFound   = errors.New("payment not found")
-	ErrOrderNotPayable   = errors.New("order not in a payable state")
+	ErrInvalidPayment  = errors.New("invalid payment")
+	ErrPaymentNotFound = errors.New("payment not found")
+	ErrOrderNotPayable = errors.New("order not in a payable state")
 )
 
 const defaultPaymentGatewayTimeout = 2 * time.Second
