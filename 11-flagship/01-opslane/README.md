@@ -47,7 +47,8 @@ The current repository state is:
 - `OPSL.5` complete: order processing
 - `OPSL.6` complete: payment pipeline
 - `OPSL.7` complete: event bus and worker pools
-- `OPSL.8` next: caching layer
+- `OPSL.8` complete: caching layer
+- `OPSL.9` next: observability
 
 Use the progress surface instead of guessing:
 
@@ -65,6 +66,7 @@ Then use the learner map:
 - [OPSL.5 module spec](./modules/05-order-processing/README.md)
 - [OPSL.6 module spec](./modules/06-payment-pipeline/README.md)
 - [OPSL.7 module spec](./modules/07-event-workers/README.md)
+- [OPSL.8 module spec](./modules/08-caching/README.md)
 
 ## Module 5 Snapshot
 
@@ -105,6 +107,20 @@ database, gateway, and order state machine should cooperate.
 This slice introduces asynchronous building blocks without hiding goroutines inside handlers.
 The system can now talk about queue capacity, backpressure, and safe draining before later modules
 wire those primitives into caching, observability, and shutdown behavior.
+
+## Module 8 Snapshot
+
+`OPSL.8` establishes:
+
+- a bounded in-memory cache with TTL and insert-order eviction
+- explicit invalidation after order transitions and payment settlements
+- singleflight stampede prevention when hot cache keys expire
+- HTTP Cache-Control middleware for public and authenticated endpoints
+- copy-on-read/write to prevent callers from mutating cached data
+
+This slice introduces caching as an additive optimization, not a hidden source of truth.
+PostgreSQL remains the system of record. The cache sits between the service layer and
+the repository layer, and invalidation always follows successful writes.
 
 ## Run the Project
 
@@ -192,5 +208,6 @@ curl http://localhost:8080/api/v1/orders/1/payments \
 
 ## Next Step
 
-After `OPSL.7`, continue to [OPSL.8](./modules/08-caching/README.md).
-That module introduces bounded cache behavior on top of the now-explicit event and worker seams.
+After `OPSL.8`, continue to [OPSL.9](./modules/09-observability/README.md).
+That module introduces structured logging, metrics, and trace propagation on top of the
+now-cached service layer.

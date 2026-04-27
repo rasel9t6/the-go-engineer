@@ -213,20 +213,33 @@ Read this module:
 
 What you build: cache-aside reads, invalidation boundaries, and bounded TTL behavior.
 
-Target proof surface once this module is implemented:
+Proof surface:
 
-- `go test` passes for the future `11-flagship/01-opslane/internal/cache` package
-- cache invalidation tests prove stale order and payment data is not served indefinitely
+```bash
+go test ./11-flagship/01-opslane/internal/cache/...
+go run ./11-flagship/01-opslane/scripts/progress.go
+```
 
-Required files:
+The proof surface covers:
+
+- bounded in-memory cache with TTL and insert-order eviction
+- lazy expiry on reads and background janitor sweep
+- copy-on-read/write mutation safety
+- explicit invalidation after order and payment writes
+- prefix-based batch invalidation for tenant-scoped groups
+- singleflight stampede prevention
+- HTTP Cache-Control middleware
+
+Implemented files:
 
 - `internal/cache/cache.go`
 - `internal/cache/store.go`
 - `internal/middleware/cache.go`
 
-Read this before starting:
+Read the implementation details:
 
 - [modules/08-caching/README.md](./modules/08-caching/README.md)
+- [modules/08-caching/SURFACE.md](./modules/08-caching/SURFACE.md)
 
 ## OPSL.9 Observability
 
