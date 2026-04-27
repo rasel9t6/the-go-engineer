@@ -28,8 +28,8 @@ This file explains what each module means, what proof looks like, and what comes
 | `OPSL.4` | HTTP API Layer | complete |
 | `OPSL.5` | Order Processing | complete |
 | `OPSL.6` | Payment Pipeline | complete |
-| `OPSL.7` | Event Bus and Worker Pools | next |
-| `OPSL.8` | Caching Layer | locked |
+| `OPSL.7` | Event Bus and Worker Pools | complete |
+| `OPSL.8` | Caching Layer | next |
 | `OPSL.9` | Observability | locked |
 | `OPSL.10` | Graceful Shutdown and Deployment | locked |
 
@@ -182,11 +182,18 @@ Read this module:
 
 What you build: bounded asynchronous work, observable worker lifecycle, and queue-pressure handling.
 
-Target proof surface once this module is implemented:
+Proof surface:
 
-- `go test` passes for the future `internal/events` and `internal/workers` packages
-- pool saturation tests prove backpressure behavior
-- shutdown tests prove workers drain or stop intentionally
+```bash
+go test ./11-flagship/01-opslane/internal/events/...
+go test ./11-flagship/01-opslane/internal/workers/...
+```
+
+Behavior proof:
+
+- event bus tests prove bounded publish behavior and closed-bus handling
+- worker pool tests prove queue saturation, drain behavior, and handler error reporting
+- processor tests prove order, payment, and notification adapters call explicit workflow seams
 
 Required files:
 
@@ -197,9 +204,10 @@ Required files:
 - `internal/workers/payment_processor.go`
 - `internal/workers/notification_worker.go`
 
-Read this before starting:
+Read this module:
 
 - [modules/07-event-workers/README.md](./modules/07-event-workers/README.md)
+- [modules/07-event-workers/SURFACE.md](./modules/07-event-workers/SURFACE.md)
 
 ## OPSL.8 Caching Layer
 

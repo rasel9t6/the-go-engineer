@@ -136,7 +136,7 @@ var modules = []moduleSpec{
 			"internal/workers/notification_worker.go",
 		},
 		readmeDir: "modules/07-event-workers",
-		nextStep:  "Start bounded async processing after payment workflow logic exists.",
+		nextStep:  "Continue into OPSL.8 after queue limits, drain behavior, and worker adapters are provable.",
 	},
 	{
 		id:    "OPSL.8",

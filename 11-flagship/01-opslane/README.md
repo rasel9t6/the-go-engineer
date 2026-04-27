@@ -46,7 +46,8 @@ The current repository state is:
 - `OPSL.4` complete: HTTP API layer
 - `OPSL.5` complete: order processing
 - `OPSL.6` complete: payment pipeline
-- `OPSL.7` next: event bus and worker pools
+- `OPSL.7` complete: event bus and worker pools
+- `OPSL.8` next: caching layer
 
 Use the progress surface instead of guessing:
 
@@ -63,6 +64,7 @@ Then use the learner map:
 - [OPSL.4 module spec](./modules/04-http-api/README.md)
 - [OPSL.5 module spec](./modules/05-order-processing/README.md)
 - [OPSL.6 module spec](./modules/06-payment-pipeline/README.md)
+- [OPSL.7 module spec](./modules/07-event-workers/README.md)
 
 ## Module 5 Snapshot
 
@@ -90,6 +92,19 @@ order service instead of writing straight through to persistence.
 This slice turns payment creation into reliability-focused workflow code.
 The HTTP handler now creates a tenant-scoped payment job and lets the payment service decide how the
 database, gateway, and order state machine should cooperate.
+
+## Module 7 Snapshot
+
+`OPSL.7` establishes:
+
+- a bounded event bus with explicit queue-full behavior
+- a fixed-size worker pool that drains submitted work
+- order, payment, and notification processors behind workflow interfaces
+- error callbacks so background failures do not disappear
+
+This slice introduces asynchronous building blocks without hiding goroutines inside handlers.
+The system can now talk about queue capacity, backpressure, and safe draining before later modules
+wire those primitives into caching, observability, and shutdown behavior.
 
 ## Run the Project
 
@@ -177,5 +192,5 @@ curl http://localhost:8080/api/v1/orders/1/payments \
 
 ## Next Step
 
-After `OPSL.6`, continue to [OPSL.7](./modules/07-event-workers/README.md).
-That module moves the payment and order workflow work into bounded asynchronous processing.
+After `OPSL.7`, continue to [OPSL.8](./modules/08-caching/README.md).
+That module introduces bounded cache behavior on top of the now-explicit event and worker seams.
