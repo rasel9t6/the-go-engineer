@@ -40,6 +40,7 @@ type Pool struct {
 	started bool
 	stopped bool
 	wg      sync.WaitGroup
+	stopCh  chan struct{}
 }
 
 func NewPool(config PoolConfig) (*Pool, error) {
@@ -56,6 +57,7 @@ func NewPool(config PoolConfig) (*Pool, error) {
 		jobs:    make(chan events.Event, config.QueueSize),
 		handler: config.Handler,
 		onError: config.OnError,
+		stopCh:  make(chan struct{}),
 	}, nil
 }
 
@@ -95,23 +97,20 @@ func (p *Pool) Submit(ctx context.Context, event events.Event) error {
 		ctx = context.Background()
 	}
 
-	p.mu.RLock()
-	if p.stopped {
-		p.mu.RUnlock()
+	// Check if pool is stopped first to avoid race with Stop
+	select {
+	case <-p.stopCh:
 		return ErrPoolStopped
-	}
-
-	select {
-	case p.jobs <- event:
-		p.mu.RUnlock()
-		return nil
 	default:
+		// Proceed to try submitting with context
 	}
-	p.mu.RUnlock()
 
+	// Try to submit the event with context
 	select {
 	case p.jobs <- event:
 		return nil
+	case <-p.stopCh:
+		return ErrPoolStopped
 	case <-ctx.Done():
 		return ctx.Err()
 	}
@@ -148,6 +147,7 @@ func (p *Pool) Stop() {
 		return
 	}
 	p.stopped = true
+	close(p.stopCh)
 	close(p.jobs)
 	p.mu.Unlock()
 

@@ -18,10 +18,12 @@ var (
 )
 
 type Bus struct {
-	mu     sync.RWMutex
-	events chan Event
-	closed bool
-	now    func() time.Time
+	events     chan Event
+	closed     chan struct{}
+	once       sync.Once
+	now        func() time.Time
+	mu         sync.RWMutex
+	closedFlag bool
 }
 
 func NewBus(capacity int) *Bus {
@@ -31,6 +33,7 @@ func NewBus(capacity int) *Bus {
 
 	return &Bus{
 		events: make(chan Event, capacity),
+		closed: make(chan struct{}),
 		now:    time.Now,
 	}
 }
@@ -48,21 +51,24 @@ func (b *Bus) TryPublish(event Event) error {
 		return fmt.Errorf("event bus is not configured")
 	}
 
-	event, err := b.prepare(event)
+	// Fast-path: if the bus is already closed, reject immediately
+	b.mu.RLock()
+	if b.closedFlag {
+		b.mu.RUnlock()
+		return ErrBusClosed
+	}
+	b.mu.RUnlock()
+
+	prepared, err := b.prepare(event)
 	if err != nil {
 		return err
 	}
 
-	b.mu.RLock()
-	defer b.mu.RUnlock()
-
-	if b.closed {
-		return ErrBusClosed
-	}
-
 	select {
-	case b.events <- event:
+	case b.events <- prepared:
 		return nil
+	case <-b.closed:
+		return ErrBusClosed
 	default:
 		return ErrQueueFull
 	}
@@ -76,28 +82,33 @@ func (b *Bus) Publish(ctx context.Context, event Event) error {
 		ctx = context.Background()
 	}
 
-	event, err := b.prepare(event)
+	// Fast-path: reject if bus is already closed
+	b.mu.RLock()
+	if b.closedFlag {
+		b.mu.RUnlock()
+		return ErrBusClosed
+	}
+	b.mu.RUnlock()
+
+	prepared, err := b.prepare(event)
 	if err != nil {
 		return err
 	}
 
-	b.mu.RLock()
-	if b.closed {
-		b.mu.RUnlock()
+	// Check if bus is closed first to avoid race with Close
+	select {
+	case <-b.closed:
 		return ErrBusClosed
-	}
-
-	select {
-	case b.events <- event:
-		b.mu.RUnlock()
-		return nil
 	default:
+		// Proceed to try sending with context
 	}
-	b.mu.RUnlock()
 
+	// Try to send the event with context
 	select {
-	case b.events <- event:
+	case b.events <- prepared:
 		return nil
+	case <-b.closed:
+		return ErrBusClosed
 	case <-ctx.Done():
 		return ctx.Err()
 	}
@@ -107,16 +118,15 @@ func (b *Bus) Close() {
 	if b == nil {
 		return
 	}
-
-	b.mu.Lock()
-	defer b.mu.Unlock()
-
-	if b.closed {
-		return
-	}
-
-	b.closed = true
-	close(b.events)
+	b.once.Do(func() {
+		// Mark closed in a thread-safe way and signal close to waiters
+		b.mu.Lock()
+		if !b.closedFlag {
+			b.closedFlag = true
+			close(b.closed)
+		}
+		b.mu.Unlock()
+	})
 }
 
 func (b *Bus) prepare(event Event) (Event, error) {
