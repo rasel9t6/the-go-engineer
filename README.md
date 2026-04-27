@@ -94,7 +94,6 @@ You will work through:
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | contribution workflow |
 | [RELEASE.md](./RELEASE.md) | release and stabilization process |
 | [MAINTAINER-CHECKLIST.md](./MAINTAINER-CHECKLIST.md) | maintainer review and release checklist |
-| [AGENTS.md](./AGENTS.md) | repository operating contract for repeatable maintenance work |
 
 ## Repository Workflow
 

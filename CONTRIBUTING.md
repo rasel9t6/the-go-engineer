@@ -8,7 +8,6 @@ Thank you for your interest in contributing. This guide explains the required wo
 - [CURRICULUM-BLUEPRINT.md](./CURRICULUM-BLUEPRINT.md) — teaching and lesson contract
 - [CODE-STANDARDS.md](./CODE-STANDARDS.md) — Go style, headers, comments, and review standards
 - [TESTING-STANDARDS.md](./TESTING-STANDARDS.md) — test and verification expectations
-- [AGENTS.md](./AGENTS.md) — repository operating contract for repeatable maintenance work
 
 ## Architecture Rule
 
