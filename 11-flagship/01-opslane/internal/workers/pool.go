@@ -105,14 +105,22 @@ func (p *Pool) Submit(ctx context.Context, event events.Event) error {
 		// Proceed to try submitting with context
 	}
 
-	// Try to submit the event with context
-	select {
-	case p.jobs <- event:
-		return nil
-	case <-p.stopCh:
-		return ErrPoolStopped
-	case <-ctx.Done():
-		return ctx.Err()
+	// Try to submit the event with context, prioritizing stop signal
+	for {
+		select {
+		case <-p.stopCh:
+			return ErrPoolStopped
+		default:
+		}
+
+		select {
+		case p.jobs <- event:
+			return nil
+		case <-p.stopCh:
+			return ErrPoolStopped
+		case <-ctx.Done():
+			return ctx.Err()
+		}
 	}
 }
 
