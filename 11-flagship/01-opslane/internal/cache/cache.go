@@ -170,10 +170,10 @@ func (sf *Singleflight) Do(key string, fn func() ([]byte, error)) ([]byte, error
 
 	// Ensure cleanup runs even if fn() panics
 	defer func() {
+		c.wg.Done()
 		sf.mu.Lock()
 		delete(sf.calls, key)
 		sf.mu.Unlock()
-		c.wg.Done()
 	}()
 
 	c.val, c.err = fn()
