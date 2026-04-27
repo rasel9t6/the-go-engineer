@@ -279,6 +279,45 @@ func TestSingleflightDeduplicatesConcurrentLoads(t *testing.T) {
 	}
 }
 
+func TestSingleflightPanicRecovery(t *testing.T) {
+	t.Parallel()
+
+	var sf Singleflight
+	key := "panic-key"
+
+	// First call panics
+	func() {
+		defer func() {
+			_ = recover()
+		}()
+		_, _ = sf.Do(key, func() ([]byte, error) {
+			panic("simulated panic")
+		})
+	}()
+
+	// Second call should not block, meaning the key was cleaned up and wg was released
+	done := make(chan struct{})
+	go func() {
+		val, err := sf.Do(key, func() ([]byte, error) {
+			return []byte("recovered"), nil
+		})
+		if err != nil {
+			t.Errorf("Do returned error: %v", err)
+		}
+		if string(val) != "recovered" {
+			t.Errorf("Do = %q, want %q", val, "recovered")
+		}
+		close(done)
+	}()
+
+	select {
+	case <-done:
+		// Success
+	case <-time.After(1 * time.Second):
+		t.Fatal("second Do call blocked forever, panic cleanup failed")
+	}
+}
+
 func TestEmptyKeyReturnsError(t *testing.T) {
 	t.Parallel()
 	store := NewInMemoryStore(Config{MaxEntries: 8, DefaultTTL: time.Minute})
