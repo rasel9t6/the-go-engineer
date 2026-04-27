@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Console Reminder
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small reminder app that counts down with a ticker and fires a one-shot reminder with `time.AfterFunc`. This exercise is the Time and Schedu...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/time-and-scheduling/7-reminder
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./07-concurrency/01-concurrency/time-and-scheduling/7-reminder
 package main
 
 import (
@@ -12,12 +31,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Time & Scheduling — Console Reminder (Exercise)
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Using time.NewTicker for repeating interval events
 //   - Using time.AfterFunc for one-shot delayed execution
 //   - Parsing durations from command-line arguments
@@ -33,7 +48,6 @@ import (
 //
 // USAGE: go run ./07-concurrency/01-concurrency/time-and-scheduling/7-reminder <seconds> <message>
 // EXAMPLE: go run ./07-concurrency/01-concurrency/time-and-scheduling/7-reminder 5 "Take a break!"
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Console Reminder ===")

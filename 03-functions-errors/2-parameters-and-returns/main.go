@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 03: Functions and Errors
+// Title: Parameters and Returns
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how a function receives input and gives a result back to the caller.
+//
+// WHY THIS MATTERS:
+//   - Parameters are the values a function needs to do its job. Return values are the results it gives back.
+//
+// RUN:
+//   go run ./03-functions-errors/2-parameters-and-returns
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
@@ -10,7 +29,6 @@ import "fmt"
 // Mental model:
 // Parameters bring values into a function, and return values send results back.
 //
-// Run: go run ./03-functions-errors/2-parameters-and-returns
 
 func announceCart(name string) {
 	fmt.Printf("Checking %s\n", name)

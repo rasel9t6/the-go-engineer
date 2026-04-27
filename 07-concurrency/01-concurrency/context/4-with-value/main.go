@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: WithValue
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/context/4-with-value
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -9,12 +29,8 @@ import (
 	"fmt"
 )
 
-// ============================================================================
 // Stage 07: Context - WithValue
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - context.WithValue stores request-scoped data in the context
 //   - Using custom key types to prevent collisions
 //   - When to use (and not use) context values
@@ -33,8 +49,6 @@ import (
 //   Go walks up the parent chain comparing keys until it finds a match or reaches
 //   the root. This is O(depth) - proportional to how many values were added.
 //
-// RUN: go run ./07-concurrency/01-concurrency/context/4-with-value
-// ============================================================================
 
 type contextKey string
 

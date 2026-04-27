@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: REST design principles
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the resource-oriented rules that make REST APIs predictable for humans and clients.
+//
+// WHY THIS MATTERS:
+//   - REST is mostly naming discipline and uniform HTTP semantics, not a framework.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/1-rest-design-principles
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - REST design principles
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/1-rest-design-principles
 
 func main() {
 	fmt.Println("=== API.1 REST design principles ===")

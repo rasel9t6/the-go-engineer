@@ -1,4 +1,24 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Structs
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn what a struct is and how to use it to group related data together into a single type.
+//
+// WHY THIS MATTERS:
+//   - Think of a struct like a passport. A passport groups related data about one person: name, nationality, date of birth, photo, passport number. You w...
+//
+// RUN:
+//   go run ./04-types-design/1-struct
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
@@ -8,12 +28,7 @@ import (
 	"time"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Structs
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What a struct is and why it exists (grouping related data)
 //   - How to define, create, and access struct fields
 //   - Zero values for structs (every field gets its type's zero value)
@@ -21,8 +36,6 @@ import (
 //   - Struct pointers: when and why to use them
 //   - Struct comparison and copying rules
 //
-// RUN: go run ./04-types-design/1-struct
-// ============================================================================
 
 type Server struct {
 	ID       int       // Unique identifier for this server

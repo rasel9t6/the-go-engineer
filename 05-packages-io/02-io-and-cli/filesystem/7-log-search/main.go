@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Log Search
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small log-search tool that walks directories, scans files line by line, and reports matching results without loading everything into memory...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/7-log-search
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: Filesystem — Log Search Tool (Exercise)
-// Level: Intermediate → Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Recursive directory traversal with filepath.WalkDir
 //   - Line-by-line file reading with bufio.Scanner
 //   - Filtering files by extension
@@ -31,8 +47,6 @@ import (
 //   system call to the kernel for each file. On a directory with 100,000 files,
 //   `WalkDir` can be 10x faster because it avoids these redundant stat() syscalls.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/7-log-search
-// ============================================================================
 
 // SearchResult holds the location and content of a matching line.
 type SearchResult struct {

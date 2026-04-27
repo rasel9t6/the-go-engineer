@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Middleware - the pattern
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how middleware wraps handlers to add logging, auth, recovery, and cross-cutting rules.
+//
+// WHY THIS MATTERS:
+//   - Middleware is a handler that returns another handler. Each layer adds one concern around the real work.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/3-middleware-pattern
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Middleware - the pattern
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/3-middleware-pattern
 
 func main() {
 	fmt.Println("=== HS.3 Middleware - the pattern ===")

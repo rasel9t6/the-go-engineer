@@ -1,16 +1,30 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Bank Account Project
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small bank-account model that proves the difference between named-field composition, embedding, promoted methods, and method shadowing.
+//
+// WHY THIS MATTERS:
+//   - This milestone combines two ideas: - composition lets one type contain another - embedding promotes inner fields and methods to the outer type The ...
+//
+// RUN:
+//   go run ./04-types-design/composition/3-bank-account
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
-// ============================================================================
-// Section 6: Composition & Embedding — Bank Account (Exercise)
-// Level: Intermediate
-// ============================================================================
 //
-// RUN: go run ./04-types-design/composition/3-bank-account
-// ============================================================================
 
 import (
 	"errors"

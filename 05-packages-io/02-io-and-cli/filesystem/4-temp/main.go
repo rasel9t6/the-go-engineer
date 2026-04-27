@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Temp Files
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/4-temp
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -11,12 +31,8 @@ import (
 	"path/filepath"
 )
 
-// ============================================================================
 // Stage 05: Filesystem — Temporary Files & Directories
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - os.MkdirTemp: creating secure temporary directories
 //   - os.CreateTemp: creating secure temporary files
 //   - The importance of defer for cleanup
@@ -36,16 +52,12 @@ import (
 //   3. Security: Temp files are created with restrictive permissions (0600),
 //      preventing other users on the system from reading your temporary data.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/4-temp
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Temporary Files and Directories ===")
 	fmt.Println()
 
-	// =====================================================================
 	// 1. Temporary Directories
-	// =====================================================================
 	// os.MkdirTemp(dir, pattern)
 	//   dir: Where to create it ("" means the OS default temp directory)
 	//   pattern: Prefix and/or suffix for the dir name ("logs-*" generates "logs-123456")
@@ -66,9 +78,7 @@ func main() {
 	fmt.Printf("   📁 Created: %s\n", tempDir)
 	fmt.Println()
 
-	// =====================================================================
 	// 2. Temporary Files
-	// =====================================================================
 	// os.CreateTemp(dir, pattern) creates and OPENs the file for reading/writing.
 
 	fmt.Println("2️⃣  Temporary File:")
@@ -93,9 +103,7 @@ func main() {
 		log.Fatal("Failed to close temp file:", err)
 	}
 
-	// =====================================================================
 	// 3. Verifying the temporary data
-	// =====================================================================
 	fmt.Println()
 	fmt.Println("3️⃣  Reading back temporary data:")
 

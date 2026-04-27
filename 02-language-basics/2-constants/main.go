@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: Constants
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go represents values that should never change at runtime.
+//
+// WHY THIS MATTERS:
+//   - A variable can change while the program runs. A constant cannot. Constants communicate: - this value is fixed by design - the compiler can treat it...
+//
+// RUN:
+//   go run ./02-language-basics/2-constants
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"

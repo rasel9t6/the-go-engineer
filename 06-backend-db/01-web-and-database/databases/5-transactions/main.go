@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Transactions
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/5-transactions
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -13,12 +33,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// ============================================================================
 // Stage 06: Databases — Transactions
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - ACID Properties in relational databases
 //   - db.BeginTx: initializing a transaction
 //   - tx.Commit() vs tx.Rollback()
@@ -41,8 +57,6 @@ import (
 //   database connection for absolutely no reason. NEVER do slow non-DB work
 //   inside an active SQL Transaction.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/5-transactions
-// ============================================================================
 
 var profileSchema = `
 CREATE TABLE IF NOT EXISTS profiles (

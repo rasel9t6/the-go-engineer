@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Strings
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go strings behave and how the `strings` package helps transform text safely and efficiently.
+//
+// WHY THIS MATTERS:
+//   - A Go string is immutable text data. That means: - you can read it freely - helper functions return new strings instead of changing the original - r...
+//
+// RUN:
+//   go run ./04-types-design/strings-and-text/1-strings
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -9,12 +29,7 @@ import (
 	"strings"
 )
 
-// ============================================================================
-// Section 7: Strings & Text — String Operations
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Go strings are IMMUTABLE sequences of bytes (usually UTF-8)
 //   - The strings package: your Swiss Army knife for text manipulation
 //   - strings.Builder: efficient string concatenation
@@ -28,8 +43,6 @@ import (
 //   Strings are IMMUTABLE — every modification creates a NEW string.
 //   That's why s = s + "x" in a loop is O(n²) — use strings.Builder instead.
 //
-// RUN: go run ./04-types-design/strings-and-text/1-strings
-// ============================================================================
 
 func main() {
 	fmt.Println("=== String Operations ===")

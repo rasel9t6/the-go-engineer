@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Health and readiness probes
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn why liveness and readiness are different signals and why each needs a clear contract.
+//
+// WHY THIS MATTERS:
+//   - Health says the process is alive. Readiness says the service can handle real traffic right now.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/9-health-and-readiness-probes
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Health and readiness probes
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/9-health-and-readiness-probes
 
 func main() {
 	fmt.Println("=== HS.9 Health and readiness probes ===")

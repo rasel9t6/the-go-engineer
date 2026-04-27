@@ -1,4 +1,24 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Complex Generic Constraints
+// Level: Stretch
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn advanced constraint patterns including parameterized constraints, using interfaces as constraints, and creating reusable generic utilities.
+//
+// WHY THIS MATTERS:
+//   - Think of a vending machine that accepts only certain payment methods. The constraint is not just "some type"â€”it's "anything with Pay() metho...
+//
+// RUN:
+//   go run ./04-types-design/14-complex-generic-constraints
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
@@ -7,19 +27,12 @@ import (
 	"fmt"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Complex Generic Constraints
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Interface constraints
 //   - Multiple interface requirements
 //   - Comparable constraint
 //   - Parameterized constraints
 //
-// RUN: go run ./04-types-design/14-complex-generic-constraints
-// ============================================================================
 
 type Numeric interface {
 	Add(other int) int

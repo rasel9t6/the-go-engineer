@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: File Organizer
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small CLI that groups files by extension and can preview its work safely before moving anything. This exercise is the CLI track milestone f...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/cli-tools/4-file-organizer
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/cli-tools/4-file-organizer
 package main
 
 import (
@@ -13,12 +32,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: CLI Tools — File Organizer (Exercise)
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Using the `flag` package for command-line options
 //   - Reading directory contents with os.ReadDir
 //   - Organizing files by extension into subdirectories
@@ -33,7 +48,6 @@ import (
 //
 // USAGE: go run ./05-packages-io/02-io-and-cli/cli-tools/4-file-organizer --dir=./my-messy-folder
 // FLAGS: --dir (required), --dry-run (optional, default false)
-// ============================================================================
 
 func main() {
 	// Define CLI flags using the flag package.

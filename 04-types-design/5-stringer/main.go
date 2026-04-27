@@ -1,23 +1,36 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Stringer
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to control how your types are displayed by implementing the fmt.Stringer interface.
+//
+// WHY THIS MATTERS:
+//   - When you hand someone a business card, the card shows a carefully formatted summaryâ€”not raw data. The String() method is your type's busines...
+//
+// RUN:
+//   go run ./04-types-design/5-stringer
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
 
 import "fmt"
 
-// ============================================================================
-// Section 6: Types & Interfaces — The Stringer Interface
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - The fmt.Stringer interface: the most commonly implemented interface
 //   - How fmt.Println automatically calls String() on your types
 //   - Adding custom types to int, string, etc. with type definitions
 //   - Why Stringer matters for logging, debugging, and user-facing output
 //
-// RUN: go run ./04-types-design/5-stringer
-// ============================================================================
 
 type HTTPStatus struct {
 	Code    int

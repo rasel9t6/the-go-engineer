@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 10: Production Operations
+// Title: zerolog Comparison
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/01-structured-logging/4-zerolog-comparison
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -10,12 +29,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 10: Application Architecture - Structured Logging: zerolog and the Allocation Question
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Why zerolog exists: allocation-free logging via a builder chain
 //   - How zerolog's API compares to slog's API
 //   - When to choose zerolog over slog (and when NOT to)
@@ -51,8 +66,6 @@ import (
 //       To use zerolog for real, add: go get github.com/rs/zerolog
 //       Then change the import and use the chain API shown in comments below.
 //
-// RUN: go run ./10-production/01-structured-logging/4-zerolog-comparison
-// ============================================================================
 
 // zeroLogEquivalent shows zerolog patterns alongside their slog equivalents.
 // Uncomment the zerolog lines and add the import to see the real API.
@@ -145,7 +158,6 @@ func main() {
 	zeroLogPatterns()
 	levelComparison()
 
-	// KEY TAKEAWAY:
 	// - zerolog: 0 allocs, builder chain, requires external dependency
 	// - slog: 4+ allocs, function args, standard library, slog.Handler ecosystem
 	// - Default choice: slog. It is fast enough for 99% of services.

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: For Basics
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go repeats work with its single loop keyword: `for`.
+//
+// WHY THIS MATTERS:
+//   - A loop says, "keep doing this work while the rule allows it." Go uses one keyword for several loop shapes: - counted loops - condition-only loops -...
+//
+// RUN:
+//   go run ./02-language-basics/03-control-flow/2-for-basics
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"

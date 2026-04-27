@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Background and TODO
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/context/1-background
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -9,12 +29,8 @@ import (
 	"fmt"
 )
 
-// ============================================================================
 // Stage 07: Context — Background & TODO
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What context.Context IS and why every Go program uses it
 //   - context.Background() — the root of all context trees
 //   - context.TODO() — placeholder when you don't know which context to use
@@ -27,8 +43,6 @@ import (
 //   wrap their parent in a linked list, this empty struct acts as the immutable,
 //   zero-byte invisible root anchor for the entire concurrency tree.
 //
-// RUN: go run ./07-concurrency/01-concurrency/context/1-background
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Context: Background & TODO ===")

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 10: Production Operations
+// Title: HTTP Graceful Drain
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/02-graceful-shutdown/2-http-server
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -19,12 +38,8 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-// ============================================================================
 // Stage 10: Application Architecture - Graceful Shutdown: Production HTTP Server
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - http.Server.Shutdown(): drain in-flight requests without cutting them
 //   - The complete production graceful shutdown pattern:
 //       signal -> stop accepting -> drain requests -> close DB -> exit
@@ -52,10 +67,8 @@ import (
 //   is called. This is the expected "clean" exit - not an error. Always
 //   check for this: if err != nil && !errors.Is(err, http.ErrServerClosed)
 //
-// RUN: go run ./10-production/02-graceful-shutdown/2-http-server
 //   Then: curl http://localhost:8080/api/slow   (simulates a slow 3s request)
 //   While the request is in-flight, press Ctrl+C - graceful shutdown waits for it.
-// ============================================================================
 
 type Server struct {
 	httpServer *http.Server
@@ -116,9 +129,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-// ============================================================================
 // Handlers
-// ============================================================================
 
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -156,9 +167,7 @@ func main() {
 
 	srv := NewServer(logger)
 
-	// =========================================================================
 	// The complete graceful shutdown pattern using errgroup
-	// =========================================================================
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
@@ -192,7 +201,6 @@ func main() {
 
 	logger.Info("graceful shutdown complete")
 
-	// KEY TAKEAWAY:
 	// - http.Server.Shutdown(ctx): drains in-flight requests cleanly
 	// - ListenAndServe returns http.ErrServerClosed on graceful shutdown (not an error)
 	// - Always set ReadTimeout, WriteTimeout, IdleTimeout on http.Server

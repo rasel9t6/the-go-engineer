@@ -1,17 +1,33 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 09: Architecture & Security
+// Title: Visibility and Export Rules
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./09-architecture/01-package-design/2-visibility
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
 import "fmt"
 
-// ============================================================================
 // Stage 09: Application Architecture - Package Design: Visibility and Export Rules
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Uppercase = exported (public), lowercase = unexported (private)
 //   - The internal/ directory: compiler-enforced visibility boundaries
 //   - Designing minimal public APIs
@@ -22,8 +38,6 @@ import "fmt"
 //   other languages, the compiler can decide exported vs unexported by checking
 //   the first letter of an identifier.
 //
-// RUN: go run ./09-architecture/01-package-design/2-visibility
-// ============================================================================
 
 // User is an exported type - other packages can use it.
 // The struct fields follow the same rule:

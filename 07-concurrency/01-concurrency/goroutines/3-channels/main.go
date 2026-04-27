@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Channels
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/goroutines/3-channels
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -9,12 +29,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Concurrency - Channels
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What channels are: typed communication pipes between goroutines
 //   - The channel axiom: "Do not communicate by sharing memory. Share memory by communicating."
 //   - Sending and receiving: ch <- value (send), value := <-ch (receive)
@@ -42,8 +58,6 @@ import (
 //   another goroutine run. This is a user-space context switch instead of a
 //   full OS-thread handoff.
 //
-// RUN: go run ./07-concurrency/01-concurrency/goroutines/3-channels
-// ============================================================================
 
 type ScanResult struct {
 	Host   string

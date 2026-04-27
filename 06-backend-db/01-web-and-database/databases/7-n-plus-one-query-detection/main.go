@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: N+1 query detection
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how repeated lookups inside a loop turn one logical query into unbounded database chatter.
+//
+// WHY THIS MATTERS:
+//   - The N+1 problem happens when one outer query hides many inner queries behind a loop.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/7-n-plus-one-query-detection
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - N+1 query detection
 //
-// Run: go run ./06-backend-db/01-web-and-database/databases/7-n-plus-one-query-detection
 
 func main() {
 	fmt.Println("=== DB.7 N+1 query detection ===")

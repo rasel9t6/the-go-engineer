@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Prepared Statements
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/4-prepare
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -15,12 +35,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// ============================================================================
 // Stage 06: Databases — Prepared Statements & Context
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Prepared Statements (`db.Prepare()`)
 //   - Passing Context to queries (`ExecContext`) for cancellations
 //   - When to actually use Prepared Statements (and when to avoid them)
@@ -35,8 +51,6 @@ import (
 //   `db.Prepare` is only beneficial if you are executing the EXACT same
 //   statement hundreds of times in a tight `for` loop.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/4-prepare
-// ============================================================================
 
 type User struct {
 	ID             int       `json:"id"`

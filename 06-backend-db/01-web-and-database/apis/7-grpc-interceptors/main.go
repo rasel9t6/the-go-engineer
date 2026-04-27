@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: gRPC interceptors
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how interceptors provide middleware-style hooks for auth, logging, metrics, and recovery in gRPC.
+//
+// WHY THIS MATTERS:
+//   - Interceptors are the gRPC equivalent of HTTP middleware around an RPC handler.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/7-grpc-interceptors
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - gRPC interceptors
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/7-grpc-interceptors
 
 func main() {
 	fmt.Println("=== API.7 gRPC interceptors ===")

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: If / Else
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how a Go program chooses one path or another based on a condition.
+//
+// WHY THIS MATTERS:
+//   - Branching is the ability to ask a question and choose a path. With `if`, `else if`, and `else`: - one condition is checked - one branch runs - the ...
+//
+// RUN:
+//   go run ./02-language-basics/03-control-flow/1-if-else
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"

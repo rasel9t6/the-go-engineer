@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: API versioning strategies
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the trade-offs between URL versioning, header versioning, and evolutionary compatibility.
+//
+// WHY THIS MATTERS:
+//   - Versioning is a change-management tool. The goal is controlled evolution, not version numbers everywhere.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/2-api-versioning-strategies
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - API versioning strategies
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/2-api-versioning-strategies
 
 func main() {
 	fmt.Println("=== API.2 API versioning strategies ===")

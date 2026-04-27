@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 10: Production Operations
+// Title: Multi-stage builds
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn why Go binaries fit naturally into multi-stage builds that separate compile tools from runtime images.
+//
+// WHY THIS MATTERS:
+//   - One stage builds the binary; a later stage runs only the binary and minimal runtime assets.
+//
+// RUN:
+//   go run ./10-production/03-docker-and-deployment/2-multi-stage-builds
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 10: Production Operations - Multi-stage builds
 //
-// Run: go run ./10-production/03-docker-and-deployment/2-multi-stage-builds
 
 func main() {
 	fmt.Println("=== DOCKER.2 Multi-stage builds ===")

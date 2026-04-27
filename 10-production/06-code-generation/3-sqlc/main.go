@@ -1,7 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
-// RUN: go run ./10-production/06-code-generation/3-sqlc
+// ============================================================================
+// Section 10: Production Operations
+// Title: sqlc Workflow
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Generate typed Go query code from real SQL schema and query files so the database layer stays explicit, reviewable, and checked at build time. This...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./10-production/06-code-generation/3-sqlc
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -10,12 +28,8 @@ import (
 	"os"
 )
 
-// ============================================================================
 // Stage 10: Code Generation - sqlc Workflow
-// Level: Core
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Generating type-safe Go code from raw SQL queries
 //   - Using sqlc.yaml for configuration
 //   - Schema-driven development vs. ORMs
@@ -32,8 +46,6 @@ import (
 //     2. Type Safety: If you rename a column in SQL, sqlc fails at build time.
 //     3. Full SQL Power: No need to learn a DSL; just write standard SQL.
 //
-// RUN: go run ./10-production/06-code-generation/3-sqlc
-// ============================================================================
 
 func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))

@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Select Queries
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to retrieve data from a database and scan it into Go structs.
+//
+// WHY THIS MATTERS:
+//   - Think of a `SELECT` query as a "request for a tray of data". The database prepares the tray, and you must "scan" each item from the tray into your ...
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/3-select
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -14,12 +34,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// ============================================================================
 // Stage 06: Databases — SELECT Queries
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - QueryRow: fetching a single record
 //   - Query: fetching multiple records
 //   - rows.Scan: mapping SQL columns directly into Go struct fields
@@ -34,8 +50,6 @@ import (
 //   this happens often enough, you will exhaust your Database limits and crash
 //   both your server and your Database.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/3-select
-// ============================================================================
 
 type User struct {
 	ID             int       `json:"id"`

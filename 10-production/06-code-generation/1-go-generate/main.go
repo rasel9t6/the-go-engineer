@@ -1,16 +1,31 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 10: Production Operations
+// Title: go generate Primer
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/06-code-generation/1-go-generate
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// ============================================================================
 // Stage 10: Code Generation - go generate Primer
-// Level: Core
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What the //go:generate directive actually does
 //   - Why code generation is a build-time workflow, not runtime reflection
 //   - When to generate code and when to keep things handwritten
@@ -26,8 +41,6 @@ import "fmt"
 //   - reflection keeps flexibility at runtime but hides failures until runtime
 //   - generation makes the build step a little heavier but keeps failures early
 //
-// RUN: go run ./10-production/06-code-generation/1-go-generate
-// ============================================================================
 
 func main() {
 	fmt.Println("=== go generate Primer ===")

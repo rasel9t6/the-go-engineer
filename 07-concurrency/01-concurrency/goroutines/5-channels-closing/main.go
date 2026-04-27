@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Closing Channels
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/goroutines/5-channels-closing
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -9,12 +29,8 @@ import (
 	"sync"
 )
 
-// ============================================================================
 // Stage 07: Concurrency - Closing Channels
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Why and when to close channels
 //   - The comma-ok pattern: value, ok := <-ch (detecting closed channels)
 //   - range over channels: automatically stops when the channel closes
@@ -34,8 +50,6 @@ import (
 //   4. Closing is optional unless receivers must know "we are done"
 //   5. Closing a nil channel causes a panic
 //
-// RUN: go run ./07-concurrency/01-concurrency/goroutines/5-channels-closing
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Closing Channels ===")

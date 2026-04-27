@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Goroutine leaks
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how goroutines get stranded and why lifetime ownership matters as much as spawning work.
+//
+// WHY THIS MATTERS:
+//   - A goroutine leak is a task that never finishes because nothing closes its channel, cancels its context, or lets it return.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - Goroutine leaks
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks
 
 func main() {
 	fmt.Println("=== SY.5 Goroutine leaks ===")

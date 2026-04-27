@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Base64
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/5-base64_encoding
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/5-base64_encoding
 package main
 
 import (
@@ -11,12 +30,8 @@ import (
 	"log"
 )
 
-// ============================================================================
 // Stage 05: I/O and CLI — Base64 Encoding
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What base64 is and why it is used
 //   - base64.StdEncoding for general text-safe transport
 //   - base64.URLEncoding for URL-safe tokens
@@ -26,7 +41,6 @@ import (
 //   Base64 is not encryption. It is a text transport format for binary data.
 //   It increases payload size by roughly 33%, but it lets binary values survive
 //   in systems that were designed around printable text.
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Base64 Encoding and Decoding ===")

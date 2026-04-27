@@ -1,17 +1,33 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 09: Architecture & Security
+// Title: Project Layout
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Decide when a Go project should stay flat, when it needs `internal/`, and when `cmd/` or other top-level directories actually earn their place. Thi...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./09-architecture/01-package-design/3-project-layout
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
 import "fmt"
 
-// ============================================================================
 // Stage 09: Application Architecture - Package Design: Standard Go Project Layout
-// Level: Intermediate -> Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - The common directory conventions for Go projects
 //   - When to use cmd/, internal/, pkg/, and other directories
 //   - Simple vs complex project layouts
@@ -22,8 +38,6 @@ import "fmt"
 //   on a small set of practical conventions. The most important one is
 //   `internal/`, because the compiler uses it to block external imports.
 //
-// RUN: go run ./09-architecture/01-package-design/3-project-layout
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Standard Go Project Layout ===")

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 10: Production Operations
+// Title: slog Basics
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/01-structured-logging/1-slog-basics
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -10,12 +29,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 10: Application Architecture - Structured Logging: slog Basics
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Why structured logging beats fmt.Printf for production systems
 //   - slog.TextHandler vs slog.JSONHandler
 //   - Log levels: Debug, Info, Warn, Error
@@ -35,13 +50,9 @@ import (
 //   without changing a single call site. In development, use TextHandler
 //   for readability. In production, use JSONHandler for machine processing.
 //
-// RUN: go run ./10-production/01-structured-logging/1-slog-basics
-// ============================================================================
 
 func main() {
-	// =========================================================================
 	// 1. Text Handler — human-readable output
-	// =========================================================================
 	// slog.NewTextHandler writes: time=... level=INFO msg="..." key=value
 	// The first arg is the destination (os.Stdout, a file, bytes.Buffer).
 	// The second arg is options: set minimum level, add source location, etc.
@@ -54,9 +65,7 @@ func main() {
 	textLogger.Warn("high memory usage", slog.Int("mb", 3814))
 	textLogger.Error("database timeout", slog.Duration("elapsed", 5*time.Second))
 
-	// =========================================================================
 	// 2. JSON Handler — machine-readable output
-	// =========================================================================
 	// slog.NewJSONHandler writes one JSON object per line (NDJSON format).
 	// This is the format your observability platform expects in production.
 	jsonLogger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
@@ -68,9 +77,7 @@ func main() {
 		slog.Duration("latency", 42*time.Millisecond),
 	)
 
-	// =========================================================================
 	// 3. The 4 typed attribute constructors
-	// =========================================================================
 	// Use specific constructors (slog.String, slog.Int, etc.) rather than
 	// slog.Any when you know the type. Typed constructors are ~2x faster
 	// because they avoid reflect.ValueOf() calls inside slog.Any.
@@ -83,9 +90,7 @@ func main() {
 		slog.Duration("gateway_latency", 88*time.Millisecond), // duration
 	)
 
-	// =========================================================================
 	// 4. Groups — namespace related attributes
-	// =========================================================================
 	// slog.Group("request", ...) produces: request.method=GET request.path=/api/v1
 	// This prevents key collisions when logging from multiple subsystems.
 	jsonLogger.Info("http request",
@@ -100,9 +105,7 @@ func main() {
 		),
 	)
 
-	// =========================================================================
 	// 5. With — pre-loading common fields (logger.With)
-	// =========================================================================
 	// Use With() to create a child logger that includes shared fields on every
 	// subsequent log call. This is how you attach request IDs, service names,
 	// and user IDs without repeating them on every line.
@@ -115,15 +118,12 @@ func main() {
 	requestLogger.Info("order created", slog.String("order_id", "ord_001"))
 	requestLogger.Info("inventory reserved", slog.Int("units", 3))
 
-	// =========================================================================
 	// 6. slog.Default — the package-level logger
-	// =========================================================================
 	// Replace the default logger so all slog.Info() calls use your handler.
 	// This is useful when libraries use slog.Default() internally.
 	slog.SetDefault(jsonLogger.With(slog.String("service", "api-gateway")))
 	slog.Info("default logger replaced") // Now emits JSON + service field
 
-	// KEY TAKEAWAY:
 	// - slog separates record creation (call sites) from output (handler)
 	// - Use slog.TextHandler in dev, slog.JSONHandler in production
 	// - Use typed constructors (slog.String, slog.Int) not slog.Any

@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Goroutines
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/goroutines/1-goroutine
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -10,12 +30,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Concurrency — Goroutines
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What a goroutine is: a lightweight thread managed by Go's runtime
 //   - The "go" keyword: launching concurrent execution
 //   - Why time.Sleep is a BAD way to wait (and what to use instead)
@@ -40,8 +56,6 @@ import (
 //   - Goroutines are NOT parallelism — they're concurrency (tasks can interleave)
 //   - True parallelism requires multiple CPU cores (GOMAXPROCS > 1)
 //
-// RUN: go run ./07-concurrency/01-concurrency/goroutines/1-goroutine
-// ============================================================================
 
 // processOrder simulates a kitchen worker preparing a dish.
 // Each dish takes a different amount of time.

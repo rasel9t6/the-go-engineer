@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 03: Functions and Errors
+// Title: Closures - mechanics
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how closures capture variables, why that extends lifetimes, and where the loop-variable trap comes from.
+//
+// WHY THIS MATTERS:
+//   - A closure remembers variables from the scope where it was created, not just the values you expected in that moment.
+//
+// RUN:
+//   go run ./03-functions-errors/9-closures-mechanics
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 03: Functions and Errors - Closures - mechanics
 //
-// Run: go run ./03-functions-errors/9-closures-mechanics
 
 func main() {
 	fmt.Println("=== FE.9 Closures - mechanics ===")

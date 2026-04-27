@@ -1,22 +1,35 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Generic Data Structures
+// Level: Stretch
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn to build type-safe generic data structures like Stack, Queue, and Set using Go's generics.
+//
+// WHY THIS MATTERS:
+//   - Think of a reusable storage box. Without generics, you'd need separate boxes for books, clothes, and electronics. With generics, one "Box<T>" works...
+//
+// RUN:
+//   go run ./04-types-design/15-generic-data-structures
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
 
 import "fmt"
 
-// ============================================================================
-// Section 6: Types & Interfaces — Generic Data Structures
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Generic Stack implementation
 //   - Generic Queue implementation
 //   - Generic Set using map
 //
-// RUN: go run ./04-types-design/15-generic-data-structures
-// ============================================================================
 
 type Stack[T any] struct {
 	items []T

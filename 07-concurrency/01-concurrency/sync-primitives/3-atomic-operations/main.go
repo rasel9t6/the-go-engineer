@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Atomic operations
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn when lock-free atomic reads and writes are the right tool for counters, flags, and single-word state.
+//
+// WHY THIS MATTERS:
+//   - Atomics are for tiny pieces of shared state where the whole operation fits in one hardware-backed atomic step.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/3-atomic-operations
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - Atomic operations
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/3-atomic-operations
 
 func main() {
 	fmt.Println("=== SY.3 Atomic operations ===")

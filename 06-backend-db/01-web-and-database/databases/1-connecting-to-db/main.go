@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Connecting to SQLite
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/1-connecting-to-db
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -17,12 +37,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// ============================================================================
 // Stage 06: Databases — Connecting to SQLite
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Blank imports (`_`) and why drivers require them
 //   - sql.Open vs db.Ping
 //   - Handling connection pools automatically
@@ -34,8 +50,6 @@ import (
 //   LAZILY the very first time you execute a query or call `db.Ping()`.
 //   Go manages this connection pool for you implicitly in the background.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/1-connecting-to-db
-// ============================================================================
 
 var schema = `
 CREATE TABLE IF NOT EXISTS users (
@@ -91,7 +105,6 @@ func main() {
 
 	fmt.Println("✅ table was created successfully")
 
-	// KEY TAKEAWAY:
 	// - Import DB drivers with `_` to register them invisibly.
 	// - `sql.Open` is lazy. It doesn't connect until you `Ping()`.
 	// - `db.Exec` runs queries that don't return data.

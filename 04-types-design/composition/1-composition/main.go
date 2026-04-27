@@ -1,17 +1,32 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Composition
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go builds larger types from smaller reusable parts through composition.
+//
+// WHY THIS MATTERS:
+//   - Composition is a "has-a" relationship. Instead of saying one type *is* another type, Go says a type can *contain* other types as fields. Each inner...
+//
+// RUN:
+//   go run ./04-types-design/composition/1-composition
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
 import "fmt"
 
-// ============================================================================
-// Section 6: Composition & Embedding — Composition
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What composition is: building complex types from simpler ones
 //   - Composition vs Inheritance (Go chose composition, and here's why)
 //   - The "Has-A" relationship: a Car HAS an Engine (composition)
@@ -36,8 +51,6 @@ import "fmt"
 //   Composition keeps each piece independent and swappable.
 //   Go has NO class inheritance. Period. Composition is the way.
 //
-// RUN: go run ./04-types-design/composition/1-composition
-// ============================================================================
 
 // --- COMPONENT TYPES (small, focused, reusable) ---
 

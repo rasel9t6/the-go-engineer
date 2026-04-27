@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: WithTimeout and WithDeadline
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/context/3-with-timeout
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -10,12 +30,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Context — WithTimeout & WithDeadline
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - context.WithTimeout — auto-cancel after a duration
 //   - context.WithDeadline — auto-cancel at a specific time
 //   - How to use timeouts for database queries, API calls, etc.
@@ -30,8 +46,6 @@ import (
 //   deadline arrives, the runtime's timer goroutine fires the context's internal
 //   `cancel()` function, closing the Done() channel and unblocking all waiters.
 //
-// RUN: go run ./07-concurrency/01-concurrency/context/3-with-timeout
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Context: WithTimeout ===")

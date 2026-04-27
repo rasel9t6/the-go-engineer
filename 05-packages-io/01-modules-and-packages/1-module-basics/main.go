@@ -1,18 +1,33 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Module Basics
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/01-modules-and-packages/1-module-basics
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/01-modules-and-packages/1-module-basics
 package main
 
 import "fmt"
 
-// ============================================================================
 // Stage 05: Modules and Packages — Module Basics
-// Level: Beginner → Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What go.mod is and why it exists
 //   - How Go resolves import paths
 //   - The anatomy of go.mod and go.sum
@@ -26,7 +41,6 @@ import "fmt"
 // REFERENCES:
 //   - https://go.dev/blog/using-go-modules
 //   - https://go.dev/ref/mod
-// ============================================================================
 
 // GoModAnatomy explains the structure of go.mod using this repo as an example.
 //

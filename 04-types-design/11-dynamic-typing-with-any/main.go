@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Empty interface, assertions, and nil interfaces
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how `any` works, how to extract concrete types safely, and why typed nil values can still make an interface non-nil.
+//
+// WHY THIS MATTERS:
+//   - An interface value carries both a dynamic type and a dynamic value. Bugs appear when you forget that it needs both pieces.
+//
+// RUN:
+//   go run ./04-types-design/11-dynamic-typing-with-any
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 04: Types & Design - Empty interface, assertions, and nil interfaces
 //
-// Run: go run ./04-types-design/11-dynamic-typing-with-any
 
 type notifier interface {
 	Notify()

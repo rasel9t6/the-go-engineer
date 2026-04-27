@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Build Tags
+// Level: Stretch
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/01-modules-and-packages/4-build-tags
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/01-modules-and-packages/4-build-tags
 // Try also: go test -v -tags=integration ./05-packages-io/01-modules-and-packages/4-build-tags
 package main
 
@@ -11,12 +30,8 @@ import (
 	"runtime"
 )
 
-// ============================================================================
 // Stage 05: Modules & Packages — Build Tags
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - How `//go:build` constraints conditionally compile code.
 //   - How to separate platform-specific logic (Windows vs Linux).
 //   - How to isolate slow integration tests behind custom tags.
@@ -30,7 +45,6 @@ import (
 //   that a test file isn't executed during a normal `go test ./...` unless the
 //   developer explicitly opted in using `go test -tags=integration`. This keeps
 //   local testing fast by default while allowing CI to run the heavy tests.
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Build Tags Demonstration ===")

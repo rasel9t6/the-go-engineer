@@ -1,16 +1,30 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Text Templates
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go separates presentation from data with `text/template`.
+//
+// WHY THIS MATTERS:
+//   - Templates let you describe output structure separately from the data that fills it in. The flow is: 1. define a template 2. parse it 3. execute it ...
+//
+// RUN:
+//   go run ./04-types-design/strings-and-text/5-text-template
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
-// ============================================================================
-// Section 7: Strings & Text — Text Templates
-// Level: Intermediate
-// ============================================================================
 //
-// RUN: go run ./04-types-design/strings-and-text/5-text-template
-// ============================================================================
 
 import (
 	"fmt"

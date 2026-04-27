@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 03: Functions and Errors
+// Title: First-class functions
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn that functions are ordinary values in Go, which makes callbacks and higher-order helpers possible.
+//
+// WHY THIS MATTERS:
+//   - A function value is just another tool you can store, pass, and call later.
+//
+// RUN:
+//   go run ./03-functions-errors/8-first-class-functions
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 03: Functions and Errors - First-class functions
 //
-// Run: go run ./03-functions-errors/8-first-class-functions
 
 func main() {
 	fmt.Println("=== FE.8 First-class functions ===")

@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: JSON Unmarshalling
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/2-unmarshal
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -10,12 +30,8 @@ import (
 	"log"
 )
 
-// ============================================================================
 // Stage 05: Encoding — JSON Unmarshalling (JSON → Go)
-// Level: Beginner → Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - json.Unmarshal: converting JSON bytes into Go structs
 //   - How JSON fields map to struct fields via struct tags
 //   - Handling nested JSON objects with nested structs
@@ -36,8 +52,6 @@ import (
 //   dereference the memory address and directly overwrite the fields of your
 //   allocated struct in the Heap/Stack.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/2-unmarshal
-// ============================================================================
 
 // APIResponse represents the JSON response from a weather API.
 // The struct tags tell json.Unmarshal which JSON field maps to which Go field.
@@ -85,9 +99,7 @@ func main() {
 	fmt.Println("=== JSON Unmarshalling: JSON → Go ===")
 	fmt.Println()
 
-	// =====================================================================
 	// 1. Basic Unmarshalling
-	// =====================================================================
 	// json.Unmarshal(data []byte, v any) error
 	//   - data: the JSON bytes to parse
 	//   - v: a POINTER to the target variable (&variable)
@@ -112,9 +124,7 @@ func main() {
 		weather.Forecast.Summary)
 	fmt.Println()
 
-	// =====================================================================
 	// 2. Missing & Extra Fields
-	// =====================================================================
 	// MISSING JSON fields → struct field gets its ZERO VALUE
 	// EXTRA JSON fields → silently IGNORED (no error)
 	// This is a safety feature: your struct only gets what it can handle.
@@ -128,9 +138,7 @@ func main() {
 	fmt.Printf("   Wind:     %.1f (zero — not in JSON)\n", partial.WindKmH) // 0.0
 	fmt.Println()
 
-	// =====================================================================
 	// 3. Unmarshal into a map (dynamic/unknown JSON)
-	// =====================================================================
 	// When you don't know the JSON structure ahead of time,
 	// unmarshal into map[string]any. This handles any JSON shape.
 	// The values are: string, float64, bool, nil, map[string]any, []any
@@ -145,9 +153,7 @@ func main() {
 		dynamic["humidity"], dynamic["humidity"])
 	fmt.Println()
 
-	// =====================================================================
 	// 4. Round-trip: Unmarshal → modify → Marshal
-	// =====================================================================
 	// A common pattern: receive JSON, modify data, send JSON back.
 	weather.TempC = 35.0
 	weather.Condition = "Sunny"

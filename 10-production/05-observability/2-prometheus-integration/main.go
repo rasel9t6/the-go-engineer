@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 10: Production Operations
+// Title: Prometheus integration
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the scrape-based model behind Prometheus and how application metrics become time series.
+//
+// WHY THIS MATTERS:
+//   - Prometheus pulls metrics from your service on a regular interval instead of waiting for the service to push them.
+//
+// RUN:
+//   go run ./10-production/05-observability/2-prometheus-integration
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 10: Production Operations - Prometheus integration
 //
-// Run: go run ./10-production/05-observability/2-prometheus-integration
 
 func main() {
 	fmt.Println("=== OPS.2 Prometheus integration ===")

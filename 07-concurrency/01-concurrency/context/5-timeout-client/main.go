@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Timeout-Aware API Client
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small HTTP client that uses `context.WithTimeout` to enforce deadlines and fails clearly when a request takes too long. This exercise is th...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/context/5-timeout-client
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Context — Timeout-Aware API Client (Exercise)
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Attaching context.WithTimeout to HTTP requests
 //   - How context cancellation propagates to the HTTP transport layer
 //   - The production pattern: NEVER make I/O calls without a timeout
@@ -31,8 +47,6 @@ import (
 //   your application from hanging indefinitely on a slow or unresponsive server —
 //   a critical defense against cascading failures in microservice architectures.
 //
-// RUN: go run ./07-concurrency/01-concurrency/context/5-timeout-client
-// ============================================================================
 
 // fetchWithTimeout makes an HTTP GET request with a timeout context.
 // If the request doesn't complete within the timeout, it's automatically cancelled.

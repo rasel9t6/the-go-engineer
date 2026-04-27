@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Embed
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/5-embed
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/5-embed
 package main
 
 import (
@@ -11,12 +30,8 @@ import (
 	"log"
 )
 
-// ============================================================================
 // Stage 05: I/O and CLI — The embed Directive
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - //go:embed for compiling static files directly into a binary
 //   - Embedding as string, []byte, or embed.FS
 //   - Why embedding helps with single-binary deployment
@@ -25,7 +40,6 @@ import (
 //   The embed package lets Go ship assets without runtime file lookups.
 //   That is especially useful for CLIs, internal tools, and compact services
 //   that want one binary without a fragile "copy these extra files too" story.
-// ============================================================================
 
 //go:embed public/data.txt
 var greeting string

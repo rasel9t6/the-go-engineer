@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Directories
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/3-dir
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,8 @@ import (
 	"path/filepath"
 )
 
-// ============================================================================
 // Stage 05: Filesystem — Directory Operations
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - os.Mkdir / os.MkdirAll: creating directories
 //   - os.ReadDir: listing directory contents
 //   - filepath.WalkDir: recursively walking a directory tree
@@ -38,8 +54,6 @@ import (
 //   to a different folder on the same disk is instantaneous—the OS just rewrites
 //   a 16-byte inode pointer; it doesn't move any actual data!
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/3-dir
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Directory Operations ===")
@@ -53,9 +67,7 @@ func main() {
 	defer os.RemoveAll(tmpDir) // Cleanup everything when done
 	fmt.Printf("  Working in: %s\n\n", tmpDir)
 
-	// =====================================================================
 	// 1. os.MkdirAll — Create nested directory structure
-	// =====================================================================
 	// os.MkdirAll creates the directory AND all parent directories.
 	// It's like `mkdir -p` in the shell. If the directory already exists, it does nothing.
 	// Permission 0755 = owner: rwx, group: r-x, others: r-x
@@ -90,9 +102,7 @@ func main() {
 		os.WriteFile(f, []byte("// placeholder"), 0644)
 	}
 
-	// =====================================================================
 	// 2. os.ReadDir — List directory contents (non-recursive)
-	// =====================================================================
 	// os.ReadDir returns a sorted list of directory entries.
 	// Each entry has Name(), IsDir(), and Type() info.
 	fmt.Println("  2️⃣  os.ReadDir (list one level):")
@@ -111,9 +121,7 @@ func main() {
 	}
 	fmt.Println()
 
-	// =====================================================================
 	// 3. filepath.WalkDir — Recursive directory traversal
-	// =====================================================================
 	// WalkDir visits EVERY file and directory in the tree.
 	// The callback receives: path, directory entry info, and any error.
 	// This is Go's equivalent of the Unix `find` command.
@@ -143,9 +151,7 @@ func main() {
 	})
 	fmt.Println()
 
-	// =====================================================================
 	// 4. os.Stat — Check if file/directory exists
-	// =====================================================================
 	// os.Stat returns file info. If the file doesn't exist, err != nil.
 	// Use os.IsNotExist(err) to check specifically for "not found".
 	fmt.Println("  4️⃣  Check existence:")

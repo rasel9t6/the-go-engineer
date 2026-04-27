@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: gRPC Service
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small service contract that combines protobuf design, unary calls, and boundary behavior into one exercise.
+//
+// WHY THIS MATTERS:
+//   - An RPC service is just a contract plus a disciplined implementation of that contract.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/9-grpc-service-exercise
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - gRPC Service
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/9-grpc-service-exercise
 
 func main() {
 	fmt.Println("=== API.9 gRPC Service ===")

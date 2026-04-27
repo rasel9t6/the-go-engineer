@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: Enums with iota
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how Go models enum-like values with named types and `iota`.
+//
+// WHY THIS MATTERS:
+//   - Go does not have an `enum` keyword. Instead, it combines: - a named type - a `const` block - `iota` for ordered values That gives you fixed related...
+//
+// RUN:
+//   go run ./02-language-basics/3-enums
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"

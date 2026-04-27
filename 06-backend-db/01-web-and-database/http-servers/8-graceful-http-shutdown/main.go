@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Graceful HTTP shutdown
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to stop accepting new work while allowing in-flight requests to finish cleanly.
+//
+// WHY THIS MATTERS:
+//   - Graceful shutdown is a drain: stop the front door, wait for active requests, then release the process.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Graceful HTTP shutdown
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown
 
 func main() {
 	fmt.Println("=== HS.8 Graceful HTTP shutdown ===")

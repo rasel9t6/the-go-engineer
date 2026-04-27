@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Why concurrency exists
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Understand why overlapping waits is the reason concurrency exists in everyday backend code.
+//
+// WHY THIS MATTERS:
+//   - Concurrency keeps progress moving while one task is blocked on something slower than the CPU.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - Why concurrency exists
 //
-// Run: go run ./07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists
 
 func main() {
 	fmt.Println("=== GC.0 Why concurrency exists ===")

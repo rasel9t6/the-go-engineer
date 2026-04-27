@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: gRPC streaming
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how server, client, and bidirectional streams change the contract from one message to many.
+//
+// WHY THIS MATTERS:
+//   - Streaming turns one call into a long-lived message flow rather than a single request/response pair.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/6-grpc-streaming
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - gRPC streaming
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/6-grpc-streaming
 
 func main() {
 	fmt.Println("=== API.6 gRPC streaming ===")

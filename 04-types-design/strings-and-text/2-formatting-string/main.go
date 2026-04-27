@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Formatting
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how `fmt` formats values into readable strings, aligned output, and wrapped errors.
+//
+// WHY THIS MATTERS:
+//   - Formatting is template-driven output. You give `fmt`: - a format string - some values and `fmt` turns those values into text according to the verbs...
+//
+// RUN:
+//   go run ./04-types-design/strings-and-text/2-formatting-string
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,7 @@ import (
 	"time"
 )
 
-// ============================================================================
-// Section 7: Strings & Text — Formatting with fmt
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - All fmt verbs: %v, %+v, %#v, %T, %d, %f, %s, %q, %t, %p, %b, %x
 //   - fmt.Printf vs fmt.Sprintf vs fmt.Fprintf
 //   - Width and precision formatting (alignment, decimal places)
@@ -30,8 +45,6 @@ import (
 //     fmt.Printf(template, "Rasel", 25) → "Hello Rasel, you are 25 years old"
 //   Each % placeholder specifies HOW to format that argument.
 //
-// RUN: go run ./04-types-design/strings-and-text/2-formatting-string
-// ============================================================================
 
 // ServerConfig demonstrates struct formatting with different verbs.
 type ServerConfig struct {

@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Response writing patterns
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how status codes, headers, bodies, and streaming responses form one response contract.
+//
+// WHY THIS MATTERS:
+//   - A response is a contract: status explains the outcome, headers explain metadata, and the body carries the payload.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/5-response-writing-patterns
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Response writing patterns
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/5-response-writing-patterns
 
 func main() {
 	fmt.Println("=== HS.5 Response writing patterns ===")

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 10: Production Operations
+// Title: Context-Keyed Logger
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/01-structured-logging/2-context-logger
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -12,12 +31,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 10: Application Architecture - Structured Logging: Context-Keyed Logger
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Storing a logger in context so every function in a request chain can log
 //     with request-scoped fields (request_id, user_id, trace_id)
 //   - Writing HTTP middleware that injects the logger into the request context
@@ -36,9 +51,7 @@ import (
 //   Google's internal style guide mandates option 3. It integrates naturally
 //   with the context-first pattern every I/O function already follows.
 //
-// RUN: go run ./10-production/01-structured-logging/2-context-logger
 //   Then: curl http://localhost:8080/api/orders/42
-// ============================================================================
 
 // loggerKey is a private type to prevent key collisions in context.
 // Using a plain string like "logger" is a bug — any package can write
@@ -114,9 +127,7 @@ func generateRequestID() string {
 	return fmt.Sprintf("req_%06d", counter)
 }
 
-// ============================================================================
 // Handler functions — they receive the logger from context
-// ============================================================================
 
 func handleGetOrder(w http.ResponseWriter, r *http.Request) {
 	// Extract the logger anywhere in the call chain.
@@ -166,7 +177,6 @@ func main() {
 	slog.Info("server starting", slog.String("addr", ":8080"))
 	http.ListenAndServe(":8080", handler)
 
-	// KEY TAKEAWAY:
 	// - Use a private context key type to prevent collisions
 	// - FromContext() has a safe fallback — callers never need nil checks
 	// - Middleware injects the request-scoped logger into context ONCE

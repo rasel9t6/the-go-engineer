@@ -1,7 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
-// RUN: go run ./10-production/01-structured-logging/5-exercise
+// ============================================================================
+// Section 10: Production Operations
+// Title: PII Redactor
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Use `slog.HandlerOptions.ReplaceAttr` to build a logger that automatically redacts sensitive attributes before they reach the output handler. This ...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./10-production/01-structured-logging/5-exercise
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -9,9 +27,7 @@ import (
 	"os"
 )
 
-// ============================================================================
 // Stage 10: Application Architecture - Structured Logging: Exercise Solution
-// ============================================================================
 
 func main() {
 	opts := &slog.HandlerOptions{

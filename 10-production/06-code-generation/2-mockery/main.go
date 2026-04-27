@@ -1,7 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
-// RUN: go run ./10-production/06-code-generation/2-mockery
+// ============================================================================
+// Section 10: Production Operations
+// Title: Mockery Workflow
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./10-production/06-code-generation/2-mockery
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -13,12 +31,8 @@ import (
 	"github.com/rasel9t6/the-go-engineer/10-production/06-code-generation/2-mockery/internal/storage"
 )
 
-// ============================================================================
 // Stage 10: Code Generation - Mockery Workflow
-// Level: Core
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - How to use mockery for automatic mock generation
 //   - Integrating mockery with //go:generate
 //   - The benefits of mocking at the consumer's request
@@ -36,8 +50,6 @@ import (
 //     3. Run the generator: `go generate ./...`
 //     4. Use the mock: `m := new(mocks.Storer)`
 //
-// RUN: go run ./10-production/06-code-generation/2-mockery
-// ============================================================================
 
 // UserManager uses a Storer to manage users.
 type UserManager struct {

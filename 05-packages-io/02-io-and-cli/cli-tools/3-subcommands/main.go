@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Subcommands
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands
 package main
 
 import (
@@ -11,12 +30,8 @@ import (
 	"os"
 )
 
-// ============================================================================
 // Stage 05: I/O and CLI — Subcommands
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Building multi-command CLIs like git, docker, and kubectl
 //   - flag.NewFlagSet for independent flag sets per subcommand
 //   - Routing subcommands with switch on os.Args[1]
@@ -28,11 +43,9 @@ import (
 //   That keeps each command's options isolated and avoids accidental flag-name
 //   collisions across the whole tool.
 //
-// RUN:
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands greet -name="Gopher"
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands version
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands calc -a=10 -b=20
-// ============================================================================
 
 func main() {
 	if len(os.Args) < 2 {

@@ -2,20 +2,25 @@
 // Licensed under The Go Engineer License v1.0
 
 // ============================================================================
-// Section 02: Language Basics — Lesson CF.7: Pricing Checkout
+// Section 02: Language Basics
+// Title: Pricing Checkout
 // Level: Core
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Integrating switch and if/else logic
-//   - Using for loops to process collections
-//   - Managing state within a loop
+//   - Build a small checkout flow that combines branching, loops, `switch`, and `continue` into one runnable program.
 //
 // WHY THIS MATTERS:
-//   This exercise combines everything learned in the Control Flow subsystem.
+//   - This milestone is a miniature rule engine: - loop over each cart item - classify the item with `switch` - apply extra rules with `if` - skip bad da...
 //
-// RUN: go run ./02-language-basics/03-control-flow/7-pricing-checkout
+// RUN:
+//   go run ./02-language-basics/03-control-flow/7-pricing-checkout
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
 // ============================================================================
+
+//   This exercise combines everything learned in the Control Flow subsystem.
 
 package main
 
@@ -60,7 +65,6 @@ func main() {
 
 	fmt.Printf("subtotal: %.2f\n", subtotal)
 
-	// KEY TAKEAWAY:
 	// - Use switch for discrete value matching.
 	// - Use if/else for conditional logic and ranges.
 	// - Use continue to skip invalid or unhandled items in a loop.

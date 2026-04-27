@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: JSON Marshalling
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/1-marshalling
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -11,12 +31,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 05: Encoding — JSON Marshalling (Go → JSON)
-// Level: Beginner → Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - json.Marshal: converting Go structs to JSON byte slices
 //   - json.MarshalIndent: pretty-printed JSON output
 //   - Struct tags: controlling JSON field names (`json:"name"`)
@@ -39,8 +55,6 @@ import (
 //   slower than in languages with macro-based code generation (like Rust's Serde).
 //   For 99% of web APIs, this overhead is utterly negligible.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/1-marshalling
-// ============================================================================
 
 // Product represents an item in an e-commerce catalog.
 // STRUCT TAGS control how each field is serialized to JSON.
