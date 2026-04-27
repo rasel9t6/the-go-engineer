@@ -79,10 +79,13 @@ func (p *Pool) Start(ctx context.Context) error {
 		return nil
 	}
 	p.started = true
-	p.mu.Unlock()
 
 	for i := 0; i < p.workers; i++ {
 		p.wg.Add(1)
+	}
+	p.mu.Unlock()
+
+	for i := 0; i < p.workers; i++ {
 		go p.runWorker(ctx)
 	}
 
@@ -192,9 +195,7 @@ func (p *Pool) runWorker(ctx context.Context) {
 			if !ok {
 				return
 			}
-			if err := p.handler(ctx, event); err != nil && p.onError != nil {
-				p.onError(event, err)
-			}
+			p.doHandle(ctx, event)
 			continue
 		}
 
@@ -204,12 +205,28 @@ func (p *Pool) runWorker(ctx context.Context) {
 				if !ok {
 					return
 				}
-				if err := p.handler(ctx, event); err != nil && p.onError != nil {
-					p.onError(event, err)
-				}
+				p.doHandle(ctx, event)
 			default:
 				return
 			}
 		}
+	}
+}
+
+func (p *Pool) doHandle(ctx context.Context, event events.Event) {
+	defer func() {
+		if r := recover(); r != nil {
+			err, ok := r.(error)
+			if !ok {
+				err = fmt.Errorf("panic: %v", r)
+			}
+			if p.onError != nil {
+				p.onError(event, err)
+			}
+		}
+	}()
+
+	if err := p.handler(ctx, event); err != nil && p.onError != nil {
+		p.onError(event, err)
 	}
 }
