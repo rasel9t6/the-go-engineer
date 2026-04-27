@@ -2,7 +2,28 @@
 
 All notable changes to The Go Engineer are documented here.
 
-Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Removed`.
+Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Removed`, `Security`.
+
+---
+
+## [Unreleased] - Documentation and Workflow Alignment
+
+### Added
+
+- Added `AGENTS.md` as the repository operating contract for repeatable maintenance work.
+- Added pull request and issue templates for consistent workflow metadata.
+- Added repo-specific workflow helper files under `.agents/skills/`.
+- Added closed-loop PR handling guidance for review findings, conversation threads, and readiness handoff.
+
+### Changed
+
+- Standardized issue, commit, PR, and release naming around bracketed types: `[FEAT]`, `[FIX]`, `[DOCS]`, `[TEST]`, `[CHORE]`, `[REFACTOR]`, `[SECURITY]`, and `[RELEASE]`.
+- Updated release documentation for the current v2.1.x maintenance model.
+- Replaced migration-era wording with post-v2.1 lesson-authoring and maintenance wording.
+- Aligned validation instructions with the current CI workflow.
+- Updated stale benchmark and example paths in maintainer-facing docs.
+- Clarified that final squash-merge remains maintainer-only.
+- Added project and milestone tracking requirements for issues and PRs.
 
 ---
 
@@ -11,10 +32,10 @@ Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Remove
 ### Changed
 
 - **Curriculum Architecture Consolidation:** Optimized the drafted 21-section blueprint into a highly focused **12-Section (s00–s11)** model to reduce cognitive overhead and improve the learning progression.
-- **Documentation Alignment:** Achieved 100% alignment across all core documentation (`ARCHITECTURE.md`, `ROADMAP.md`, `CODE-STANDARDS.md`, `COMMON-MISTAKES.md`) and satellite documentation (`README.md`, `LEARNING-PATH.md`, `CURRICULUM-BLUEPRINT.md`, `TESTING-STANDARDS.md`, `CONTRIBUTING.md`, `MAINTAINER-CHECKLIST.md`, `docs/PROGRESSION.md`).
+- **Documentation Alignment:** Aligned core documentation (`ARCHITECTURE.md`, `ROADMAP.md`, `CODE-STANDARDS.md`, `COMMON-MISTAKES.md`) and satellite documentation (`README.md`, `LEARNING-PATH.md`, `CURRICULUM-BLUEPRINT.md`, `TESTING-STANDARDS.md`, `CONTRIBUTING.md`, `MAINTAINER-CHECKLIST.md`, `docs/PROGRESSION.md`) with the v2.1 structure.
 - **Teaching Contract:** Formalized the `README`-first, `main.go`-second pedagogical contract. Every lesson now strictly requires Mission, Prerequisites, Mental Model, Visual Model, Machine View, Try It, In Production, and Thinking Questions.
-- **AI Automation Skills:** Rewrote internal AI skills (`github-workflow` and `migration`) to strictly enforce the v2.1 12-section GitHub workflow and template requirements.
-- **Next Up Navigation:** Upgraded terminal footers to output natively clickable paths (e.g., `Run: go run ./01-getting-started/2-hello-world`) for seamless navigation in VS Code and modern terminals.
+- **Workflow Helpers:** Reworked internal workflow helper files to enforce the v2.1 12-section GitHub workflow and template requirements.
+- **Next Up Navigation:** Upgraded terminal footers to output natively clickable paths (for example, `Run: go run ./01-getting-started/2-hello-world`) for seamless navigation in VS Code and modern terminals.
 
 ### Removed
 
@@ -26,13 +47,13 @@ Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Remove
 
 ### Added
 
-- **Strict GitHub Workflow:** Officially documented and enforced the Antigravity `github-workflow` skill across `CONTRIBUTING.md` and `MAINTAINER-CHECKLIST.md`. All future changes now require approved Issues linked to the v2 project board before drafting PRs.
+- **Strict GitHub Workflow:** Officially documented and enforced the `github-workflow` helper across `CONTRIBUTING.md` and `MAINTAINER-CHECKLIST.md`. All future changes now require approved issues linked to the v2 project board before drafting PRs.
 
 ### Changed
 
 - **Curriculum Architecture Shift:** Fully transitioned all repository documentation from the legacy 11-stage model to the new **5-Phase, 21-Section Blueprint**.
-- **Code Standards:** Added formal guidelines for the v2 three-tier Error Framework (`UserError`, `SystemError`, `FatalError`), Context propagation, Generics, and Security practices.
-- **Testing Standards:** Updated the coverage matrix to map against the 21 sections and explicitly added required Fuzz Testing and API/gRPC testing standards.
+- **Code Standards:** Added formal guidelines for the v2 three-tier Error Framework (`UserError`, `SystemError`, `FatalError`), context propagation, generics, and security practices.
+- **Testing Standards:** Updated the coverage matrix to map against the 21 sections and explicitly added required fuzz testing and API/gRPC testing standards.
 - **Reference Remapping:** Remapped all "Common Mistakes" cross-references to point to the correct sections in the new 21-section blueprint.
 
 ### Removed
@@ -98,7 +119,7 @@ Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Remove
 
 ### Removed
 
-- DELETED the legacy compatibility `symlinks` from the repository root entirely!
+- Deleted the legacy compatibility `symlinks` from the repository root entirely.
 
 ---
 
@@ -126,9 +147,9 @@ Format: **[Date] - Description**. Sections: `Added`, `Fixed`, `Changed`, `Remove
 
 ### Changed
 
-- `go.mod` and Dockerfiles now correctly declare `go 1.26` (was previously correct - this entry confirms it intentionally targets Go 1.26 stable)
-- README exercise table updated to include all new sections 23-27
-- README Windows CGO note added for `go-sqlite3` dependency
+- `go.mod` and Dockerfiles now correctly declare `go 1.26` (this entry confirms it intentionally targets Go 1.26 stable).
+- README exercise table updated to include all new sections 23-27.
+- README Windows CGO note added for `go-sqlite3` dependency.
 
 ---
 
