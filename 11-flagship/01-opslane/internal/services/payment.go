@@ -117,12 +117,13 @@ func (s *PaymentService) ProcessPayment(ctx context.Context, job paymentflow.Job
 		if !samePaymentTarget(existing, normalized) {
 			return ProcessPaymentResult{}, ErrInvalidPayment
 		}
-		if existing.Status != models.PaymentStatusPending {
-			return ProcessPaymentResult{Payment: existing, Created: false}, nil
-		}
-		return s.chargeGateway(ctx, existing, false)
+		return ProcessPaymentResult{Payment: existing, Created: false}, nil
 	case !errors.Is(err, sql.ErrNoRows):
 		return ProcessPaymentResult{}, fmt.Errorf("lookup payment by provider reference: %w", err)
+	}
+
+	if order.Status != models.OrderStatusPending {
+		return ProcessPaymentResult{}, fmt.Errorf("order is not in a state that accepts new payments: current status %s", order.Status)
 	}
 
 	payment := models.Payment{
@@ -145,10 +146,7 @@ func (s *PaymentService) ProcessPayment(ctx context.Context, job paymentflow.Job
 			if !samePaymentTarget(existing, normalized) {
 				return ProcessPaymentResult{}, ErrInvalidPayment
 			}
-			if existing.Status != models.PaymentStatusPending {
-				return ProcessPaymentResult{Payment: existing, Created: false}, nil
-			}
-			return s.chargeGateway(ctx, existing, false)
+			return ProcessPaymentResult{Payment: existing, Created: false}, nil
 		}
 		return ProcessPaymentResult{}, fmt.Errorf("create payment: %w", err)
 	}
