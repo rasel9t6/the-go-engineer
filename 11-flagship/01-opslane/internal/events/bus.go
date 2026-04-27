@@ -106,15 +106,19 @@ func (b *Bus) Publish(ctx context.Context, event Event) error {
 	select {
 	case <-b.closed:
 		return ErrBusClosed
+	case <-ctx.Done():
+		return ctx.Err()
 	default:
 		// Proceed to try sending with context
 	}
 
-	// Try to send the event with context, prioritizing closed signal
+	// Try to send the event with context, prioritizing closed signal and context cancellation
 	for {
 		select {
 		case <-b.closed:
 			return ErrBusClosed
+		case <-ctx.Done():
+			return ctx.Err()
 		default:
 		}
 
