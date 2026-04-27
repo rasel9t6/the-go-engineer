@@ -59,6 +59,13 @@ func (b *Bus) TryPublish(event Event) error {
 	}
 	b.mu.RUnlock()
 
+	// Check closed signal before attempting send
+	select {
+	case <-b.closed:
+		return ErrBusClosed
+	default:
+	}
+
 	prepared, err := b.prepare(event)
 	if err != nil {
 		return err
@@ -140,6 +147,14 @@ func (b *Bus) Close() {
 func (b *Bus) prepare(event Event) (Event, error) {
 	if event.Type == "" || event.TenantID <= 0 {
 		return Event{}, ErrInvalidEvent
+	}
+
+	if event.Metadata != nil {
+		metadataCopy := make(map[string]string, len(event.Metadata))
+		for k, v := range event.Metadata {
+			metadataCopy[k] = v
+		}
+		event.Metadata = metadataCopy
 	}
 
 	return event.WithOccurredAt(b.now().UTC()), nil
