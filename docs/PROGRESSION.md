@@ -1,7 +1,10 @@
 # The Go Engineer Visual Progression
 
-> This document visualizes the learner journey through the v2.1 curriculum.
-> Section IDs and milestones here must match [ARCHITECTURE.md](../ARCHITECTURE.md).
+This document visualizes the learner journey through the v2.1 curriculum.
+
+Section IDs and milestones here must match [ARCHITECTURE.md](../ARCHITECTURE.md) and `curriculum.v2.json`.
+
+This is a visualization only. If milestone names or IDs conflict with `ARCHITECTURE.md` or `curriculum.v2.json`, those files win.
 
 ## Phase Progression
 
@@ -34,11 +37,11 @@ flowchart LR
 
 | Phase | Learner Shift | Engineering Weight |
 | --- | --- | --- |
-| Phase 0 | "I understand what the machine is doing." | low but concrete |
-| Phase 1 | "I can read and write Go intentionally." | growing |
-| Phase 2 | "I can build systems that behave predictably." | high |
-| Phase 3 | "I can design, secure, and operate systems." | very high |
-| Phase 4 | "I can integrate everything into one production-shaped system." | full |
+| Phase 0 | “I understand what the machine is doing.” | low but concrete |
+| Phase 1 | “I can read and write Go intentionally.” | growing |
+| Phase 2 | “I can build systems that behave predictably.” | high |
+| Phase 3 | “I can design, secure, and operate systems.” | very high |
+| Phase 4 | “I can integrate everything into one production-shaped system.” | full |
 
 ## Key Milestones
 

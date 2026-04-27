@@ -1,71 +1,155 @@
 # Contributing to The Go Engineer
 
-Thank you for your interest in contributing! This guide will help you get started.
+Thank you for your interest in contributing. This guide explains the required workflow and quality bar.
 
 ## Quick Links
 
-- **[Architecture Blueprint](./ARCHITECTURE.md)** — The 12-section v2.1 structure (source of truth)
-- **[Curriculum Blueprint](./CURRICULUM-BLUEPRINT.md)** — Teaching and lesson contract standards
-- **[Code Quality Standards](./CODE-STANDARDS.md)** — Code style and engineering best practices
-- **[Testing Standards](./TESTING-STANDARDS.md)** — How to write tests
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — the locked v2.1 12-section source of truth
+- [CURRICULUM-BLUEPRINT.md](./CURRICULUM-BLUEPRINT.md) — teaching and lesson contract
+- [CODE-STANDARDS.md](./CODE-STANDARDS.md) — Go style, headers, comments, and review standards
+- [TESTING-STANDARDS.md](./TESTING-STANDARDS.md) — test and verification expectations
 
-## Getting Started
+## Architecture Rule
 
-```bash
-# Clone the repository
-git clone https://github.com/rasel9t6/the-go-engineer.git
-cd the-go-engineer
+The v2.1 architecture is locked. Contributions should deepen the existing 12 sections, not redesign the public structure.
 
-# Verify your environment
-go version
-go test ./...
+Do not add, remove, rename, or reorder public root sections unless the maintainer explicitly approves reopening architecture.
+
+## Strict GitHub Workflow
+
+All contributors and maintainers follow the same workflow.
+
+The workflow is closed-loop: implementation is not complete until review findings, CI failures, and PR conversation threads are handled. The final squash-merge remains maintainer-only.
+
+### 1. Create or confirm an issue first
+
+Never start implementation work without an approved issue.
+
+The issue must include:
+
+- affected section: `s00` through `s11`, if applicable
+- affected lesson IDs, if applicable
+- expected files or folders
+- validation plan
+- risk notes
+
+Issue title format:
+
+```text
+[TYPE] short description
 ```
 
----
+Allowed issue types:
 
-## The Strict GitHub Workflow
+```text
+[FEAT] [FIX] [DOCS] [TEST] [CHORE] [REFACTOR] [SECURITY] [RELEASE]
+```
 
-To maintain a high standard of quality, all contributors (including maintainers) MUST follow this workflow:
+Examples:
 
-### 1. Create an Issue First
+```text
+[FEAT] add SY.1 sync.Mutex lesson
+[FIX] correct SQL injection example in DB.3
+[DOCS] align ROADMAP.md with v2.1 final status
+[TEST] add TE.4 benchmark coverage
+[CHORE] tighten curriculum validator
+```
 
-Never start coding without an approved issue.
+### 2. Branch from the correct line
 
-- Ensure the issue maps to a specific gap or lesson in the 12-section architecture.
-- Add labels, assign yourself, and add the issue to the **"The Go Engineer v2"** project.
-- A maintainer must approve the issue before work begins.
+Long-lived branches:
 
-### 2. Branch from `main`
+- `main`: post-v2.1 implementation line
+- `release/v1`: stable v1 maintenance line
+- `release/v2`: stable v2.1.x maintenance line
 
-The repository uses long-lived branches for supported major versions.
+For normal v2.1 work:
 
-- `main`: active v2 development and the default target for new work.
-- `release/v1`: stable v1 maintenance for bug fixes and support updates.
+```bash
+git switch main
+git pull origin main
+git switch -c <branch-name>
+```
 
-Create short-lived topic branches from `main` (for v2 work):
+Branch naming:
 
-- `feat/...` for new sections or lessons
-- `fix/...` for bug fixes
-- `docs/...` or `chore/...` for documentation and tooling
+| Pattern | Use |
+| --- | --- |
+| `feat/sNN-lesson-slug` | new lesson or lesson expansion |
+| `fix/sNN-description` | bug fix in a section |
+| `docs/document-or-section` | documentation-only change |
+| `test/sNN-description` | test-only improvement |
+| `chore/tooling-description` | tooling, CI, dependencies |
+| `release/vX.Y.Z-prep` | release metadata work |
 
-### 3. Open a Draft PR
+### 3. Open a draft PR early
 
-As soon as you push your branch, open a Draft Pull Request linking to the issue (`Closes #123`).
+Open a draft PR after the first push. Link the issue with `Closes #<issue>`.
 
-### 4. Logical Commits
+The PR should include:
 
-Make logical, atomic commits. Do not lump unrelated formatting changes in with feature logic.
+- scope
+- affected section and lesson IDs
+- validation commands run
+- risk notes
+- screenshots or output when useful
 
-### 5. Final CI & Review
+### 4. Keep commits logical
 
-Ensure the CI pipeline passes. Once ready, mark the PR as ready for review.
-Maintainers will use **Squash and Merge** to merge your PR into `main`.
+Use bracketed commit messages:
 
----
+```text
+[TYPE] short imperative description
+```
 
-## Code Style
+Examples:
 
-### Every Go Lesson File Must Follow This Template
+```text
+[FEAT] add SY.1 sync.Mutex lesson
+[TEST] add SY.1 race-focused tests
+[DOCS] update s07 section map
+[FIX] scope DB.3 example query by tenant id
+[CHORE] align local verification with CI
+```
+
+Keep unrelated formatting changes out of feature commits.
+
+### 5. Verify locally before review
+
+Run the CI-equivalent checks:
+
+```bash
+go build ./...
+go vet ./...
+unformatted=$(gofmt -l .); test -z "$unformatted" || (echo "$unformatted" && exit 1)
+go mod tidy
+git diff --exit-code -- go.mod go.sum
+go test ./...
+go test -race ./...
+go test -coverprofile=coverage.out ./...
+go run ./scripts/validate_curriculum.go
+```
+
+For benchmark-related changes:
+
+```bash
+go test -bench=. -benchmem -count=1 ./08-quality-test/01-quality-and-performance/testing/benchmarks/
+```
+
+### 6. Final review and merge
+
+When ready:
+
+- mark the PR ready for review
+- wait for maintainer review
+- use **Squash and Merge**
+- do not self-merge unless the maintainer explicitly approves it for that PR
+
+The final squash commit should also use the bracketed format.
+
+## Lesson File Template
+
+Every Go lesson file must follow the standard header and footer contract.
 
 ```go
 // Copyright (c) 2026 Rasel Hossen
@@ -91,102 +175,75 @@ package main
 import "fmt"
 
 func main() {
-    // Your code with inline comments explaining every concept
-    fmt.Println("Hello")
+	// Your code with inline comments explaining every concept.
+	fmt.Println("Hello")
 
-    // KEY TAKEAWAY:
-    // - Summary point 1
-    // - Summary point 2
-    fmt.Println()
-    fmt.Println("---------------------------------------------------")
-    fmt.Println("NEXT UP: XY.N next-lesson-slug")
-    fmt.Println("Run    : go run ./NN-section-slug/N-next-lesson-slug")
-    fmt.Println("Current: XY.N (current-lesson-slug)")
-    fmt.Println("---------------------------------------------------")
+	// KEY TAKEAWAY:
+	// - Summary point 1
+	// - Summary point 2
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
+	fmt.Println("NEXT UP: XY.N next-lesson-slug")
+	fmt.Println("Run    : go run ./NN-section-slug/N-next-lesson-slug")
+	fmt.Println("Current: XY.N current-lesson-slug")
+	fmt.Println("---------------------------------------------------")
 }
 ```
 
-**NEXT UP footer format:** Must use `NEXT UP:` (without emoji) followed by the exact item ID and slug from `curriculum.v2.json`. The validator checks this format with the pattern `NEXT UP:\s*([A-Z]{2,6}\.\d+)`.
+`NEXT UP:` must use this exact text with no emoji. It must match `curriculum.v2.json`.
 
-### Comment Guidelines
+## Comment Guidelines
 
-1. **Every non-obvious line gets a comment** — This is a teaching repo, not a production codebase
-2. **Explain WHY, not WHAT** — `// Increment i` is useless. `// Move to the next element because...` teaches
-3. **Use block comments for concepts** — Multi-line `//` comments above code blocks to explain the concept before showing the code
-4. **Include KEY TAKEAWAY** — Every `main()` function should end with a KEY TAKEAWAY summary
-5. **Cross-reference lessons** — Use the lesson ID format: _(Context cancellation is covered in CT.3.)_
+1. Explain why, not obvious what.
+2. Use comments to teach non-obvious behavior, traps, and runtime implications.
+3. Cross-reference lessons with lesson IDs where helpful.
+4. Keep source files readable; the README remains the primary teaching surface.
+5. End `main()` with a `KEY TAKEAWAY` and the standard footer where applicable.
 
-### Formatting Rules
+## Adding a Lesson
 
-- Run `go fmt ./...` on every file
-- Run `go vet ./...` before committing
-
----
-
-## Section Numbering
-
-- Sections are numbered `s00–s11` according to `ARCHITECTURE.md`.
-- Lessons within a section use their subsystem ID prefix (e.g., HC, GT, LB, CF, DS, FE, etc.).
-- Exercises are the LAST item in their subsystem group.
-
-## Adding a New Lesson
-
-1. Ensure an Issue is open and approved.
-2. Create the directory: `NN-section-slug/N-lesson-slug/`
-3. Create the `README.md` following the Lesson README Contract (see `ARCHITECTURE.md`).
-4. Create `main.go` following the template above.
-5. Register the lesson in `curriculum.v2.json`.
-6. Update the section's root `README.md` with the new lesson.
-7. Verify locally: `go run ./scripts/validate_curriculum.go && go test ./... && go vet ./...`
-8. Push and request review.
+1. Confirm an approved issue.
+2. Create the lesson directory inside the existing section.
+3. Write `README.md` first using the lesson contract.
+4. Write `main.go` using the standard source contract.
+5. Add tests and starter code when the item is an exercise.
+6. Register the item in `curriculum.v2.json`.
+7. Update the section README.
+8. Run validation.
 
 ## Adding an Exercise
 
-Exercises include both complete solutions and starter stubs:
+Exercises usually include:
 
 ```text
 NN-section-slug/
 └── N-exercise-name/
-    ├── README.md            ← Exercise requirements and walkthrough
-    ├── main.go              ← Complete solution with comments
-    ├── main_test.go         ← Tests that verify the solution
+    ├── README.md
+    ├── main.go
+    ├── main_test.go
     └── _starter/
-        └── main.go          ← TODO stubs for self-challenge
+        └── main.go
 ```
 
-The `_starter/main.go` should:
-
-1. Have the same file header and requirements checklist.
-2. Contain function signatures with `// TODO: implement this` bodies.
-3. Compile successfully (return zero-values from stubs).
-4. Print a message directing students to the requirements.
-
----
-
-## Commit Messages
-
-Use clear, descriptive commit messages:
-
-```text
-feat(s07): add SY.1 sync.Mutex lesson
-fix(s06): correct SQL injection example in DB.3
-docs: update ROADMAP.md to match ARCHITECTURE.md v2.1
-chore: update CI workflow for staticcheck
-```
-
----
+The `_starter/main.go` file must compile successfully and contain clear TODO markers.
 
 ## Quality Checklist
 
-Before submitting your PR for final review, verify:
+Before final review:
 
-- [ ] `go build ./...` passes
-- [ ] `go vet ./...` passes
-- [ ] `go test ./...` passes
-- [ ] `go fmt ./...` shows no diff
-- [ ] `go run ./scripts/validate_curriculum.go` passes
-- [ ] Every new Go file has the standard header template and NEXT UP footer
-- [ ] Every concept has inline teaching comments
-- [ ] The section README is updated
-- [ ] The lesson is registered in `curriculum.v2.json`
-- [ ] CI pipeline passes on GitHub Actions
+- [ ] Architecture v2.1 remains intact.
+- [ ] `curriculum.v2.json` is updated for lesson changes.
+- [ ] Section README is updated when needed.
+- [ ] Lesson README follows the required section order.
+- [ ] Run commands work exactly as printed.
+- [ ] Tests prove behavior where behavior should be provable.
+- [ ] Starter code compiles.
+- [ ] `NEXT UP:` footer matches curriculum metadata.
+- [ ] `go build ./...` passes.
+- [ ] `go vet ./...` passes.
+- [ ] gofmt check passes.
+- [ ] `go mod tidy` produces no `go.mod` or `go.sum` diff.
+- [ ] `go test ./...` passes.
+- [ ] `go test -race ./...` passes.
+- [ ] `go run ./scripts/validate_curriculum.go` passes.
+- [ ] CI passes on GitHub.

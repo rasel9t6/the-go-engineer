@@ -10,6 +10,10 @@ architecture, and operations.
 
 This is not a tutorial capstone. It is an integration and judgment capstone.
 
+## Source of Truth
+
+This document is the source of truth for s11 Opslane flagship implementation and review.
+
 ---
 
 ## Product Framing
@@ -90,6 +94,21 @@ flowchart TD
 - Keep this as a modular monolith first.
 - Preserve boundaries that would let us split services later.
 - Prefer explicit interfaces and clear ownership over premature service extraction.
+
+---
+
+## Review Gates
+
+Any PR touching Opslane must be checked for:
+
+- tenant isolation
+- authentication and authorization
+- order/payment state transitions
+- idempotency
+- bounded worker behavior
+- graceful shutdown
+- observability
+- secret handling
 
 ---
 

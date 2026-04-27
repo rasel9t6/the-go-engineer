@@ -1,7 +1,8 @@
 # The Go Engineer Learning Path
 
-> This guide explains how to move through the v2.1 curriculum.
-> The source of truth for structure and section ownership is [ARCHITECTURE.md](./ARCHITECTURE.md).
+This guide explains how to move through the v2.1 curriculum.
+
+The source of truth for structure and section ownership is [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## The 5 Phases
 
@@ -26,7 +27,7 @@ Best for:
 Rule:
 
 - follow the 12 sections in order (`s00` -> `s11`)
-- complete each section's proof surface
+- complete each section proof surface
 - do not skip repetition by default
 
 ### Bridge Path
@@ -40,7 +41,7 @@ Rule:
 
 - keep the same section order
 - skim setup repetition where appropriate
-- do not skip proof surfaces just because the syntax feels familiar
+- do not skip proof surfaces just because syntax feels familiar
 
 Suggested route:
 
@@ -56,13 +57,13 @@ Best for:
 
 - working Go developers
 - learners strengthening one weak area
-- learners returning to improve a specific skill without replaying everything
+- learners returning to improve a specific skill
 
 Rule:
 
 - choose one phase or section intentionally
-- check its prerequisites honestly
-- complete that section's proof surface before claiming mastery
+- check prerequisites honestly
+- complete that section proof surface before claiming mastery
 
 ## Recommended Entry Points
 
@@ -82,8 +83,8 @@ Rule:
 Fast paths are allowed. Proof is not optional.
 
 - **Full Path**: complete every required milestone and section proof surface
-- **Bridge Path**: complete the important proof surfaces even if you skim repetition
-- **Targeted Path**: complete the chosen section's proof surface before claiming mastery
+- **Bridge Path**: complete important proof surfaces even if you skim repetition
+- **Targeted Path**: complete the chosen section proof surface before claiming mastery
 
 ## Companion Docs
 
@@ -92,9 +93,9 @@ Fast paths are allowed. Proof is not optional.
 | [README.md](./README.md) | project overview and quick start |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | curriculum source of truth |
 | [CURRICULUM-BLUEPRINT.md](./CURRICULUM-BLUEPRINT.md) | teaching contract and README-first standard |
-| [ROADMAP.md](./ROADMAP.md) | beta completion and RC priorities |
+| [ROADMAP.md](./ROADMAP.md) | post-v2.1 focus, maintenance status, and implementation priorities |
 | [docs/PROGRESSION.md](./docs/PROGRESSION.md) | milestone progression and stage overview |
 
 ## Bottom Line
 
-Choose the phase that matches your real background, read the section `README.md` first, then run the linked code and complete the proof surfaces.
+Choose the phase that matches your real background, read the section `README.md` first, run the linked code, and complete the proof surfaces.
