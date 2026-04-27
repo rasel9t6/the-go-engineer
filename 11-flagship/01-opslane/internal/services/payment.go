@@ -172,12 +172,16 @@ func (s *PaymentService) ReconcilePayment(ctx context.Context, input ReconcilePa
 		return models.Payment{}, ErrInvalidPayment
 	}
 
-	_, err := s.payments.GetPaymentByProviderReference(ctx, input.TenantID, input.ProviderReference)
+	currentPayment, err := s.payments.GetPaymentByProviderReference(ctx, input.TenantID, input.ProviderReference)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return models.Payment{}, ErrPaymentNotFound
 		}
 		return models.Payment{}, fmt.Errorf("lookup payment by provider reference: %w", err)
+	}
+
+	if isFinalPaymentStatus(currentPayment.Status) && !isFinalPaymentStatus(input.Status) {
+		return models.Payment{}, fmt.Errorf("cannot downgrade payment from %s to %s", currentPayment.Status, input.Status)
 	}
 
 	updated, err := s.payments.UpdatePaymentStatus(ctx, input.TenantID, input.ProviderReference, input.Status, input.FailureReason)
@@ -273,6 +277,11 @@ func (s *PaymentService) syncPaymentToOrder(ctx context.Context, payment models.
 		return nil
 	}
 
+	currentOrder, err := s.orders.GetOrderByID(ctx, payment.TenantID, payment.OrderID)
+	if err != nil {
+		return fmt.Errorf("refresh order for sync: %w", err)
+	}
+
 	desiredOrderStatus := func() models.OrderStatus {
 		switch payment.Status {
 		case models.PaymentStatusSettled:
@@ -288,15 +297,15 @@ func (s *PaymentService) syncPaymentToOrder(ctx context.Context, payment models.
 		return nil
 	}
 
-	if order.Status == desiredOrderStatus {
+	if currentOrder.Status == desiredOrderStatus {
 		return nil
 	}
 
-	if order.Status != models.OrderStatusProcessing {
+	if currentOrder.Status != models.OrderStatusProcessing {
 		return nil
 	}
 
-	_, err := s.orderWorkflow.TransitionOrder(ctx, TransitionOrderRequest{
+	_, err = s.orderWorkflow.TransitionOrder(ctx, TransitionOrderRequest{
 		TenantID: payment.TenantID,
 		OrderID:  payment.OrderID,
 		Status:   desiredOrderStatus,
@@ -349,4 +358,13 @@ func normalizeGatewayError(err error) error {
 		return paymentflow.ErrGatewayUnavailable
 	}
 	return err
+}
+
+func isFinalPaymentStatus(status models.PaymentStatus) bool {
+	switch status {
+	case models.PaymentStatusSettled, models.PaymentStatusFailed, models.PaymentStatusRefunded:
+		return true
+	default:
+		return false
+	}
 }
