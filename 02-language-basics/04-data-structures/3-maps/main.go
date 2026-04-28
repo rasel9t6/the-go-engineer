@@ -65,5 +65,6 @@ func main() {
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.4 pointers")
 	fmt.Println("Current: DS.3 (maps)")
+	fmt.Println("Previous: DS.2 (slices)")
 	fmt.Println("---------------------------------------------------")
 }

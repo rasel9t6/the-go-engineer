@@ -60,5 +60,6 @@ func main() {
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.2 slices")
 	fmt.Println("Current: DS.1 (arrays)")
+	fmt.Println("Previous: CF.7 (pricing-checkout)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -18,6 +18,8 @@ The learner already knows single values. Now they need to understand what happen
 
 Arrays are the foundation for this. They show that Go has fixed-size collections, which introduces the critical concept: what gets copied and what gets shared.
 
+> **Backward Reference:** In the final Control Flow lesson, [Lesson 7: Pricing Checkout](../../03-control-flow/7-pricing-checkout/README.md), you iterated over a slice of items. Before we dive into dynamic slices, we must first understand the fundamental fixed-size Array that sits underneath them.
+
 ## Prerequisites
 
 - Section entry for `02-language-basics/04-data-structures`
@@ -138,6 +140,8 @@ These prove that the original array stayed `[10 20 30]` while the copied array b
 `[99 20 30]`.
 
 That is the real lesson outcome.
+
+> **Forward Reference:** Now that you understand that Arrays are fixed-size and copy-by-value, you will see exactly why Go provides a more dynamic tool for everyday use in the next lesson, [Lesson 2: Slices](../2-slices/README.md).
 
 ## Try It
 

@@ -61,5 +61,6 @@ func main() {
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.3 maps")
 	fmt.Println("Current: DS.2 (slices)")
+	fmt.Println("Previous: DS.1 (arrays)")
 	fmt.Println("---------------------------------------------------")
 }

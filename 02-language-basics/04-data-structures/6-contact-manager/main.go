@@ -98,5 +98,6 @@ func main() {
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("SECTION COMPLETE: DS.6 contact-directory")
 	fmt.Println("NEXT UP: FE.1 functions")
+	fmt.Println("Previous: DS.5 (slices-2)")
 	fmt.Println("---------------------------------------------------")
 }
