@@ -62,6 +62,17 @@ Your finished solution should:
 - keep unreadable files from crashing the full search
 - pass the provided tests
 
+## In Production
+
+Log searching is a daily operational activity. When a production incident occurs at 3 AM, the first response is almost always "search the logs." Tools like `grep`, `ripgrep`, and centralized log platforms (Elasticsearch, Loki, CloudWatch) all implement the same core pattern this exercise teaches: walk a directory, filter by file type, scan line by line, and report matches with context. The line-by-line streaming approach matters because production log files can be gigabytes in size — loading an entire file into memory with `os.ReadFile` would crash the search tool or the host machine. The `bufio.Scanner` pattern keeps memory usage constant regardless of file size. In real systems, you would also need to handle rotated logs (`.log.1`, `.log.gz`), binary files that should be skipped, and encoding issues in logs written by different services. The ability to build a reliable file-scanning tool from standard library primitives — without external dependencies — is a skill that transfers directly to production debugging.
+
+## Thinking Questions
+
+1. Why does `bufio.Scanner` use a fixed-size buffer, and what happens when a log line exceeds that buffer size?
+2. How would you extend this tool to search compressed `.gz` log files without extracting them to disk first?
+3. What are the trade-offs between searching logs locally with a tool like this versus shipping them to a centralized logging platform?
+4. If you need to search 100 GB of log files quickly, what concurrency strategy would you use and what bottleneck would you hit first — CPU or disk I/O?
+
 ## Next Step
 
 After you complete this exercise, continue to [`FS.8` fs.FS testing seam](../8-fs-testing-seam)

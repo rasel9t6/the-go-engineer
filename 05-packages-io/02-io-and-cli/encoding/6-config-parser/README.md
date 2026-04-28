@@ -62,6 +62,17 @@ Your finished solution should:
 - use `%w` when wrapping lower-level errors
 - pass the provided tests
 
+## In Production
+
+Configuration parsing is one of the first things that runs when a production service starts, and it is one of the most common sources of startup failures. A misconfigured JSON file — a missing comma, a wrong type, or an absent required field — can prevent an entire fleet of servers from booting after a deploy. Production config loaders validate aggressively on startup so that bad configuration fails fast and loudly, rather than silently producing wrong behavior at runtime. The distinction between "file not found," "invalid JSON syntax," and "valid JSON but missing required fields" matters because each failure points to a different operational fix: a missing file means a deployment packaging error, invalid JSON means a human editing mistake, and missing fields mean the config schema changed without updating all environments. Teams that wrap errors properly at each layer — as this exercise teaches with `%w` — can trace the root cause from a single log line instead of guessing.
+
+## Thinking Questions
+
+1. Why is it important to validate config fields after parsing rather than relying on zero values to signal "not set"?
+2. If your service reads config from both a file and environment variables, which source should take precedence and why?
+3. How would you handle config changes that need to take effect without restarting the service?
+4. What risks does `json.NewDecoder` introduce compared to `json.Unmarshal` when reading from an untrusted source?
+
 ## Next Step
 
 After you complete this exercise, continue to the [Filesystem track](../../filesystem) or back to

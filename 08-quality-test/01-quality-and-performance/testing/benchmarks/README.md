@@ -25,6 +25,17 @@ You should be able to:
 - explain why benchmark setup should stay outside the timed region
 - compare two approaches without confusing correctness tests with performance tests
 
+## In Production
+
+Performance assumptions are dangerous until they are measured. In production, small inefficiencies in a hot path — such as a tight loop that processes millions of events per second — can compound into significant infrastructure costs and latency spikes. `testing.B` is the standard tool Go engineers use to prove that an optimization actually works before merging it. However, micro-benchmarks can be misleading if they do not reflect production data distributions. For example, a lookup function might be fast for 10 items but degrade exponentially at 10,000 items. The `-benchmem` flag is particularly critical because in Go, memory allocation pressure (tracked by `allocs/op`) is often the hidden cause of high CPU usage, as excessive garbage generation forces the garbage collector to consume CPU cycles that should belong to the application. Teams that write benchmarks for critical paths catch performance regressions in CI before they reach production.
+
+## Thinking Questions
+
+1. Why must you call `b.ResetTimer()` if your benchmark requires expensive setup before the actual work begins?
+2. If you run a benchmark on your local laptop, why might the results not accurately predict the performance of the code running in a constrained Docker container?
+3. How can compiler optimizations like loop unrolling or dead-code elimination make a micro-benchmark look artificially fast, and how do you prevent it?
+4. If a function is extremely fast (low `ns/op`) but causes high `allocs/op`, what impact will that have on a long-running server?
+
 ## Next Step
 
 After benchmarking, continue to [PR.1 CPU profile](../../profiling) or back to the

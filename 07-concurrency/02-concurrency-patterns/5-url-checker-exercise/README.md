@@ -59,6 +59,17 @@ Your finished solution should:
 The current example uses live HTTP endpoints, so it expects network access when you run the full
 solution.
 
+## In Production
+
+Health checking is a fundamental production operations pattern. Every load balancer, service mesh, and container orchestrator uses health checks to decide whether to route traffic to a given instance. The concurrent fan-out pattern this exercise teaches — bounded HTTP checks with result aggregation — is exactly how production monitoring systems like Prometheus blackbox exporter, uptime robots, and internal SLA monitors work. Sorting results by latency is not cosmetic: it reveals which endpoints are degrading before they fail completely, giving operations teams early warning. In production, health checkers run continuously on intervals and feed alerting systems. The `sync.Pool` for HTTP clients matters at scale because creating a new `http.Client` per check means establishing a new TCP connection (and TLS handshake) every time, adding hundreds of milliseconds of latency and wasting system resources. Reusing clients allows connection pooling via `http.Transport`, which keeps established connections warm.
+
+## Thinking Questions
+
+1. Why does this exercise use HTTP HEAD requests instead of GET requests for health checking, and what information do you lose by using HEAD?
+2. If one of the checked URLs has a DNS resolution failure that takes 30 seconds to timeout, how does that affect the other concurrent checks?
+3. How would you modify this tool to run as a continuous background service that checks URLs every 60 seconds and alerts when latency exceeds a threshold?
+4. What is the difference between reusing an `http.Client` via `sync.Pool` and simply sharing a single global `http.Client` across all goroutines?
+
 ## Next Step
 
 After you complete this exercise, continue to the [Stage 07 overview](../README.md) or move to

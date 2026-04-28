@@ -62,6 +62,17 @@ Your finished solution should:
 The current example uses real HTTP downloads, so it expects network access when you run the full
 solution.
 
+## In Production
+
+Bounded concurrency is one of the most important production patterns in Go. Without a semaphore limiting active downloads, a service that receives a burst of 10,000 URLs to fetch would launch 10,000 goroutines simultaneously, exhausting file descriptors, overwhelming the network stack, and likely getting rate-limited or blocked by upstream servers. The semaphore channel pattern this exercise teaches — `sem := make(chan struct{}, maxConcurrency)` — is the idiomatic Go approach used in production crawlers, asset pipelines, and batch processing systems. The result channel pattern is equally critical: sending results through a channel instead of writing to a shared slice eliminates data races that only manifest under production load. Real download systems also need to handle partial file cleanup (as this exercise requires), retry logic with exponential backoff, content-length validation to detect truncated downloads, and context cancellation so that a shutdown signal stops all in-flight downloads instead of leaving orphaned goroutines writing to disk.
+
+## Thinking Questions
+
+1. What happens if the semaphore channel capacity is set to 1? What about equal to the number of URLs?
+2. Why is it safer to send results through a channel than to append to a shared slice protected by a mutex?
+3. If a download fails halfway through writing a file, what state does the filesystem end up in, and how does cleanup prevent corruption?
+4. How would you add a global timeout that cancels all remaining downloads if the total operation exceeds a deadline?
+
 ## Next Step
 
 After you complete this exercise, continue back to the [Goroutines track](../README.md) or the

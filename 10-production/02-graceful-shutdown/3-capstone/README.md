@@ -27,6 +27,17 @@ You should be able to:
 - describe the shutdown dependency order across HTTP, workers, and shared resources
 - show how `errgroup` helps coordinate a multi-component shutdown
 
+## In Production
+
+Graceful shutdown is what separates a toy server from a production service. When you deploy a new version of a service, Kubernetes (or your orchestrator) sends a `SIGTERM` signal to the old instances. If those instances exit immediately, any in-flight HTTP requests or background jobs are brutally severed, causing 502 Bad Gateway errors for users. The coordinated shutdown flow this exercise teaches — failing readiness probes, allowing the load balancer to route new traffic elsewhere, draining existing HTTP connections, finishing background jobs, and closing database connections — ensures zero-downtime deployments. The `errgroup` pattern provides the necessary concurrency control to shut down multiple independent components simultaneously while waiting for all of them to finish cleanly. Teams that master graceful shutdown can deploy during peak traffic hours without users ever noticing.
+
+## Thinking Questions
+
+1. Why is it critical to fail the readiness probe and wait for the load balancer to notice *before* you start draining HTTP connections?
+2. If an HTTP request takes 5 minutes to process, but your orchestrator only gives the container 30 seconds to shut down before sending `SIGKILL`, what happens to that request?
+3. How does `http.Server.Shutdown(ctx)` know which connections to close immediately and which ones to wait for?
+4. If the database connection is closed before the HTTP server finishes draining, what will happen to the remaining in-flight requests?
+
 ## Next Step
 
 After `GS.3`, continue to the [Code Generation track](../../06-code-generation) or back to the

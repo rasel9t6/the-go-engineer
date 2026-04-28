@@ -58,6 +58,17 @@ Your finished solution should:
 The current example makes live HTTP requests, so it expects network access when you run the full
 solution.
 
+## In Production
+
+Every outbound HTTP call in a production service must have a timeout. Without one, a single slow upstream dependency can exhaust all available goroutines and connection pool slots, causing the entire service to hang — a failure mode known as cascading failure or "grey failure." The `context.WithTimeout` pattern this exercise teaches is the standard way Go services enforce request deadlines. In production, timeouts are typically configured per-endpoint rather than globally, because a health check that should complete in 100ms has very different timeout requirements than a batch data export that legitimately takes 30 seconds. Teams that do not distinguish between timeout errors and other request failures end up retrying requests that will never succeed, amplifying load on an already-struggling upstream. The pattern of attaching the context to the request itself — not just checking it in the outer function — ensures that the HTTP client, DNS resolver, TLS handshake, and response body read all respect the same deadline.
+
+## Thinking Questions
+
+1. Why should the context be attached to the HTTP request with `http.NewRequestWithContext` instead of checking `ctx.Done()` in a separate goroutine?
+2. If an upstream service is consistently slow, should your client retry with the same timeout, retry with a longer timeout, or stop retrying entirely? What factors determine the right strategy?
+3. What happens to the TCP connection when a context timeout fires while the server is still writing the response body?
+4. How would you set different timeouts for different API endpoints in the same service without duplicating client code?
+
 ## Next Step
 
 After you complete this exercise, continue back to the [Context track](../README.md) or the

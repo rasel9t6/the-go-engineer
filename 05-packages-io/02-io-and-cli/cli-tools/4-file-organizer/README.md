@@ -61,6 +61,17 @@ Your finished solution should:
 - forgetting to skip directories
 - forgetting that `filepath.Ext` returns the leading dot
 
+## In Production
+
+Dry-run modes are a critical safety pattern in production CLI tools. Tools like `terraform plan`, `kubectl diff`, and database migration runners all implement preview-before-mutate behavior because filesystem and infrastructure mutations are difficult or impossible to reverse. In production environments, a file-organizing tool would need to handle concurrent access (another process writing to the same directory), permission errors on restricted directories, symlink loops that cause infinite recursion, and atomic moves across filesystem boundaries where `os.Rename` silently fails. The pattern of separating the "decide what to do" logic from the "do it" logic — which this exercise teaches through the dry-run flag — is the foundation of safe operational tooling. Teams that skip dry-run behavior in internal tools learn the hard way when a script reorganizes a production asset directory and breaks serving paths.
+
+## Thinking Questions
+
+1. Why is `os.Rename` not guaranteed to work when source and destination are on different filesystems, and what would you do instead?
+2. If two instances of this tool run concurrently on the same directory, what race conditions could occur and how would you prevent them?
+3. How would you extend this tool to support an "undo" operation that reverses the last organize run?
+4. Why does `filepath.Ext` include the leading dot, and what edge cases does that create for files like `.gitignore` or `archive.tar.gz`?
+
 ## Next Step
 
 After you complete this exercise, continue to the [Encoding track](../../encoding) or back to the
