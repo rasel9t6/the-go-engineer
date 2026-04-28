@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Paths
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/2-paths
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -10,12 +30,8 @@ import (
 	"path/filepath"
 )
 
-// ============================================================================
 // Stage 05: Filesystem — File Paths
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - filepath.Join: building cross-platform paths (never use "/" or "\" manually)
 //   - filepath.Base: extracting the filename from a path
 //   - filepath.Dir: extracting the directory from a path
@@ -38,8 +54,6 @@ import (
 //   filepath.Join automatically uses the correct separator for the OS.
 //   NEVER hardcode "/" or "\" in path strings — your code will break on other OSes.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/2-paths
-// ============================================================================
 
 func main() {
 	fmt.Println("=== File Paths: Cross-Platform Path Handling ===")

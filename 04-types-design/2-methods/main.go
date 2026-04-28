@@ -1,4 +1,24 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Methods
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to attach functions to types using methods, and understand the critical difference between value receivers and pointer receivers.
+//
+// WHY THIS MATTERS:
+//   - Think of a TV remote. The remote (struct) has state: volume level, current channel, power status. The buttons on the remote are methods. Some butto...
+//
+// RUN:
+//   go run ./04-types-design/2-methods
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
@@ -8,20 +28,13 @@ import (
 	"math"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Methods
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What methods are: functions attached to a type
 //   - VALUE receivers vs POINTER receivers — the most critical distinction
 //   - When to use each receiver type (the golden rule)
 //   - Why methods exist: they enable interfaces
 //   - Method sets and how they affect interface satisfaction
 //
-// RUN: go run ./04-types-design/2-methods
-// ============================================================================
 
 type Circle struct {
 	Radius float64

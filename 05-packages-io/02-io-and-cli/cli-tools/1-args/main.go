@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Args
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/cli-tools/1-args
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/cli-tools/1-args
 package main
 
 import (
@@ -11,12 +30,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: CLI Tools — Command-Line Arguments
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - os.Args — raw access to command-line arguments
 //   - os.Getenv — reading environment variables
 //   - os.Exit — exiting with status codes (0=success, 1=error)
@@ -30,11 +45,9 @@ import (
 //   and points Go's `os.Args` string slice directly at those memory addresses. This
 //   is why `os.Args[0]` is incredibly rigid and always contains the executable path.
 //
-// RUN:
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/1-args
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/1-args hello world
 //   GREETING=Hi go run ./05-packages-io/02-io-and-cli/cli-tools/1-args gopher
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Command-Line Arguments ===")

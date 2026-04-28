@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: WithCancel
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/context/2-with-cancel
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -10,12 +30,8 @@ import (
 	"time"
 )
 
-// ============================================================================
 // Stage 07: Context — WithCancel
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - context.WithCancel creates a cancellable context
 //   - The cancel function: how and when to call it
 //   - Listening for cancellation with ctx.Done()
@@ -31,8 +47,6 @@ import (
 //   signal to all children in the array, and then removes itself from the parent
 //   to allow the Garbage Collector to sweep the dead goroutines.
 //
-// RUN: go run ./07-concurrency/01-concurrency/context/2-with-cancel
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Context: WithCancel ===")

@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Config Parser
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small JSON config loader that reads from disk, decodes from a stream, and validates required fields after parsing. This exercise is the Enc...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/6-config-parser
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -11,12 +31,8 @@ import (
 	"path/filepath"
 )
 
-// ============================================================================
 // Stage 05: Encoding — Config File Parser (Exercise)
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Reading a JSON file from disk and decoding it into a struct
 //   - Validating required fields after parsing
 //   - Combining filesystem I/O with JSON decoding
@@ -30,8 +46,6 @@ import (
 //   file this doesn't matter, but it establishes the correct habit for when
 //   you're processing 100MB JSON API responses in production.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/6-config-parser
-// ============================================================================
 
 // AppConfig represents the application configuration structure.
 // Each field's `json` tag maps it to a key in the JSON config file.

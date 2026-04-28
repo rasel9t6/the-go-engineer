@@ -1,22 +1,34 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 04: Types and Design
+// Title: Receiver Sets
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the difference between value and pointer receivers and understand how method sets determine interface satisfaction.
+//
+// WHY THIS MATTERS:
+//   - Think of a type's method set like a menu. A Counter value has only the Get() menu item. A \*Counter pointer has the full menu: Get(), Inc(), Reset(...
+//
+// RUN:
+//   go run ./04-types-design/7-receiver-sets
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// ============================================================================
-// Section 6: Types & Interfaces — Receiver Sets Drill
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Value vs pointer receivers
 //   - Method sets: what methods a type actually provides
 //   - How receiver type affects interface satisfaction
 //
-// RUN: go run ./04-types-design/7-receiver-sets
-// ============================================================================
 
 type Counter struct {
 	Value int

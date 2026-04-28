@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: REST vs gRPC - the trade-off
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Compare when REST is a better fit and when gRPC earns its extra contract machinery.
+//
+// WHY THIS MATTERS:
+//   - No transport is universally best. The right choice depends on clients, tooling, latency, and discoverability requirements.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/8-rest-vs-grpc
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - REST vs gRPC - the trade-off
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/8-rest-vs-grpc
 
 func main() {
 	fmt.Println("=== API.8 REST vs gRPC - the trade-off ===")

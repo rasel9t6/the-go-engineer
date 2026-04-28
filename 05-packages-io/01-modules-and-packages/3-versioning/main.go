@@ -1,16 +1,32 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Versioning Workshop
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small semantic-versioning and module-policy demo that makes Go's version rules concrete. This exercise is the Stage 05 milestone. It is whe...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./05-packages-io/01-modules-and-packages/3-versioning
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/01-modules-and-packages/3-versioning
 package main
 
 import "fmt"
 
-// ============================================================================
 // Stage 05: Modules and Packages — Versioning Workshop
-// Level: Intermediate → Advanced
-// ============================================================================
 //
 // SEMANTIC VERSIONING IN GO:
 //
@@ -42,7 +58,6 @@ import "fmt"
 // VENDORING:
 //   go mod vendor        — copy all dependencies into ./vendor/
 //   go build -mod=vendor — build using vendored dependencies only
-// ============================================================================
 
 // Version represents a semantic version.
 type Version struct {

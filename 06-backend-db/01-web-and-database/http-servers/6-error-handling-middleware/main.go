@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Error handling middleware
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how central error translation keeps handlers thin and HTTP behavior consistent.
+//
+// WHY THIS MATTERS:
+//   - Handlers produce domain errors; middleware maps those errors into status codes and response bodies.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/6-error-handling-middleware
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Error handling middleware
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/6-error-handling-middleware
 
 func main() {
 	fmt.Println("=== HS.6 Error handling middleware ===")

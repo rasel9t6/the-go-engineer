@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Executing Queries (INSERT)
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/2-query
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -13,12 +33,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// ============================================================================
 // Stage 06: Databases — Executing Queries (INSERT)
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Executing INSERT queries using db.Exec
 //   - SQL Parameterization (`?`) to prevent SQL Injection
 //   - Safely hashing passwords before storage
@@ -32,8 +48,6 @@ import (
 //   query structure and the arguments to the database server SEPARATELY. The
 //   database safely escapes all payloads internally before execution.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/2-query
-// ============================================================================
 
 var schema = `
 CREATE TABLE IF NOT EXISTS users (

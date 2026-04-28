@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: sync.Once and sync.Map
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the standard-library helpers for one-time initialization and specific concurrent map workloads.
+//
+// WHY THIS MATTERS:
+//   - Once is a one-shot gate. sync.Map is a specialized concurrent map, not a universal replacement for map plus mutex.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - sync.Once and sync.Map
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map
 
 func main() {
 	fmt.Println("=== SY.2 sync.Once and sync.Map ===")

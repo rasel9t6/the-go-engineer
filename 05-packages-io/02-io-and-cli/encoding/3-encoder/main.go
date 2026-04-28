@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: JSON Encoder
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/3-encoder
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -11,12 +31,8 @@ import (
 	"os"
 )
 
-// ============================================================================
 // Stage 05: Encoding — JSON Encoder (Streaming)
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - json.NewEncoder: streaming JSON directly to an io.Writer (like a file or HTTP response)
 //   - Encoder vs Marshal: when to use which
 //   - Memory efficiency for large payloads
@@ -40,8 +56,6 @@ import (
 //   - Use json.Marshal when you need the []byte (e.g., storing in a database or Redis).
 //   - Use json.NewEncoder when writing directly to an io.Writer (e.g., HTTP ResponseWriter, file).
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/3-encoder
-// ============================================================================
 
 type DeviceLog struct {
 	DeviceID  string  `json:"device_id"`

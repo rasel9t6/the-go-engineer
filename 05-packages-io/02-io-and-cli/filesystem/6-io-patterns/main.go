@@ -1,16 +1,31 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: I/O Patterns
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/6-io-patterns
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
-// ============================================================================
 // Stage 05: Filesystem — io.Reader/Writer Patterns
-// Level: Advanced
-// ============================================================================
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/6-io-patterns
-// ============================================================================
 
 import (
 	"bytes"
@@ -20,18 +35,13 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: io.Reader and io.Writer Patterns
-// Level: Intermediate → Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - io.Reader and io.Writer — Go's most important interfaces
 //   - Composing readers and writers (pipes, tee, multi)
 //   - Implementing custom readers
 //   - io.Copy — the universal glue
 //
-// WHY THIS MATTERS:
 //   Almost everything in Go implements io.Reader or io.Writer:
 //   - os.File, http.Response.Body, bytes.Buffer, strings.Reader,
 //     json.Encoder, gzip.Writer, crypto/hash, net.Conn...
@@ -50,7 +60,6 @@ import (
 //   composition: you can pipe a Network Socket through an Unzipper through a
 //   JSON Decoder directly into a Struct without ever buffering the 1GB payload
 //   into RAM.
-// ============================================================================
 
 func main() {
 	fmt.Println("=== io.Reader and io.Writer Patterns ===")

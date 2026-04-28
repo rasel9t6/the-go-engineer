@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 03: Functions and Errors
+// Title: panic and recover
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn when panic is appropriate, when it is not, and how recover turns a crash into an explicit boundary decision.
+//
+// WHY THIS MATTERS:
+//   - Errors describe expected failure. Panic describes broken assumptions. Recover belongs at process or request boundaries, not in ordinary business flow.
+//
+// RUN:
+//   go run ./03-functions-errors/10-panic-and-recover
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 03: Functions and Errors - panic and recover
 //
-// Run: go run ./03-functions-errors/10-panic-and-recover
 
 func main() {
 	fmt.Println("=== FE.10 panic and recover ===")

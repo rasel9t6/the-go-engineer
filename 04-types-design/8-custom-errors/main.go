@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 04: Types and Design
+// Title: Custom Error Types
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to define custom error types that carry structured information for better error handling.
+//
+// WHY THIS MATTERS:
+//   - Think of a boarding pass. A simple "flight delayed" message is not enough. A good error includes: flight number, original time, new time, reason, a...
+//
+// RUN:
+//   go run ./04-types-design/8-custom-errors
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -8,18 +27,11 @@ import (
 	"fmt"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Custom Error Types
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Defining custom error types
 //   - Adding structured information to errors
 //   - Type assertions for specific error handling
 //
-// RUN: go run ./04-types-design/8-custom-errors
-// ============================================================================
 
 type ValidationError struct {
 	Field   string

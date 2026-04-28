@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Race conditions
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how data races happen, why the race detector matters, and how to read its reports.
+//
+// WHY THIS MATTERS:
+//   - A race is unsynchronized shared access where at least one access is a write.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/4-race-conditions
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - Race conditions
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/4-race-conditions
 
 func main() {
 	fmt.Println("=== SY.4 Race conditions ===")

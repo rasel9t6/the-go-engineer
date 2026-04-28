@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Unicode and Runes
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the difference between bytes, runes, and UTF-8 text in Go.
+//
+// WHY THIS MATTERS:
+//   - In Go, a string is a sequence of bytes, but text is often made of Unicode code points called runes. That means: - `len(s)` counts bytes - `for rang...
+//
+// RUN:
+//   go run ./04-types-design/strings-and-text/3-unicode
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -11,12 +31,7 @@ import (
 	"unicode/utf8"
 )
 
-// ============================================================================
-// Section 7: Strings & Text — Unicode & Runes
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - bytes vs runes: why len("café") is 5, not 4
 //   - What a rune is: an alias for int32, representing a Unicode code point
 //   - How Go stores strings as UTF-8 bytes (variable-width encoding)
@@ -35,8 +50,6 @@ import (
 //   This is why len("café") returns 5 (4 letters + 1 extra byte for 'é').
 //   Use utf8.RuneCountInString() for the actual character count.
 //
-// RUN: go run ./04-types-design/strings-and-text/3-unicode
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Unicode & Runes ===")

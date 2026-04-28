@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Flags
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/cli-tools/2-flags
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/02-io-and-cli/cli-tools/2-flags
 package main
 
 import (
@@ -11,12 +30,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: CLI Tools — Flag Package
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - The flag package for typed argument parsing
 //   - String, int, bool, and duration flags
 //   - Default values and usage help
@@ -30,11 +45,9 @@ import (
 //   the destination memory immediately, then overwrite that data later when you
 //   invoke `flag.Parse()`.
 //
-// RUN:
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/2-flags
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/2-flags -name="The Go Engineer" -count=3 -verbose
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/2-flags -help
-// ============================================================================
 
 func main() {
 	name := flag.String("name", "World", "Name to greet")

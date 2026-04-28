@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Files
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to open, read, write, and close files safely in Go.
+//
+// WHY THIS MATTERS:
+//   - Think of a file like a book. To read it, you must first pick it up and open it. Once you are done, you must put it back and close it so someone els...
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/1-files
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,8 @@ import (
 	"path/filepath"
 )
 
-// ============================================================================
 // Stage 05: Filesystem — File I/O
-// Level: Beginner → Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - os.WriteFile / os.ReadFile — simple one-shot file operations
 //   - os.Create / os.Open — file handles for streaming I/O
 //   - bufio.Scanner — reading files line by line (memory efficient)
@@ -45,8 +61,6 @@ import (
 //   0755 = owner: all (7), group: read+execute (5), others: read+execute (5)
 //   The first 0 means it's an octal number (base 8).
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/1-files
-// ============================================================================
 
 func main() {
 	fmt.Println("=== File I/O: Reading and Writing Files ===")
@@ -64,9 +78,7 @@ func main() {
 	defer os.RemoveAll(tmpDir)
 	fmt.Printf("Working in: %s\n\n", tmpDir)
 
-	// =====================================================================
 	// 1. os.WriteFile — Write an entire file in one call
-	// =====================================================================
 	// os.WriteFile(path, data, permission)
 	//   - path: where to write
 	//   - data: []byte content (strings must be converted with []byte(...))
@@ -83,9 +95,7 @@ func main() {
 	}
 	fmt.Println("1️⃣  Wrote servers.txt with os.WriteFile")
 
-	// =====================================================================
 	// 2. os.ReadFile — Read an entire file into memory
-	// =====================================================================
 	// os.ReadFile(path) returns ([]byte, error).
 	// The entire file is loaded into RAM as a byte slice.
 	//
@@ -99,9 +109,7 @@ func main() {
 	// string(data) creates a new string from the byte slice.
 	fmt.Printf("2️⃣  Read servers.txt:\n%s\n", string(data))
 
-	// =====================================================================
 	// 3. bufio.Scanner — Read a file LINE BY LINE
-	// =====================================================================
 	// For large files, reading line-by-line is memory efficient.
 	// bufio.Scanner buffers reads internally (default 64KB buffer).
 	//
@@ -116,9 +124,7 @@ func main() {
 	readLineByLine(filePath)
 	fmt.Println()
 
-	// =====================================================================
 	// 4. os.OpenFile — Append to a file
-	// =====================================================================
 	// os.OpenFile gives you fine-grained control with FLAGS:
 	//   os.O_APPEND — Write at the END of the file (don't overwrite)
 	//   os.O_CREATE — Create the file if it doesn't exist
@@ -141,9 +147,7 @@ func main() {
 	logData, _ := os.ReadFile(appendPath)
 	fmt.Printf("    Contents:\n%s\n", string(logData))
 
-	// =====================================================================
 	// 5. os.Create — Create a new file (or truncate existing)
-	// =====================================================================
 	// os.Create is shorthand for os.OpenFile(path, O_RDWR|O_CREATE|O_TRUNC, 0666).
 	// WARNING: If the file exists, it EMPTIES it first (truncates to 0 bytes).
 	createPath := filepath.Join(tmpDir, "config.ini")

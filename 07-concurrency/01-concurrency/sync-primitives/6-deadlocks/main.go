@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Deadlocks
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how circular waits and unbalanced channel or lock usage can freeze a concurrent program.
+//
+// WHY THIS MATTERS:
+//   - Deadlocks happen when each waiting actor needs another waiting actor to move first.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/6-deadlocks
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - Deadlocks
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/6-deadlocks
 
 func main() {
 	fmt.Println("=== SY.6 Deadlocks ===")

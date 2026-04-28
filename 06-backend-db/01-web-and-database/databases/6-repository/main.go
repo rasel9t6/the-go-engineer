@@ -1,15 +1,31 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Repository Pattern Project
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Build a small SQLite-backed user repository that proves application logic can depend on behavior contracts instead of raw database calls. This exer...
+//
+// WHY THIS MATTERS:
+//   - [TODO: Missing Mental Model in README]
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/databases/6-repository
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
-// ============================================================================
 // Stage 06: Databases - Repository Pattern
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - The Repository Design Pattern (Domain-Driven Design)
 //   - Decoupling database logic from business logic via interfaces
 //   - Dependency injection in Go
@@ -21,8 +37,6 @@ package main
 //   by defining an interface (`UserRepository`). Higher-level code depends on
 //   the interface, not the concrete database implementation.
 //
-// RUN: go run ./06-backend-db/01-web-and-database/databases/6-repository
-// ============================================================================
 
 import (
 	"database/sql"

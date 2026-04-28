@@ -1,7 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
-// RUN: go run ./05-packages-io/02-io-and-cli/filesystem/8-fs-testing-seam
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: fs.FS Testing Seam
+// Level: Stretch
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/filesystem/8-fs-testing-seam
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import (
@@ -14,12 +32,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05 Stretch: io/fs as a Testing Seam
-// Level: Advanced
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Why accepting fs.FS instead of string paths makes code testable
 //   - os.DirFS for wrapping a real directory as an fs.FS
 //   - fstest.MapFS as an in-memory filesystem in tests
@@ -29,7 +43,6 @@ import (
 //   fs.FS applies the same decoupling idea as io.Reader and io.Writer.
 //   Code that accepts fs.FS can work with real disk, embedded assets, or
 //   in-memory test fixtures without changing its core logic.
-// ============================================================================
 
 // SearchResult holds one matching line from the log search.
 type SearchResult struct {

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: Arrays
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn what an array is in Go and why arrays matter even though slices become the more common tool later. This lesson exists because arrays make one...
+//
+// WHY THIS MATTERS:
+//   - An array is a fixed-size value. Its size is part of its type, and copying an array copies all of its elements.
+//
+// RUN:
+//   go run ./02-language-basics/04-data-structures/1-array
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
@@ -11,7 +30,6 @@ import "fmt"
 // Arrays are fixed-size values. If you copy one array into another, Go copies
 // all of the elements.
 //
-// Run: go run ./02-language-basics/04-data-structures/1-array
 
 func main() {
 	fmt.Println("=== Arrays ===")

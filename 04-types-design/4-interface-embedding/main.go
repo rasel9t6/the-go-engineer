@@ -1,4 +1,24 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Interface Embedding
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to embed one interface into another to build larger contracts from smaller pieces.
+//
+// WHY THIS MATTERS:
+//   - Think of a universal remote. It does not have buttons for every function directlyâ€”it embeds the capabilities of a TV remote, a DVD remote, a...
+//
+// RUN:
+//   go run ./04-types-design/4-interface-embedding
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
@@ -8,18 +28,11 @@ import (
 	"fmt"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Interface Embedding
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - Embedding one interface inside another
 //   - How embedded interfaces combine contracts
 //   - The io.ReadWriter pattern from the standard library
 //
-// RUN: go run ./04-types-design/4-interface-embedding
-// ============================================================================
 
 type Reader interface {
 	Read(p []byte) (n int, err error)

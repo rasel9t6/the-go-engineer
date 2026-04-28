@@ -1,5 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: JSON Decoder
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/02-io-and-cli/encoding/4-decode
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
@@ -12,12 +32,8 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: Encoding — JSON Decoder (Streaming)
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - json.NewDecoder: streaming JSON directly from an io.Reader
 //   - Decoder vs Unmarshal: when to use which
 //   - Decoding multiple JSON objects from a single stream (JSONL)
@@ -37,8 +53,6 @@ import (
 //   - Use json.NewDecoder if you are reading from an io.Reader (like an HTTP Request Body or a File).
 //     This avoids loading the entire payload into RAM before parsing.
 //
-// RUN: go run ./05-packages-io/02-io-and-cli/encoding/4-decode
-// ============================================================================
 
 type MetricEvent struct {
 	AppID   string `json:"app_id"`
@@ -50,9 +64,7 @@ func main() {
 	fmt.Println("=== JSON Decoder (Streaming) ===")
 	fmt.Println()
 
-	// =====================================================================
 	// 1. Basic Decoder from an io.Reader
-	// =====================================================================
 	fmt.Println("1️⃣  Standard Decoder:")
 
 	singlePayload := `{"app_id": "auth-service", "latency_ms": 125, "success": true}`
@@ -70,9 +82,7 @@ func main() {
 
 	fmt.Printf("   Decoded: %+v\n\n", event)
 
-	// =====================================================================
 	// 2. Continuous Stream Parsing (JSON Lines / NDJSON)
-	// =====================================================================
 	// When reading from a network stream or log file, you might receive
 	// multiple JSON objects separated by whitespace. json.NewDecoder handles
 	// this gracefully, decoding one at a time.

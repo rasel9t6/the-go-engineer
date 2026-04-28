@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: gRPC fundamentals
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn the core request/response model behind gRPC services and generated contracts.
+//
+// WHY THIS MATTERS:
+//   - gRPC is RPC over a strong schema contract rather than ad-hoc JSON payloads.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/5-grpc-fundamentals
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - gRPC fundamentals
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/5-grpc-fundamentals
 
 func main() {
 	fmt.Println("=== API.5 gRPC fundamentals ===")

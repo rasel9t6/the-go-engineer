@@ -1,4 +1,24 @@
 // Copyright (c) 2026 Rasel Hossen
+
+// ============================================================================
+// Section 04: Types and Design
+// Title: Interfaces
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to define behavior contracts using interfaces and achieve polymorphism without inheritance.
+//
+// WHY THIS MATTERS:
+//   - Think of a power outlet. The outlet defines a contract: "I accept anything with two prongs and a ground pin." A lamp, a phone charger, and a refrig...
+//
+// RUN:
+//   go run ./04-types-design/3-interfaces
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // See LICENSE for usage terms.
 
 package main
@@ -8,12 +28,7 @@ import (
 	"math"
 )
 
-// ============================================================================
-// Section 6: Types & Interfaces — Interfaces
-// Level: Intermediate
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - What interfaces are: contracts that define behavior
 //   - Implicit interface satisfaction (no "implements" keyword)
 //   - Polymorphism: one function, many types
@@ -21,8 +36,6 @@ import (
 //   - Interface internals: the 2-word struct (type + data pointers)
 //   - Real-world design: "Accept interfaces, return structs"
 //
-// RUN: go run ./04-types-design/3-interfaces
-// ============================================================================
 
 type Shape interface {
 	Area() float64

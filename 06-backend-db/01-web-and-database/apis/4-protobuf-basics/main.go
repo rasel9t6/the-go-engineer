@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Protobuf basics
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn why schema-first messages exist and how protobuf defines transport contracts before code exists.
+//
+// WHY THIS MATTERS:
+//   - A protobuf schema is a shared contract that many languages can generate code from.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/apis/4-protobuf-basics
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Protobuf basics
 //
-// Run: go run ./06-backend-db/01-web-and-database/apis/4-protobuf-basics
 
 func main() {
 	fmt.Println("=== API.4 Protobuf basics ===")

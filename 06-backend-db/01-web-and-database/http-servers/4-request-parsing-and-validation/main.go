@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Request parsing and validation
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to decode request data deliberately and reject malformed input early.
+//
+// WHY THIS MATTERS:
+//   - Parsing turns transport bytes into domain values. Validation decides whether those values are safe to trust.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Request parsing and validation
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation
 
 func main() {
 	fmt.Println("=== HS.4 Request parsing and validation ===")

@@ -1,6 +1,25 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
 
+// ============================================================================
+// Section 02: Language Basics
+// Title: Break / Continue
+// Level: Foundation
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how to change a loop's behavior after the loop has already started.
+//
+// WHY THIS MATTERS:
+//   - Loop control gives you two important tools: - `continue` skips the rest of the current iteration - `break` stops the loop completely That lets one ...
+//
+// RUN:
+//   go run ./02-language-basics/03-control-flow/3-break-continue
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"

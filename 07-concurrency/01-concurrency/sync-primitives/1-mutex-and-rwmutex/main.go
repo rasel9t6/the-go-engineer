@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: sync.Mutex and RWMutex
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn how mutual exclusion protects shared state and when read/write locks are worth the extra rules.
+//
+// WHY THIS MATTERS:
+//   - A mutex gives one goroutine exclusive access to shared state for a short critical section.
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 07: Concurrency - sync.Mutex and RWMutex
 //
-// Run: go run ./07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex
 
 func main() {
 	fmt.Println("=== SY.1 sync.Mutex and RWMutex ===")

@@ -1,8 +1,27 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 05: Packages and I/O
+// Title: Managing Dependencies
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./05-packages-io/01-modules-and-packages/2-managing-deps
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
-// RUN: go run ./05-packages-io/01-modules-and-packages/2-managing-deps
 package main
 
 import (
@@ -11,10 +30,7 @@ import (
 	"strings"
 )
 
-// ============================================================================
 // Stage 05: Modules and Packages — Managing Dependencies
-// Level: Intermediate
-// ============================================================================
 //
 // This file demonstrates dependency-management workflows.
 // Run the commands below in a terminal to see them in action.
@@ -37,7 +53,6 @@ import (
 // SECURITY:
 //   go install golang.org/x/vuln/cmd/govulncheck@latest
 //   govulncheck ./...                                — scan for known vulnerabilities
-// ============================================================================
 
 func main() {
 	fmt.Println("=== Managing Dependencies ===")

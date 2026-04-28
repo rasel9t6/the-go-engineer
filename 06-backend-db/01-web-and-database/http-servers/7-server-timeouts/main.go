@@ -1,13 +1,30 @@
+// Copyright (c) 2026 Rasel Hossen
+// Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 06: Backend, APIs & Databases
+// Title: Server timeouts
+// Level: Production
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - Learn why HTTP servers need read, header, write, and idle timeouts to stay safe under pressure.
+//
+// WHY THIS MATTERS:
+//   - Timeouts are resource guards. They stop one slow or malicious client from holding the server forever.
+//
+// RUN:
+//   go run ./06-backend-db/01-web-and-database/http-servers/7-server-timeouts
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 package main
 
 import "fmt"
 
-// Copyright (c) 2026 Rasel Hossen
-// Licensed under The Go Engineer License v1.0
-
-// Section 06: Backend, APIs & Databases - Server timeouts
 //
-// Run: go run ./06-backend-db/01-web-and-database/http-servers/7-server-timeouts
 
 func main() {
 	fmt.Println("=== HS.7 Server timeouts ===")

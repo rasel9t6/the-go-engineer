@@ -1,15 +1,31 @@
 // Copyright (c) 2026 Rasel Hossen
 // Licensed under The Go Engineer License v1.0
+
+// ============================================================================
+// Section 07: Concurrency
+// Title: Time Formatting
+// Level: Core
+// ============================================================================
+//
+// WHAT YOU'LL LEARN:
+//   - [TODO: Extract from README Mission]
+//
+// WHY THIS MATTERS:
+//   - [TODO: Extract from README Mental Model]
+//
+// RUN:
+//   go run ./07-concurrency/01-concurrency/time-and-scheduling/2-formatting
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
+// ============================================================================
+
 // Commercial use is prohibited without permission.
 
 package main
 
-// ============================================================================
 // Stage 07: Time & Scheduling — Time Formatting
-// Level: Beginner
-// ============================================================================
 //
-// WHAT YOU'LL LEARN:
 //   - The unique Go standard Time Layout string: "2006-01-02 15:04:05"
 //   - Built-in constants like `time.RFC3339`
 //   - Parsing strings back into `time.Time` structs
@@ -22,8 +38,6 @@ package main
 //   You simply write down what that specific reference time would look like
 //   in your desired format, and the engine tokenizes it underneath.
 //
-// RUN: go run ./07-concurrency/01-concurrency/time-and-scheduling/2-formatting
-// ============================================================================
 
 import (
 	"fmt"

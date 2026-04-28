@@ -2,20 +2,25 @@
 // Licensed under The Go Engineer License v1.0
 
 // ============================================================================
-// Section 02: Language Basics — Lesson CF.6: Defer in Real Use Cases
+// Section 02: Language Basics
+// Title: Defer in real use cases
 // Level: Core
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - How to use defer for resource cleanup (simulated)
-//   - The pattern of deferring immediately after success
-//   - Why defer reduces boilerplate in error handling
+//   - See how `defer` is used in production for file cleanup, mutex unlocking, and logging.
 //
 // WHY THIS MATTERS:
-//   Proper resource management is critical for production stability.
+//   - Think of `defer` as a "safety harness". Before you start a dangerous task (like opening a file), you put on the harness (`defer file.Close()`) so t...
 //
-// RUN: go run ./02-language-basics/03-control-flow/6-defer-use-cases
+// RUN:
+//   go run ./02-language-basics/03-control-flow/6-defer-use-cases
+//
+// KEY TAKEAWAY:
+//   - [TODO: Summarize the core takeaway]
 // ============================================================================
+
+//   Proper resource management is critical for production stability.
 
 package main
 
@@ -29,7 +34,6 @@ func main() {
 
 	simulateFileOperation()
 
-	// KEY TAKEAWAY:
 	// - Defer cleanup immediately after a resource is successfully acquired.
 	// - This ensures that even if subsequent logic fails, resources are released.
 
