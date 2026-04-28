@@ -36,3 +36,9 @@ func main() {
 	fmt.Println()
 	fmt.Println("Deadlocks are design bugs. They disappear when ownership, lock ordering, and channel direction are made explicit.")
 }
+
+
+// ---------------------------------------------------
+// NEXT UP: CT.1
+// ---------------------------------------------------
+

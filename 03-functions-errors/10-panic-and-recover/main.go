@@ -36,3 +36,9 @@ func main() {
 	fmt.Println()
 	fmt.Println("Use panic sparingly for programmer bugs or impossible states, then recover only at boundaries where you can translate the crash into logging and containment.")
 }
+
+
+// ---------------------------------------------------
+// NEXT UP: TI.1
+// ---------------------------------------------------
+

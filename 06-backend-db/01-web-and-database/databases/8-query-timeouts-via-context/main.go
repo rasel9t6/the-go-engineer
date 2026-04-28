@@ -36,3 +36,9 @@ func main() {
 	fmt.Println()
 	fmt.Println("Deadline discipline keeps one bad dependency call from consuming the whole request budget or worker pool.")
 }
+
+
+// ---------------------------------------------------
+// NEXT UP: GC.0
+// ---------------------------------------------------
+
