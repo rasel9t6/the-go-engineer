@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Connecting to SQLite fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Connecting to SQLite provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./06-backend-db/01-web-and-database/databases/1-connecting-to-db
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Connecting to SQLite fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -37,7 +37,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// Stage 06: Databases — Connecting to SQLite
+// Stage 06: Databases â€” Connecting to SQLite
 //
 //   - Blank imports (`_`) and why drivers require them
 //   - sql.Open vs db.Ping
@@ -94,7 +94,7 @@ func main() {
 		log.Fatal("Failed to ping database:", err)
 	}
 
-	fmt.Println("✅ database connection established")
+	fmt.Println("âœ… database connection established")
 
 	// 4. Execute raw SQL (Create Table)
 	// db.Exec is used for queries that do not return rows (INSERT, UPDATE, CREATE)
@@ -103,13 +103,13 @@ func main() {
 		log.Fatal("Failed to create table:", err)
 	}
 
-	fmt.Println("✅ table was created successfully")
+	fmt.Println("âœ… table was created successfully")
 
 	// - Import DB drivers with `_` to register them invisibly.
 	// - `sql.Open` is lazy. It doesn't connect until you `Ping()`.
 	// - `db.Exec` runs queries that don't return data.
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.2 query — INSERT")
+	fmt.Println("ðŸš€ NEXT UP: DB.2 query â€” INSERT")
 	fmt.Println("   Current: DB.1 (connecting)")
 	fmt.Println("---------------------------------------------------")
 }

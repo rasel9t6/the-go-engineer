@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - fs.FS Testing Seam fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - fs.FS Testing Seam provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/filesystem/8-fs-testing-seam
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - fs.FS Testing Seam fundamentals and practical application in Go.
 // ============================================================================
 
 package main
@@ -142,15 +142,15 @@ func main() {
 To see the fs.FS testing seam in action, run:
   go test -v ./05-packages-io/02-io-and-cli/filesystem/8-fs-testing-seam
 
-The test uses fstest.MapFS — zero disk I/O, fully in-memory.
+The test uses fstest.MapFS â€” zero disk I/O, fully in-memory.
 No temp directories. No cleanup. Runs in microseconds.
 
 KEY TAKEAWAY:
   - Accept fs.FS instead of string paths for testable filesystem code
   - os.DirFS("/path") wraps a real directory as fs.FS
-  - fstest.MapFS is the in-memory test double — no temp files needed
+  - fstest.MapFS is the in-memory test double â€” no temp files needed
   - fs.WalkDir, fs.ReadFile, fs.Glob all work with any fs.FS implementation
-  - embed.FS from Stage 05/FS.5 also implements fs.FS — reuse the same code
+  - embed.FS from Stage 05/FS.5 also implements fs.FS â€” reuse the same code
 `)
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT STEP: Continue to Stage 06 web and database")

@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/9-closures-mechanics
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how closures capture variables, why that extends lifetimes, and where the loop-variable trap comes from.
 // ============================================================================
 
 package main

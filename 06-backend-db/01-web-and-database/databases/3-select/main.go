@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/databases/3-select
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to retrieve data from a database and scan it into Go structs.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -34,7 +34,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// Stage 06: Databases — SELECT Queries
+// Stage 06: Databases â€” SELECT Queries
 //
 //   - QueryRow: fetching a single record
 //   - Query: fetching multiple records
@@ -87,13 +87,13 @@ func main() {
 		if err != nil {
 			log.Fatal("Failed to fetch user by email:", err)
 		}
-		fmt.Printf("✅ Found: ID=%d, Name=%s, Email=%s\n", alice.ID, alice.Name, alice.Email)
+		fmt.Printf("âœ… Found: ID=%d, Name=%s, Email=%s\n", alice.ID, alice.Name, alice.Email)
 	} else {
-		fmt.Println("⚠️ Database is empty. Run exercise `2-query` first to populate it.")
+		fmt.Println("âš ï¸ Database is empty. Run exercise `2-query` first to populate it.")
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.4 prepared statements")
-	fmt.Println("   Current: DB.3 (query — SELECT)")
+	fmt.Println("ðŸš€ NEXT UP: DB.4 prepared statements")
+	fmt.Println("   Current: DB.3 (query â€” SELECT)")
 	fmt.Println("---------------------------------------------------")
 }
 

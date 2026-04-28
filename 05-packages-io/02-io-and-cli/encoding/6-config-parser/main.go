@@ -11,13 +11,13 @@
 //   - Build a small JSON config loader that reads from disk, decodes from a stream, and validates required fields after parsing. This exercise is the Enc...
 //
 // WHY THIS MATTERS:
-//   - [TODO: Missing Mental Model in README]
+//   - Build a small JSON config loader that reads from disk, decodes from a stream, and validates required fields after parsing. This exercise is the Enc...
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/encoding/6-config-parser
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small JSON config loader that reads from disk, decodes from a stream, and validates required fields after parsing. This exercise is the Enc...
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -31,7 +31,7 @@ import (
 	"path/filepath"
 )
 
-// Stage 05: Encoding — Config File Parser (Exercise)
+// Stage 05: Encoding â€” Config File Parser (Exercise)
 //
 //   - Reading a JSON file from disk and decoding it into a struct
 //   - Validating required fields after parsing
@@ -127,11 +127,11 @@ func main() {
 	// Load and display the config
 	config, err := loadConfig(configPath)
 	if err != nil {
-		fmt.Printf("❌ Failed to load config: %v\n", err)
+		fmt.Printf("âŒ Failed to load config: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("✅ Config loaded successfully!")
+	fmt.Println("âœ… Config loaded successfully!")
 	fmt.Println()
 	fmt.Printf("  App Name:      %s\n", config.AppName)
 	fmt.Printf("  Port:          %d\n", config.Port)
@@ -142,7 +142,7 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAY:")
-	fmt.Println("  - json.NewDecoder streams from io.Reader — use for files & HTTP")
-	fmt.Println("  - Always validate config after parsing — zero values hide missing fields")
+	fmt.Println("  - json.NewDecoder streams from io.Reader â€” use for files & HTTP")
+	fmt.Println("  - Always validate config after parsing â€” zero values hide missing fields")
 	fmt.Println("  - Use %w in fmt.Errorf to wrap errors for context")
 }

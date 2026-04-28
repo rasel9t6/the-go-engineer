@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/4-race-conditions
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how data races happen, why the race detector matters, and how to read its reports.
 // ============================================================================
 
 package main

@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/6-error-handling-middleware
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how central error translation keeps handlers thin and HTTP behavior consistent.
 // ============================================================================
 
 package main

@@ -16,7 +16,7 @@
 //   go run ./04-types-design/15-generic-data-structures
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn to build type-safe generic data structures like Stack, Queue, and Set using Go's generics.
 // ============================================================================
 
 // See LICENSE for usage terms.

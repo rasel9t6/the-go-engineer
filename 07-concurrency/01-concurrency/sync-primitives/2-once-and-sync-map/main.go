@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the standard-library helpers for one-time initialization and specific concurrent map workloads.
 // ============================================================================
 
 package main

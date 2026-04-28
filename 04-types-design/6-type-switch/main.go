@@ -10,13 +10,13 @@
 //   - Learn how to use type switches to handle different concrete types stored in an interface.
 //
 // WHY THIS MATTERS:
-//   - Think of a sorting machine. Items come down the belt, and different items need different handlingâ€”fragile items go to one bin, heavy items t...
+//   - Think of a sorting machine. Items come down the belt, and different items need different handlingÃ¢â‚¬â€fragile items go to one bin, heavy items t...
 //
 // RUN:
 //   go run ./04-types-design/6-type-switch
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to use type switches to handle different concrete types stored in an interface.
 // ============================================================================
 
 // See LICENSE for usage terms.

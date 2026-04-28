@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/4-errors-as-values
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the core Go rule for ordinary failure: return an error value instead of hiding the failure.
 // ============================================================================
 
 package main

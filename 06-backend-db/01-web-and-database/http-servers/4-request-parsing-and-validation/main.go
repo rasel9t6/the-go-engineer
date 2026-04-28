@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to decode request data deliberately and reject malformed input early.
 // ============================================================================
 
 package main

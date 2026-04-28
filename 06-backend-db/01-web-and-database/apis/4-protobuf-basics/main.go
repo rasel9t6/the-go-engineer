@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/4-protobuf-basics
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn why schema-first messages exist and how protobuf defines transport contracts before code exists.
 // ============================================================================
 
 package main

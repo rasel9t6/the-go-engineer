@@ -17,7 +17,7 @@
 //   go run ./02-language-basics/04-data-structures/4-pointers
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn what a pointer is, how dereferencing works, and why pointers matter when an update must change the original stored value rather than only a c...
 // ============================================================================
 
 package main

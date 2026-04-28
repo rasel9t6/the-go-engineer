@@ -17,7 +17,7 @@
 //
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how golden files keep large textual outputs reviewable without hard-coding long strings inside tests.
 // ============================================================================
 
 package main

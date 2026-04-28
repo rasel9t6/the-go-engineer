@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/5-validation
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how a function rejects bad input before the program does the real work.
 // ============================================================================
 
 package main

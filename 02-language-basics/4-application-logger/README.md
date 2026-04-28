@@ -20,6 +20,8 @@ This exercise turns separate language pieces into one compact system:
 
 That is the first taste of composing simple ideas into one useful artifact.
 
+> **Backward Reference:** This exercise directly combines the core language components from [Lesson 1: Variables](../1-variables/README.md), [Lesson 2: Constants](../2-constants/README.md), and [Lesson 3: Enums](../3-enums/README.md).
+
 ## Visual Model
 
 ```mermaid
@@ -61,6 +63,8 @@ The method checks bounds first, then returns the matching human-friendly name.
 ### `printLogLevel(...)`
 
 This helper centralizes how a level is shown in output, keeping `main()` simple.
+
+> **Forward Reference:** Now that we have established a foundation of types and variables, we will use them to build branching logic. Proceed to the next section to learn control flow structures in [Control Flow: if-else](../03-control-flow/1-if-else/README.md).
 
 ## Try It
 

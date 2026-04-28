@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - JSON Encoder fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - JSON Encoder provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/encoding/3-encoder
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - JSON Encoder fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -31,7 +31,7 @@ import (
 	"os"
 )
 
-// Stage 05: Encoding — JSON Encoder (Streaming)
+// Stage 05: Encoding â€” JSON Encoder (Streaming)
 //
 //   - json.NewEncoder: streaming JSON directly to an io.Writer (like a file or HTTP response)
 //   - Encoder vs Marshal: when to use which
@@ -72,7 +72,7 @@ func main() {
 	// --- 1. Streaming directly to Stdout ---
 	// Create an encoder that writes directly to standard output (the terminal).
 	// We don't need to load the JSON into a byte slice first.
-	fmt.Println("1️⃣  Streaming to os.Stdout:")
+	fmt.Println("1ï¸âƒ£  Streaming to os.Stdout:")
 	enc := json.NewEncoder(os.Stdout)
 
 	// SetIndent works just like MarshalIndent
@@ -95,7 +95,7 @@ func main() {
 	// --- 2. Streaming to a File ---
 	// This is where NewEncoder shines. If you have 100,000 logs,
 	// you can stream them directly to disk without loading them all in memory.
-	fmt.Println("2️⃣  Streaming to a file (memory-efficient):")
+	fmt.Println("2ï¸âƒ£  Streaming to a file (memory-efficient):")
 
 	file, err := os.CreateTemp("", "logs-*.jsonl")
 	if err != nil {
@@ -131,7 +131,7 @@ func main() {
 	fmt.Println("  - Use this for APIs (ResponseWriter) instead of json.Marshal")
 	fmt.Println("  - Encode() automatically appends a newline (\n) after the JSON")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: EN.4 JSON decoder (stream)")
+	fmt.Println("ðŸš€ NEXT UP: EN.4 JSON decoder (stream)")
 	fmt.Println("   Current: EN.3 (JSON encoder (stream))")
 	fmt.Println("---------------------------------------------------")
 }

@@ -18,6 +18,8 @@ It is useful when:
 - one value may match several known cases
 - several conditions need a clean top-to-bottom table shape
 
+> **Backward Reference:** In [Lesson 3: Break / Continue](../3-break-continue/README.md), you learned how to interrupt flow. `switch` gives us a built-in "interrupt" automatically: when a case matches, it executes and then implicitly breaks out of the switch block.
+
 ## Visual Model
 
 ```mermaid
@@ -54,6 +56,8 @@ The tagless form evaluates each case as a boolean condition, which is useful for
 ### `default`
 
 The default case handles the fallback path when no explicit case matches.
+
+> **Forward Reference:** While `switch` simplifies synchronous logic, soon we will learn about `defer` in [Lesson 5: Defer Basics](../5-defer-basics/README.md) to handle cleanup tasks that run at the end of the current scope, regardless of how control flowed through `if`s and `switch`es.
 
 ## Try It
 

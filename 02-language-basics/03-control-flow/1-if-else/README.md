@@ -18,6 +18,8 @@ With `if`, `else if`, and `else`:
 - one branch runs
 - the other branches are skipped
 
+> **Backward Reference:** In the previous section, you learned about evaluating boolean state like `true` and `false` in [Lesson 1: Variables](../../1-variables/README.md). Branching relies entirely on boolean evaluations to choose a path.
+
 ## Visual Model
 
 ```mermaid
@@ -54,6 +56,8 @@ Branching is not only for numbers. Programs also branch on text, flags, and miss
 ### Only one branch runs
 
 Even when several branches exist, the program executes only the first matching branch.
+
+> **Forward Reference:** We will soon learn about the `switch` statement in [Lesson 4: Switch](../4-switch/README.md), which offers an even cleaner way to handle branching when you need to check a single variable against many possible discrete values.
 
 ## Try It
 

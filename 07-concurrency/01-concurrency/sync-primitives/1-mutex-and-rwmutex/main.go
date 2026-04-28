@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how mutual exclusion protects shared state and when read/write locks are worth the extra rules.
 // ============================================================================
 
 package main

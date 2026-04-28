@@ -61,6 +61,8 @@ Short declaration creates local variables and lets the compiler infer their type
 
 Go refuses to compile code with unused local variables. That catches mistakes early.
 
+> **Forward Reference:** You will learn more about how the compiler strictly enforces code quality in [Lesson 08: Quality and Test](../../08-quality-test/README.md).
+
 ## Try It
 
 1. Change one assigned value and rerun the lesson.

@@ -12,6 +12,8 @@ Learn how Go represents values that should never change at runtime.
 
 A variable can change while the program runs. A constant cannot.
 
+> **Backward Reference:** You already learned how variables hold mutable state in [Lesson 1: Variables](../1-variables/README.md). Constants provide the immutable counterpart.
+
 Constants communicate:
 
 - this value is fixed by design
@@ -48,6 +50,8 @@ This shows that constants can also be declared with an explicit type.
 ### `const ( ... )`
 
 Grouped constants keep related values together and easier to scan.
+
+> **Forward Reference:** We will expand on grouped constants by introducing the `iota` keyword to create true enumerations in [Lesson 3: Enums](../3-enums/README.md).
 
 ### Attempted reassignment
 

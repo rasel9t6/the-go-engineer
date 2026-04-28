@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to stop accepting new work while allowing in-flight requests to finish cleanly.
 // ============================================================================
 
 package main

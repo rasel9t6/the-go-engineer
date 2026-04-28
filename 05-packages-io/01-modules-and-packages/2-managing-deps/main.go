@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Managing Dependencies fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Managing Dependencies provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/01-modules-and-packages/2-managing-deps
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Managing Dependencies fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,29 +30,29 @@ import (
 	"strings"
 )
 
-// Stage 05: Modules and Packages — Managing Dependencies
+// Stage 05: Modules and Packages â€” Managing Dependencies
 //
 // This file demonstrates dependency-management workflows.
 // Run the commands below in a terminal to see them in action.
 //
 // ADDING DEPENDENCIES:
-//   go get github.com/stretchr/testify@latest        — latest version
-//   go get github.com/stretchr/testify@v1.11.1       — specific version
-//   go get github.com/stretchr/testify@v1.10.0       — downgrade
+//   go get github.com/stretchr/testify@latest        â€” latest version
+//   go get github.com/stretchr/testify@v1.11.1       â€” specific version
+//   go get github.com/stretchr/testify@v1.10.0       â€” downgrade
 //
 // REMOVING DEPENDENCIES:
-//   go get github.com/some/pkg@none                  — remove from go.mod
-//   go mod tidy                                      — clean up unused
+//   go get github.com/some/pkg@none                  â€” remove from go.mod
+//   go mod tidy                                      â€” clean up unused
 //
 // INSPECTING DEPENDENCIES:
-//   go list -m all                                   — all modules
-//   go list -m -versions github.com/stretchr/testify — available versions
-//   go mod why github.com/stretchr/objx              — why is this needed?
-//   go mod graph                                     — full dependency tree
+//   go list -m all                                   â€” all modules
+//   go list -m -versions github.com/stretchr/testify â€” available versions
+//   go mod why github.com/stretchr/objx              â€” why is this needed?
+//   go mod graph                                     â€” full dependency tree
 //
 // SECURITY:
 //   go install golang.org/x/vuln/cmd/govulncheck@latest
-//   govulncheck ./...                                — scan for known vulnerabilities
+//   govulncheck ./...                                â€” scan for known vulnerabilities
 
 func main() {
 	fmt.Println("=== Managing Dependencies ===")
@@ -92,7 +92,7 @@ func main() {
 
 	fmt.Println(string(whyOut))
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: MP.3 versioning")
+	fmt.Println("ðŸš€ NEXT UP: MP.3 versioning")
 	fmt.Println("   Current: MP.2 (managing deps)")
 	fmt.Println("---------------------------------------------------")
 }

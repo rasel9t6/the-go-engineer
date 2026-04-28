@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/6-grpc-streaming
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how server, client, and bidirectional streams change the contract from one message to many.
 // ============================================================================
 
 package main

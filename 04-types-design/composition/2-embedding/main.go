@@ -17,7 +17,7 @@
 //   go run ./04-types-design/composition/2-embedding
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how embedding promotes inner fields and methods to the outer type.
 // ============================================================================
 
 // Commercial use is prohibited without permission.

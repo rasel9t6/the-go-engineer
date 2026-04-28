@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/1-functions-basics
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn what a function boundary is and why naming a piece of work is better than leaving everything inline in `main()`.
 // ============================================================================
 
 package main

@@ -16,7 +16,7 @@
 //   go run ./04-types-design/1-struct
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn what a struct is and how to use it to group related data together into a single type.
 // ============================================================================
 
 // See LICENSE for usage terms.
@@ -94,13 +94,13 @@ func main() {
 
 	dbServer.IsOnline = false
 	dbServer.MemoryGB = 128
-	fmt.Printf("After upgrade: %s — Online: %t, RAM: %dGB\n",
+	fmt.Printf("After upgrade: %s â€” Online: %t, RAM: %dGB\n",
 		dbServer.Hostname, dbServer.IsOnline, dbServer.MemoryGB)
 	fmt.Println()
 
 	serverPtr := &dbServer
 	serverPtr.IsOnline = true
-	fmt.Printf("Via pointer: %s — Online: %t (original modified!)\n",
+	fmt.Printf("Via pointer: %s â€” Online: %t (original modified!)\n",
 		dbServer.Hostname, dbServer.IsOnline)
 	fmt.Println()
 

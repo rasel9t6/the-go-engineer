@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Build Tags fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Build Tags provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/01-modules-and-packages/4-build-tags
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build Tags fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,7 +30,7 @@ import (
 	"runtime"
 )
 
-// Stage 05: Modules & Packages — Build Tags
+// Stage 05: Modules & Packages â€” Build Tags
 //
 //   - How `//go:build` constraints conditionally compile code.
 //   - How to separate platform-specific logic (Windows vs Linux).

@@ -10,13 +10,13 @@
 //   - Learn advanced constraint patterns including parameterized constraints, using interfaces as constraints, and creating reusable generic utilities.
 //
 // WHY THIS MATTERS:
-//   - Think of a vending machine that accepts only certain payment methods. The constraint is not just "some type"â€”it's "anything with Pay() metho...
+//   - Think of a vending machine that accepts only certain payment methods. The constraint is not just "some type"Ã¢â‚¬â€it's "anything with Pay() metho...
 //
 // RUN:
 //   go run ./04-types-design/14-complex-generic-constraints
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn advanced constraint patterns including parameterized constraints, using interfaces as constraints, and creating reusable generic utilities.
 // ============================================================================
 
 // See LICENSE for usage terms.

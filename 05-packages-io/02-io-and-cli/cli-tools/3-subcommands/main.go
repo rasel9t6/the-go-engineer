@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Subcommands fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Subcommands provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/cli-tools/3-subcommands
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Subcommands fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,7 +30,7 @@ import (
 	"os"
 )
 
-// Stage 05: I/O and CLI — Subcommands
+// Stage 05: I/O and CLI â€” Subcommands
 //
 //   - Building multi-command CLIs like git, docker, and kubectl
 //   - flag.NewFlagSet for independent flag sets per subcommand
@@ -67,7 +67,7 @@ func main() {
 	}
 
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: CL.4 file organizer")
+	fmt.Println("ðŸš€ NEXT UP: CL.4 file organizer")
 	fmt.Println("   Current: CL.3 (subcommands)")
 	fmt.Println("---------------------------------------------------")
 }

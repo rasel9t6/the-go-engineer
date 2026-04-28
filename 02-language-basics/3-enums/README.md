@@ -18,6 +18,8 @@ Go does not have an `enum` keyword. Instead, it combines:
 
 That gives you fixed related values with type safety.
 
+> **Backward Reference:** In [Lesson 2: Constants](../2-constants/README.md), we learned how grouped constants group related static values. Here we combine that with named types to simulate the missing enum structure.
+
 ## Visual Model
 
 ```mermaid
@@ -55,6 +57,8 @@ This pattern is useful when `0` should mean "unset" or "invalid" instead of a re
 ### `func (l LogLevel) String() string`
 
 The method converts numeric enum values into readable text for output and debugging.
+
+> **Forward Reference:** We will put this precise pattern into practice in the next exercise, [Lesson 4: Application Logger](../4-application-logger/README.md), where we will use our `LogLevel` enum to control what gets printed.
 
 ## Try It
 

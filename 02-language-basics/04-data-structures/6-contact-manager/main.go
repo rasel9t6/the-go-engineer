@@ -17,7 +17,7 @@
 //   go run ./02-language-basics/04-data-structures/6-contact-manager
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small in-memory contact directory that combines slices, maps, and pointers in one runnable milestone.
 // ============================================================================
 
 package main

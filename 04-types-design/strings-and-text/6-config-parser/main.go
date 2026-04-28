@@ -17,7 +17,7 @@
 //   go run ./04-types-design/strings-and-text/6-config-parser
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small config parser that turns `.env`-style text into structured data and renders a stable summary from that data.
 // ============================================================================
 
 // Commercial use is prohibited without permission.

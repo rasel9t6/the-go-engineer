@@ -11,13 +11,13 @@
 //   - Build a small semantic-versioning and module-policy demo that makes Go's version rules concrete. This exercise is the Stage 05 milestone. It is whe...
 //
 // WHY THIS MATTERS:
-//   - [TODO: Missing Mental Model in README]
+//   - Build a small semantic-versioning and module-policy demo that makes Go's version rules concrete. This exercise is the Stage 05 milestone. It is whe...
 //
 // RUN:
 //   go run ./05-packages-io/01-modules-and-packages/3-versioning
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small semantic-versioning and module-policy demo that makes Go's version rules concrete. This exercise is the Stage 05 milestone. It is whe...
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -26,15 +26,15 @@ package main
 
 import "fmt"
 
-// Stage 05: Modules and Packages — Versioning Workshop
+// Stage 05: Modules and Packages â€” Versioning Workshop
 //
 // SEMANTIC VERSIONING IN GO:
 //
 //   v1.2.3
-//   │ │ │
-//   │ │ └── PATCH: bug fixes (backward compatible)
-//   │ └──── MINOR: new features (backward compatible)
-//   └────── MAJOR: breaking changes (not backward compatible)
+//   â”‚ â”‚ â”‚
+//   â”‚ â”‚ â””â”€â”€ PATCH: bug fixes (backward compatible)
+//   â”‚ â””â”€â”€â”€â”€ MINOR: new features (backward compatible)
+//   â””â”€â”€â”€â”€â”€â”€ MAJOR: breaking changes (not backward compatible)
 //
 // MAJOR VERSION RULE (v2+):
 //   When a module reaches v2, the import path MUST include /v2:
@@ -56,8 +56,8 @@ import "fmt"
 //     exclude github.com/some/pkg v1.2.3
 //
 // VENDORING:
-//   go mod vendor        — copy all dependencies into ./vendor/
-//   go build -mod=vendor — build using vendored dependencies only
+//   go mod vendor        â€” copy all dependencies into ./vendor/
+//   go build -mod=vendor â€” build using vendored dependencies only
 
 // Version represents a semantic version.
 type Version struct {
@@ -105,12 +105,12 @@ func main() {
 		}
 
 		prev := versions[i-1]
-		status := "✅ compatible"
+		status := "âœ… compatible"
 		if !v.IsCompatible(prev) {
-			status = "⚠️  BREAKING"
+			status = "âš ï¸  BREAKING"
 		}
 
-		fmt.Printf("  %s → %s  %s\n", prev, v, status)
+		fmt.Printf("  %s â†’ %s  %s\n", prev, v, status)
 	}
 
 	fmt.Println()
@@ -118,8 +118,8 @@ func main() {
 	fmt.Println("  In Go, v2+ modules require a /v2 suffix in the import path.")
 	fmt.Println("  This allows v1 and v2 to coexist in the same binary.")
 	fmt.Println()
-	fmt.Println("  import \"github.com/example/pkg\"    ← v0.x or v1.x")
-	fmt.Println("  import \"github.com/example/pkg/v2\" ← v2.x")
+	fmt.Println("  import \"github.com/example/pkg\"    â† v0.x or v1.x")
+	fmt.Println("  import \"github.com/example/pkg/v2\" â† v2.x")
 	fmt.Println()
 	fmt.Println("Replace is most useful during local development or controlled fork testing.")
 	fmt.Println("It should clarify dependency resolution, not hide long-term version problems.")

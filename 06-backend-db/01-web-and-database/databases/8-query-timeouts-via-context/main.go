@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/databases/8-query-timeouts-via-context
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how context deadlines stop slow database operations from owning a request forever.
 // ============================================================================
 
 package main

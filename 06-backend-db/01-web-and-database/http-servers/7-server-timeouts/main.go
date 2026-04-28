@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/7-server-timeouts
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn why HTTP servers need read, header, write, and idle timeouts to stay safe under pressure.
 // ============================================================================
 
 package main

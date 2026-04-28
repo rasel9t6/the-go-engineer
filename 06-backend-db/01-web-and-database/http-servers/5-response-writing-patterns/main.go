@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/5-response-writing-patterns
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how status codes, headers, bodies, and streaming responses form one response contract.
 // ============================================================================
 
 package main

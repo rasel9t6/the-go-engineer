@@ -17,7 +17,7 @@
 //   go run ./02-language-basics/04-data-structures/5-slices-2
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn why sub-slices can still affect the original data and why `append` can reuse spare capacity in ways that surprise beginners.
 // ============================================================================
 
 package main

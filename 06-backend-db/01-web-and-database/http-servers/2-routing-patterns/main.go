@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/2-routing-patterns
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how route patterns, method checks, and path parsing shape request flow.
 // ============================================================================
 
 package main

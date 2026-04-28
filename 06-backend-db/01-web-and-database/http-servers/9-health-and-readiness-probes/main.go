@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/9-health-and-readiness-probes
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn why liveness and readiness are different signals and why each needs a clear contract.
 // ============================================================================
 
 package main

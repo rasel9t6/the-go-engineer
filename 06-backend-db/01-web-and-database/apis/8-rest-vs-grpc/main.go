@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/8-rest-vs-grpc
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Compare when REST is a better fit and when gRPC earns its extra contract machinery.
 // ============================================================================
 
 package main

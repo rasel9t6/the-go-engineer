@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Prepared Statements fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Prepared Statements provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./06-backend-db/01-web-and-database/databases/4-prepare
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Prepared Statements fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -35,7 +35,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// Stage 06: Databases — Prepared Statements & Context
+// Stage 06: Databases â€” Prepared Statements & Context
 //
 //   - Prepared Statements (`db.Prepare()`)
 //   - Passing Context to queries (`ExecContext`) for cancellations
@@ -80,12 +80,12 @@ func main() {
 	// Executing the prepared statement
 	id, err := createUserWithCtx(ctx, db, "Context User", "ctx@go.dev", "hunter2")
 	if err != nil {
-		log.Println("❌ Failed:", err)
+		log.Println("âŒ Failed:", err)
 	} else {
-		fmt.Printf("✅ Inserted user via Prepared Statement! (ID: %d)\n", id)
+		fmt.Printf("âœ… Inserted user via Prepared Statement! (ID: %d)\n", id)
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.5 transactions")
+	fmt.Println("ðŸš€ NEXT UP: DB.5 transactions")
 	fmt.Println("   Current: DB.4 (prepared statements)")
 	fmt.Println("---------------------------------------------------")
 }

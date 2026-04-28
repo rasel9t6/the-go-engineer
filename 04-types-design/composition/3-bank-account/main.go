@@ -17,7 +17,7 @@
 //   go run ./04-types-design/composition/3-bank-account
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small bank-account model that proves the difference between named-field composition, embedding, promoted methods, and method shadowing.
 // ============================================================================
 
 // Commercial use is prohibited without permission.

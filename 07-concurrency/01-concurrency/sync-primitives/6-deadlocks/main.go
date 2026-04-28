@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/6-deadlocks
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how circular waits and unbalanced channel or lock usage can freeze a concurrent program.
 // ============================================================================
 
 package main

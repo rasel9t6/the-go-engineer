@@ -16,7 +16,7 @@
 //   go run ./04-types-design/3-interfaces
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to define behavior contracts using interfaces and achieve polymorphism without inheritance.
 // ============================================================================
 
 // See LICENSE for usage terms.
@@ -56,7 +56,7 @@ func (r Rectangle) Perimeter() float64 {
 }
 
 func (r Rectangle) String() string {
-	return fmt.Sprintf("Rectangle(%.1f × %.1f)", r.Width, r.Height)
+	return fmt.Sprintf("Rectangle(%.1f Ã— %.1f)", r.Width, r.Height)
 }
 
 type Circle struct {
@@ -138,7 +138,7 @@ func main() {
 	for _, shape := range allShapes {
 		switch v := shape.(type) {
 		case Rectangle:
-			fmt.Printf("  Rectangle: %.1f × %.1f\n", v.Width, v.Height)
+			fmt.Printf("  Rectangle: %.1f Ã— %.1f\n", v.Width, v.Height)
 		case Circle:
 			fmt.Printf("  Circle: radius = %.1f\n", v.Radius)
 		case Triangle:

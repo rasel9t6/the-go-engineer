@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/2-parameters-and-returns
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how a function receives input and gives a result back to the caller.
 // ============================================================================
 
 package main

@@ -25,6 +25,8 @@ This milestone is a miniature rule engine:
 
 It proves that control flow becomes useful when several decisions interact.
 
+> **Backward Reference:** This final Control Flow milestone combines the looping from [Lesson 2: For Basics](../2-for-basics/README.md), the value matching from [Lesson 4: Switch](../4-switch/README.md), and the loop intervention from [Lesson 3: Break / Continue](../3-break-continue/README.md).
+
 ## Visual Model
 
 ```mermaid
@@ -71,6 +73,8 @@ This extra rule shows that `switch` and `if` solve different kinds of decisions 
 ### `subtotal += price`
 
 This is the running-total pattern that accumulates the final result.
+
+> **Forward Reference:** You have now completed the Language Basics and Control Flow sections. In the next major subsystem, [Data Structures](../../04-data-structures/README.md), you will learn how to formally construct and manage collections like the `cart` slice used in this lesson.
 
 ## Try It
 

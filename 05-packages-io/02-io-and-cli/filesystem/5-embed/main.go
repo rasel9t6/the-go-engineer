@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Embed fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Embed provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/filesystem/5-embed
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Embed fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,7 +30,7 @@ import (
 	"log"
 )
 
-// Stage 05: I/O and CLI — The embed Directive
+// Stage 05: I/O and CLI â€” The embed Directive
 //
 //   - //go:embed for compiling static files directly into a binary
 //   - Embedding as string, []byte, or embed.FS
@@ -90,7 +90,7 @@ func main() {
 	fmt.Println("  - Use embed.FS for directories and grouped assets")
 	fmt.Println("  - Embedding avoids missing-runtime-asset problems")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: FS.6 io.Reader / io.Writer patterns")
+	fmt.Println("ðŸš€ NEXT UP: FS.6 io.Reader / io.Writer patterns")
 	fmt.Println("   Current: FS.5 (embed)")
 	fmt.Println("---------------------------------------------------")
 }

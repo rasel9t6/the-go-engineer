@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Paths fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Paths provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/filesystem/2-paths
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Paths fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,7 +30,7 @@ import (
 	"path/filepath"
 )
 
-// Stage 05: Filesystem — File Paths
+// Stage 05: Filesystem â€” File Paths
 //
 //   - filepath.Join: building cross-platform paths (never use "/" or "\" manually)
 //   - filepath.Base: extracting the filename from a path
@@ -52,7 +52,7 @@ import (
 //   On Linux/macOS, paths use "/" (forward slash)
 //   On Windows, paths use "\" (backslash)
 //   filepath.Join automatically uses the correct separator for the OS.
-//   NEVER hardcode "/" or "\" in path strings — your code will break on other OSes.
+//   NEVER hardcode "/" or "\" in path strings â€” your code will break on other OSes.
 //
 
 func main() {
@@ -115,7 +115,7 @@ func main() {
 	fmt.Println("  --- Clean (normalize paths) ---")
 	for _, dp := range dirtyPaths {
 		fmt.Printf("    %s\n", dp)
-		fmt.Printf("    → %s\n\n", filepath.Clean(dp))
+		fmt.Printf("    â†’ %s\n\n", filepath.Clean(dp))
 	}
 
 	// --- filepath.Glob: Find files matching a pattern ---
@@ -130,13 +130,13 @@ func main() {
 	// Match all Go files recursively would need filepath.WalkDir (FS.3)
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAY:")
-	fmt.Println("  - ALWAYS use filepath.Join — never hardcode / or \\")
+	fmt.Println("  - ALWAYS use filepath.Join â€” never hardcode / or \\")
 	fmt.Println("  - filepath.Base extracts filename, Dir extracts directory, Ext extracts extension")
 	fmt.Println("  - filepath.Clean normalizes messy paths (resolves . and ..)")
 	fmt.Println("  - filepath.Abs converts relative to absolute path")
-	fmt.Println("  - filepath is cross-platform — works on Linux, macOS, AND Windows")
+	fmt.Println("  - filepath is cross-platform â€” works on Linux, macOS, AND Windows")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: FS.3 directories")
+	fmt.Println("ðŸš€ NEXT UP: FS.3 directories")
 	fmt.Println("   Current: FS.2 (paths)")
 	fmt.Println("---------------------------------------------------")
 }

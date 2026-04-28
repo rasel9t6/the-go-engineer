@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/3-atomic-operations
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn when lock-free atomic reads and writes are the right tool for counters, flags, and single-word state.
 // ============================================================================
 
 package main

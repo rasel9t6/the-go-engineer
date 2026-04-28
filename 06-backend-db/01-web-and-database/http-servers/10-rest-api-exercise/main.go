@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/10-rest-api-exercise
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small REST-shaped surface that combines routing, middleware, validation, and consistent responses.
 // ============================================================================
 
 package main

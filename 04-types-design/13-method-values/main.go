@@ -7,7 +7,7 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how to treat methods as first-class valuesâ€”assigning methods to variables and passing them as function arguments.
+//   - Learn how to treat methods as first-class valuesÃ¢â‚¬â€assigning methods to variables and passing them as function arguments.
 //
 // WHY THIS MATTERS:
 //   - Think of a button on a remote. You can press the button (call the method), or you can program the button to trigger something else (use the method ...
@@ -16,7 +16,7 @@
 //   go run ./04-types-design/13-method-values
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to treat methods as first-class valuesÃ¢â‚¬â€assigning methods to variables and passing them as function arguments.
 // ============================================================================
 
 // See LICENSE for usage terms.

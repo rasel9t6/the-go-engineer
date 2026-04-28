@@ -10,13 +10,13 @@
 //   - Learn how to embed one interface into another to build larger contracts from smaller pieces.
 //
 // WHY THIS MATTERS:
-//   - Think of a universal remote. It does not have buttons for every function directlyâ€”it embeds the capabilities of a TV remote, a DVD remote, a...
+//   - Think of a universal remote. It does not have buttons for every function directlyÃ¢â‚¬â€it embeds the capabilities of a TV remote, a DVD remote, a...
 //
 // RUN:
 //   go run ./04-types-design/4-interface-embedding
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to embed one interface into another to build larger contracts from smaller pieces.
 // ============================================================================
 
 // See LICENSE for usage terms.

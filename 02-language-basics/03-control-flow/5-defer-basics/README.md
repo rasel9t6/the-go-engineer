@@ -16,6 +16,8 @@ As you start writing more complex programs that open files, database connections
 
 Think of `defer` like a "sticky note" you put on the exit door of a room. No matter what you do in the room or which way you leave, you must perform the task on the note before you walk out.
 
+> **Backward Reference:** In the [Switch](../4-switch/README.md) and [If / Else](../1-if-else/README.md) lessons, control flow executed exactly where the statement was placed. `defer` breaks this by separating *when* the statement is written from *when* the statement executes.
+
 ## Visual Model
 
 ```mermaid
@@ -48,6 +50,8 @@ This line schedules the print statement to run after the `main` function finishe
 ### Multiple defers
 
 If you have multiple defers, they run in reverse order (LIFO). This is important for things like "close file" then "close database".
+
+> **Forward Reference:** While this lesson focuses purely on the LIFO mechanics of `defer`, we will apply this immediately to practical scenarios like closing files and releasing mutexes in the next lesson, [Lesson 6: Defer Use Cases](../6-defer-use-cases/README.md).
 
 ## Try It
 

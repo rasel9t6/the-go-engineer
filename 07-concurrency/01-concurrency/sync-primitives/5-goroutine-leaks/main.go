@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how goroutines get stranded and why lifetime ownership matters as much as spawning work.
 // ============================================================================
 
 package main

@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/9-grpc-service-exercise
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small service contract that combines protobuf design, unary calls, and boundary behavior into one exercise.
 // ============================================================================
 
 package main

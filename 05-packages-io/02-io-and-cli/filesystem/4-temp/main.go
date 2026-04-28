@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Temp Files fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Temp Files provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/filesystem/4-temp
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Temp Files fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -31,7 +31,7 @@ import (
 	"path/filepath"
 )
 
-// Stage 05: Filesystem — Temporary Files & Directories
+// Stage 05: Filesystem â€” Temporary Files & Directories
 //
 //   - os.MkdirTemp: creating secure temporary directories
 //   - os.CreateTemp: creating secure temporary files
@@ -62,7 +62,7 @@ func main() {
 	//   dir: Where to create it ("" means the OS default temp directory)
 	//   pattern: Prefix and/or suffix for the dir name ("logs-*" generates "logs-123456")
 
-	fmt.Println("1️⃣  Temporary Directory:")
+	fmt.Println("1ï¸âƒ£  Temporary Directory:")
 	tempDir, err := os.MkdirTemp("", "the-go-engineer-logs-*")
 	if err != nil {
 		log.Fatal("Failed to create temp dir:", err)
@@ -71,24 +71,24 @@ func main() {
 	// ALWAYS defer cleanup immediately.
 	// os.RemoveAll is necessary because a directory must be empty to use os.Remove.
 	defer func() {
-		fmt.Printf("   🧹 Cleaning up directory: %s\n", tempDir)
+		fmt.Printf("   ðŸ§¹ Cleaning up directory: %s\n", tempDir)
 		_ = os.RemoveAll(tempDir)
 	}()
 
-	fmt.Printf("   📁 Created: %s\n", tempDir)
+	fmt.Printf("   ðŸ“ Created: %s\n", tempDir)
 	fmt.Println()
 
 	// 2. Temporary Files
 	// os.CreateTemp(dir, pattern) creates and OPENs the file for reading/writing.
 
-	fmt.Println("2️⃣  Temporary File:")
+	fmt.Println("2ï¸âƒ£  Temporary File:")
 	// We create the file INSIDE our temporary directory
 	tempFile, err := os.CreateTemp(tempDir, "data-*.csv")
 	if err != nil {
 		log.Fatal("Failed to create temp file:", err)
 	}
 
-	fmt.Printf("   📄 Created: %s\n", tempFile.Name())
+	fmt.Printf("   ðŸ“„ Created: %s\n", tempFile.Name())
 
 	// Write some data to the temp file
 	data := []byte("id,name,role\n1,admin,sysadmin\n2,user,guest\n")
@@ -96,7 +96,7 @@ func main() {
 		log.Fatal("Failed to write to temp file:", err)
 	}
 
-	fmt.Printf("   ✍️  Wrote %d bytes to temp file\n", len(data))
+	fmt.Printf("   âœï¸  Wrote %d bytes to temp file\n", len(data))
 
 	// Remember to close the file handle!
 	if err := tempFile.Close(); err != nil {
@@ -105,7 +105,7 @@ func main() {
 
 	// 3. Verifying the temporary data
 	fmt.Println()
-	fmt.Println("3️⃣  Reading back temporary data:")
+	fmt.Println("3ï¸âƒ£  Reading back temporary data:")
 
 	content, err := os.ReadFile(tempFile.Name())
 	if err != nil {
@@ -125,7 +125,7 @@ func main() {
 	fmt.Println("  - The second argument \"prefix-*\" determines the naming pattern")
 	fmt.Println("  - ALWAYS defer os.RemoveAll(dir) or os.Remove(file) immediately after creation")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: FS.5 embed")
+	fmt.Println("ðŸš€ NEXT UP: FS.5 embed")
 	fmt.Println("   Current: FS.4 (temp files)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -10,13 +10,13 @@
 //   - Learn how to control how your types are displayed by implementing the fmt.Stringer interface.
 //
 // WHY THIS MATTERS:
-//   - When you hand someone a business card, the card shows a carefully formatted summaryâ€”not raw data. The String() method is your type's busines...
+//   - When you hand someone a business card, the card shows a carefully formatted summaryÃ¢â‚¬â€not raw data. The String() method is your type's busines...
 //
 // RUN:
 //   go run ./04-types-design/5-stringer
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to control how your types are displayed by implementing the fmt.Stringer interface.
 // ============================================================================
 
 // See LICENSE for usage terms.

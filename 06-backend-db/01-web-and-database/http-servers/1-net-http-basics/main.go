@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/1-net-http-basics
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the smallest useful shape of an HTTP server in Go.
 // ============================================================================
 
 package main

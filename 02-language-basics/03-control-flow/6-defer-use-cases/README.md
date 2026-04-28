@@ -16,6 +16,8 @@ Understanding the mechanics of `defer` is good, but seeing it applied to real re
 
 Think of `defer` as a "safety harness". Before you start a dangerous task (like opening a file), you put on the harness (`defer file.Close()`) so that no matter how the task ends (success or error), you are protected.
 
+> **Backward Reference:** In [Lesson 5: Defer Basics](../5-defer-basics/README.md), you learned that deferred functions execute in LIFO order when the surrounding function returns. Here, we apply that exact mechanism to manage simulated resources safely.
+
 ## Visual Model
 
 ```mermaid
@@ -47,6 +49,8 @@ We simulate opening and closing a file. Notice how the "Closing file" message ap
 ### Pair Patterns
 
 Go often uses pairs of functions: `Open/Close`, `Lock/Unlock`, `Begin/Commit`. The second half of the pair should almost always be deferred immediately after the first half succeeds.
+
+> **Forward Reference:** We are now ready to put all of these Control Flow constructs together. In [Lesson 7: Pricing Checkout](../7-pricing-checkout/README.md), you will combine variables, loops, switches, and defers into a single unified business logic exercise.
 
 ## Try It
 

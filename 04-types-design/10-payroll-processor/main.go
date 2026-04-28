@@ -16,7 +16,7 @@
 //   go run ./04-types-design/10-payroll-processor
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small payroll processor that proves different employee types can share one behavior contract through interfaces instead of inheritance.
 // ============================================================================
 
 // See LICENSE for usage terms.

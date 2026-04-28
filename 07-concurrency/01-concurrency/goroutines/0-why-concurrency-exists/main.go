@@ -17,7 +17,7 @@
 //   go run ./07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Understand why overlapping waits is the reason concurrency exists in everyday backend code.
 // ============================================================================
 
 package main

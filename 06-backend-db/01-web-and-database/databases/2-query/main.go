@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Executing Queries (INSERT) fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Executing Queries (INSERT) provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./06-backend-db/01-web-and-database/databases/2-query
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Executing Queries (INSERT) fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -33,7 +33,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// Stage 06: Databases — Executing Queries (INSERT)
+// Stage 06: Databases â€” Executing Queries (INSERT)
 //
 //   - Executing INSERT queries using db.Exec
 //   - SQL Parameterization (`?`) to prevent SQL Injection
@@ -70,11 +70,11 @@ func main() {
 	if err = db.Ping(); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("✅ Database connection established")
+	fmt.Println("âœ… Database connection established")
 
 	// 1. Create the table
 	createTable(db)
-	fmt.Println("✅ Users table ensured")
+	fmt.Println("âœ… Users table ensured")
 
 	// 2. Insert a secure user
 	userId, err := createUser(db, "Alice", "alice@example.com", "supersecret123")
@@ -82,10 +82,10 @@ func main() {
 		log.Fatal("Failed to insert user:", err)
 	}
 
-	fmt.Printf("✅ Inserted user 'Alice' successfully! (ID: %d)\n", userId)
+	fmt.Printf("âœ… Inserted user 'Alice' successfully! (ID: %d)\n", userId)
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.3 query — SELECT")
-	fmt.Println("   Current: DB.2 (query — INSERT)")
+	fmt.Println("ðŸš€ NEXT UP: DB.3 query â€” SELECT")
+	fmt.Println("   Current: DB.2 (query â€” INSERT)")
 	fmt.Println("---------------------------------------------------")
 }
 

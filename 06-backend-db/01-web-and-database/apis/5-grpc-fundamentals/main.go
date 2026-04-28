@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/5-grpc-fundamentals
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the core request/response model behind gRPC services and generated contracts.
 // ============================================================================
 
 package main

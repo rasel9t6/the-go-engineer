@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/databases/7-n-plus-one-query-detection
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how repeated lookups inside a loop turn one logical query into unbounded database chatter.
 // ============================================================================
 
 package main

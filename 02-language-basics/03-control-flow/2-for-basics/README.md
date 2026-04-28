@@ -18,6 +18,8 @@ Go uses one keyword for several loop shapes:
 - condition-only loops
 - `range` loops over collections
 
+> **Backward Reference:** In [Lesson 1: If / Else](../1-if-else/README.md), you learned how to evaluate boolean conditions to choose a path. The `for` loop uses those exact same boolean conditions to decide whether to *keep going* on a path.
+
 ## Visual Model
 
 ```mermaid
@@ -56,6 +58,8 @@ This previews how `range` visits values inside a collection one by one.
 ### Loop body
 
 The same code block can run zero times, once, or many times depending on the condition.
+
+> **Forward Reference:** We use the `range` loop briefly here, but we will study it deeply when we learn about slices and arrays in [Lesson 4: Data Structures](../../04-data-structures/1-array/README.md).
 
 ## Try It
 

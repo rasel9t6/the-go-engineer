@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Transactions fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Transactions provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./06-backend-db/01-web-and-database/databases/5-transactions
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Transactions fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -33,7 +33,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-// Stage 06: Databases — Transactions
+// Stage 06: Databases â€” Transactions
 //
 //   - ACID Properties in relational databases
 //   - db.BeginTx: initializing a transaction
@@ -85,12 +85,12 @@ func main() {
 	// 2. Execute a transaction
 	userID, err := createUserWithProfile(db, "TxUser", "tx@example.com", "hunter2", "avatar_01.png")
 	if err != nil {
-		log.Println("❌ Transaction Failed (Rolled Back):", err)
+		log.Println("âŒ Transaction Failed (Rolled Back):", err)
 	} else {
-		fmt.Printf("✅ Transaction Succeeded! Created User %d + Profile\n", userID)
+		fmt.Printf("âœ… Transaction Succeeded! Created User %d + Profile\n", userID)
 	}
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: DB.6 repository pattern")
+	fmt.Println("ðŸš€ NEXT UP: DB.6 repository pattern")
 	fmt.Println("   Current: DB.5 (transactions)")
 	fmt.Println("---------------------------------------------------")
 }

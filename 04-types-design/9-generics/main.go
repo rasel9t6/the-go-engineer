@@ -10,13 +10,13 @@
 //   - Learn how to write functions and types that work with multiple types using type parameters and constraints.
 //
 // WHY THIS MATTERS:
-//   - Think of a vending machine. It does not care if it dispenses sodas, snacks, or toysâ€”the mechanism is the same. The "type parameter" is what ...
+//   - Think of a vending machine. It does not care if it dispenses sodas, snacks, or toysÃ¢â‚¬â€the mechanism is the same. The "type parameter" is what ...
 //
 // RUN:
 //   go run ./04-types-design/9-generics
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how to write functions and types that work with multiple types using type parameters and constraints.
 // ============================================================================
 
 // See LICENSE for usage terms.

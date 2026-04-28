@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/2-api-versioning-strategies
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the trade-offs between URL versioning, header versioning, and evolutionary compatibility.
 // ============================================================================
 
 package main

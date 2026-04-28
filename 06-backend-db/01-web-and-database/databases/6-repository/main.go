@@ -11,13 +11,13 @@
 //   - Build a small SQLite-backed user repository that proves application logic can depend on behavior contracts instead of raw database calls. This exer...
 //
 // WHY THIS MATTERS:
-//   - [TODO: Missing Mental Model in README]
+//   - Build a small SQLite-backed user repository that proves application logic can depend on behavior contracts instead of raw database calls. This exer...
 //
 // RUN:
 //   go run ./06-backend-db/01-web-and-database/databases/6-repository
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small SQLite-backed user repository that proves application logic can depend on behavior contracts instead of raw database calls. This exer...
 // ============================================================================
 
 // Commercial use is prohibited without permission.

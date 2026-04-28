@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/7-grpc-interceptors
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how interceptors provide middleware-style hooks for auth, logging, metrics, and recovery in gRPC.
 // ============================================================================
 
 package main

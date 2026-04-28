@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/3-pagination-and-filtering
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn why large result sets need stable pagination and explicit filtering rules.
 // ============================================================================
 
 package main

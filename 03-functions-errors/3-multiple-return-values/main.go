@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/3-multiple-return-values
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how one function can return more than one value and why that matters before errors enter the picture.
 // ============================================================================
 
 package main

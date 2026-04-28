@@ -8,16 +8,16 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - [TODO: Extract from README Mission]
+//   - Base64 fundamentals and practical application in Go.
 //
 // WHY THIS MATTERS:
-//   - [TODO: Extract from README Mental Model]
+//   - Base64 provides a structured approach to writing clean Go code.
 //
 // RUN:
 //   go run ./05-packages-io/02-io-and-cli/encoding/5-base64_encoding
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Base64 fundamentals and practical application in Go.
 // ============================================================================
 
 // Commercial use is prohibited without permission.
@@ -30,7 +30,7 @@ import (
 	"log"
 )
 
-// Stage 05: I/O and CLI — Base64 Encoding
+// Stage 05: I/O and CLI â€” Base64 Encoding
 //
 //   - What base64 is and why it is used
 //   - base64.StdEncoding for general text-safe transport
@@ -90,7 +90,7 @@ func main() {
 	fmt.Println("  - base64.URLEncoding avoids + and / in URL contexts")
 	fmt.Println("  - Base64 increases data size by about 33%")
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: EN.6 config parser")
+	fmt.Println("ðŸš€ NEXT UP: EN.6 config parser")
 	fmt.Println("   Current: EN.5 (Base64)")
 	fmt.Println("---------------------------------------------------")
 }

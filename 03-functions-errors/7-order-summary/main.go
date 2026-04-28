@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/7-order-summary
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Build a small order-summary program that combines validation, helper functions, first-class functions, closures, multiple return values, and explic...
 // ============================================================================
 
 package main

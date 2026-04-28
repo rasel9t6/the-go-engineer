@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/8-first-class-functions
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn that functions are ordinary values in Go, which makes callbacks and higher-order helpers possible.
 // ============================================================================
 
 package main

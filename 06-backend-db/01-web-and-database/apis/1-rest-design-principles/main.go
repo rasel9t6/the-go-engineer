@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/apis/1-rest-design-principles
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn the resource-oriented rules that make REST APIs predictable for humans and clients.
 // ============================================================================
 
 package main

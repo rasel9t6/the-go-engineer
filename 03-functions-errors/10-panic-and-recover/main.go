@@ -17,7 +17,7 @@
 //   go run ./03-functions-errors/10-panic-and-recover
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn when panic is appropriate, when it is not, and how recover turns a crash into an explicit boundary decision.
 // ============================================================================
 
 package main

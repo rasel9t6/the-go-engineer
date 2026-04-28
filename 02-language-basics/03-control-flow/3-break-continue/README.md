@@ -17,6 +17,8 @@ Loop control gives you two important tools:
 
 That lets one loop treat different iterations differently.
 
+> **Backward Reference:** In [Lesson 2: For Basics](../2-for-basics/README.md), you learned how to start and stop a loop based on the `for` condition. `break` and `continue` allow you to intervene from *inside* the loop body.
+
 ## Visual Model
 
 ```mermaid
@@ -54,6 +56,8 @@ The position of `continue` and `break` checks affects which code can still run d
 ### Loop control is not branching alone
 
 These statements do not just choose code paths. They also change whether the loop keeps going.
+
+> **Forward Reference:** We used `if` statements to decide when to break or continue. Next, we will learn how `switch` can replace multiple `if/else` checks for cleaner discrete branching in [Lesson 4: Switch](../4-switch/README.md).
 
 ## Try It
 

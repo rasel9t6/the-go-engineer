@@ -17,7 +17,7 @@
 //   go run ./06-backend-db/01-web-and-database/http-servers/3-middleware-pattern
 //
 // KEY TAKEAWAY:
-//   - [TODO: Summarize the core takeaway]
+//   - Learn how middleware wraps handlers to add logging, auth, recovery, and cross-cutting rules.
 // ============================================================================
 
 package main
