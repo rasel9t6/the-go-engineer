@@ -566,6 +566,7 @@ func validateV2Curriculum(root string, report func(string)) (int, int, int, int,
 	errorsFound += validateV2SectionLabels(root, sectionIDs, cur.Items, report)
 	errorsFound += validateV2TextEncoding(root, sectionIDs, cur.Items, report)
 	errorsFound += validateFoundationsReadmeContracts(root, cur.Items, report)
+	validateEngineeringReadmeContracts(root, cur.Items, report)
 
 	return len(cur.Sections), len(cur.Items), placeholderCount, errorsFound, true, nil
 }
@@ -791,6 +792,15 @@ func isFoundationsSection(sectionID string) bool {
 	}
 }
 
+func isEngineeringSection(sectionID string) bool {
+	switch sectionID {
+	case "s05", "s06", "s07", "s08", "s09", "s10":
+		return true
+	default:
+		return false
+	}
+}
+
 func validateFoundationsReadmeContracts(root string, items []V2Item, report func(string)) int {
 	errorsFound := 0
 
@@ -824,6 +834,72 @@ func validateFoundationsReadmeContracts(root string, items []V2Item, report func
 	}
 
 	return errorsFound
+}
+
+// validateEngineeringReadmeContracts checks README heading compliance for
+// engineering sections (s05-s10). Reports as warnings (does not increment
+// error count) so that Phase 3 enrichment work can proceed incrementally
+// without breaking CI.
+func validateEngineeringReadmeContracts(root string, items []V2Item, report func(string)) {
+	for _, item := range items {
+		if !isEngineeringSection(item.SectionID) {
+			continue
+		}
+		if isPlaceholderItem(item) {
+			continue
+		}
+
+		itemPath := filepath.ToSlash(filepath.Clean(item.Path))
+		readmePath := filepath.ToSlash(filepath.Join(itemPath, "README.md"))
+		if !pathExists(root, readmePath) {
+			continue
+		}
+
+		warnMissingEngineeringHeadings(root, readmePath, item, report)
+	}
+}
+
+func warnMissingEngineeringHeadings(root, readmePath string, item V2Item, report func(string)) {
+	requiredHeadings := []string{
+		"## Mission",
+		"## Prerequisites",
+		"## Mental Model",
+		"## Visual Model",
+		"## Machine View",
+		"## Run Instructions",
+	}
+
+	if item.Type == "lesson" {
+		requiredHeadings = append(requiredHeadings, "## Code Walkthrough")
+	} else {
+		requiredHeadings = append(requiredHeadings, "## Solution Walkthrough")
+	}
+
+	requiredHeadings = append(requiredHeadings, "## Try It")
+
+	if item.Type != "lesson" {
+		requiredHeadings = append(requiredHeadings, "## Verification Surface")
+	}
+
+	requiredHeadings = append(requiredHeadings,
+		"## In Production",
+		"## Thinking Questions",
+		"## Next Step",
+	)
+
+	data, err := os.ReadFile(filepath.Join(root, readmePath))
+	if err != nil {
+		return
+	}
+
+	text := strings.ReplaceAll(string(data), "\r\n", "\n")
+	text = normalizeFoundationsHeadingAliases(text)
+
+	for _, heading := range requiredHeadings {
+		if !strings.Contains(text, heading) {
+			report(fmt.Sprintf("Warning: engineering README contract: %s -> %s missing %s", item.ID, filepath.ToSlash(readmePath), heading))
+		}
+	}
 }
 
 func validateRequiredHeadingsForItem(root, readmePath string, item V2Item, report func(string)) int {
