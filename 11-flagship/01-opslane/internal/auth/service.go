@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
 )
 
 // UserLookup is the minimum repository behavior auth needs to verify credentials.

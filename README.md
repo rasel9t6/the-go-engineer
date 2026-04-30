@@ -1,6 +1,6 @@
 # The Go Engineer
 
-[![CI](https://github.com/rasel9t6/the-go-engineer/actions/workflows/ci.yml/badge.svg)](https://github.com/rasel9t6/the-go-engineer/actions)
+[![CI](https://github.com/swe-labs/the-go-engineer/actions/workflows/ci.yml/badge.svg)](https://github.com/swe-labs/the-go-engineer/actions)
 [![License: TGE License v1.0](https://img.shields.io/badge/License-TGE_v1.0-red.svg)](#license)
 
 The Go Engineer is a repository-first Go software engineering curriculum. It teaches Go by combining runnable lessons, production-shaped examples, tests, validation, and a final integrated backend project.
@@ -31,7 +31,7 @@ Requirements:
 - CGO-capable C compiler for `go test -race ./...` and SQLite-backed paths
 
 ```bash
-git clone https://github.com/rasel9t6/the-go-engineer.git
+git clone https://github.com/swe-labs/the-go-engineer.git
 cd the-go-engineer
 go mod download
 go run ./00-how-computers-work/1-what-is-a-program

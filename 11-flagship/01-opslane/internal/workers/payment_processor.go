@@ -7,9 +7,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/events"
-	paymentflow "github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/payment"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/services"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/events"
+	paymentflow "github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/payment"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/services"
 )
 
 type PaymentWorkflow interface {

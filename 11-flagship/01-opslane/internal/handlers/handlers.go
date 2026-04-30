@@ -12,11 +12,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/auth"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/middleware"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
-	paymentflow "github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/payment"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/services"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/auth"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/middleware"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
+	paymentflow "github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/payment"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/services"
 )
 
 const healthDatabaseTimeout = 2 * time.Second

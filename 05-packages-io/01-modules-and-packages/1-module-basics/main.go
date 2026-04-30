@@ -46,7 +46,7 @@ import "fmt"
 //
 // File: go.mod
 //
-//	module github.com/rasel9t6/the-go-engineer <- Module path: the root import path for all packages
+//	module github.com/swe-labs/the-go-engineer <- Module path: the root import path for all packages
 //	go 1.24                                    <- Minimum Go version required to build
 //
 //	require (
@@ -83,10 +83,10 @@ func main() {
 	fmt.Println("=== Go Module Basics ===")
 	fmt.Println()
 
-	fmt.Println("Module path: github.com/rasel9t6/the-go-engineer")
+	fmt.Println("Module path: github.com/swe-labs/the-go-engineer")
 	fmt.Println("This means packages in this repo are importable as:")
-	fmt.Println("  github.com/rasel9t6/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/models")
-	fmt.Println("  github.com/rasel9t6/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/repository")
+	fmt.Println("  github.com/swe-labs/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/models")
+	fmt.Println("  github.com/swe-labs/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/repository")
 	fmt.Println()
 
 	commands := []struct {

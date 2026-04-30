@@ -93,7 +93,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	// Internal
-	"github.com/rasel9t6/the-go-engineer/internal/auth"
+	"github.com/swe-labs/the-go-engineer/internal/auth"
 )
 ```
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/rasel9t6/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/models"
+	"github.com/swe-labs/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/models"
 )
 
 // UserRepository defines the contract for user data access.

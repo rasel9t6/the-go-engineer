@@ -6,7 +6,7 @@ package events
 import (
 	"time"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
 )
 
 // Type represents the routing key for a specific business event.
