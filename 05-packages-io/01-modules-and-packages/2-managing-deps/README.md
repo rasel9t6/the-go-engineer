@@ -67,4 +67,4 @@ Dependency bloat is a security risk. Every library you add increases your "attac
 
 ## Next Step
 
-Continue to `MP.3` versioning.
+Next: `MP.3` -> [`05-packages-io/01-modules-and-packages/3-versioning`](../3-versioning/README.md)

@@ -77,4 +77,4 @@ Graceful shutdown is mandatory for **Zero-Downtime Deployments**. In a environme
 
 ## Next Step
 
-Continue to `HS.9` health-and-readiness-probes.
+Next: `HS.9` -> [`06-backend-db/01-web-and-database/http-servers/9-health-and-readiness-probes`](../9-health-and-readiness-probes/README.md)

@@ -101,4 +101,4 @@ Callback-driven APIs stay readable only when function signatures are narrow and 
 
 ## Next Step
 
-Continue to `FE.9` closures - mechanics.
+Next: `FE.9` -> [`03-functions-errors/9-closures-mechanics`](../9-closures-mechanics/README.md)

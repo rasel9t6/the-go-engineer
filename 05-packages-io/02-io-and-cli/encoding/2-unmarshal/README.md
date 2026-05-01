@@ -68,4 +68,4 @@ Always validate the error returned by `Unmarshal`. In production systems, you sh
 
 ## Next Step
 
-Continue to `EN.3` encoder.
+Next: `EN.3` -> [`05-packages-io/02-io-and-cli/encoding/3-encoder`](../3-encoder/README.md)

@@ -83,4 +83,4 @@ Just because Go can launch 1,000,000 goroutines doesn't mean the website you are
 
 ## Next Step
 
-We've focused on coordination. Now let's learn about the dark side of concurrency: **Race Conditions**. Continue to [GC.8 Race Conditions](../8-race/README.md).
+Next: `SY.1` -> [`07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex`](../../sync-primitives/1-mutex-and-rwmutex/README.md)

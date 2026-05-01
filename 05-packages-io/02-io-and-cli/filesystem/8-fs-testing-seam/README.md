@@ -69,4 +69,4 @@ The `fs.FS` interface is **read-only**. It is perfect for reading configurations
 
 ## Next Step
 
-Continue to `HS.1` http-server.
+Next: `HS.1` -> [`06-backend-db/01-web-and-database/http-servers/1-net-http-basics`](../../../../06-backend-db/01-web-and-database/http-servers/1-net-http-basics/README.md)

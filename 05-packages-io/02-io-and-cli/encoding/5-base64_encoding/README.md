@@ -61,4 +61,4 @@ Helper functions that handle the conversion between `[]byte` and `string` automa
 
 ## Next Step
 
-Continue to `EN.6` config-parser.
+Next: `EN.6` -> [`05-packages-io/02-io-and-cli/encoding/6-config-parser`](../6-config-parser/README.md)

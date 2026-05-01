@@ -75,4 +75,4 @@ The default case handles the fallback path when no explicit case matches.
 
 ## Next Step
 
-Continue to `CF.5` defer-basics.
+Next: `CF.5` -> [`02-language-basics/03-control-flow/5-defer-basics`](../5-defer-basics/README.md)

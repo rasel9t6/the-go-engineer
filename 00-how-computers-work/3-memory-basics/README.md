@@ -73,4 +73,4 @@ That is one reason hot paths often avoid unnecessary temporary objects.
 
 ## Next Step
 
-Continue to [HC.4 Terminal Confidence](../4-terminal-confidence).
+Next: `HC.4` -> [`00-how-computers-work/4-terminal-confidence`](../4-terminal-confidence/README.md)

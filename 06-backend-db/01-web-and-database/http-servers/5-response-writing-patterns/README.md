@@ -76,4 +76,4 @@ Always handle encoding errors. While rare, `json.NewEncoder.Encode` can fail (e.
 
 ## Next Step
 
-Continue to `HS.6` error-handling-middleware.
+Next: `HS.6` -> [`06-backend-db/01-web-and-database/http-servers/6-error-handling-middleware`](../6-error-handling-middleware/README.md)

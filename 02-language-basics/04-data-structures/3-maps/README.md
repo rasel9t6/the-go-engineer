@@ -137,4 +137,4 @@ and in-memory caches. The comma-ok habit prevents subtle bugs around missing dat
 
 ## Next Step
 
-Continue to `DS.4` pointers.
+Next: `DS.4` -> [`02-language-basics/04-data-structures/4-pointers`](../4-pointers/README.md)

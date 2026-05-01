@@ -79,4 +79,4 @@ While Protobuf is great for internal microservices, it is harder to use for publ
 
 ## Next Step
 
-Continue to `API.5` grpc-fundamentals.
+Next: `API.5` -> [`06-backend-db/01-web-and-database/apis/5-grpc-fundamentals`](../5-grpc-fundamentals/README.md)

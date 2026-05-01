@@ -72,4 +72,4 @@ Never commit code that hasn't been through `go fmt`. Most teams enforce this in 
 
 ## Next Step
 
-Continue to `GT.6` reading compiler errors.
+Next: `GT.6` -> [`01-getting-started/6-reading-compiler-errors`](../6-reading-compiler-errors/README.md)

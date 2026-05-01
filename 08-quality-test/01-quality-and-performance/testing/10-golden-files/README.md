@@ -64,4 +64,4 @@ Golden files are a double-edged sword. They are very easy to write, but they can
 
 ## Next Step
 
-You've mastered the Testing Track! Now, let's look at the "What" and "How" of performance. Move to the [Profiling Track](../../profiling).
+Next: `PR.1` -> [`08-quality-test/01-quality-and-performance/profiling/1-cpu-profile`](../../profiling/1-cpu-profile/README.md)

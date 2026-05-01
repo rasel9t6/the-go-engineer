@@ -80,4 +80,4 @@ Complex constraints are used in real Go code for data structures, serialization,
 
 ## Next Step
 
-Continue to `TI.15` generic-data-structures.
+Next: `TI.15` -> [`04-types-design/15-generic-data-structures`](../15-generic-data-structures/README.md)

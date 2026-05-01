@@ -81,4 +81,4 @@ In a real app, the `isReady` flag would be set to `true` only after successful d
 
 ## Next Step
 
-Continue to `HS.10` rest-api-exercise.
+Next: `HS.10` -> [`06-backend-db/01-web-and-database/http-servers/10-rest-api-exercise`](../10-rest-api-exercise/README.md)

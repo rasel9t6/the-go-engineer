@@ -140,4 +140,4 @@ It protects the rest of the program from clearly broken input.
 
 ## Next Step
 
-Continue to `FE.6` orchestration.
+Next: `FE.6` -> [`03-functions-errors/6-orchestration`](../6-orchestration/README.md)

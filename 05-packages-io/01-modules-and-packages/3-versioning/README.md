@@ -68,4 +68,4 @@ Breaking the major version boundary without updating the import path is a "contr
 
 ## Next Step
 
-Continue to `MP.4` build-tags.
+Next: `MP.4` -> [`05-packages-io/01-modules-and-packages/4-build-tags`](../4-build-tags/README.md)

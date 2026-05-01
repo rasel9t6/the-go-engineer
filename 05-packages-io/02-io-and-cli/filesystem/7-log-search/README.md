@@ -75,4 +75,4 @@ Searching large filesystems can put significant pressure on disk I/O. In a produ
 
 ## Next Step
 
-Continue to `FS.8` fs-testing-seam.
+Next: `FS.8` -> [`05-packages-io/02-io-and-cli/filesystem/8-fs-testing-seam`](../8-fs-testing-seam/README.md)

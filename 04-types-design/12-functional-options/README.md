@@ -80,4 +80,4 @@ Functional options are used throughout Go APIs-gRPC, Terraform provider, Cobra C
 
 ## Next Step
 
-Continue to `TI.13` method-values.
+Next: `TI.13` -> [`04-types-design/13-method-values`](../13-method-values/README.md)

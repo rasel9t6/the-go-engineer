@@ -68,4 +68,4 @@ Normalizes a path by removing redundant elements like `.` (current dir) and reso
 
 ## Next Step
 
-Continue to `FS.3` directories.
+Next: `FS.3` -> [`05-packages-io/02-io-and-cli/filesystem/3-dir`](../3-dir/README.md)

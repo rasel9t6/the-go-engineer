@@ -75,4 +75,4 @@ For complex CLI tools, raw `os.Args` can become difficult to manage. For simple 
 
 ## Next Step
 
-Continue to `CL.2` flags.
+Next: `CL.2` -> [`05-packages-io/02-io-and-cli/cli-tools/2-flags`](../2-flags/README.md)

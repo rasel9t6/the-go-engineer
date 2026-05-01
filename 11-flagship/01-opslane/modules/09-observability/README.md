@@ -103,6 +103,6 @@ Then change the histogram bucket boundaries and observe how observations distrib
 - How should tracing connect HTTP requests to background work?
 - When does adding more log fields become counterproductive?
 
-## Next Module
+## Next Step
 
-Continue to [OPSL.10 Graceful Shutdown and Deployment](../10-shutdown-deploy/README.md).
+Next: `OPSL.10` -> [`11-flagship/01-opslane/modules/10-shutdown-deploy`](../10-shutdown-deploy/README.md)

@@ -94,4 +94,4 @@ Stringer is essential for logging, debugging, and user-facing output. It makes y
 
 ## Next Step
 
-Continue to `TI.6` type switch.
+Next: `TI.6` -> [`04-types-design/6-type-switch`](../6-type-switch/README.md)

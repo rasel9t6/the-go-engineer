@@ -67,4 +67,4 @@ Shows how to use environment variables (e.g., `DB_URL`) to allow the same test t
 
 ## Next Step
 
-After testing the plumbing, learn how to manage large and complex test data. Continue to [TE.10 Golden Files](../10-golden-files).
+Next: `TE.10` -> [`08-quality-test/01-quality-and-performance/testing/10-golden-files`](../10-golden-files/README.md)

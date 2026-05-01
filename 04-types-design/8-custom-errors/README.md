@@ -80,4 +80,4 @@ Custom errors are used in real applications for validation errors, API errors wi
 
 ## Next Step
 
-Continue to `TI.9` generics.
+Next: `TI.9` -> [`04-types-design/9-generics`](../9-generics/README.md)
