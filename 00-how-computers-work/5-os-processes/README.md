@@ -1,4 +1,4 @@
-# HC.5 How the OS manages processes
+# HC.5 How the OS Manages Processes
 
 ## Mission
 
@@ -6,23 +6,52 @@ Understand that your Go program runs inside an operating-system process and cros
 
 ## Prerequisites
 
-- HC.4
+- `HC.4` terminal confidence
 
 ## Mental Model
 
-A process is the OS sandbox for a running program. Syscalls are the doors that let that sandbox ask for files, network access, clocks, and other external work.
+A **Process** is the OS "Sandbox" for a running program. It provides isolation so that if one program crashes, it doesn't take the whole computer down with it.
+
+**Syscalls** (System Calls) are the doors that let that sandbox ask the OS for help with things it cannot do alone, such as:
+- Reading or writing a file.
+- Sending data over the network.
+- Checking the current time.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["How the OS manages processes"] --> B["os.Getpid shows that a Go program is just another tracked process."]
-    B --> C["Syscalls connect process code to the operating system and real resources."]
+    subgraph "Process Address Space (User Mode)"
+        Code["Binary Instructions (Read-only)"]
+        Data["Global Data"]
+        Heap["Dynamic Memory"]
+        Stack["Function Frames"]
+    end
+    
+    subgraph "Kernel Space (Kernel Mode)"
+        OS["Operating System / Kernel"]
+        Hardware["Hardware (Disk, Network, CPU)"]
+    end
+    
+    Stack -- "Syscall (e.g. read, write)" --> OS
+    OS --> Hardware
+    Hardware --> OS
+    OS -- "Result" --> Stack
 ```
 
 ## Machine View
 
-An OS process owns virtual memory, CPU state, descriptors, and identity like PID. Syscalls are how that process asks the kernel to act on its behalf.
+The OS enforces a boundary between **User Mode** (where your app runs) and **Kernel Mode** (where hardware is managed). Your program is physically blocked from touching the disk or network directly.
+
+- **Isolation**: Each process has its own virtual memory. This is why a memory leak in one process doesn't corrupt another.
+- **The Syscall Boundary**: When you call `os.Open`, the Go runtime executes a special CPU instruction that switches the CPU into Kernel Mode so the OS can safely perform the request.
+- **Context Switching**: The OS scheduler rapidly swaps processes on and off the CPU cores.
+
+> [!NOTE]
+> The File Descriptors introduced in [HC.4 Terminal Confidence](../4-terminal-confidence/README.md) are managed by the kernel as part of the process address space.
+
+> [!NOTE]
+> When the OS needs to stop a process, it sends a **Signal**. You will learn to handle these for "Graceful Shutdowns" in [GS.1 Signals and Context](../../10-production/02-graceful-shutdown/README.md).
 
 ## Run Instructions
 
@@ -32,31 +61,25 @@ go run ./00-how-computers-work/5-os-processes
 
 ## Code Walkthrough
 
-### os.Getpid shows that a Go program is just another trac
-
-os.Getpid shows that a Go program is just another tracked process.
-
-### os.Getppid reveals the parent-child relationship betwe
-
-os.Getppid reveals the parent-child relationship between processes.
-
-### Syscalls connect process code to the operating system 
-
-Syscalls connect process code to the operating system and real resources.
+- **os.Getpid()**: Shows your unique Process ID.
+- **os.Getppid()**: Shows the parent process (usually your shell).
+- **os.Hostname()**: A classic syscall. Your app asks the kernel for the system's identity.
 
 ## Try It
 
-1. Run the lesson and compare the PID with your terminal's process tools.
-2. Open another terminal and inspect the parent process relationship.
-3. Name three operations your program cannot perform without the OS helping.
+1. Run the lesson and note the PID. 
+2. Open another terminal and run `ps -p [YOUR_PID]` (on Unix) or `Get-Process -Id [YOUR_PID]` (on Windows) to see the OS view of your program.
+3. Explain why the program cannot know its own PID without asking the OS.
 
 ## In Production
-Every deployed service is a process. Signals, open files, sockets, and syscall costs all matter once the code leaves your laptop.
+
+Every microservice is a process. In cloud environments, we use process signals like `SIGTERM` to signal a service to stop accepting new requests and finish its current work before the container is killed.
 
 ## Thinking Questions
+
 1. Why does the OS isolate one process from another?
-2. What kinds of work require crossing the syscall boundary?
-3. Why are file descriptors and sockets process resources rather than plain language values?
+2. What would happen if a program could write directly to the disk without using a syscall?
+3. Why are file descriptors tied to a specific process?
 
 ## Next Step
 

@@ -12,8 +12,7 @@ Understand the journey from Go source code to a running program: tokens, AST, ty
 
 Think of the compiler as a translation pipeline.
 
-You write text for humans.
-The compiler progressively turns that text into representations that are easier for machines to reason about, optimize, and finally execute.
+You write text for humans. The compiler progressively turns that text into representations that are easier for machines to reason about, optimize, and finally execute.
 
 ## Visual Model
 
@@ -30,20 +29,18 @@ graph LR
 
 ## Machine View
 
-The CPU does not run `.go` files.
-It runs machine instructions.
+The CPU does not run `.go` files. It runs machine instructions. Between those two things, Go performs a complex build pipeline:
 
-Between those two things, Go performs a build pipeline:
+1. **Lexing**: Breaks the source text into "Tokens" (like words in a sentence).
+2. **Parsing**: Builds an **Abstract Syntax Tree (AST)** to understand the grammar of your code.
+3. **Type Checking**: Verifies that operations are compatible. This is where most "compile-time" errors are caught.
+4. **IR Generation**: Creates an Intermediate Representation. This is a generic "pseudo-machine code" that Go uses for architecture-independent logic.
+5. **Optimization**: Rewrites the IR to make it faster (e.g., removing unused variables or simplifying math).
+6. **Code Generation**: Translates the optimized IR into the specific **OpCodes** for your CPU (AMD64, ARM64, etc.).
+7. **Linking**: Combines your code with standard library code and resolves the memory addresses for every function call.
 
-1. **Lexing** breaks text into tokens.
-2. **Parsing** builds an Abstract Syntax Tree (AST).
-3. **Type checking** verifies operations and types are compatible.
-4. **IR generation** creates an intermediate representation that is easier to optimize.
-5. **Optimization** improves the generated program before final code generation.
-6. **Code generation** emits machine instructions for the target CPU.
-7. **Linking** combines your code with the compiled packages it depends on.
-
-That is why Go catches many mistakes before the program ever starts.
+> [!NOTE]
+> This pipeline is the direct solution to the gap between human logic and the binary OpCodes introduced in [HC.1 What is a Program?](../1-what-is-a-program/README.md).
 
 ## Run Instructions
 
@@ -53,28 +50,23 @@ go run ./00-how-computers-work/2-code-to-execution
 
 ## Code Walkthrough
 
-The lesson program prints one tiny example through each stage:
-
-- original source text
-- tokenized representation
-- AST shape
-- IR-style operation sequence
-- final machine-oriented result
-
-It is not a real compiler.
-It is a guided mental model of what the real compiler is doing.
+- **Source text**: This is the input to the compiler.
+- **Tokens**: The first stage of machine understanding.
+- **AST Shape**: Represents the hierarchical structure of the logic.
+- **Final Result**: The binary artifact that the OS loads into memory for the CPU to fetch.
 
 ## Try It
 
-1. Run the lesson and read each stage as a transformation, not as decoration.
+1. Run the lesson and read each stage as a transformation, not just decoration.
 2. Change the example expression in `main.go` and update the printed stages to match.
-3. Compare `go run` with `go build` and explain what extra thing `go build` leaves behind.
+3. Compare `go run` with `go build` and explain what extra thing `go build` leaves behind in your directory.
 
 ## In Production
-Build artifacts matter.
-When you deploy Go, you deploy the compiled binary for the target OS and CPU architecture, not the source files.
+
+Build artifacts are the unit of deployment. When you deploy Go, you deploy a compiled binary for the target OS and CPU architecture. You do not need the Go compiler on your production servers; the binary contains the final machine code, linked and ready for the CPU.
 
 ## Thinking Questions
+
 1. Why is IR useful instead of compiling source text directly into machine instructions in one step?
 2. Why does compile-time type checking remove whole categories of runtime failures?
 3. If two source files produce the same AST, what differences between the files stop mattering to the compiler?

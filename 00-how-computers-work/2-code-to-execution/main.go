@@ -8,20 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Understand the journey from Go source code to a running program: tokens, AST, type checking, IR, optimization, code generation, and linking.
+//   - Understand the journey from Go source code to a running program.
+//   - The stages: tokens, AST, type checking, IR, optimization, and code generation.
 //
 // WHY THIS MATTERS:
-//   - Think of the compiler as a translation pipeline. You write text for humans. The compiler progressively turns that text into representations that ar...
+//   - The compiler is a translation pipeline. It turns human-readable text into
+//     machine-optimized instructions. Knowing this explains why Go catches errors
+//     early and why binaries are the unit of deployment.
 //
 // RUN:
 //   go run ./00-how-computers-work/2-code-to-execution
 //
 // KEY TAKEAWAY:
-//   - Understand the journey from Go source code to a running program: tokens, AST, type checking, IR, optimization, code generation, and linking.
+//   - The CPU never sees your .go files; it only sees the machine code output
+//     of the build pipeline.
 // ============================================================================
-
-//   Compile-time reasoning explains why Go catches type errors early and why
-//   binaries can be deployed as concrete build artifacts.
 
 package main
 

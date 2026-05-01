@@ -8,20 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Build confidence with the terminal as the text-based environment that launches programs, passes arguments, and handles output streams.
+//   - How the shell launches programs and connects their output streams.
+//   - The difference between stdout and stderr.
 //
 // WHY THIS MATTERS:
-//   - The terminal is not "where scary commands live." It is a process-launching and output-reading interface for the operating system.
+//   - The terminal is a professional interface for process control. Understanding
+//     output streams is critical for logging, debugging, and piping data
+//     between tools.
 //
 // RUN:
 //   go run ./00-how-computers-work/4-terminal-confidence
 //
 // KEY TAKEAWAY:
-//   - Build confidence with the terminal as the text-based environment that launches programs, passes arguments, and handles output streams.
+//   - A program's visibility to the outside world is mediated through its
+//     file descriptors (stdout, stderr).
 // ============================================================================
-
-//   Production logs often split standard output and errors. Understanding how to
-//   write to them is critical for observability.
 
 package main
 
@@ -41,6 +42,6 @@ func main() {
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: HC.5 -> 00-how-computers-work/5-os-processes")
 	fmt.Println("Run    : go run ./00-how-computers-work/5-os-processes")
-	fmt.Println("Current: HC.4 (4-terminal-confidence)")
+	fmt.Println("Current: HC.4 (terminal-confidence)")
 	fmt.Println("---------------------------------------------------")
 }
