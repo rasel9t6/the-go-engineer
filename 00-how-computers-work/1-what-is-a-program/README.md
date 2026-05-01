@@ -16,8 +16,7 @@ Imagine a cook reading a recipe card.
 - the ingredients are the data
 - the cook is the CPU
 
-The cook does not understand your intent.
-The cook only follows one instruction at a time.
+The cook does not understand your intent. The cook only follows one instruction at a time. If the recipe says "add salt" 100 times, the cook will do it, even if it ruins the meal.
 
 ## Visual Model
 
@@ -32,10 +31,9 @@ graph TD
 
 ## Machine View
 
-Computers only understand one language: binary.
-That is why we need layers between Go code and the hardware.
+Computers only understand one language: binary. Every Go function you write eventually decomposes into a series of numeric codes called **OpCodes** (Operation Codes) stored in RAM.
 
-At a high level, every program eventually decomposes into a small set of instruction families:
+The CPU uses a special internal register called the **Instruction Pointer (IP)** or Program Counter to keep track of where it is in that list.
 
 | Operation | What it means                          |
 | --------- | -------------------------------------- |
@@ -46,15 +44,13 @@ At a high level, every program eventually decomposes into a small set of instruc
 | Read      | Load a value from memory               |
 | Write     | Store a value back into memory         |
 
-Your program is also data.
-The CPU reads instructions from memory, then reads and writes the data those instructions operate on.
+The fetch-decode-execute cycle is the "heartbeat" of the machine:
+1. **Fetch**: The CPU retrieves the OpCode at the address pointed to by the Instruction Pointer.
+2. **Decode**: The CPU determines which hardware circuitry is needed to perform that specific OpCode.
+3. **Execute**: The CPU performs the operation and increments the Instruction Pointer to the next address.
 
-That is why the fetch-decode-execute cycle matters:
-
-1. fetch the next instruction from memory
-2. decode what that instruction means
-3. execute it
-4. move to the next instruction
+> [!NOTE]
+> This fetch-decode-execute cycle is the foundation for understanding how the Go compiler translates source text into executable OpCodes in [HC.2 Code to Execution](../2-code-to-execution/README.md).
 
 ## Run Instructions
 
@@ -64,11 +60,8 @@ go run ./00-how-computers-work/1-what-is-a-program
 
 ## Code Walkthrough
 
-In `main.go`, the demo prints a few simple statements, but the important part is what those prints represent:
-
-- the compiled program is already a list of machine instructions
-- the CPU fetches those instructions in order
-- each `fmt.Println(...)` call only appears because the CPU repeatedly executes that loop
+- **Instruction Sequence**: Notice how the `fmt.Println` calls execute in the exact order they are written. This represents the linear fetching of instructions by the CPU's Instruction Pointer.
+- **Data vs Code**: The strings passed to `Println` are the *data*, while the `Println` function itself is a call to a sequence of *instructions* in the Go runtime.
 
 ## Try It
 
@@ -77,12 +70,13 @@ In `main.go`, the demo prints a few simple statements, but the important part is
 3. Explain why the new line appears only after the earlier instructions finish.
 
 ## In Production
-Programs are stored in memory just like data.
-That is one reason memory corruption bugs and instruction/data confusion can become security problems.
+
+Programs are stored in memory just like data. This is why memory corruption bugs (like Buffer Overflows) are dangerous. If an attacker can overwrite a piece of data memory with their own OpCodes and trick the Instruction Pointer into jumping to that address, they have taken control of your process.
 
 ## Thinking Questions
+
 1. If the CPU can only do a few primitive instruction types, why do some programs still run slowly?
-2. What does “the computer is processing data” physically mean now that you know about the CPU loop?
+2. What does "the computer is processing data" physically mean now that you know about the CPU loop?
 3. If you run the same program twice at the same time, what do you think the OS duplicates and what does it share?
 
 ## Next Step

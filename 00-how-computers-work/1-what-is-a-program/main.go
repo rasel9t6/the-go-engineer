@@ -8,20 +8,20 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Understand that a program is a list of instructions for a machine to follow, and that the CPU runs a continuous fetch-decode-execute loop to carry ...
+//   - Understand that a program is a list of instructions for a machine to follow.
+//   - The CPU runs a continuous fetch-decode-execute loop to carry those instructions out.
 //
 // WHY THIS MATTERS:
-//   - Imagine a cook reading a recipe card. - the recipe card is the program - the ingredients are the data - the cook is the CPU The cook does not under...
+//   - Imagine a cook reading a recipe card. The recipe is the program, ingredients
+//     are data, and the cook is the CPU. The cook follows one step at a time
+//     without knowing your ultimate intent.
 //
 // RUN:
 //   go run ./00-how-computers-work/1-what-is-a-program
 //
 // KEY TAKEAWAY:
-//   - Understand that a program is a list of instructions for a machine to follow, and that the CPU runs a continuous fetch-decode-execute loop to carry ...
+//   - A program is passive data until the CPU fetches it and turns it into action.
 // ============================================================================
-
-//   Engineers write better code when they can reason about what the machine is
-//   doing instead of treating execution like magic.
 
 package main
 
@@ -32,8 +32,9 @@ func main() {
 	fmt.Println("The CPU keeps fetching, decoding, and executing those instructions.")
 	fmt.Println("Even this printed text is just the visible effect of that loop.")
 
-	// - High-level Go code eventually becomes machine instructions.
-	// - The CPU executes those instructions one step at a time.
+	// - High-level Go code eventually becomes numeric OpCodes (Machine Instructions).
+	// - The CPU's Instruction Pointer (IP) fetches these OpCodes one by one.
+	// - The CPU executes those instructions in a mechanical loop.
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: HC.2 -> 00-how-computers-work/2-code-to-execution")
 	fmt.Println("Run    : go run ./00-how-computers-work/2-code-to-execution")

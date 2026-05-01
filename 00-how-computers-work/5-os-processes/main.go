@@ -8,16 +8,20 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Understand that your Go program runs inside an operating-system process and crosses a syscall boundary whenever it needs OS help.
+//   - A Go program is a process managed by the operating system.
+//   - Syscalls are the boundary between your code and the OS kernel.
 //
 // WHY THIS MATTERS:
-//   - A process is the OS sandbox for a running program. Syscalls are the doors that let that sandbox ask for files, network access, clocks, and other ex...
+//   - A process is a protected sandbox. Every time your program wants to touch
+//     the "outside world" (files, network, screen), it must cross the syscall
+//     boundary. This boundary has costs and security implications.
 //
 // RUN:
 //   go run ./00-how-computers-work/5-os-processes
 //
 // KEY TAKEAWAY:
-//   - Understand that your Go program runs inside an operating-system process and crosses a syscall boundary whenever it needs OS help.
+//   - Understanding the process model is the key to mastering signals, performance,
+//     and distributed systems.
 // ============================================================================
 
 package main
@@ -27,8 +31,6 @@ import (
 	"os"
 	"runtime"
 )
-
-//
 
 func main() {
 	fmt.Println("=== OS Processes and Syscalls ===")
@@ -42,11 +44,13 @@ func main() {
 	}
 	fmt.Printf("Go version: %s\n", runtime.Version())
 	fmt.Println()
-	fmt.Println("A process owns memory, file descriptors, and execution state.")
-	fmt.Println("When it needs files, clocks, or network access, it crosses the syscall boundary to ask the OS for help.")
+	fmt.Println("A process owns private virtual memory, file descriptors, and execution state.")
+	fmt.Println("To touch hardware, the CPU must switch from User Mode to Kernel Mode via a syscall.")
+	fmt.Println("This boundary protects the system from buggy or malicious application code.")
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: GT.1 -> 01-getting-started/1-installation")
-	fmt.Println("Current: HC.5 (os processes)")
+	fmt.Println("Run    : go run ./01-getting-started/1-installation")
+	fmt.Println("Current: HC.5 (os-processes)")
 	fmt.Println("---------------------------------------------------")
 }

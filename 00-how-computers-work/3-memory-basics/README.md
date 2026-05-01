@@ -10,35 +10,54 @@ Understand how memory is allocated and managed during execution, especially the 
 
 ## Mental Model
 
-The stack is like a neat stack of plates: fast, ordered, and easy to clean up.
+**The Stack** is like a neat stack of plates in a busy restaurant.
+- **Fast**: You just put a plate on top or take one off.
+- **Automatic**: When a function finishes, its "plate" is removed and the memory is immediately recycled.
+- **Private**: In Go, **every goroutine has its own stack**.
 
-The heap is like a shared storage room: flexible and useful, but it needs active management so old objects do not stay around forever.
+**The Heap** is like a large shared storage room.
+- **Flexible**: You can put something there and it stays as long as you need it.
+- **Shared**: Multiple goroutines can access the same data on the heap.
+- **Managed**: Because it's not self-cleaning, Go needs a **Garbage Collector (GC)** to clean up unreachable objects.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["Running program memory"] --> B["Stack"]
-    A --> C["Heap"]
-    B --> D["Function frames"]
-    B --> E["Short-lived local values"]
-    C --> F["Shared or escaping objects"]
-    C --> G["Garbage collector manages cleanup"]
+    subgraph RAM["Running Program Memory"]
+        subgraph Stack
+            S1["Func A Frame"]
+            S2["Func B Frame"]
+            S3["Local Variables"]
+        end
+
+        subgraph Heap
+            H1["Shared Object"]
+            H2["Escaped Object"]
+            H3["Global State"]
+        end
+    end
+
+    S1 --> S2
+    S2 --> S3
+    S2 -. "escaped reference" .-> H1
 ```
 
 ## Machine View
 
-Every function call creates a stack frame.
-That frame holds the local state needed while the function is active.
+Every function call creates a **stack frame** on the current goroutine's stack. Unlike languages like C or Java where stacks are a fixed size (often 1MB), **Go stacks start small (2KB) and grow/shrink as needed**.
 
-Heap memory is different:
+**Heap memory** is used for objects that outlive the function that created them or are too large for the stack.
 
-- it is allocated dynamically
-- objects can outlive the function that created them
-- Go's garbage collector frees unreachable heap objects later
+Go's compiler uses **Escape Analysis** to decide where to put a variable:
+- If a variable's lifetime is entirely contained within a function, it stays on the **Stack**.
+- If a pointer to a variable is returned or shared, it "escapes" to the **Heap**.
 
-Go also performs **escape analysis**.
-If a value must outlive the current function, the compiler moves it to the heap automatically.
+> [!TIP]
+> At high scale, excessive heap allocation creates Garbage Collector pressure. You can learn how to profile and optimize memory layout in [PR.6 Memory Layout](../../08-quality-test/01-quality-and-performance/profiling/6-memory-layout/README.md).
+
+> [!NOTE]
+> Because the heap is shared memory, concurrent access to heap objects requires synchronization, which we cover in [SY.1 Mutex & RWMutex](../../07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex/README.md).
 
 ## Run Instructions
 
@@ -48,26 +67,22 @@ go run ./00-how-computers-work/3-memory-basics
 
 ## Code Walkthrough
 
-The lesson program shows two small cases:
-
-- `noEscape()` returns a value directly, so the compiler can often keep it in stack-managed memory
-- `escapes()` returns a pointer, so the pointed-to value must outlive the function and is a candidate for heap allocation
-
-The demo is intentionally small.
-The goal is to make the stack/heap distinction explainable before later performance lessons.
+- **noEscape()**: Returns a value directly. The compiler can keep `x` on the stack because no one outside the function needs a reference to its specific memory address.
+- **escapes()**: Returns a *pointer*. Because the caller needs to access the memory address of `x` after the function is gone, the compiler moves `x` to the heap.
 
 ## Try It
 
 1. Run the lesson and compare the value-returning function with the pointer-returning one.
 2. Add another helper that returns a slice and explain why its backing storage may outlive the function.
-3. Run `go build -gcflags='-m' ./00-how-computers-work/3-memory-basics` and read the compiler's escape-analysis hints.
+3. Run `go build -gcflags='-m' ./00-how-computers-work/3-memory-basics` and read the compiler's escape-analysis hints in the terminal.
 
 ## In Production
-Heavy heap allocation creates garbage-collector pressure.
-That is one reason hot paths often avoid unnecessary temporary objects.
+
+Performance-critical Go code often tries to keep objects on the stack. The heap is powerful but expensive. Heavy heap use triggers the GC, which uses CPU cycles and can introduce "latency spikes."
 
 ## Thinking Questions
-1. Why does the heap need a garbage collector while the stack usually does not?
+
+1. Why does the heap need a garbage collector while the stack does not?
 2. Can a garbage-collected language still leak memory? If so, how?
 3. Why do goroutine stacks start small and grow instead of reserving a huge stack up front?
 

@@ -8,20 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Understand how memory is allocated and managed during execution, especially the difference between stack and heap memory in Go.
+//   - The difference between stack and heap memory.
+//   - How Go's compiler performs escape analysis to choose between them.
 //
 // WHY THIS MATTERS:
-//   - The stack is like a neat stack of plates: fast, ordered, and easy to clean up. The heap is like a shared storage room: flexible and useful, but it ...
+//   - The stack is like a neat stack of plates: fast, ordered, and self-cleaning.
+//     The heap is a flexible but messy shared room that requires the Garbage
+//     Collector to clean up once objects are no longer used.
 //
 // RUN:
 //   go run ./00-how-computers-work/3-memory-basics
 //
 // KEY TAKEAWAY:
-//   - Understand how memory is allocated and managed during execution, especially the difference between stack and heap memory in Go.
+//   - Memory behavior shapes performance. Heap allocation is flexible but comes
+//     with the cost of GC management.
 // ============================================================================
-
-//   Memory behavior shapes performance, correctness, and the kind of bugs a
-//   Go program can have under load.
 
 package main
 
@@ -45,8 +46,9 @@ func main() {
 	fmt.Printf("Pointer-returning function result: %d (address %p)\n", *pointer, pointer)
 	fmt.Println("Returning a pointer means the pointed-to value must outlive the function call.")
 
-	// - Stack and heap serve different lifetime needs.
-	// - Escape analysis helps Go decide which one a value needs.
+	// - Every goroutine has its own growable stack (starting at 2KB).
+	// - Escape analysis is a compiler-time decision, not a runtime one.
+	// - Reducing heap escapes is a primary strategy for Go performance tuning.
 	fmt.Println("\n---------------------------------------------------")
 	fmt.Println("NEXT UP: HC.4 -> 00-how-computers-work/4-terminal-confidence")
 	fmt.Println("Run    : go run ./00-how-computers-work/4-terminal-confidence")

@@ -10,31 +10,36 @@ Build confidence with the terminal as the text-based environment that launches p
 
 ## Mental Model
 
-The terminal is not “where scary commands live.”
-It is a process-launching and output-reading interface for the operating system.
+The terminal is not "where scary commands live." It is a professional interface for the operating system.
+
+Think of it as a **Conversation with the OS**. You send a request (a command), and the OS provides a response (output).
 
 ## Visual Model
 
 ```mermaid
 graph LR
-    A["You type a command"] --> B["Shell parses it"]
-    B --> C["Shell finds program in PATH"]
-    C --> D["OS launches the program"]
-    D --> E["Program writes stdout/stderr"]
-    E --> F["Terminal displays or redirects output"]
+    User["You type a command"] --> Shell["Shell parses tokens"]
+    Shell --> PATH["Finds binary in PATH"]
+    PATH --> Process["OS launches Process"]
+    Process --> stdout["Standard Output (Default)"]
+    Process --> stderr["Standard Error (Issues)"]
+    stdout --> Screen["Terminal Screen"]
+    stderr --> Screen
 ```
 
 ## Machine View
 
 When you press Enter in the shell:
+1. The shell parses the command into a program name and arguments.
+2. It looks up the program's location using the `PATH` environment variable.
+3. The OS creates a new process for that program.
+4. The process is connected to three default **File Descriptors** (indices in the process's open file table):
+   - **0 (stdin)**: Input from the keyboard.
+   - **1 (stdout)**: Normal output.
+   - **2 (stderr)**: Error messages.
 
-1. the shell parses the command
-2. it finds the program to run
-3. the OS starts a new process
-4. that process writes output to file descriptors like stdout and stderr
-5. the shell receives an exit code when the process ends
-
-That is why redirecting output and chaining commands works.
+> [!NOTE]
+> The "Everything is a file" philosophy in Unix-like systems makes these descriptors incredibly powerful for I/O, as you will see in [FS.1 File Basics](../../05-packages-io/02-io-and-cli/filesystem/1-files/README.md).
 
 ## Run Instructions
 
@@ -44,23 +49,24 @@ go run ./00-how-computers-work/4-terminal-confidence
 
 ## Code Walkthrough
 
-In `main.go`, the lesson writes one line to stdout and one line to stderr.
-That small demo makes the terminal's two most common output channels visible.
+- **stdout**: Using `fmt.Println` writes to the standard output by default.
+- **stderr**: Using `fmt.Fprintln(os.Stderr, ...)` writes to the standard error stream. This separation allows you to capture logs in a file while still seeing errors on the screen.
 
 ## Try It
 
 1. Run the lesson normally and read both lines.
-2. Run `go run ./00-how-computers-work/4-terminal-confidence > output.txt` and notice which line stays in the terminal.
-3. Run a failing command and inspect its exit code in your shell.
+2. Run `go run ./00-how-computers-work/4-terminal-confidence > output.txt`. Only the error message stays on your screen.
+3. Run `go run ./00-how-computers-work/4-terminal-confidence 2> errors.txt`. Now the error is trapped in the file.
 
 ## In Production
-When production systems fail, you often have a shell, logs, and process output before you have anything else.
-Terminal confidence becomes operational confidence.
+
+Every modern backend is managed through the terminal or terminal-like APIs. Knowing how to filter logs (`grep`), find processes (`ps`), and check exit codes (`$?`) is essential for any backend engineer.
 
 ## Thinking Questions
+
 1. Why does redirecting stdout not automatically redirect stderr?
-2. Why do shells care about exit codes instead of reading the English words in program output?
-3. What would break if the shell could not resolve programs through `PATH`?
+2. Why do shells care about numeric exit codes instead of reading the words in the program output?
+3. What would break if the shell could not find programs through the `PATH`?
 
 ## Next Step
 
