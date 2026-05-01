@@ -131,8 +131,9 @@ When a lesson reuses a concept taught earlier:
 
 When neighboring tracks use the same idea:
 
-- point to the sibling lesson only when it improves navigation
-- avoid detached "forward/backward reference" sections that interrupt reading flow
+- point to the sibling lesson only when it improves navigation.
+- Use GitHub-style alerts (`[!NOTE]` or `[!TIP]`) to integrate references without interrupting the narrative flow.
+- Avoid detached, standalone "Forward/Backward Reference" headlines.
 
 ## Milestone Contract
 

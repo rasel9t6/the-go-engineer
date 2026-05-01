@@ -148,7 +148,7 @@ When a lesson uses a concept from another point in the curriculum:
 
 - forward reference later concepts briefly and name the future lesson or section
 - backward reference previously established ideas when they are reused
-- keep cross-references inline with the explanation rather than as detached navigation blocks
+- use GitHub-style alerts (`[!NOTE]` or `[!TIP]`) to keep cross-references inline rather than as detached navigation blocks
 
 ## Validation
 
