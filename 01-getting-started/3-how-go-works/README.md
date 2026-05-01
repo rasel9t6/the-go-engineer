@@ -10,28 +10,35 @@ Build a beginner-safe mental model for packages, imports, exported names, and th
 
 ## Mental Model
 
-Go organizes code into packages. A file imports packages when it wants to use capabilities it does not define itself.
+Think of a package like a **toolbox**.
+- The `fmt` toolbox contains tools for printing.
+- The `math` toolbox contains tools for calculations.
+- The `strings` toolbox contains tools for text manipulation.
 
-This lesson uses several packages to show that one program can combine:
-
-- printing
-- text processing
-- math helpers
+If you want to use a tool from a different box, you must **import** that box.
 
 ## Visual Model
 
 ```mermaid
-graph LR
-    A["this file"] --> B["fmt"]
-    A --> C["strings"]
-    A --> D["math"]
-    E["go run"] --> F["compile program"]
-    F --> G["run executable"]
+graph TD
+    A["Your Code (package main)"] --> B["import 'strings'"]
+    A --> C["import 'math'"]
+    B --> D["strings.ToUpper()"]
+    C --> E["math.Pi"]
 ```
 
 ## Machine View
 
-The Go toolchain resolves imports and type-checks package calls before execution begins. Only after compilation succeeds does the binary start at `main` and call into imported package code.
+Go uses a strict visibility rule: **Capitalization**.
+- If a name starts with an UpperCase letter (like `Println` or `Pi`), it is **Exported** (public).
+- If it starts with a lowercase letter, it is **Internal** (private).
+The compiler enforces this. You cannot use a private function from another package.
+
+> [!NOTE]
+> This simple rule—Capitalization—is the foundation for package design in Go. You will see how this enables clear module boundaries in [MP.1 Module Basics](../../05-packages-io/01-modules-and-packages/1-module-basics/README.md).
+
+> [!TIP]
+> While we use strings and numbers here, Go allows you to create your own complex types, which we dive into during [Section 04: Types and Design](../../04-types-design/README.md).
 
 ## Run Instructions
 
@@ -41,39 +48,26 @@ go run ./01-getting-started/3-how-go-works
 
 ## Code Walkthrough
 
-### `import ("fmt" "math" "strings")`
-
-This file depends on three different standard-library packages, each responsible for a different kind of work.
-
-### `strings.ToUpper(...)`
-
-This shows how package functions transform data without printing directly.
-
-### `strings.Split(...)`
-
-This turns one string into multiple pieces, which previews that package code can reshape data structures.
-
-### `math.Pi`, `math.Sqrt(...)`, and `math.Pow(...)`
-
-These lines show that packages can export both values and functions.
-
-### Exported names
-
-`ToUpper` and `Sqrt` begin with uppercase letters because Go uses capitalization to mark names that other packages may access.
+- **`import (...)`**: Notice the parentheses. This allows you to import multiple packages at once without repeating the `import` keyword.
+- **`strings.ToUpper(greeting)`**: We call the `ToUpper` function *inside* the `strings` package.
+- **`math.Pi`**: This is a constant value exported by the `math` package. Note there are no parentheses because it's a value, not a function.
+- **`fmt.Printf`**: The `f` stands for "formatted." It allows us to control how numbers are displayed (like `%.2f` for two decimal places).
 
 ## Try It
 
-1. Change the `greeting` value and rerun the lesson.
-2. Replace `math.Sqrt(144)` with another value and inspect the result.
-3. Add one more call from the `strings` package.
+1. Try to call `strings.toUpper(greeting)` (lowercase 't') and see the compiler error.
+2. Add the `time` package to your imports and use `time.Now()` to print the current time.
+3. Use `math.Max(5, 10)` to find the larger of two numbers and print the result.
 
 ## In Production
-Real Go systems are mostly package boundaries. Teams rely on imports, exported names, and clear package ownership to keep codebases understandable and deployable.
+
+Go's strict export rules are a major engineering feature. They allow package authors to change internal code (lowercase functions) without breaking the code of people who use their package. Only the Capitalized names are part of the "Public API."
 
 ## Thinking Questions
-1. Why might Go prefer explicit package ownership at the call site?
-2. What does the capital letter rule communicate to the reader?
-3. Why is it useful that import resolution happens before the program starts running?
+
+1. Why does Go use capitalization for visibility instead of keywords like `public` or `private`?
+2. What happens if you import a package but never use it? (Try it!)
+3. Why are packages useful for organizing large codebases?
 
 ## Next Step
 

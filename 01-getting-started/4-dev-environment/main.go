@@ -11,13 +11,15 @@
 //   - Learn the small command loop that makes day-to-day Go work predictable.
 //
 // WHY THIS MATTERS:
-//   - The Go toolchain is a workflow, not a single command: 1. Edit code. 2. Format it. 3. Build or run it. 4. Test it when tests exist. That loop repeat...
+//   - The Go toolchain is a workflow, not a single command: 1. Edit code. 2. Format it.
+//     3. Build or run it. 4. Test it when tests exist.
+//   - Following this loop ensures your code is clean and valid before you share it.
 //
 // RUN:
 //   go run ./01-getting-started/4-dev-environment
 //
 // KEY TAKEAWAY:
-//   - Learn the small command loop that makes day-to-day Go work predictable.
+//   - The "Standard Loop" (fmt -> build -> test) is the heartbeat of a Go engineer's day.
 // ============================================================================
 
 package main
@@ -41,7 +43,7 @@ func main() {
 	commands := []commandInfo{
 		{name: "go fmt ./...", description: "format Go code into the standard style"},
 		{name: "go build ./...", description: "compile packages to verify they are valid"},
-		{name: "go run ./01-getting-started/2-hello-world", description: "compile and execute one target"},
+		{name: "go run [path]", description: "compile and execute one target"},
 		{name: "go test ./...", description: "run tests across the repo"},
 	}
 
@@ -72,6 +74,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: GT.5 -> 01-getting-started/5-go-tools")
+	fmt.Println("Run    : go run ./01-getting-started/5-go-tools")
 	fmt.Println("Current: GT.4 (dev-environment)")
 	fmt.Println("---------------------------------------------------")
 }
