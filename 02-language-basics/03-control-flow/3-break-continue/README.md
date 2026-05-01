@@ -10,28 +10,35 @@ Learn how to change a loop's behavior after the loop has already started.
 
 ## Mental Model
 
-Loop control gives you two important tools:
+Loop control gives you two important precision tools for managing iteration:
 
-- `continue` skips the rest of the current iteration
-- `break` stops the loop completely
+-   **`continue`**: "I'm done with this specific item. Skip the rest of this block and move to the next iteration."
+-   **`break`**: "I'm done with this entire loop. Exit immediately and continue with the rest of the program."
 
-That lets one loop treat different iterations differently.
+These tools let you handle exceptions or early successes without cluttering the main loop condition.
 
-> **Backward Reference:** In [Lesson 2: For Basics](../2-for-basics/README.md), you learned how to start and stop a loop based on the `for` condition. `break` and `continue` allow you to intervene from *inside* the loop body.
+> [!NOTE]
+> In [CF.2 For Basics](../2-for-basics/README.md), you learned how to start and stop a loop based on the `for` condition. `break` and `continue` allow you to intervene from *inside* the loop body based on dynamic state.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["loop iteration"] --> B{"special case?"}
-    B -->|skip only this item| C["continue"]
-    B -->|stop all remaining work| D["break"]
-    B -->|normal path| E["finish iteration"]
+    A["Start Iteration"] --> B{Special Case?}
+    B -- "Skip Item" --> C["Continue"]
+    B -- "Stop All" --> D["Break"]
+    B -- "Normal" --> E["Complete Work"]
+    E --> F["Next Step"]
+    C --> F
+    D --> G["Exit Loop"]
+    F --> B
 ```
 
 ## Machine View
 
-`continue` jumps to the loop's next iteration step. `break` jumps to the first statement after the loop. Both change normal sequential flow inside the loop body.
+-   **`continue`**: Performs a "jump" to the loop's post-iteration step (e.g., `i++`) and then to the condition check.
+-   **`break`**: Performs a "jump" to the first instruction *after* the loop's scope.
+Both of these bypass the remaining instructions in the current loop body.
 
 ## Run Instructions
 
@@ -41,37 +48,30 @@ go run ./02-language-basics/03-control-flow/3-break-continue
 
 ## Code Walkthrough
 
-### `if i%2 == 0 { continue }`
+-   **`if i%2 == 0 { continue }`**: Skips even numbers. The `fmt.Println` below it will never run for even `i`.
+-   **`if i == 7 { break }`**: Terminates the loop once `i` hits `7`. No numbers after `7` will ever be checked or printed.
+-   **Placement Matters**: If you put the `fmt.Println` *before* the `break` check, `7` would be printed before the loop stops.
 
-This skips even numbers without stopping the overall loop.
-
-### `if i == 7 { break }`
-
-This stops the loop entirely once the target condition is met.
-
-### Order matters
-
-The position of `continue` and `break` checks affects which code can still run during an iteration.
-
-### Loop control is not branching alone
-
-These statements do not just choose code paths. They also change whether the loop keeps going.
-
-> **Forward Reference:** We used `if` statements to decide when to break or continue. Next, we will learn how `switch` can replace multiple `if/else` checks for cleaner discrete branching in [Lesson 4: Switch](../4-switch/README.md).
+> [!TIP]
+> We used `if` statements to decide when to break or continue. Next, we will learn how `switch` can replace multiple `if/else` checks for cleaner discrete branching in [CF.4 Switch](../4-switch/README.md).
 
 ## Try It
 
-1. Move the `break` check before the `continue` check.
-2. Change the stop value from `7` to another number.
-3. Remove `continue` and inspect how the output changes.
+1.  In `main.go`, move the `break` check before the `continue` check. How does the output change?
+2.  Change the stop value from `7` to `9`.
+3.  Modify the logic to only print multiples of 3.
 
 ## In Production
-Search loops, filters, validators, and batch processors often depend on early exit and selective skipping. Used well, these tools make code faster and clearer. Used poorly, they hide control flow.
+
+Search algorithms, data filters, and retry loops depend heavily on `break` and `continue`.
+-   **Break**: Exit a search as soon as the item is found (saves CPU).
+-   **Continue**: Skip malformed records in a batch process without crashing the whole job.
 
 ## Thinking Questions
-1. When would `break` be the wrong tool if you only want to skip one bad item?
-2. Why does the order of loop-control checks matter?
-3. What kinds of workloads benefit from stopping early?
+
+1.  When would `break` be the wrong tool if you only want to skip one "bad" piece of data?
+2.  Why does the order of checks inside the loop body affect the outcome?
+3.  How can `break` help prevent "infinite loops" in complex logic?
 
 ## Next Step
 

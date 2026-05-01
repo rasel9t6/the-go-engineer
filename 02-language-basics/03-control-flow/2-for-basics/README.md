@@ -10,30 +10,34 @@ Learn how Go repeats work with its single loop keyword: `for`.
 
 ## Mental Model
 
-A loop says, "keep doing this work while the rule allows it."
+A loop says: "Continue executing this block of code while the condition remains true."
 
-Go uses one keyword for several loop shapes:
+Go simplifies iteration by having exactly **one** keyword—`for`—which handles all looping scenarios:
+- **Counted Loops**: Traditional `for (i=0; i<10; i++)` style.
+- **Condition-only Loops**: Behaves like `while` in other languages.
+- **Collection Loops**: Iterating over lists using the `range` keyword.
 
-- counted loops
-- condition-only loops
-- `range` loops over collections
-
-> **Backward Reference:** In [Lesson 1: If / Else](../1-if-else/README.md), you learned how to evaluate boolean conditions to choose a path. The `for` loop uses those exact same boolean conditions to decide whether to *keep going* on a path.
+> [!NOTE]
+> In [CF.1 If / Else](../1-if-else/README.md), you learned to use conditions to choose a path. The `for` loop uses those exact same conditions to decide whether to *repeat* a path.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["start loop"] --> B{"condition true?"}
-    B -->|yes| C["run loop body"]
-    C --> D["advance loop state"]
+    A["Initialize State"] --> B{Condition?}
+    B -- "True" --> C["Execute Loop Body"]
+    C --> D["Update State (Step)"]
     D --> B
-    B -->|no| E["continue after loop"]
+    B -- "False" --> E["Exit Loop"]
 ```
 
 ## Machine View
 
-A classic `for` loop has three moving parts: initialization, condition check, and post-step. The condition is checked before each new iteration, and the loop stops when that condition becomes false.
+At the machine level, a `for` loop is a combination of a comparison instruction and a backward jump.
+1. The CPU compares a value (the condition).
+2. If it evaluates to true, it executes the body.
+3. At the end of the body, it performs a "jump" back to the comparison instruction.
+This cycle continues until the comparison fails.
 
 ## Run Instructions
 
@@ -43,37 +47,33 @@ go run ./02-language-basics/03-control-flow/2-for-basics
 
 ## Code Walkthrough
 
-### `for i := 1; i <= 5; i++ { ... }`
+- **Counted Loop**: `for i := 1; i <= 5; i++`
+  - `i := 1`: Initialization (happens once).
+  - `i <= 5`: Condition (checked before every iteration).
+  - `i++`: Post-step (happens after every iteration).
+- **Condition-only Loop**: `for countdown > 0`
+  - Acts like a `while` loop. The loop continues as long as `countdown` is positive.
+- **Range Preview**: `for _, word := range words`
+  - A safer, cleaner way to visit every item in a list without managing indexes manually.
 
-This is the counted-loop form: start value, condition, and step.
-
-### `for countdown > 0 { ... }`
-
-This condition-only loop behaves like a traditional `while` loop in other languages.
-
-### `for _, word := range words { ... }`
-
-This previews how `range` visits values inside a collection one by one.
-
-### Loop body
-
-The same code block can run zero times, once, or many times depending on the condition.
-
-> **Forward Reference:** We use the `range` loop briefly here, but we will study it deeply when we learn about slices and arrays in [Lesson 4: Data Structures](../../04-data-structures/1-array/README.md).
+> [!TIP]
+> We use the `range` keyword briefly here, but we will explore it in depth when we master [DS.2 Slices](../../04-data-structures/2-slices/README.md).
 
 ## Try It
 
-1. Change the counted loop to stop earlier.
-2. Increase the countdown start value.
-3. Add another word to the `range` example.
+1. In `main.go`, change the counted loop to run from `1` to `10`.
+2. Modify the `countdown` start value to `5`.
+3. Add your own name to the `words` slice and rerun the program.
 
 ## In Production
-Loops are everywhere in real systems: processing requests, scanning files, walking query results, aggregating metrics, and retrying work. Small loop mistakes often become large runtime problems.
+
+Loops are the workhorses of production systems. They process batch jobs, stream data from databases, and manage retries for failed network calls. Efficient loops (avoiding unnecessary allocations or infinite cycles) are critical for system stability.
 
 ## Thinking Questions
-1. Why does Go use one `for` keyword instead of separate loop keywords?
-2. What is the difference between a counted loop and a condition-only loop?
-3. Why can a loop validly run zero times?
+
+1. Why does Go use only one `for` keyword instead of separate `while` or `do-while` keywords?
+2. What happens if a loop's condition is false before the first iteration starts?
+3. What is a "busy loop" and why should you avoid it in production?
 
 ## Next Step
 

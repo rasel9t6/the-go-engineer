@@ -11,27 +11,30 @@ Learn how Go declares variables and why every type has a predictable zero value.
 ## Mental Model
 
 A variable is a named slot that holds a value while the program runs.
-
 Go gives you three common declaration shapes:
 
-1. `var name string`
-2. `var name = "value"`
-3. `name := "value"`
+1.  `var name string`: Explicit type, starts as a zero value.
+2.  `var name = "value"`: Type inferred from the right-hand side.
+3.  `name := "value"`: Short declaration (local only), type inferred.
 
-Every declared variable also starts in a known zero state.
+Every declared variable also starts in a known **Zero State**.
 
 ## Visual Model
 
 ```mermaid
-graph TD
-    A["variable name"] --> B["type"]
-    B --> C["current value"]
-    C --> D["program state"]
+graph LR
+    A["Variable Name"] --- B["Type Constraint"]
+    B --- C["Allocated Memory Slot"]
+    C --> D["Zero Value (initial)"]
+    D --> E["Assigned Value (updated)"]
 ```
 
 ## Machine View
 
-When a variable is declared, Go reserves space for a value of that type and initializes it to the type's zero value. That guarantee prevents the undefined garbage-state behavior seen in lower-level languages.
+When a variable is declared, Go reserves space in memory (usually on the stack for simple locals) and initializes it to the type's zero value. This guarantee prevents "uninitialized memory" bugs where a variable could contain random leftover data from a previous execution.
+
+> [!NOTE]
+> For a deeper look at how Go manages memory for variables, revisit [HC.3 Memory Basics](../../00-how-computers-work/3-memory-basics/README.md).
 
 ## Run Instructions
 
@@ -41,41 +44,30 @@ go run ./02-language-basics/1-variables
 
 ## Code Walkthrough
 
-### `var greeting string`
+-   **`var greeting string`**: Declares a string. The zero value is `""` (empty string).
+-   **`greeting = "Hello"`**: Assignment updates the existing slot.
+-   **`var count int`**: Zero value is `0`.
+-   **`var isRunning bool`**: Zero value is `false`.
+-   **`firstName, lastName := "John", "Doe"`**: Short declaration creates and initializes multiple variables at once.
 
-This declares a string variable explicitly. Its initial value is the zero value, `""`.
-
-### `greeting = "Hello, world!"`
-
-This assignment changes the stored value after declaration.
-
-### `var count int` and `var isRunning bool`
-
-These lines show that zero values depend on type: `0` for `int`, `false` for `bool`.
-
-### `firstName, lastName := "John", "Doe"`
-
-Short declaration creates local variables and lets the compiler infer their types.
-
-### Unused variable rule
-
-Go refuses to compile code with unused local variables. That catches mistakes early.
-
-> **Forward Reference:** You will learn more about how the compiler strictly enforces code quality in [Lesson 08: Quality and Test](../../08-quality-test/README.md).
+> [!TIP]
+> The compiler strictly enforces code quality. If you declare a local variable but never use it, the compiler will refuse to build the program. This was introduced in [GT.6 Reading Compiler Errors](../../01-getting-started/6-reading-compiler-errors/README.md).
 
 ## Try It
 
-1. Change one assigned value and rerun the lesson.
-2. Add a new variable using short declaration.
-3. Declare a variable and leave it unused to see the compiler error.
+1.  Change one assigned value in `main.go` and rerun.
+2.  Add a new variable using `:=`.
+3.  Declare a variable and leave it unused to see the compiler error.
 
 ## In Production
-Predictable variable initialization is one of the reasons Go code is easier to reason about under pressure. Zero values, explicit types, and compile-time unused-variable errors reduce hidden state and dead code.
+
+Predictable initialization is critical for reliability. In production systems, you want to know exactly what state your system starts in. Go's zero-value guarantee and unused-variable checks reduce "dead code" and hidden bugs that often plague larger codebases.
 
 ## Thinking Questions
-1. Why is a guaranteed zero value safer than leaving memory uninitialized?
-2. When might explicit `var` be clearer than `:=`?
-3. Why would the compiler reject unused local variables?
+
+1.  Why is a guaranteed zero value safer than leaving memory uninitialized?
+2.  When might explicit `var name string` be clearer than `name := ""`?
+3.  How does the "unused variable" rule help you during refactoring?
 
 ## Next Step
 

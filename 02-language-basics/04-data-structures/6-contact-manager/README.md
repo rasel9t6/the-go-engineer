@@ -2,101 +2,97 @@
 
 ## Mission
 
-Build a small in-memory contact directory that combines slices, maps, and pointers in one runnable milestone.
-
-## Why This Lesson Exists Now
-
-You have learned all the core pieces of basic Go data handling: arrays, slices, maps, and pointers.
-
-This lesson exists to combine them. By building a small contact directory, you will prove to yourself that you understand how a map can provide $O(1)$ key lookup for an index, how that index retrieves structured data from parallel slices, and how a pointer allows you to update that stored data directly.
-
-> **Backward Reference:** In [Lesson 5: Slices 2](../5-slices-2/README.md), you learned how memory sharing can be dangerous. In this exercise, you will intentionally use pointers (from [Lesson 4](../4-pointers/README.md)) and maps (from [Lesson 3](../3-maps/README.md)) to manage memory explicitly and safely.
+Build an in-memory contact registry that combines slices, maps, and pointers into a single functional program.
 
 ## Prerequisites
 
-- `DS.1` arrays
-- `DS.2` slices
-- `DS.3` maps
-- `DS.4` pointers
-- `DS.5` slice sharing and capacity
+- `DS.1` through `DS.5`
 
 ## Mental Model
 
-This exercise uses three data-structure roles together:
+This milestone uses three distinct data-structure roles to build a miniature database:
+1.  **Slices (Storage)**: Store names, emails, and phone numbers in ordered collections.
+2.  **Maps (Index)**: Provide an $O(1)$ fast lookup from a "Name" to its "Slice Index".
+3.  **Pointers (Mutation)**: Allow you to update a specific record in the slice without copying the whole collection.
 
-- slices store ordered contact data
-- a map turns names into positions
-- a pointer updates a stored value in place
-
-The point is not realistic app architecture yet. The point is understanding how these structures cooperate.
+> [!NOTE]
+> In [DS.5 Slices in Depth](../5-slices-2/README.md), you learned about the dangers of shared memory. In this exercise, you will intentionally use pointers (from [DS.4](../4-pointers/README.md)) and maps (from [DS.3](../3-maps/README.md)) to manage memory explicitly and safely.
 
 ## Visual Model
 
 ```mermaid
 graph LR
-    A["name"] --> B["map lookup"]
-    B --> C["index"]
-    C --> D["parallel slices"]
-    D --> E["pointer update persists"]
+    A["'Bob' (Key)"] -- "Map Lookup" --> B["Index: 1"]
+    B -- "Slice Access" --> C["Names[1]"]
+    B -- "Slice Access" --> D["Emails[1]"]
+    B -- "Slice Access" --> E["Phones[1]"]
+    F["Pointer: &Phones[1]"] -- "Dereference" --> E
+    F -- "Update" --> G["'333-9999'"]
 ```
 
 ## Machine View
 
-Slices hold backing arrays plus length and capacity metadata. The map stores indexes into those slices. When the code takes `&phones[index]`, it gets a direct reference to an element in the slice's underlying storage and mutates it in place.
+- **Slices**: Maintain contiguous blocks of memory for data storage.
+- **Maps**: Store pointers or integers (indexes) that link a semantic key to a specific offset in those slices.
+- **Pointers**: `&phones[index]` calculates the physical RAM address of a slice element. Dereferencing it with `*` performs a direct memory write to that address, ensuring the update persists in the original backing array.
 
 ## Run Instructions
 
 ```bash
 go run ./02-language-basics/04-data-structures/6-contact-manager
-go run ./02-language-basics/04-data-structures/6-contact-manager/_starter
-go test ./02-language-basics/04-data-structures/6-contact-manager
 ```
 
 ## Solution Walkthrough
 
-### Parallel slices
+- **Parallel Slices**: We use separate slices for names, emails, and phones. While not ideal for complex apps, it makes the data structure interactions clear for beginners.
+- **`indexByName`**: This map acts as our "Primary Index".
+- **Duplicate Guard**: Using `_, exists := indexByName[name]` to prevent adding the same contact twice.
+- **The Update**: We find the index via the map, take a pointer to the phone slice at that index, and update it.
 
-The solution stores names, emails, and phone numbers in separate slices that must stay index-aligned.
-
-### `indexByName map[string]int`
-
-The map answers "where is this contact?" quickly by storing the slice index for each name.
-
-### Appending new contacts
-
-Each new contact appends to all slices, then stores the new last index in the map.
-
-### Duplicate protection
-
-The comma-ok map lookup guards against accidentally creating the same contact twice.
-
-### Pointer-based update
-
-The important milestone step is taking a pointer to a slice element and proving that the update persists after the write.
+> [!TIP]
+> In this module, we used "parallel slices" because you don't know how to create custom composite types yet. In [Section 03: Functions & Errors](../../../03-functions-errors/README.md), you will learn how to encapsulate logic, and in Section 04, we'll replace these parallel slices with proper **Structs**.
 
 ## Try It
 
-1. Add another contact and update the map with the correct index.
-2. Change the pointer-based update from Bob to another contact.
-3. Intentionally break slice alignment and explain why the output becomes wrong.
+1. In `main.go`, add yourself as a new contact.
+2. Update your email address through a pointer (take the address of the element in the `emails` slice).
+3. Try to look up a contact that doesn't exist and ensure the program handles it gracefully using the `comma-ok` pattern.
 
 ## Verification Surface
 
+Run the program:
 ```bash
 go run ./02-language-basics/04-data-structures/6-contact-manager
-go run ./02-language-basics/04-data-structures/6-contact-manager/_starter
-go test ./02-language-basics/04-data-structures/6-contact-manager
+```
+
+Expected output:
+```text
+=== Contact Directory ===
+Duplicate add skipped for Alice Wonderland.
+
+--- Listing Contacts ---
+1. Alice Wonderland | alice@example.com | 111-2222
+2. Bob The Builder | bob@example.com | 333-4444
+3. Charlie Brown | charlie@example.com | 555-6666
+
+--- Lookup and Update ---
+Found Bob at index 1 with phone 333-4444
+Updated Bob through pointer: 333-9999
+Persisted Bob phone: 333-9999
+Zack not found.
 ```
 
 ## In Production
-Real systems constantly combine indexed storage, keyed lookup, and in-place mutation. Understanding how those pieces interact is what keeps updates correct and shared state understandable.
+
+Real-world database engines (like SQLite or Postgres) use similar patterns of "Indices" and "Data Pages".
+- **Speed**: Maps allow you to find one record among billions in constant time.
+- **Consistency**: Pointers ensure that when you update a record, all "Views" of that data see the update immediately.
 
 ## Thinking Questions
-1. Why does the map store indexes instead of the phone numbers directly?
-2. What invariant must stay true for the parallel slices to remain correct?
-3. Why does updating through a pointer change the stored slice value?
 
-> **Forward Reference:** In this module, we used "parallel slices" (one for names, one for emails, one for phones) because you don't know how to create custom types yet. That is cumbersome. In the next section, [Functions & Errors](../../../03-functions-errors/1-functions-basics/README.md), you will learn how to encapsulate logic so that when we eventually introduce structs, your programs become significantly cleaner.
+1. Why does the map store an **Index** (`int`) rather than the phone number string itself?
+2. What would happen if we updated a copy of the phone number instead of using a pointer?
+3. How would you handle a situation where a contact's name changes? (Hint: You'd need to update the map key).
 
 ## Next Step
 

@@ -8,17 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go represents values that should never change at runtime.
+//   - Why constants are immutable (cannot change at runtime).
+//   - How to group constants for cleaner configuration.
+//   - The difference between compile-time constants and runtime variables.
 //
 // WHY THIS MATTERS:
-//   - A variable can change while the program runs. A constant cannot. Constants communicate: - this value is fixed by design - the compiler can treat it...
+//   - Encoding stable facts (like ports, mathematical constants, or limits) into 
+//     constants prevents accidental runtime drift and allows the compiler to 
+//     optimize the binary by inlining values.
 //
 // RUN:
 //   go run ./02-language-basics/2-constants
 //
 // KEY TAKEAWAY:
-//   - Constants are evaluated entirely at compile-time. They enforce immutability
-//     and communicate fixed design decisions safely without runtime overhead.
+//   - Use constants for stability; use variables for state. Immutability is a 
+//     powerful tool for reducing system complexity.
 // ============================================================================
 
 package main
@@ -39,10 +43,6 @@ var (
 )
 
 func main() {
-	// Backward reference:
-	// Notice how variables like 'AppName' can be modified later, while
-	// the 'Host' and 'Port' constants above cannot.
-	// Learn more in the previous lesson: ../1-variables/README.md
 	AppName := "Go"
 	fmt.Println(AppName)
 
@@ -56,13 +56,10 @@ func main() {
 	fmt.Printf("Server: %s%s (User: %s)\n", Host, Port, User)
 	fmt.Printf("Running: %t\n", isRunning)
 
-	// Forward reference:
-	// Go doesn't have an 'enum' keyword. Next, we will use grouped constants
-	// along with the 'iota' keyword to create robust enumerations.
-	// See: ../3-enums/README.md
+	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: LB.3 -> 02-language-basics/3-enums")
+	fmt.Println("Run    : go run ./02-language-basics/3-enums")
 	fmt.Println("Current: LB.2 (constants)")
-	fmt.Println("Previous: LB.1 (variables)")
 	fmt.Println("---------------------------------------------------")
 }

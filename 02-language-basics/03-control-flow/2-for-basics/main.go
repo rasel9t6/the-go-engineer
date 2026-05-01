@@ -8,17 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go repeats work with its single loop keyword: `for`.
+//   - How Go uses a single keyword (`for`) for all looping logic.
+//   - Three-part counted loops (init; condition; post).
+//   - Condition-only loops (Go's version of `while`).
+//   - A preview of `range` for collection iteration.
 //
 // WHY THIS MATTERS:
-//   - A loop says, "keep doing this work while the rule allows it." Go uses one keyword for several loop shapes: - counted loops - condition-only loops -...
+//   - Automation is the core of software engineering. Loops allow us to process 
+//     thousands of items (requests, logs, users) using the same logic without 
+//     duplicating code.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/2-for-basics
 //
 // KEY TAKEAWAY:
-//   - Go has exactly one looping keyword: 'for'. It handles counted loops,
-//     condition-only loops (while-style), infinite loops, and collection iteration.
+//   - Go has exactly one looping keyword: `for`. Its simplicity reduces 
+//     syntactic overhead and forces consistency across the entire ecosystem.
 // ============================================================================
 
 package main
@@ -46,20 +51,15 @@ func main() {
 	fmt.Println()
 	fmt.Println("Range preview:")
 
-	// Backward reference:
-	// We touched upon short declarations (:=) in: ../../1-variables/README.md
-	// Here we combine it with 'range' to cleanly iterate over a slice collection.
 	words := []string{"go", "learn", "repeat"}
 	for _, word := range words {
 		fmt.Printf("word = %s\n", word)
 	}
 
-	// Forward reference:
-	// Loops often need to stop early or skip an iteration. We will learn how to
-	// control loop execution precisely in: ../3-break-continue/README.md
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.3 -> 02-language-basics/03-control-flow/3-break-continue")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/3-break-continue")
 	fmt.Println("Current: CF.2 (for basics)")
-	fmt.Println("Previous: CF.1 (if / else)")
 	fmt.Println("---------------------------------------------------")
 }

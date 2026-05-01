@@ -8,16 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn what a pointer is, how dereferencing works, and why pointers matter when an update must change the original stored value rather than only a c...
+//   - How to take the address of a variable using `&`.
+//   - How to follow a memory address (dereference) using `*`.
+//   - The difference between copying a value and sharing it.
+//   - Why the zero value of a pointer is `nil`.
 //
 // WHY THIS MATTERS:
-//   - A pointer stores the address of a value. You use it when you need to reach the original value and update it directly.
+//   - Pointers are how Go allows different parts of a program to work on the 
+//     exact same data without making expensive copies. Understanding pointers 
+//     is the bridge between simple "Foundation" code and "Engineering-Grade" 
+//     software that manages memory efficiently.
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/4-pointers
 //
 // KEY TAKEAWAY:
-//   - Learn what a pointer is, how dereferencing works, and why pointers matter when an update must change the original stored value rather than only a c...
+//   - A pointer is an address; dereferencing is visiting that address.
 // ============================================================================
 
 package main
@@ -62,9 +68,10 @@ func main() {
 		fmt.Println("optionalScore is nil, so there is nothing to dereference yet.")
 	}
 
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.5 -> 02-language-basics/04-data-structures/5-slices-2")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/5-slices-2")
 	fmt.Println("Current: DS.4 (pointers)")
-	fmt.Println("Previous: DS.3 (maps)")
 	fmt.Println("---------------------------------------------------")
 }

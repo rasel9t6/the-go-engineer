@@ -2,17 +2,7 @@
 
 ## Mission
 
-Learn how Go performs keyed lookup with maps and why the comma-ok pattern matters whenever a missing key would otherwise be ambiguous.
-
-## Why This Lesson Exists Now
-
-So far you have learned about sequential data (arrays, slices). But sometimes you need to find things by name or ID, not by position.
-
-Maps solve exactly that problem: fast lookup by key instead of scanning from the start.
-
-This lesson builds on DS.2 by adding the ability to organize data by keys.
-
-> **Backward Reference:** In [Lesson 2: Slices](../2-slices/README.md), you learned how to store dynamic sequences of items accessed by numeric index. Maps complement slices by allowing you to store and retrieve data using semantic keys (like strings).
+Learn how Go performs keyed lookup with maps and why the "comma-ok" pattern is essential for distinguishing between zero values and missing data.
 
 ## Prerequisites
 
@@ -20,38 +10,33 @@ This lesson builds on DS.2 by adding the ability to organize data by keys.
 
 ## Mental Model
 
-A map connects keys to values.
-Use it when finding something by name, ID, or label matters more than keeping items in order.
+A map is an unordered collection of **Key-Value pairs**.
+Think of it like a real-world dictionary:
+- You look up a **Key** (the word).
+- You retrieve the **Value** (the definition).
+
+In a slice, you find data by its **Position** (index). In a map, you find data by its **Identity** (key).
+
+> [!NOTE]
+> In [DS.2 Slices](../2-slices/README.md), you learned to store sequences accessed by numeric index. Maps complement slices by allowing semantic keys like strings, IDs, or categories.
 
 ## Visual Model
 
 ```mermaid
-graph TD
-    A["many values"] --> B["one collection type"]
-    B --> C["read or update by position or key"]
-```
-```text
-studentGrades
-
-"Alice" -> 95
-"James" -> 85
-"Mary"  -> 88
-```
-
-```text
-lookup rules
-
-existing key -> value + exists=true
-missing key  -> zero value + exists=false
+graph LR
+    subgraph "Map: [string]int"
+        K1["'Alice'"] -- "Hash" --> V1["95"]
+        K2["'John'"] -- "Hash" --> V2["85"]
+        K3["'Mary'"] -- "Hash" --> V3["88"]
+    end
 ```
 
 ## Machine View
 
-A map in Go is a hash table. When you store a key-value pair, Go computes a hash of the key and stores the data at that location.
-
-When you look up a key, Go computes the same hash and retrieves the value.
-
-If a key does not exist, looking it up returns the zero value for the value type (0 for int, "" for string, etc.). This is why the comma-ok pattern exists: to distinguish between a missing key and a key whose value happens to be zero.
+A map is implemented as a **Hash Table**.
+1. When you request `map["Alice"]`, Go runs a "hash function" on the string `"Alice"` to get a unique number.
+2. That number points directly to a "bucket" in memory where the value `95` is stored.
+3. This process takes the same amount of time regardless of whether the map has 10 items or 10 million items (O(1) complexity).
 
 ## Run Instructions
 
@@ -61,79 +46,33 @@ go run ./02-language-basics/04-data-structures/3-maps
 
 ## Code Walkthrough
 
-### `studentGrades := map[string]int{ ... }`
+- **`map[string]int{...}`**: Declares a map where keys are strings and values are integers.
+- **`delete(m, "key")`**: Built-in function to remove an entry. If the key doesn't exist, it does nothing (safe).
+- **Zero Value behavior**: If you look up a missing key, Go returns the **Zero Value** of the value type (e.g., `0` for `int`).
+- **Comma-ok Pattern**: `val, ok := m["key"]`. 
+  - `val` is the value.
+  - `ok` is a boolean that is `true` if the key exists, and `false` if it doesn't. This is how you tell the difference between "the score is 0" and "the student doesn't exist."
 
-This line creates a map literal.
-
-Important parts:
-
-- keys are `string`
-- values are `int`
-- each key maps to one value
-
-### `studentGrades["Alice"] = 95`
-
-This updates an existing key.
-
-### `studentGrades["Mary"] = 88`
-
-This adds a new key-value pair.
-
-These two lines show that the same bracket syntax handles both update and insert.
-
-### `studentGrades["Zack"]`
-
-This line reads a key that does not exist.
-Go returns the zero value of the value type, which is `0` here.
-
-That is useful, but also dangerous when `0` could be a real value.
-
-### `aliceScore, aliceExists := studentGrades["Alice"]`
-
-This is the comma-ok pattern.
-
-It answers two questions at once:
-
-- what is the value?
-- did the key really exist?
-
-### `zackScore, zackExists := studentGrades["Zack"]`
-
-This repeats the same pattern for a missing key so the learner can compare the results honestly.
-
-### `delete(studentGrades, "Dan")`
-
-This removes a key from the map.
-
-### `settings := make(map[string]string)`
-
-This creates an empty map that can be filled later.
-Use `make` when the map should start empty and grow step by step.
+> [!TIP]
+> Data structures store values, but to share those values efficiently without constantly copying them, you need to understand memory addresses. In [DS.4 Pointers](../4-pointers/README.md), you will learn how to reference memory directly.
 
 ## Try It
 
-1. Add another student and print the map again.
-2. Read a missing key without comma-ok, then with comma-ok, and compare the difference.
-3. Delete a key that is already missing and notice that Go stays calm.
-
-## Common Questions
-
-- Why not use a slice for grades?
-  A slice is best when position and order matter. A map is best when lookup by key matters.
-
-- Why is comma-ok important?
-  Because a missing key returns the zero value, and that can look like a real stored value.
+1. In `main.go`, add a new student "Bob" with a score of `0`.
+2. Perform a lookup for "Bob" using the comma-ok pattern. Is `ok` true or false?
+3. Delete "Alice" and then try to look her up again.
 
 ## In Production
-Maps appear constantly in Go for configuration, lookup tables, indexing, request classification,
-and in-memory caches. The comma-ok habit prevents subtle bugs around missing data.
+
+Maps are the heart of caches, configuration registries, and session managers.
+- **Safety**: Maps are **not** safe for concurrent use by default (multiple things changing them at once). You'll learn to handle this later.
+- **Iteration**: Iterating over a map with `range` returns keys in a **random order** every time. Never rely on map order!
 
 ## Thinking Questions
-1. What problem is this lesson trying to solve?
-2. What would change if you removed this idea from the program?
-3. Where do you expect to see this pattern again in real Go code?
 
-> **Forward Reference:** Data structures store values, but to share those values efficiently across your program without constantly copying them, you need to understand memory addresses. In the next lesson, [Lesson 4: Pointers](../4-pointers/README.md), you will learn how to reference memory directly.
+1. Why is the "comma-ok" pattern more important for maps than for slices?
+2. Why is map lookup faster than searching through a slice for a specific ID?
+3. Why does Go deliberately randomize the order when you loop over a map?
 
 ## Next Step
 

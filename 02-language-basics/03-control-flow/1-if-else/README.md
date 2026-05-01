@@ -10,28 +10,33 @@ Learn how a Go program chooses one path or another based on a condition.
 
 ## Mental Model
 
-Branching is the ability to ask a question and choose a path.
+Branching is the ability to ask a question and choose a path based on the answer.
+In Go, `if`, `else if`, and `else` allow you to define these paths:
 
-With `if`, `else if`, and `else`:
+1.  Evaluate a condition (must result in a `bool`).
+2.  If `true`, execute the first block and skip the rest.
+3.  If `false`, move to the next `else if` or fall back to `else`.
 
-- one condition is checked
-- one branch runs
-- the other branches are skipped
-
-> **Backward Reference:** In the previous section, you learned about evaluating boolean state like `true` and `false` in [Lesson 1: Variables](../../1-variables/README.md). Branching relies entirely on boolean evaluations to choose a path.
+> [!NOTE]
+> Branching relies entirely on boolean evaluations (`true` or `false`) which you learned about in [LB.1 Variables](../../1-variables/README.md).
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["evaluate condition"] --> B{"true?"}
-    B -->|yes| C["run first branch"]
-    B -->|no| D["check next branch or else"]
+    A["Input Data"] --> B{Condition?}
+    B -- "True" --> C["Execute Block A"]
+    B -- "False" --> D{Next Condition?}
+    D -- "True" --> E["Execute Block B"]
+    D -- "False" --> F["Execute Fallback (Else)"]
+    C --> G["End Branch"]
+    E --> G
+    F --> G
 ```
 
 ## Machine View
 
-The program evaluates the condition expression to a boolean value. Based on that result, execution jumps into one branch block and skips the others.
+At the machine level, an `if` statement results in a "jump" or "branch" instruction. The CPU evaluates the condition; if it meets the criteria, execution jumps to a specific memory address containing the branch code. Otherwise, it continues to the next instruction (the fallback).
 
 ## Run Instructions
 
@@ -41,37 +46,29 @@ go run ./02-language-basics/03-control-flow/1-if-else
 
 ## Code Walkthrough
 
-### `if temperature > 30 { ... } else { ... }`
+-   **`if temp > 30`**: Checks a numeric condition. Notice the lack of parentheses `()`—they are not used in Go unless required for operator precedence.
+-   **`else if score >= 80`**: Chains a second check. Only one block in an `if/else` chain will ever execute.
+-   **`else`**: The final fallback if no other conditions were met.
+-   **`{ }`**: Braces are mandatory in Go, even for single-line blocks. This prevents the "dangling else" bug common in other languages.
 
-This is the simplest branch shape: one true path and one fallback path.
-
-### `if score >= 90`, `else if score >= 80`, `else`
-
-This chain checks conditions in order until one matches.
-
-### `if username == "" { ... }`
-
-Branching is not only for numbers. Programs also branch on text, flags, and missing state.
-
-### Only one branch runs
-
-Even when several branches exist, the program executes only the first matching branch.
-
-> **Forward Reference:** We will soon learn about the `switch` statement in [Lesson 4: Switch](../4-switch/README.md), which offers an even cleaner way to handle branching when you need to check a single variable against many possible discrete values.
+> [!TIP]
+> While `if/else` is perfect for binary or small chains, handling a single variable with many possible discrete values is often cleaner with a `switch` statement, which we cover in [CF.4 Switch](../4-switch/README.md).
 
 ## Try It
 
-1. Change the temperature so the first branch flips.
-2. Change the score so a different grade branch runs.
-3. Set `username` to your own name and inspect the final output.
+1.  In `main.go`, change `temperature` to `35` and rerun.
+2.  Change `score` to `75` and see which grade is printed.
+3.  Add a new `else if` check to the score logic.
 
 ## In Production
-Branching is how services validate input, enforce authorization, choose business rules, and decide how to handle failures. Clean branch logic makes systems easier to trust.
+
+Branching is the heart of business logic. It handles input validation, feature flags, authorization checks, and error recovery. In production systems, keeping these branches shallow (avoiding deep nesting) is key to maintainability.
 
 ## Thinking Questions
-1. Why is "only one branch runs" an important mental model?
-2. When is an `else if` chain clearer than nested `if` blocks?
-3. What kinds of real-world state besides numbers can drive branching?
+
+1.  Why does Go require curly braces `{}` even for one-line branches?
+2.  Why is "only one branch runs" critical for understanding performance?
+3.  What happens if you have an `if` without an `else`?
 
 ## Next Step
 

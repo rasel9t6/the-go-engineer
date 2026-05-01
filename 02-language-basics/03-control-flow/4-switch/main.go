@@ -8,18 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how to choose among several possible paths without building long, hard-to-scan branch chains.
+//   - Multi-way branching with `switch`.
+//   - Matching multiple values in a single `case`.
+//   - "Tagless" switch for complex conditional chains.
 //
 // WHY THIS MATTERS:
-//   - `switch` is a multi-way branch. It is useful when: - one value may match several known cases - several conditions need a clean top-to-bottom table ...
+//   - Deeply nested `if/else` ladders are difficult to read and audit. `switch` 
+//     provides a tabular format that is easier for humans to scan and for the 
+//     compiler to optimize.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/4-switch
 //
 // KEY TAKEAWAY:
-//   - 'switch' is a cleaner alternative to deep 'if/else' chains. It implicitly
-//     breaks after matching a case, preventing accidental fallthrough bugs
-//     common in other languages.
+//   - Go's `switch` does not require explicit `break` at the end of every case; 
+//     it stops by default, eliminating a major source of bugs.
 // ============================================================================
 
 package main
@@ -57,13 +60,10 @@ func main() {
 		fmt.Println("Needs more work.")
 	}
 
-	// Forward reference:
-	// So far we have learned standard synchronous control flow. Go also provides
-	// a unique keyword called 'defer' to schedule cleanup work. We will cover
-	// that next: ../5-defer-basics/README.md
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.5 -> 02-language-basics/03-control-flow/5-defer-basics")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/5-defer-basics")
 	fmt.Println("Current: CF.4 (switch)")
-	fmt.Println("Previous: CF.3 (break-continue)")
 	fmt.Println("---------------------------------------------------")
 }

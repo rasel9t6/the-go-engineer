@@ -8,18 +8,20 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - See how `defer` is used in production for file cleanup, mutex unlocking, and logging.
+//   - Idiomatic "Pair Patterns" (Open/Close, Lock/Unlock).
+//   - Why deferring cleanup immediately prevents resource leaks.
+//   - How `defer` handles early returns and errors safely.
 //
 // WHY THIS MATTERS:
-//   - Think of `defer` as a "safety harness". Before you start a dangerous task (like opening a file), you put on the harness (`defer file.Close()`) so t...
+//   - Resource leaks (unclosed files or database connections) are a primary 
+//     cause of system instability and crashes. In Go, the `defer` keyword is 
+//     your primary defense against these "leaks" in production.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/6-defer-use-cases
 //
 // KEY TAKEAWAY:
-//   - 'defer' is the idiomatic way to manage resource cleanup in Go. Always
-//     defer the cleanup operation (like Close() or Unlock()) immediately after
-//     successfully acquiring the resource.
+//   - Clean code is safe code. Defer the cleanup right after the acquisition.
 // ============================================================================
 
 package main
@@ -32,20 +34,13 @@ func main() {
 	fmt.Println("CF.6: Real-World Defer Patterns")
 	fmt.Println("--------------------------------")
 
-	// Backward reference:
-	// We learned about LIFO order in the previous lesson: ../5-defer-basics/README.md
-	// Here we apply it practically to simulate safe file handling.
 	simulateFileOperation()
 
-	// Forward reference:
-	// Let's combine if-else, loops, switch, and defer together into a real
-	// business logic challenge next.
-	// See: ../7-pricing-checkout/README.md
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.7 -> 02-language-basics/03-control-flow/7-pricing-checkout")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/7-pricing-checkout")
 	fmt.Println("Current: CF.6 (defer-use-cases)")
-	fmt.Println("Previous: CF.5 (defer-basics)")
 	fmt.Println("---------------------------------------------------")
 }
 

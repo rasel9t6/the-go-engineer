@@ -8,18 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Build a small logger that combines variables, constants, `iota`, and methods into one readable program.
+//   - Combining named types, constants, and iota into a system.
+//   - Mapping numeric states to human-readable strings via methods.
+//   - Basic bounds checking for lookup safety.
 //
 // WHY THIS MATTERS:
-//   - This exercise turns separate language pieces into one compact system: - a named type models the log level - `iota` creates ordered constants - a me...
+//   - Production logging is more than just printing text; it requires a stable 
+//     foundation of levels (Trace, Debug, Info, etc.) that can be parsed by 
+//     machines and read by humans.
 //
 // RUN:
 //   go run ./02-language-basics/4-application-logger
 //
 // KEY TAKEAWAY:
-//   - Combining custom types, iota constants, and package-level variables
-//     allows us to build a robust, type-safe logging foundation that maps
-//     numeric state to readable strings.
+//   - Meaningful code composition starts with choosing the right types and 
+//     providing clear ways to inspect the system's state.
 // ============================================================================
 
 package main
@@ -28,8 +31,6 @@ import "fmt"
 
 type LogLevel int
 
-// Backward reference:
-// We use 'iota' just like we did in the Enums lesson: ../3-enums/README.md
 const (
 	LevelTrace LogLevel = iota
 	LevelDebug
@@ -65,14 +66,10 @@ func main() {
 
 	printLogLevel(10)
 
-	// Forward reference:
-	// Now that you understand the basic data types, we will move on to Control Flow
-	// to see how 'if', 'for', and 'switch' direct the program's path.
-	// See: ../03-control-flow/1-if-else/README.md
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.1 -> 02-language-basics/03-control-flow/1-if-else")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/1-if-else")
 	fmt.Println("Current: LB.4 (application-logger)")
-	fmt.Println("Previous: LB.3 (enums)")
 	fmt.Println("---------------------------------------------------")
 }

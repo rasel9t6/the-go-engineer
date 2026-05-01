@@ -8,18 +8,20 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go models enum-like values with named types and `iota`.
+//   - How to simulate enums using named types and constants.
+//   - Using the `iota` keyword for auto-incrementing values.
+//   - Creating a `String()` method for numeric constants.
 //
 // WHY THIS MATTERS:
-//   - Go does not have an `enum` keyword. Instead, it combines: - a named type - a `const` block - `iota` for ordered values That gives you fixed related...
+//   - Go doesn't have a built-in `enum` type. By combining named types with 
+//     `iota`, we get the same benefits: group identity, readability, and 
+//     prevention of "magic numbers" in our business logic.
 //
 // RUN:
 //   go run ./02-language-basics/3-enums
 //
 // KEY TAKEAWAY:
-//   - Go simulates enums using custom types and the 'iota' keyword inside
-//     grouped constant blocks. This provides type-safe, auto-incrementing
-//     values without needing a dedicated 'enum' keyword.
+//   - Named types + constants + iota = Go's idiomatic solution for enumerations.
 // ============================================================================
 
 package main
@@ -39,9 +41,6 @@ const (
 	Saturday
 )
 
-// Backward reference:
-// We create a custom type based on 'int'. This builds on the basic 'int'
-// type we learned in: ../1-variables/README.md
 type LogLevel int
 
 // Using our custom type 'LogLevel' along with 'iota' enforces type safety.
@@ -89,12 +88,10 @@ func main() {
 	fmt.Println("LogInfo: ", LogInfo)
 	fmt.Printf("LogError as int: %d\n", int(LogError))
 
-	// Forward reference:
-	// We will use these exact logging enum techniques to build a real
-	// application logger in the next exercise: ../4-application-logger/README.md
+	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: LB.4 -> 02-language-basics/4-application-logger")
+	fmt.Println("Run    : go run ./02-language-basics/4-application-logger")
 	fmt.Println("Current: LB.3 (enums)")
-	fmt.Println("Previous: LB.2 (constants)")
 	fmt.Println("---------------------------------------------------")
 }

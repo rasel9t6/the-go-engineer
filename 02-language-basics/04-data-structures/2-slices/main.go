@@ -8,16 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go represents dynamic collections through slices, and why `len`, `cap`, `make`, and `append` are all part of one connected idea.
+//   - Difference between length (`len`) and capacity (`cap`).
+//   - Using `make` to pre-allocate memory for performance.
+//   - Growing collections dynamically with `append`.
+//   - Creating sub-views using slicing syntax `[:]`.
 //
 // WHY THIS MATTERS:
-//   - A slice is a small view over an underlying array. It tracks: - which array data it points to - how many elements are currently in the slice - how m...
+//   - Slices are the "bread and butter" of Go data processing. Most performance 
+//     issues in Go arise from inefficient slice growth (reallocations). 
+//     Mastering the slice header (pointer, len, cap) is critical for writing 
+//     engineering-grade code.
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/2-slices
 //
 // KEY TAKEAWAY:
-//   - Learn how Go represents dynamic collections through slices, and why `len`, `cap`, `make`, and `append` are all part of one connected idea.
+//   - A slice is a descriptor for a contiguous segment of an array.
 // ============================================================================
 
 package main
@@ -58,9 +64,10 @@ func main() {
 	lastTwo := items[2:]
 	fmt.Printf("lastTwo := items[2:] -> %v\n", lastTwo)
 
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.3 -> 02-language-basics/04-data-structures/3-maps")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/3-maps")
 	fmt.Println("Current: DS.2 (slices)")
-	fmt.Println("Previous: DS.1 (arrays)")
 	fmt.Println("---------------------------------------------------")
 }
