@@ -87,6 +87,4 @@ Concurrency is not a magic "Go Faster" button for every problem.
 
 ## Next Step
 
-Next: `GC.1` -> `07-concurrency/01-concurrency/goroutines/1-goroutine`
-
-Open `07-concurrency/01-concurrency/goroutines/1-goroutine/README.md` to continue.
+Next: `GC.1` -> [`07-concurrency/01-concurrency/goroutines/1-goroutine`](../1-goroutine/README.md)

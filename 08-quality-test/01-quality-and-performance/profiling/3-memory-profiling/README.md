@@ -70,6 +70,4 @@ The code creates a scenario where memory is allocated but not released (e.g., ap
 
 ## Next Step
 
-Next: `PR.4` -> `08-quality-test/01-quality-and-performance/profiling/4-escape-analysis`
-
-Open `08-quality-test/01-quality-and-performance/profiling/4-escape-analysis/README.md` to continue.
+Next: `PR.4` -> [`08-quality-test/01-quality-and-performance/profiling/4-escape-analysis`](../4-escape-analysis/README.md)

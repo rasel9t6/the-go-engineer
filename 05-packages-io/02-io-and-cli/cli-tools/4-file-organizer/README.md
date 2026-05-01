@@ -86,6 +86,4 @@ Any tool that moves or deletes files must be treated with extreme caution. Alway
 
 ## Next Step
 
-Next: `EN.1` -> `05-packages-io/02-io-and-cli/encoding/1-marshalling`
-
-Open `05-packages-io/02-io-and-cli/encoding/1-marshalling/README.md` to continue.
+Next: `EN.1` -> [`05-packages-io/02-io-and-cli/encoding/1-marshalling`](../../encoding/1-marshalling/README.md)

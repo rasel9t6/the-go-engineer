@@ -77,6 +77,4 @@ Shows how to use `healthcheck` in Compose to ensure the database is actually rea
 
 ## Next Step
 
-Next: `DEPLOY.1` -> `10-production/03-docker-and-deployment/4-cicd-pipelines`
-
-Open `10-production/03-docker-and-deployment/4-cicd-pipelines/README.md` to continue.
+Next: `DEPLOY.1` -> [`10-production/03-docker-and-deployment/4-cicd-pipelines`](../4-cicd-pipelines/README.md)

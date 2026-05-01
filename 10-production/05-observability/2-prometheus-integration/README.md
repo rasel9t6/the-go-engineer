@@ -72,6 +72,4 @@ Shows how to wrap an existing HTTP handler with a middleware that automatically 
 
 ## Next Step
 
-Next: `OPS.3` -> `10-production/05-observability/3-distributed-tracing-basics`
-
-Open `10-production/05-observability/3-distributed-tracing-basics/README.md` to continue.
+Next: `OPS.3` -> [`10-production/05-observability/3-distributed-tracing-basics`](../3-distributed-tracing-basics/README.md)

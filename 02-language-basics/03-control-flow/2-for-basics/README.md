@@ -77,6 +77,4 @@ Loops are everywhere in real systems: processing requests, scanning files, walki
 
 ## Next Step
 
-Next: `CF.3` -> `02-language-basics/03-control-flow/3-break-continue`
-
-Open `02-language-basics/03-control-flow/3-break-continue/README.md` to continue.
+Next: `CF.3` -> [`02-language-basics/03-control-flow/3-break-continue`](../3-break-continue/README.md)

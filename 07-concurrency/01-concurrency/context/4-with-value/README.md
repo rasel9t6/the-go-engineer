@@ -88,6 +88,4 @@ If a function requires a `UserID` to work, it's usually better to pass it as an 
 
 ## Next Step
 
-Next: `CT.5` -> `07-concurrency/01-concurrency/context/5-timeout-client`
-
-Open `07-concurrency/01-concurrency/context/5-timeout-client/README.md` to continue.
+Next: `CT.5` -> [`07-concurrency/01-concurrency/context/5-timeout-client`](../5-timeout-client/README.md)

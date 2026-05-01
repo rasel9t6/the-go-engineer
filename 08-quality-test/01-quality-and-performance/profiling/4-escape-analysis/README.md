@@ -68,6 +68,4 @@ Shows how passing a concrete type to an `interface{}` argument (like `fmt.Printl
 
 ## Next Step
 
-Next: `PR.5` -> `08-quality-test/01-quality-and-performance/profiling/5-benchmark-driven-development`
-
-Open `08-quality-test/01-quality-and-performance/profiling/5-benchmark-driven-development/README.md` to continue.
+Next: `PR.5` -> [`08-quality-test/01-quality-and-performance/profiling/5-benchmark-driven-development`](../5-benchmark-driven-development/README.md)

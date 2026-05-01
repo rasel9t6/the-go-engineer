@@ -44,6 +44,4 @@ The repository layer owns persistence concerns. It should not absorb auth rules 
 
 ## Next Step
 
-Next: `OPSL.3` -> `11-flagship/01-opslane/modules/03-auth`
-
-Open `11-flagship/01-opslane/modules/03-auth/README.md` to continue.
+Next: `OPSL.3` -> [`11-flagship/01-opslane/modules/03-auth`](../03-auth/README.md)

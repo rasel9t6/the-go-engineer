@@ -64,6 +64,4 @@ Terminal confidence becomes operational confidence.
 
 ## Next Step
 
-Next: `HC.5` -> `00-how-computers-work/5-os-processes`
-
-Open `00-how-computers-work/5-os-processes/README.md` to continue.
+Next: `HC.5` -> [`00-how-computers-work/5-os-processes`](../5-os-processes/README.md)

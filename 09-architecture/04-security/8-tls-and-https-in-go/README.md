@@ -69,6 +69,4 @@ Shows a common pattern where a server listens on port 80 (HTTP) only to redirect
 
 ## Next Step
 
-Next: `SEC.9` -> `09-architecture/04-security/9-secrets-management`
-
-Open `09-architecture/04-security/9-secrets-management/README.md` to continue.
+Next: `SEC.9` -> [`09-architecture/04-security/9-secrets-management`](../9-secrets-management/README.md)

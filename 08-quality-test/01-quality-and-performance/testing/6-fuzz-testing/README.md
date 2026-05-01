@@ -68,6 +68,4 @@ Fuzzing is critical for **Security Boundaries**. Any function that parses data f
 
 ## Next Step
 
-Next: `TE.7` -> `08-quality-test/01-quality-and-performance/testing/7-interfaces-for-testability`
-
-Open `08-quality-test/01-quality-and-performance/testing/7-interfaces-for-testability/README.md` to continue.
+Next: `TE.7` -> [`08-quality-test/01-quality-and-performance/testing/7-interfaces-for-testability`](../7-interfaces-for-testability/README.md)

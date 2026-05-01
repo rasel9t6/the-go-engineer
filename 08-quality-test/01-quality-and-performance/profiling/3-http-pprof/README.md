@@ -70,6 +70,4 @@ go tool pprof http://localhost:6060/debug/pprof/heap
 
 ## Next Step
 
-Next: `PR.3` -> `08-quality-test/01-quality-and-performance/profiling/3-memory-profiling`
-
-Open `08-quality-test/01-quality-and-performance/profiling/3-memory-profiling/README.md` to continue.
+Next: `PR.3` -> [`08-quality-test/01-quality-and-performance/profiling/3-memory-profiling`](../3-memory-profiling/README.md)

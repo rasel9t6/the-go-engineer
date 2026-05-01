@@ -136,6 +136,4 @@ The test should still pass, but work drains with less parallel capacity.
 
 ## Next Step
 
-Next: `OPSL.8` -> `11-flagship/01-opslane/modules/08-caching`
-
-Open `11-flagship/01-opslane/modules/08-caching/README.md` to continue.
+Next: `OPSL.8` -> [`11-flagship/01-opslane/modules/08-caching`](../08-caching/README.md)

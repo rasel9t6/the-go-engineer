@@ -71,6 +71,4 @@ Discusses the internal mechanics of how Zerolog avoids memory allocations during
 
 ## Next Step
 
-Next: `SL.5` -> `10-production/01-structured-logging/5-exercise`
-
-Open `10-production/01-structured-logging/5-exercise/README.md` to continue.
+Next: `SL.5` -> [`10-production/01-structured-logging/5-exercise`](../5-exercise/README.md)

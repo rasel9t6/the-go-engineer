@@ -80,6 +80,4 @@ Environment verification is not a beginner-only concern. CI runners, build agent
 
 ## Next Step
 
-Next: `GT.2` -> `01-getting-started/2-hello-world`
-
-Open `01-getting-started/2-hello-world/README.md` to continue.
+Next: `GT.2` -> [`01-getting-started/2-hello-world`](../2-hello-world/README.md)

@@ -92,6 +92,4 @@ If you have multiple senders, closing is more complex (you might need a `sync.On
 
 ## Next Step
 
-Next: `GC.6` -> `07-concurrency/01-concurrency/goroutines/6-project-1`
-
-Open `07-concurrency/01-concurrency/goroutines/6-project-1/README.md` to continue.
+Next: `GC.6` -> [`07-concurrency/01-concurrency/goroutines/6-project-1`](../6-project-1/README.md)

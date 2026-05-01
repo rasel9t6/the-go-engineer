@@ -60,6 +60,4 @@ Every deployed service is a process. Signals, open files, sockets, and syscall c
 
 ## Next Step
 
-Next: `GT.1` -> `01-getting-started/1-installation`
-
-Open `01-getting-started/1-installation/README.md` to continue.
+Next: `GT.1` -> [`01-getting-started/1-installation`](../../01-getting-started/1-installation/README.md)

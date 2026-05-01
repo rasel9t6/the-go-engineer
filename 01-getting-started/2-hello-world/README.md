@@ -77,6 +77,4 @@ Almost every service, CLI, job, and test binary still starts with this same shap
 
 ## Next Step
 
-Next: `GT.3` -> `01-getting-started/3-how-go-works`
-
-Open `01-getting-started/3-how-go-works/README.md` to continue.
+Next: `GT.3` -> [`01-getting-started/3-how-go-works`](../3-how-go-works/README.md)

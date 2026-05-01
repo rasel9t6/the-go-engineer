@@ -71,6 +71,4 @@ I/O operations are almost always the slowest part of your application (compared 
 
 ## Next Step
 
-Next: `FS.7` -> `05-packages-io/02-io-and-cli/filesystem/7-log-search`
-
-Open `05-packages-io/02-io-and-cli/filesystem/7-log-search/README.md` to continue.
+Next: `FS.7` -> [`05-packages-io/02-io-and-cli/filesystem/7-log-search`](../7-log-search/README.md)

@@ -72,6 +72,4 @@ Discusses why the binary should never be modified once it is compiled (Build -> 
 
 ## Next Step
 
-Next: `CFG.5` -> `10-production/04-configuration/5-config-validation-on-boot`
-
-Open `10-production/04-configuration/5-config-validation-on-boot/README.md` to continue.
+Next: `CFG.5` -> [`10-production/04-configuration/5-config-validation-on-boot`](../5-config-validation-on-boot/README.md)

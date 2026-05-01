@@ -62,6 +62,4 @@ Don't over-interface. Only create an interface when you have a **Real Boundary**
 
 ## Next Step
 
-Next: `TE.8` -> `08-quality-test/01-quality-and-performance/testing/8-mocking-with-interfaces`
-
-Open `08-quality-test/01-quality-and-performance/testing/8-mocking-with-interfaces/README.md` to continue.
+Next: `TE.8` -> [`08-quality-test/01-quality-and-performance/testing/8-mocking-with-interfaces`](../8-mocking-with-interfaces/README.md)

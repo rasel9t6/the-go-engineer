@@ -110,6 +110,4 @@ Don't just test the "Happy Path" (success). Most bugs live in the error handling
 
 ## Next Step
 
-Next: `TE.4` -> `08-quality-test/01-quality-and-performance/testing/benchmarks`
-
-Open `08-quality-test/01-quality-and-performance/testing/benchmarks/README.md` to continue.
+Next: `TE.4` -> [`08-quality-test/01-quality-and-performance/testing/benchmarks`](../benchmarks/README.md)

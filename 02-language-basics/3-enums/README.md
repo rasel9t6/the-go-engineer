@@ -76,6 +76,4 @@ Named enum-like values show up everywhere in Go code: log levels, modes, categor
 
 ## Next Step
 
-Next: `LB.4` -> `02-language-basics/4-application-logger`
-
-Open `02-language-basics/4-application-logger/README.md` to continue.
+Next: `LB.4` -> [`02-language-basics/4-application-logger`](../4-application-logger/README.md)

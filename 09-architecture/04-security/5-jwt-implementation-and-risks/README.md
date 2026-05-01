@@ -74,6 +74,4 @@ Shows a vulnerable parser that accepts tokens with `alg: none`. An attacker can 
 
 ## Next Step
 
-Next: `SEC.6` -> `09-architecture/04-security/6-password-hashing`
-
-Open `09-architecture/04-security/6-password-hashing/README.md` to continue.
+Next: `SEC.6` -> [`09-architecture/04-security/6-password-hashing`](../6-password-hashing/README.md)

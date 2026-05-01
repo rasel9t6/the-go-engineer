@@ -93,6 +93,4 @@ stopped
 
 ## Next Step
 
-Next: `TM.7` -> `07-concurrency/01-concurrency/time-and-scheduling/7-reminder`
-
-Open `07-concurrency/01-concurrency/time-and-scheduling/7-reminder/README.md` to continue.
+Next: `TM.7` -> [`07-concurrency/01-concurrency/time-and-scheduling/7-reminder`](../7-reminder/README.md)

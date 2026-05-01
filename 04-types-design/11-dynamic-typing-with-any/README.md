@@ -64,6 +64,4 @@ Dynamic values are useful at boundaries like logging, decoding, and plugin-style
 
 ## Next Step
 
-Next: `TI.12` -> `04-types-design/12-functional-options`
-
-Open `04-types-design/12-functional-options/README.md` to continue.
+Next: `TI.12` -> [`04-types-design/12-functional-options`](../12-functional-options/README.md)

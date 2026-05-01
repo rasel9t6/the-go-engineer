@@ -72,6 +72,4 @@ Shows when to use `LookupEnv` to verify that a required configuration was explic
 
 ## Next Step
 
-Next: `CFG.2` -> `10-production/04-configuration/2-configuration-files`
-
-Open `10-production/04-configuration/2-configuration-files/README.md` to continue.
+Next: `CFG.2` -> [`10-production/04-configuration/2-configuration-files`](../2-configuration-files/README.md)

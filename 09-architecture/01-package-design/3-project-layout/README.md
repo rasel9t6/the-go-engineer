@@ -74,6 +74,4 @@ Uses `cmd/` for binaries and `internal/` for core logic. Prevents "Folder Sprawl
 
 ## Next Step
 
-Next: `ARCH.1` -> `09-architecture/03-architecture-patterns/1-architecture-trade-offs`
-
-Open `09-architecture/03-architecture-patterns/1-architecture-trade-offs/README.md` to continue.
+Next: `ARCH.1` -> [`09-architecture/03-architecture-patterns/1-architecture-trade-offs`](../../03-architecture-patterns/1-architecture-trade-offs/README.md)

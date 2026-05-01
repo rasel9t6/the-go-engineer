@@ -68,6 +68,4 @@ Demonstrates trimming whitespace and converting to lowercase before processing, 
 
 ## Next Step
 
-Next: `SEC.2` -> `09-architecture/04-security/2-sql-injection-prevention`
-
-Open `09-architecture/04-security/2-sql-injection-prevention/README.md` to continue.
+Next: `SEC.2` -> [`09-architecture/04-security/2-sql-injection-prevention`](../2-sql-injection-prevention/README.md)

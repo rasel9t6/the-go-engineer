@@ -74,6 +74,4 @@ Shows why you should run your application as a **Non-root User** inside the cont
 
 ## Next Step
 
-Next: `DOCKER.3` -> `10-production/03-docker-and-deployment/3-docker-compose`
-
-Open `10-production/03-docker-and-deployment/3-docker-compose/README.md` to continue.
+Next: `DOCKER.3` -> [`10-production/03-docker-and-deployment/3-docker-compose`](../3-docker-compose/README.md)

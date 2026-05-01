@@ -65,6 +65,4 @@ Shows how the same logic is moved into a `UserService` struct. This service can 
 
 ## Next Step
 
-Next: `ARCH.6` -> `09-architecture/03-architecture-patterns/6-event-driven-architecture`
-
-Open `09-architecture/03-architecture-patterns/6-event-driven-architecture/README.md` to continue.
+Next: `ARCH.6` -> [`09-architecture/03-architecture-patterns/6-event-driven-architecture`](../6-event-driven-architecture/README.md)

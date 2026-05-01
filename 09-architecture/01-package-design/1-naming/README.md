@@ -61,6 +61,4 @@ Shows how a `util` package becomes a "junk drawer" that makes dependency managem
 
 ## Next Step
 
-Next: `PD.2` -> `09-architecture/01-package-design/2-visibility`
-
-Open `09-architecture/01-package-design/2-visibility/README.md` to continue.
+Next: `PD.2` -> [`09-architecture/01-package-design/2-visibility`](../2-visibility/README.md)

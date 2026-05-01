@@ -70,6 +70,4 @@ Demonstrates how to manually iterate over the attributes in a `slog.Record` and 
 
 ## Next Step
 
-Next: `SL.4` -> `10-production/01-structured-logging/4-zerolog-comparison`
-
-Open `10-production/01-structured-logging/4-zerolog-comparison/README.md` to continue.
+Next: `SL.4` -> [`10-production/01-structured-logging/4-zerolog-comparison`](../4-zerolog-comparison/README.md)

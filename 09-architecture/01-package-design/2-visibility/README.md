@@ -67,6 +67,4 @@ Demonstrates an attempt to import a package from an `internal` folder. You will 
 
 ## Next Step
 
-Next: `PD.3` -> `09-architecture/01-package-design/3-project-layout`
-
-Open `09-architecture/01-package-design/3-project-layout/README.md` to continue.
+Next: `PD.3` -> [`09-architecture/01-package-design/3-project-layout`](../3-project-layout/README.md)

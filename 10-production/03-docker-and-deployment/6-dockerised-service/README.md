@@ -79,6 +79,4 @@ cd 10-production/03-docker-and-deployment/6-dockerised-service/_starter
 
 ## Next Step
 
-Next: `CG.1` -> `10-production/06-code-generation/1-go-generate`
-
-Open `10-production/06-code-generation/1-go-generate/README.md` to continue.
+Next: `CG.1` -> [`10-production/06-code-generation/1-go-generate`](../../06-code-generation/1-go-generate/README.md)

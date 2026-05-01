@@ -473,7 +473,7 @@ func TestValidateRejectsStaticReadmeNavigationFooterWithoutPath(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Validate returned error: %v", err)
 	}
-	expected := "Invalid v2 README navigation footer: HC.1 -> 00-how-computers-work/1-what-is-a-program/README.md (expected \"Next: `HC.2` -> `00-how-computers-work/2-code-to-execution`\" and \"Open `00-how-computers-work/2-code-to-execution/README.md` to continue.\")"
+	expected := "Invalid v2 README navigation footer: HC.1 -> 00-how-computers-work/1-what-is-a-program/README.md (expected \"Next: `HC.2` -> [`00-how-computers-work/2-code-to-execution`](../2-code-to-execution/README.md)\")"
 	requireOnlyFixtureExpectedReports(t, result, reports, expected)
 }
 
@@ -1315,7 +1315,11 @@ func writeFlagshipProjectSurface(t *testing.T, root, projectRoot string, moduleD
 		if index < len(moduleDirs)-1 {
 			nextID := fmt.Sprintf("%s.%d", prefix, index+2)
 			nextPath := filepath.ToSlash(filepath.Join(projectRoot, moduleDirs[index+1]))
-			readme = fmt.Sprintf("# Module\n\n## Next Step\n\nNext: `%s` -> `%s`\n\nOpen `%s/README.md` to continue.\n", nextID, nextPath, nextPath)
+			linkTarget, err := filepath.Rel(filepath.Join(projectRoot, moduleDir), filepath.Join(nextPath, "README.md"))
+			if err != nil {
+				t.Fatalf("failed to resolve fixture README link: %v", err)
+			}
+			readme = fmt.Sprintf("# Module\n\n## Next Step\n\nNext: `%s` -> [`%s`](%s)\n", nextID, nextPath, filepath.ToSlash(linkTarget))
 		}
 		writeFile(t, root, filepath.ToSlash(filepath.Join(projectRoot, moduleDir, "README.md")), readme)
 	}

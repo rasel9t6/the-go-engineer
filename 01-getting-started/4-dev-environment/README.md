@@ -76,6 +76,4 @@ Reliable teams do not guess at their command loop. They use the same format-buil
 
 ## Next Step
 
-Next: `GT.5` -> `01-getting-started/5-go-tools`
-
-Open `01-getting-started/5-go-tools/README.md` to continue.
+Next: `GT.5` -> [`01-getting-started/5-go-tools`](../5-go-tools/README.md)

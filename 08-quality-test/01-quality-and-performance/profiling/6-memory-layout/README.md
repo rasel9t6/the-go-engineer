@@ -72,6 +72,4 @@ Compares traversing a 2D slice "Row-by-Row" vs "Column-by-Column." Row-by-Row is
 
 ## Next Step
 
-Next: `PD.1` -> `09-architecture/01-package-design/1-naming`
-
-Open `09-architecture/01-package-design/1-naming/README.md` to continue.
+Next: `PD.1` -> [`09-architecture/01-package-design/1-naming`](../../../../09-architecture/01-package-design/1-naming/README.md)

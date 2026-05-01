@@ -89,6 +89,4 @@ The Go team specifically warns that `sync.Map` is only for very narrow use cases
 
 ## Next Step
 
-Next: `SY.3` -> `07-concurrency/01-concurrency/sync-primitives/3-atomic-operations`
-
-Open `07-concurrency/01-concurrency/sync-primitives/3-atomic-operations/README.md` to continue.
+Next: `SY.3` -> [`07-concurrency/01-concurrency/sync-primitives/3-atomic-operations`](../3-atomic-operations/README.md)

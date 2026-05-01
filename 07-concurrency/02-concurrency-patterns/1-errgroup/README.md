@@ -94,6 +94,4 @@ Also, remember that `errgroup` only captures the **first** error. If you need a 
 
 ## Next Step
 
-Next: `CP.2` -> `07-concurrency/02-concurrency-patterns/2-errgroup-context`
-
-Open `07-concurrency/02-concurrency-patterns/2-errgroup-context/README.md` to continue.
+Next: `CP.2` -> [`07-concurrency/02-concurrency-patterns/2-errgroup-context`](../2-errgroup-context/README.md)

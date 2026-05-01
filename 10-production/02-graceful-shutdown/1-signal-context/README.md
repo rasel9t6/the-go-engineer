@@ -74,6 +74,4 @@ Shows the logic that runs *after* the signal is received but *before* the progra
 
 ## Next Step
 
-Next: `GS.2` -> `10-production/02-graceful-shutdown/2-http-server`
-
-Open `10-production/02-graceful-shutdown/2-http-server/README.md` to continue.
+Next: `GS.2` -> [`10-production/02-graceful-shutdown/2-http-server`](../2-http-server/README.md)

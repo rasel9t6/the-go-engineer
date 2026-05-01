@@ -91,6 +91,4 @@ If you find yourself passing locks between packages or holding them for long per
 
 ## Next Step
 
-Next: `SY.2` -> `07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map`
-
-Open `07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map/README.md` to continue.
+Next: `SY.2` -> [`07-concurrency/01-concurrency/sync-primitives/2-once-and-sync-map`](../2-once-and-sync-map/README.md)

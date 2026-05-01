@@ -68,6 +68,4 @@ Breaking the major version boundary without updating the import path is a "contr
 
 ## Next Step
 
-Next: `MP.4` -> `05-packages-io/01-modules-and-packages/4-build-tags`
-
-Open `05-packages-io/01-modules-and-packages/4-build-tags/README.md` to continue.
+Next: `MP.4` -> [`05-packages-io/01-modules-and-packages/4-build-tags`](../4-build-tags/README.md)

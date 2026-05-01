@@ -81,6 +81,4 @@ While `recover()` saves your server from crashing, a panic is still a sign of a 
 
 ## Next Step
 
-Next: `HS.7` -> `06-backend-db/01-web-and-database/http-servers/7-server-timeouts`
-
-Open `06-backend-db/01-web-and-database/http-servers/7-server-timeouts/README.md` to continue.
+Next: `HS.7` -> [`06-backend-db/01-web-and-database/http-servers/7-server-timeouts`](../7-server-timeouts/README.md)

@@ -77,6 +77,4 @@ Generic data structures are used throughout Go codebases for type-safe collectio
 
 ## Next Step
 
-Next: `CO.1` -> `04-types-design/composition/1-composition`
-
-Open `04-types-design/composition/1-composition/README.md` to continue.
+Next: `CO.1` -> [`04-types-design/composition/1-composition`](../composition/1-composition/README.md)

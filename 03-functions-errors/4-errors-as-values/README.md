@@ -161,6 +161,4 @@ Returning errors as values keeps the success path and failure path readable.
 
 ## Next Step
 
-Next: `FE.5` -> `03-functions-errors/5-validation`
-
-Open `03-functions-errors/5-validation/README.md` to continue.
+Next: `FE.5` -> [`03-functions-errors/5-validation`](../5-validation/README.md)

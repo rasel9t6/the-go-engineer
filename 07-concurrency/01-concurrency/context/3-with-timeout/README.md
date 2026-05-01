@@ -93,6 +93,4 @@ Whether it's a database query, an HTTP request to another service, or a disk rea
 
 ## Next Step
 
-Next: `CT.4` -> `07-concurrency/01-concurrency/context/4-with-value`
-
-Open `07-concurrency/01-concurrency/context/4-with-value/README.md` to continue.
+Next: `CT.4` -> [`07-concurrency/01-concurrency/context/4-with-value`](../4-with-value/README.md)

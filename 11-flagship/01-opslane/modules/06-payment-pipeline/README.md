@@ -118,6 +118,4 @@ not know whether the external provider eventually charged the customer.
 
 ## Next Step
 
-Next: `OPSL.7` -> `11-flagship/01-opslane/modules/07-event-workers`
-
-Open `11-flagship/01-opslane/modules/07-event-workers/README.md` to continue.
+Next: `OPSL.7` -> [`11-flagship/01-opslane/modules/07-event-workers`](../07-event-workers/README.md)

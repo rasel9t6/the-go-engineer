@@ -114,6 +114,4 @@ before the next `Get` call.
 
 ## Next Step
 
-Next: `OPSL.9` -> `11-flagship/01-opslane/modules/09-observability`
-
-Open `11-flagship/01-opslane/modules/09-observability/README.md` to continue.
+Next: `OPSL.9` -> [`11-flagship/01-opslane/modules/09-observability`](../09-observability/README.md)

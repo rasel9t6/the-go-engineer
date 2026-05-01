@@ -87,6 +87,4 @@ Kitchen is open! Starting all orders concurrently...
 
 ## Next Step
 
-Next: `GC.2` -> `07-concurrency/01-concurrency/goroutines/2-wait-group`
-
-Open `07-concurrency/01-concurrency/goroutines/2-wait-group/README.md` to continue.
+Next: `GC.2` -> [`07-concurrency/01-concurrency/goroutines/2-wait-group`](../2-wait-group/README.md)

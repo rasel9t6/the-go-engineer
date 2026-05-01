@@ -64,6 +64,4 @@ Golden files are a double-edged sword. They are very easy to write, but they can
 
 ## Next Step
 
-Next: `PR.1` -> `08-quality-test/01-quality-and-performance/profiling/1-cpu-profile`
-
-Open `08-quality-test/01-quality-and-performance/profiling/1-cpu-profile/README.md` to continue.
+Next: `PR.1` -> [`08-quality-test/01-quality-and-performance/profiling/1-cpu-profile`](../../profiling/1-cpu-profile/README.md)

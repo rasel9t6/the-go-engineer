@@ -87,6 +87,4 @@ Generics are essential for building reusable data structures (maps, slices, tree
 
 ## Next Step
 
-Next: `TI.10` -> `04-types-design/10-payroll-processor`
-
-Open `04-types-design/10-payroll-processor/README.md` to continue.
+Next: `TI.10` -> [`04-types-design/10-payroll-processor`](../10-payroll-processor/README.md)

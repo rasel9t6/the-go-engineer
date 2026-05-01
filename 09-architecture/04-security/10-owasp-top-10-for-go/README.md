@@ -69,6 +69,4 @@ Demonstrates a "URL Preview" feature. An attacker can use it to scan your intern
 
 ## Next Step
 
-Next: `SEC.11` -> `09-architecture/04-security/11-secure-api-exercise`
-
-Open `09-architecture/04-security/11-secure-api-exercise/README.md` to continue.
+Next: `SEC.11` -> [`09-architecture/04-security/11-secure-api-exercise`](../11-secure-api-exercise/README.md)

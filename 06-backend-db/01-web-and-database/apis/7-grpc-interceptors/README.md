@@ -75,6 +75,4 @@ Interceptors often use `metadata.FromIncomingContext(ctx)` to read headers sent 
 
 ## Next Step
 
-Next: `API.8` -> `06-backend-db/01-web-and-database/apis/8-rest-vs-grpc`
-
-Open `06-backend-db/01-web-and-database/apis/8-rest-vs-grpc/README.md` to continue.
+Next: `API.8` -> [`06-backend-db/01-web-and-database/apis/8-rest-vs-grpc`](../8-rest-vs-grpc/README.md)

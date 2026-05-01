@@ -64,6 +64,4 @@ JSON marshalling using the standard library is powerful but uses reflection, whi
 
 ## Next Step
 
-Next: `EN.2` -> `05-packages-io/02-io-and-cli/encoding/2-unmarshal`
-
-Open `05-packages-io/02-io-and-cli/encoding/2-unmarshal/README.md` to continue.
+Next: `EN.2` -> [`05-packages-io/02-io-and-cli/encoding/2-unmarshal`](../2-unmarshal/README.md)

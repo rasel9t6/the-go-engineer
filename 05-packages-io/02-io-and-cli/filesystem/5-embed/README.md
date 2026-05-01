@@ -62,6 +62,4 @@ Embedding increases the size of your binary. If you embed a 100MB video file, yo
 
 ## Next Step
 
-Next: `FS.6` -> `05-packages-io/02-io-and-cli/filesystem/6-io-patterns`
-
-Open `05-packages-io/02-io-and-cli/filesystem/6-io-patterns/README.md` to continue.
+Next: `FS.6` -> [`05-packages-io/02-io-and-cli/filesystem/6-io-patterns`](../6-io-patterns/README.md)

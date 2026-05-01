@@ -84,6 +84,4 @@ Interface embedding is used throughout the standard library (io.ReadWriter, io.R
 
 ## Next Step
 
-Next: `TI.5` -> `04-types-design/5-stringer`
-
-Open `04-types-design/5-stringer/README.md` to continue.
+Next: `TI.5` -> [`04-types-design/5-stringer`](../5-stringer/README.md)

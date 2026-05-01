@@ -66,6 +66,4 @@ Never optimize based on a "feeling." Always write a benchmark first. Micro-bench
 
 ## Next Step
 
-Next: `TE.5` -> `08-quality-test/01-quality-and-performance/testing/5-sub-tests-and-cleanup`
-
-Open `08-quality-test/01-quality-and-performance/testing/5-sub-tests-and-cleanup/README.md` to continue.
+Next: `TE.5` -> [`08-quality-test/01-quality-and-performance/testing/5-sub-tests-and-cleanup`](../5-sub-tests-and-cleanup/README.md)

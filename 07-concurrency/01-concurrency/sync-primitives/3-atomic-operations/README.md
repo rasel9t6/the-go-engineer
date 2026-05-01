@@ -92,6 +92,4 @@ Atomics are harder to read and reason about than Mutexes. Only reach for `sync/a
 
 ## Next Step
 
-Next: `SY.4` -> `07-concurrency/01-concurrency/sync-primitives/4-race-conditions`
-
-Open `07-concurrency/01-concurrency/sync-primitives/4-race-conditions/README.md` to continue.
+Next: `SY.4` -> [`07-concurrency/01-concurrency/sync-primitives/4-race-conditions`](../4-race-conditions/README.md)

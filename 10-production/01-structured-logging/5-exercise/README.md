@@ -70,6 +70,4 @@ go test -v ./10-production/01-structured-logging/5-exercise
 
 ## Next Step
 
-Next: `GS.1` -> `10-production/02-graceful-shutdown/1-signal-context`
-
-Open `10-production/02-graceful-shutdown/1-signal-context/README.md` to continue.
+Next: `GS.1` -> [`10-production/02-graceful-shutdown/1-signal-context`](../../02-graceful-shutdown/1-signal-context/README.md)

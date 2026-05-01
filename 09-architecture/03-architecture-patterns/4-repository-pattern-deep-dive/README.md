@@ -64,6 +64,4 @@ Shows a repository that returns a fully-formed Aggregate. The Service doesn't kn
 
 ## Next Step
 
-Next: `ARCH.5` -> `09-architecture/03-architecture-patterns/5-service-layer-pattern`
-
-Open `09-architecture/03-architecture-patterns/5-service-layer-pattern/README.md` to continue.
+Next: `ARCH.5` -> [`09-architecture/03-architecture-patterns/5-service-layer-pattern`](../5-service-layer-pattern/README.md)

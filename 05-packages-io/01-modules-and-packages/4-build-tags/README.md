@@ -73,6 +73,4 @@ Overusing build tags can make code difficult to navigate for IDEs and static ana
 
 ## Next Step
 
-Next: `CL.1` -> `05-packages-io/02-io-and-cli/cli-tools/1-args`
-
-Open `05-packages-io/02-io-and-cli/cli-tools/1-args/README.md` to continue.
+Next: `CL.1` -> [`05-packages-io/02-io-and-cli/cli-tools/1-args`](../../02-io-and-cli/cli-tools/1-args/README.md)

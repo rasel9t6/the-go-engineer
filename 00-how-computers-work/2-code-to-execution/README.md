@@ -81,6 +81,4 @@ When you deploy Go, you deploy the compiled binary for the target OS and CPU arc
 
 ## Next Step
 
-Next: `HC.3` -> `00-how-computers-work/3-memory-basics`
-
-Open `00-how-computers-work/3-memory-basics/README.md` to continue.
+Next: `HC.3` -> [`00-how-computers-work/3-memory-basics`](../3-memory-basics/README.md)

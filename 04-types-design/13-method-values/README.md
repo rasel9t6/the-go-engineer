@@ -81,6 +81,4 @@ Method values are used in HTTP handlers, event systems, and anywhere you need to
 
 ## Next Step
 
-Next: `TI.14` -> `04-types-design/14-complex-generic-constraints`
-
-Open `04-types-design/14-complex-generic-constraints/README.md` to continue.
+Next: `TI.14` -> [`04-types-design/14-complex-generic-constraints`](../14-complex-generic-constraints/README.md)

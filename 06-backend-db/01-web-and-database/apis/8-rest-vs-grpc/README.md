@@ -96,6 +96,4 @@ There are even tools (like `grpc-gateway`) that can automatically generate a RES
 
 ## Next Step
 
-Next: `API.9` -> `06-backend-db/01-web-and-database/apis/9-grpc-service-exercise`
-
-Open `06-backend-db/01-web-and-database/apis/9-grpc-service-exercise/README.md` to continue.
+Next: `API.9` -> [`06-backend-db/01-web-and-database/apis/9-grpc-service-exercise`](../9-grpc-service-exercise/README.md)

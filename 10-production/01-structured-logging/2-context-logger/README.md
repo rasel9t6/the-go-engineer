@@ -72,6 +72,4 @@ Shows a simple `slog.Handler` wrapper that extracts the ID from the context and 
 
 ## Next Step
 
-Next: `SL.3` -> `10-production/01-structured-logging/3-custom-handler`
-
-Open `10-production/01-structured-logging/3-custom-handler/README.md` to continue.
+Next: `SL.3` -> [`10-production/01-structured-logging/3-custom-handler`](../3-custom-handler/README.md)

@@ -71,6 +71,4 @@ Shows the pattern of passing the `ctx` through every function so that child span
 
 ## Next Step
 
-Next: `OPS.4` -> `10-production/05-observability/4-feature-flags`
-
-Open `10-production/05-observability/4-feature-flags/README.md` to continue.
+Next: `OPS.4` -> [`10-production/05-observability/4-feature-flags`](../4-feature-flags/README.md)

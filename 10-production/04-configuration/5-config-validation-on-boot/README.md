@@ -76,6 +76,4 @@ Shows why you should return "Missing DATABASE_URL" instead of a generic "Invalid
 
 ## Next Step
 
-Next: `OPS.1` -> `10-production/05-observability/1-metrics-basics`
-
-Open `10-production/05-observability/1-metrics-basics/README.md` to continue.
+Next: `OPS.1` -> [`10-production/05-observability/1-metrics-basics`](../../05-observability/1-metrics-basics/README.md)

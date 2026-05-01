@@ -79,6 +79,4 @@ Timeouts are not "One Size Fits All". A file upload service might need a 10-minu
 
 ## Next Step
 
-Next: `HS.8` -> `06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown`
-
-Open `06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown/README.md` to continue.
+Next: `HS.8` -> [`06-backend-db/01-web-and-database/http-servers/8-graceful-http-shutdown`](../8-graceful-http-shutdown/README.md)

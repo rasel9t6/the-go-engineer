@@ -88,6 +88,4 @@ Parsed RFC3339 (in UTC): 2025-12-25 09:00:00 +0000 UTC
 
 ## Next Step
 
-Next: `TM.3` -> `07-concurrency/01-concurrency/time-and-scheduling/3-timer-and-ticker`
-
-Open `07-concurrency/01-concurrency/time-and-scheduling/3-timer-and-ticker/README.md` to continue.
+Next: `TM.3` -> [`07-concurrency/01-concurrency/time-and-scheduling/3-timer-and-ticker`](../3-timer-and-ticker/README.md)

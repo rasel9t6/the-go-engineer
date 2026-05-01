@@ -94,6 +94,9 @@ Each lesson README must include these sections in this order:
 10. `## Thinking Questions`
 11. `## Next Step`
 
+The `## Next Step` section must keep the next curriculum path visible and make it clickable.
+Use the next item ID, show the next curriculum path as the link label, and point the Markdown link to that lesson's `README.md`.
+
 For exercises:
 
 - replace `## Code Walkthrough` with `## Solution Walkthrough`

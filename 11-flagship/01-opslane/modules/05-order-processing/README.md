@@ -46,6 +46,4 @@ Handlers should call into it, and repositories should stay focused on persistenc
 
 ## Next Step
 
-Next: `OPSL.6` -> `11-flagship/01-opslane/modules/06-payment-pipeline`
-
-Open `11-flagship/01-opslane/modules/06-payment-pipeline/README.md` to continue.
+Next: `OPSL.6` -> [`11-flagship/01-opslane/modules/06-payment-pipeline`](../06-payment-pipeline/README.md)

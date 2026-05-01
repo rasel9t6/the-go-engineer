@@ -95,6 +95,4 @@ A buffer of size 10,000 might prevent your producer from blocking, but it just d
 
 ## Next Step
 
-Next: `GC.5` -> `07-concurrency/01-concurrency/goroutines/5-channels-closing`
-
-Open `07-concurrency/01-concurrency/goroutines/5-channels-closing/README.md` to continue.
+Next: `GC.5` -> [`07-concurrency/01-concurrency/goroutines/5-channels-closing`](../5-channels-closing/README.md)

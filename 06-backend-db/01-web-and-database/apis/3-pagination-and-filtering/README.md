@@ -84,6 +84,4 @@ Choose one and stick to it across your entire API!
 
 ## Next Step
 
-Next: `API.4` -> `06-backend-db/01-web-and-database/apis/4-protobuf-basics`
-
-Open `06-backend-db/01-web-and-database/apis/4-protobuf-basics/README.md` to continue.
+Next: `API.4` -> [`06-backend-db/01-web-and-database/apis/4-protobuf-basics`](../4-protobuf-basics/README.md)

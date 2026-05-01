@@ -1343,17 +1343,31 @@ func validateV2ReadmeNavigation(root string, items []V2Item, report func(string)
 			continue
 		}
 
+		expectedLine, err := expectedReadmeNavigationLine(item, expectedNextID, expectedNextItem)
+		if err != nil {
+			report(fmt.Sprintf("Failed to resolve v2 README navigation target: %s -> %v", item.ID, err))
+			errorsFound++
+			continue
+		}
+
 		text := string(data)
-		expectedNextPath := filepath.ToSlash(expectedNextItem.Path)
-		expectedLine := fmt.Sprintf("Next: `%s` -> `%s`", expectedNextID, expectedNextPath)
-		expectedOpenLine := fmt.Sprintf("Open `%s/README.md` to continue.", expectedNextPath)
-		if !strings.Contains(text, expectedLine) || !strings.Contains(text, expectedOpenLine) {
-			report(fmt.Sprintf("Invalid v2 README navigation footer: %s -> %s (expected %q and %q)", item.ID, filepath.ToSlash(filepath.Join(item.Path, "README.md")), expectedLine, expectedOpenLine))
+		if !strings.Contains(text, expectedLine) {
+			report(fmt.Sprintf("Invalid v2 README navigation footer: %s -> %s (expected %q)", item.ID, filepath.ToSlash(filepath.Join(item.Path, "README.md")), expectedLine))
 			errorsFound++
 		}
 	}
 
 	return errorsFound
+}
+
+func expectedReadmeNavigationLine(item V2Item, expectedNextID string, expectedNextItem V2Item) (string, error) {
+	nextPath := filepath.ToSlash(expectedNextItem.Path)
+	linkTarget, err := filepath.Rel(filepath.Clean(item.Path), filepath.Join(expectedNextItem.Path, "README.md"))
+	if err != nil {
+		return "", err
+	}
+
+	return fmt.Sprintf("Next: `%s` -> [`%s`](%s)", expectedNextID, nextPath, filepath.ToSlash(linkTarget)), nil
 }
 
 var rubricSurfaceHeadings = []string{

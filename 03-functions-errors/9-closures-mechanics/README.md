@@ -103,6 +103,4 @@ Closure bugs are usually state bugs. The most common one is reusing the same loo
 
 ## Next Step
 
-Next: `FE.10` -> `03-functions-errors/10-panic-and-recover`
-
-Open `03-functions-errors/10-panic-and-recover/README.md` to continue.
+Next: `FE.10` -> [`03-functions-errors/10-panic-and-recover`](../10-panic-and-recover/README.md)

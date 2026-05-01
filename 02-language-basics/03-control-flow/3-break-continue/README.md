@@ -75,6 +75,4 @@ Search loops, filters, validators, and batch processors often depend on early ex
 
 ## Next Step
 
-Next: `CF.4` -> `02-language-basics/03-control-flow/4-switch`
-
-Open `02-language-basics/03-control-flow/4-switch/README.md` to continue.
+Next: `CF.4` -> [`02-language-basics/03-control-flow/4-switch`](../4-switch/README.md)

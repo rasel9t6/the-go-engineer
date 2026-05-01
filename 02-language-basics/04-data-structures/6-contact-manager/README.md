@@ -100,6 +100,4 @@ Real systems constantly combine indexed storage, keyed lookup, and in-place muta
 
 ## Next Step
 
-Next: `FE.1` -> `03-functions-errors/1-functions-basics`
-
-Open `03-functions-errors/1-functions-basics/README.md` to continue.
+Next: `FE.1` -> [`03-functions-errors/1-functions-basics`](../../../03-functions-errors/1-functions-basics/README.md)

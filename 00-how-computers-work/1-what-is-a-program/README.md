@@ -87,6 +87,4 @@ That is one reason memory corruption bugs and instruction/data confusion can bec
 
 ## Next Step
 
-Next: `HC.2` -> `00-how-computers-work/2-code-to-execution`
-
-Open `00-how-computers-work/2-code-to-execution/README.md` to continue.
+Next: `HC.2` -> [`00-how-computers-work/2-code-to-execution`](../2-code-to-execution/README.md)

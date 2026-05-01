@@ -68,6 +68,4 @@ Shows how to return a `429 Too Many Requests` status code and a `Retry-After` he
 
 ## Next Step
 
-Next: `SEC.8` -> `09-architecture/04-security/8-tls-and-https-in-go`
-
-Open `09-architecture/04-security/8-tls-and-https-in-go/README.md` to continue.
+Next: `SEC.8` -> [`09-architecture/04-security/8-tls-and-https-in-go`](../8-tls-and-https-in-go/README.md)

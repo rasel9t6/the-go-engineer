@@ -86,6 +86,4 @@ In a high-scale microservice architecture, a single service without timeouts can
 
 ## Next Step
 
-Next: `TM.1` -> `07-concurrency/01-concurrency/time-and-scheduling/1-time`
-
-Open `07-concurrency/01-concurrency/time-and-scheduling/1-time/README.md` to continue.
+Next: `TM.1` -> [`07-concurrency/01-concurrency/time-and-scheduling/1-time`](../../time-and-scheduling/1-time/README.md)

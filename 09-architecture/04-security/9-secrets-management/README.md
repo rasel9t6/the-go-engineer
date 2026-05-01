@@ -67,6 +67,4 @@ Shows how a simple `fmt.Printf("%+v", config)` can accidentally leak an API key 
 
 ## Next Step
 
-Next: `SEC.10` -> `09-architecture/04-security/10-owasp-top-10-for-go`
-
-Open `09-architecture/04-security/10-owasp-top-10-for-go/README.md` to continue.
+Next: `SEC.10` -> [`09-architecture/04-security/10-owasp-top-10-for-go`](../10-owasp-top-10-for-go/README.md)

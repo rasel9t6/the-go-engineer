@@ -64,6 +64,4 @@ For web servers, always use `json.NewDecoder(r.Body).Decode(&v)` instead of read
 
 ## Next Step
 
-Next: `EN.5` -> `05-packages-io/02-io-and-cli/encoding/5-base64_encoding`
-
-Open `05-packages-io/02-io-and-cli/encoding/5-base64_encoding/README.md` to continue.
+Next: `EN.5` -> [`05-packages-io/02-io-and-cli/encoding/5-base64_encoding`](../5-base64_encoding/README.md)

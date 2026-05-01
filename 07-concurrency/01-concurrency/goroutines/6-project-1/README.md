@@ -84,6 +84,4 @@ Never start a goroutine in a production service without knowing exactly how it w
 
 ## Next Step
 
-Next: `GC.7` -> `07-concurrency/01-concurrency/goroutines/7-downloader`
-
-Open `07-concurrency/01-concurrency/goroutines/7-downloader/README.md` to continue.
+Next: `GC.7` -> [`07-concurrency/01-concurrency/goroutines/7-downloader`](../7-downloader/README.md)

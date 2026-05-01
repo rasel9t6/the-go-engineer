@@ -334,5 +334,6 @@ Staticcheck is recommended locally. It should only be described as required if C
 - [ ] Exported symbols have doc comments.
 - [ ] Lesson files have standard headers.
 - [ ] `NEXT UP:` footers match curriculum metadata.
+- [ ] README `Next Step` entries use clickable links to the next `README.md`.
 - [ ] Tests exist for exercises and behavior changes.
 - [ ] No secrets or sensitive data are logged.

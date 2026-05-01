@@ -88,6 +88,4 @@ Always pass the context down to the lowest-level I/O operations (like `sql.Query
 
 ## Next Step
 
-Next: `CP.3` -> `07-concurrency/02-concurrency-patterns/3-sync-pool`
-
-Open `07-concurrency/02-concurrency-patterns/3-sync-pool/README.md` to continue.
+Next: `CP.3` -> [`07-concurrency/02-concurrency-patterns/3-sync-pool`](../3-sync-pool/README.md)

@@ -162,6 +162,4 @@ They make success, failure, and extra context visible to the caller.
 
 ## Next Step
 
-Next: `FE.4` -> `03-functions-errors/4-errors-as-values`
-
-Open `03-functions-errors/4-errors-as-values/README.md` to continue.
+Next: `FE.4` -> [`03-functions-errors/4-errors-as-values`](../4-errors-as-values/README.md)

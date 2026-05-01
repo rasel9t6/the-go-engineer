@@ -43,6 +43,4 @@ Identity becomes trusted only after middleware verification. Repository calls sh
 
 ## Next Step
 
-Next: `OPSL.4` -> `11-flagship/01-opslane/modules/04-http-api`
-
-Open `11-flagship/01-opslane/modules/04-http-api/README.md` to continue.
+Next: `OPSL.4` -> [`11-flagship/01-opslane/modules/04-http-api`](../04-http-api/README.md)

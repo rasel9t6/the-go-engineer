@@ -88,6 +88,4 @@ The #1 rule of Go concurrency is: **Know when a goroutine will stop.** If you ca
 
 ## Next Step
 
-Next: `SY.6` -> `07-concurrency/01-concurrency/sync-primitives/6-deadlocks`
-
-Open `07-concurrency/01-concurrency/sync-primitives/6-deadlocks/README.md` to continue.
+Next: `SY.6` -> [`07-concurrency/01-concurrency/sync-primitives/6-deadlocks`](../6-deadlocks/README.md)

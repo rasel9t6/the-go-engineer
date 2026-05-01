@@ -63,6 +63,4 @@ A benchmark that compares how many SHA-256 hashes a computer can do per second v
 
 ## Next Step
 
-Next: `SEC.7` -> `09-architecture/04-security/7-rate-limiting-patterns`
-
-Open `09-architecture/04-security/7-rate-limiting-patterns/README.md` to continue.
+Next: `SEC.7` -> [`09-architecture/04-security/7-rate-limiting-patterns`](../7-rate-limiting-patterns/README.md)

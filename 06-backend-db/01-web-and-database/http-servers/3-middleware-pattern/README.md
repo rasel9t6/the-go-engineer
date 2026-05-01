@@ -78,6 +78,4 @@ Be careful with **State** in middleware. Since handlers run in concurrent gorout
 
 ## Next Step
 
-Next: `HS.4` -> `06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation`
-
-Open `06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation/README.md` to continue.
+Next: `HS.4` -> [`06-backend-db/01-web-and-database/http-servers/4-request-parsing-and-validation`](../4-request-parsing-and-validation/README.md)

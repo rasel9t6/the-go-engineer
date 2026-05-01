@@ -95,6 +95,4 @@ Config parsing is exactly where text bugs become system bugs. Poor parsing rules
 
 ## Next Step
 
-Next: `MP.1` -> `05-packages-io/01-modules-and-packages/1-module-basics`
-
-Open `05-packages-io/01-modules-and-packages/1-module-basics/README.md` to continue.
+Next: `MP.1` -> [`05-packages-io/01-modules-and-packages/1-module-basics`](../../../05-packages-io/01-modules-and-packages/1-module-basics/README.md)

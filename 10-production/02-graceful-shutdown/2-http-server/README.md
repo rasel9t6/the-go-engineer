@@ -77,6 +77,4 @@ Shows how to create a 5-second timeout context and pass it to `server.Shutdown()
 
 ## Next Step
 
-Next: `GS.3` -> `10-production/02-graceful-shutdown/3-capstone`
-
-Open `10-production/02-graceful-shutdown/3-capstone/README.md` to continue.
+Next: `GS.3` -> [`10-production/02-graceful-shutdown/3-capstone`](../3-capstone/README.md)

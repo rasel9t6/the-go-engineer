@@ -74,6 +74,4 @@ Shows how to manually check for an environment variable and overwrite a field in
 
 ## Next Step
 
-Next: `CFG.3` -> `10-production/04-configuration/3-flag-parsing`
-
-Open `10-production/04-configuration/3-flag-parsing/README.md` to continue.
+Next: `CFG.3` -> [`10-production/04-configuration/3-flag-parsing`](../3-flag-parsing/README.md)

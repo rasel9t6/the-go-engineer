@@ -75,6 +75,4 @@ Shows how to use the generated mock in a real unit test, including setting up re
 
 ## Next Step
 
-Next: `CG.3` -> `10-production/06-code-generation/3-sqlc`
-
-Open `10-production/06-code-generation/3-sqlc/README.md` to continue.
+Next: `CG.3` -> [`10-production/06-code-generation/3-sqlc`](../3-sqlc/README.md)

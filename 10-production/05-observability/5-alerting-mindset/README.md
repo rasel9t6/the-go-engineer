@@ -72,6 +72,4 @@ Shows how to include a URL to a runbook in the metadata of your prometheus alert
 
 ## Next Step
 
-Next: `DOCKER.1` -> `10-production/03-docker-and-deployment/1-docker-basics`
-
-Open `10-production/03-docker-and-deployment/1-docker-basics/README.md` to continue.
+Next: `DOCKER.1` -> [`10-production/03-docker-and-deployment/1-docker-basics`](../../03-docker-and-deployment/1-docker-basics/README.md)

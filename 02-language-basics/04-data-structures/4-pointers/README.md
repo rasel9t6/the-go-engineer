@@ -169,6 +169,4 @@ help learners stop confusing "copied value" with "original value."
 
 ## Next Step
 
-Next: `DS.5` -> `02-language-basics/04-data-structures/5-slices-2`
-
-Open `02-language-basics/04-data-structures/5-slices-2/README.md` to continue.
+Next: `DS.5` -> [`02-language-basics/04-data-structures/5-slices-2`](../5-slices-2/README.md)

@@ -73,6 +73,4 @@ Shows a production pattern: loading a config file first, then checking if the fl
 
 ## Next Step
 
-Next: `CFG.4` -> `10-production/04-configuration/4-twelve-factor-principles`
-
-Open `10-production/04-configuration/4-twelve-factor-principles/README.md` to continue.
+Next: `CFG.4` -> [`10-production/04-configuration/4-twelve-factor-principles`](../4-twelve-factor-principles/README.md)

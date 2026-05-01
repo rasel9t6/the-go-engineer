@@ -73,6 +73,4 @@ go run ./10-production/02-graceful-shutdown/3-capstone
 
 ## Next Step
 
-Next: `CFG.1` -> `10-production/04-configuration/1-environment-variables`
-
-Open `10-production/04-configuration/1-environment-variables/README.md` to continue.
+Next: `CFG.1` -> [`10-production/04-configuration/1-environment-variables`](../../04-configuration/1-environment-variables/README.md)

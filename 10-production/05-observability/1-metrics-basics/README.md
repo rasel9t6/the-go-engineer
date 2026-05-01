@@ -70,6 +70,4 @@ Shows how to record the duration of a function call and see the distribution of 
 
 ## Next Step
 
-Next: `OPS.2` -> `10-production/05-observability/2-prometheus-integration`
-
-Open `10-production/05-observability/2-prometheus-integration/README.md` to continue.
+Next: `OPS.2` -> [`10-production/05-observability/2-prometheus-integration`](../2-prometheus-integration/README.md)

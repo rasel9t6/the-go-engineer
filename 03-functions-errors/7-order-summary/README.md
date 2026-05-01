@@ -112,6 +112,4 @@ This is the everyday shape of backend Go code: validate, return errors explicitl
 
 ## Next Step
 
-Next: `FE.10` -> `03-functions-errors/10-panic-and-recover`
-
-Open `03-functions-errors/10-panic-and-recover/README.md` to continue.
+Next: `FE.10` -> [`03-functions-errors/10-panic-and-recover`](../10-panic-and-recover/README.md)

@@ -73,6 +73,4 @@ Explores the `internal/db` package and shows how to use the generated `Queries` 
 
 ## Next Step
 
-Next: `OPSL.1` -> `11-flagship/01-opslane/modules/01-foundation`
-
-Open `11-flagship/01-opslane/modules/01-foundation/README.md` to continue.
+Next: `OPSL.1` -> [`11-flagship/01-opslane/modules/01-foundation`](../../../11-flagship/01-opslane/modules/01-foundation/README.md)

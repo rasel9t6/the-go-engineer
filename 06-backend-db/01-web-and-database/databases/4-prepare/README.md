@@ -74,6 +74,4 @@ While prepared statements are great, they can be tricky with **Load Balancers**.
 
 ## Next Step
 
-Next: `DB.5` -> `06-backend-db/01-web-and-database/databases/5-transactions`
-
-Open `06-backend-db/01-web-and-database/databases/5-transactions/README.md` to continue.
+Next: `DB.5` -> [`06-backend-db/01-web-and-database/databases/5-transactions`](../5-transactions/README.md)

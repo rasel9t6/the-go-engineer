@@ -76,6 +76,4 @@ Composition is one of the main reasons Go code stays decoupled. Reusable compone
 
 ## Next Step
 
-Next: `CO.2` -> `04-types-design/composition/2-embedding`
-
-Open `04-types-design/composition/2-embedding/README.md` to continue.
+Next: `CO.2` -> [`04-types-design/composition/2-embedding`](../2-embedding/README.md)

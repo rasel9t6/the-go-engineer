@@ -69,6 +69,4 @@ Discusses why flags should be short-lived and how to track their usage with metr
 
 ## Next Step
 
-Next: `OPS.5` -> `10-production/05-observability/5-alerting-mindset`
-
-Open `10-production/05-observability/5-alerting-mindset/README.md` to continue.
+Next: `OPS.5` -> [`10-production/05-observability/5-alerting-mindset`](../5-alerting-mindset/README.md)

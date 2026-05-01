@@ -54,6 +54,4 @@ Handlers parse and shape HTTP traffic. They should not become the order-processi
 
 ## Next Step
 
-Next: `OPSL.5` -> `11-flagship/01-opslane/modules/05-order-processing`
-
-Open `11-flagship/01-opslane/modules/05-order-processing/README.md` to continue.
+Next: `OPSL.5` -> [`11-flagship/01-opslane/modules/05-order-processing`](../05-order-processing/README.md)

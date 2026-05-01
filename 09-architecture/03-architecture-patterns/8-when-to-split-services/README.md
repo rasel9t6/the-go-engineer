@@ -79,6 +79,4 @@ Shows how the heavy component can be moved behind a network boundary, allowing i
 
 ## Next Step
 
-Next: `ARCH.9` -> `09-architecture/03-architecture-patterns/9-modular-refactor-exercise`
-
-Open `09-architecture/03-architecture-patterns/9-modular-refactor-exercise/README.md` to continue.
+Next: `ARCH.9` -> [`09-architecture/03-architecture-patterns/9-modular-refactor-exercise`](../9-modular-refactor-exercise/README.md)

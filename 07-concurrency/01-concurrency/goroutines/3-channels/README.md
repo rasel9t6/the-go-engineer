@@ -91,6 +91,4 @@ They ensure that the sender and receiver meet. However, they can lead to bottlen
 
 ## Next Step
 
-Next: `GC.4` -> `07-concurrency/01-concurrency/goroutines/4-channels-buffered`
-
-Open `07-concurrency/01-concurrency/goroutines/4-channels-buffered/README.md` to continue.
+Next: `GC.4` -> [`07-concurrency/01-concurrency/goroutines/4-channels-buffered`](../4-channels-buffered/README.md)

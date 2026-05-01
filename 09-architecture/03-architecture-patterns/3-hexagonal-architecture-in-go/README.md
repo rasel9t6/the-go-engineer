@@ -87,6 +87,4 @@ Implementation of a "Memory Store" and a "Postgres Store" (simulated). Both sati
 
 ## Next Step
 
-Next: `ARCH.4` -> `09-architecture/03-architecture-patterns/4-repository-pattern-deep-dive`
-
-Open `09-architecture/03-architecture-patterns/4-repository-pattern-deep-dive/README.md` to continue.
+Next: `ARCH.4` -> [`09-architecture/03-architecture-patterns/4-repository-pattern-deep-dive`](../4-repository-pattern-deep-dive/README.md)

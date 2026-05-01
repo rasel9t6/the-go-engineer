@@ -80,6 +80,4 @@ Custom errors are used in real applications for validation errors, API errors wi
 
 ## Next Step
 
-Next: `TI.9` -> `04-types-design/9-generics`
-
-Open `04-types-design/9-generics/README.md` to continue.
+Next: `TI.9` -> [`04-types-design/9-generics`](../9-generics/README.md)

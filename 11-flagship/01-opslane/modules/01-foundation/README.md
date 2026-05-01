@@ -45,6 +45,4 @@ Do not move tenant, auth, or business logic into the config package.
 
 ## Next Step
 
-Next: `OPSL.2` -> `11-flagship/01-opslane/modules/02-database`
-
-Open `11-flagship/01-opslane/modules/02-database/README.md` to continue.
+Next: `OPSL.2` -> [`11-flagship/01-opslane/modules/02-database`](../02-database/README.md)

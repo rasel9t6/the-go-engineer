@@ -84,6 +84,4 @@ Use it when you know how many tasks you are starting and you just need to wait f
 
 ## Next Step
 
-Next: `GC.3` -> `07-concurrency/01-concurrency/goroutines/3-channels`
-
-Open `07-concurrency/01-concurrency/goroutines/3-channels/README.md` to continue.
+Next: `GC.3` -> [`07-concurrency/01-concurrency/goroutines/3-channels`](../3-channels/README.md)

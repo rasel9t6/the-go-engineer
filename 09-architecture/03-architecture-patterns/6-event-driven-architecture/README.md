@@ -67,6 +67,4 @@ Shows an `OrderService` that publishes an event. A `BillingService` and a `Shipp
 
 ## Next Step
 
-Next: `ARCH.7` -> `09-architecture/03-architecture-patterns/7-cqrs-basics`
-
-Open `09-architecture/03-architecture-patterns/7-cqrs-basics/README.md` to continue.
+Next: `ARCH.7` -> [`09-architecture/03-architecture-patterns/7-cqrs-basics`](../7-cqrs-basics/README.md)

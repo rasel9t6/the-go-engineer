@@ -71,6 +71,4 @@ The same task performed using more efficient techniques discovered in earlier le
 
 ## Next Step
 
-Next: `PR.6` -> `08-quality-test/01-quality-and-performance/profiling/6-memory-layout`
-
-Open `08-quality-test/01-quality-and-performance/profiling/6-memory-layout/README.md` to continue.
+Next: `PR.6` -> [`08-quality-test/01-quality-and-performance/profiling/6-memory-layout`](../6-memory-layout/README.md)

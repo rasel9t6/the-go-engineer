@@ -83,6 +83,4 @@ Just because Go can launch 1,000,000 goroutines doesn't mean the website you are
 
 ## Next Step
 
-Next: `SY.1` -> `07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex`
-
-Open `07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex/README.md` to continue.
+Next: `SY.1` -> [`07-concurrency/01-concurrency/sync-primitives/1-mutex-and-rwmutex`](../../sync-primitives/1-mutex-and-rwmutex/README.md)

@@ -72,6 +72,4 @@ Demonstrates a form with and without a hidden `_csrf` token. You will see how th
 
 ## Next Step
 
-Next: `SEC.4` -> `09-architecture/04-security/4-authentication-basics`
-
-Open `09-architecture/04-security/4-authentication-basics/README.md` to continue.
+Next: `SEC.4` -> [`09-architecture/04-security/4-authentication-basics`](../4-authentication-basics/README.md)

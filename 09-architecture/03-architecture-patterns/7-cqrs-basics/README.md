@@ -66,6 +66,4 @@ A flat, simple struct optimized for a "Recent Orders" dashboard. It doesn't have
 
 ## Next Step
 
-Next: `ARCH.8` -> `09-architecture/03-architecture-patterns/8-when-to-split-services`
-
-Open `09-architecture/03-architecture-patterns/8-when-to-split-services/README.md` to continue.
+Next: `ARCH.8` -> [`09-architecture/03-architecture-patterns/8-when-to-split-services`](../8-when-to-split-services/README.md)

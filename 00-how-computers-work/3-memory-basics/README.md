@@ -73,6 +73,4 @@ That is one reason hot paths often avoid unnecessary temporary objects.
 
 ## Next Step
 
-Next: `HC.4` -> `00-how-computers-work/4-terminal-confidence`
-
-Open `00-how-computers-work/4-terminal-confidence/README.md` to continue.
+Next: `HC.4` -> [`00-how-computers-work/4-terminal-confidence`](../4-terminal-confidence/README.md)

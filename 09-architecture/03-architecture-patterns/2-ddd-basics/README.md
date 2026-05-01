@@ -69,6 +69,4 @@ Demonstrates a `BankAccount` aggregate that prevents a withdrawal if the balance
 
 ## Next Step
 
-Next: `ARCH.3` -> `09-architecture/03-architecture-patterns/3-hexagonal-architecture-in-go`
-
-Open `09-architecture/03-architecture-patterns/3-hexagonal-architecture-in-go/README.md` to continue.
+Next: `ARCH.3` -> [`09-architecture/03-architecture-patterns/3-hexagonal-architecture-in-go`](../3-hexagonal-architecture-in-go/README.md)

@@ -75,6 +75,4 @@ While `FlagSet` is powerful, complex tools with many nested subcommands (e.g., `
 
 ## Next Step
 
-Next: `CL.4` -> `05-packages-io/02-io-and-cli/cli-tools/4-file-organizer`
-
-Open `05-packages-io/02-io-and-cli/cli-tools/4-file-organizer/README.md` to continue.
+Next: `CL.4` -> [`05-packages-io/02-io-and-cli/cli-tools/4-file-organizer`](../4-file-organizer/README.md)

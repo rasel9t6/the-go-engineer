@@ -94,6 +94,4 @@ If you are measuring how long a database query took, always use `time.Since(star
 
 ## Next Step
 
-Next: `TM.2` -> `07-concurrency/01-concurrency/time-and-scheduling/2-formatting`
-
-Open `07-concurrency/01-concurrency/time-and-scheduling/2-formatting/README.md` to continue.
+Next: `TM.2` -> [`07-concurrency/01-concurrency/time-and-scheduling/2-formatting`](../2-formatting/README.md)

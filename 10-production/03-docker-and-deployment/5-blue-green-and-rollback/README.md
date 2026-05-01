@@ -76,6 +76,4 @@ Demonstrates a simple script that can revert the Load Balancer to the previous v
 
 ## Next Step
 
-Next: `DEPLOY.3` -> `10-production/03-docker-and-deployment/6-dockerised-service`
-
-Open `10-production/03-docker-and-deployment/6-dockerised-service/README.md` to continue.
+Next: `DEPLOY.3` -> [`10-production/03-docker-and-deployment/6-dockerised-service`](../6-dockerised-service/README.md)

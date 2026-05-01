@@ -71,6 +71,4 @@ Shows the exact same logic using `db.QueryRow("SELECT ... WHERE pass = ?", input
 
 ## Next Step
 
-Next: `SEC.3` -> `09-architecture/04-security/3-xss-and-csrf`
-
-Open `09-architecture/04-security/3-xss-and-csrf/README.md` to continue.
+Next: `SEC.3` -> [`09-architecture/04-security/3-xss-and-csrf`](../3-xss-and-csrf/README.md)

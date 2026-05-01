@@ -74,6 +74,4 @@ Shows the idiomatic way to track your tool dependencies in your `go.mod` file so
 
 ## Next Step
 
-Next: `CG.2` -> `10-production/06-code-generation/2-mockery`
-
-Open `10-production/06-code-generation/2-mockery/README.md` to continue.
+Next: `CG.2` -> [`10-production/06-code-generation/2-mockery`](../2-mockery/README.md)

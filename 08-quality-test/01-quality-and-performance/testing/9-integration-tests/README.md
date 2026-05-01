@@ -67,6 +67,4 @@ Shows how to use environment variables (e.g., `DB_URL`) to allow the same test t
 
 ## Next Step
 
-Next: `TE.10` -> `08-quality-test/01-quality-and-performance/testing/10-golden-files`
-
-Open `08-quality-test/01-quality-and-performance/testing/10-golden-files/README.md` to continue.
+Next: `TE.10` -> [`08-quality-test/01-quality-and-performance/testing/10-golden-files`](../10-golden-files/README.md)

@@ -94,6 +94,4 @@ Contexts are meant to be passed down the **Call Stack** as parameters. Storing t
 
 ## Next Step
 
-Next: `CT.2` -> `07-concurrency/01-concurrency/context/2-with-cancel`
-
-Open `07-concurrency/01-concurrency/context/2-with-cancel/README.md` to continue.
+Next: `CT.2` -> [`07-concurrency/01-concurrency/context/2-with-cancel`](../2-with-cancel/README.md)

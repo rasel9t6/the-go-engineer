@@ -78,6 +78,4 @@ Explains how to map a port on your local machine to a port inside the container 
 
 ## Next Step
 
-Next: `DOCKER.2` -> `10-production/03-docker-and-deployment/2-multi-stage-builds`
-
-Open `10-production/03-docker-and-deployment/2-multi-stage-builds/README.md` to continue.
+Next: `DOCKER.2` -> [`10-production/03-docker-and-deployment/2-multi-stage-builds`](../2-multi-stage-builds/README.md)

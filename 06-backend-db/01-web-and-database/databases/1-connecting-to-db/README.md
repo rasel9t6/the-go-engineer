@@ -77,6 +77,4 @@ Without these limits, your app might try to open thousands of connections during
 
 ## Next Step
 
-Next: `DB.2` -> `06-backend-db/01-web-and-database/databases/2-query`
-
-Open `06-backend-db/01-web-and-database/databases/2-query/README.md` to continue.
+Next: `DB.2` -> [`06-backend-db/01-web-and-database/databases/2-query`](../2-query/README.md)

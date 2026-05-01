@@ -84,6 +84,4 @@ If your server restarts, all scheduled `AfterFunc` tasks are lost forever. For p
 
 ## Next Step
 
-Next: `CP.1` -> `07-concurrency/02-concurrency-patterns/1-errgroup`
-
-Open `07-concurrency/02-concurrency-patterns/1-errgroup/README.md` to continue.
+Next: `CP.1` -> [`07-concurrency/02-concurrency-patterns/1-errgroup`](../../../02-concurrency-patterns/1-errgroup/README.md)

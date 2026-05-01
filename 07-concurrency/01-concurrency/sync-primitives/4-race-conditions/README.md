@@ -102,6 +102,4 @@ They might not show up on your local machine, but they will crash your productio
 
 ## Next Step
 
-Next: `SY.5` -> `07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks`
-
-Open `07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks/README.md` to continue.
+Next: `SY.5` -> [`07-concurrency/01-concurrency/sync-primitives/5-goroutine-leaks`](../5-goroutine-leaks/README.md)

@@ -80,6 +80,4 @@ go test ./09-architecture/03-architecture-patterns/9-modular-refactor-exercise
 
 ## Next Step
 
-Next: `SEC.1` -> `09-architecture/04-security/1-input-validation-patterns`
-
-Open `09-architecture/04-security/1-input-validation-patterns/README.md` to continue.
+Next: `SEC.1` -> [`09-architecture/04-security/1-input-validation-patterns`](../../04-security/1-input-validation-patterns/README.md)

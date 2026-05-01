@@ -76,6 +76,4 @@ A safe default for simple database queries is often between 500ms and 5 seconds.
 
 ## Next Step
 
-Next: `GC.0` -> `07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists`
-
-Open `07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists/README.md` to continue.
+Next: `GC.0` -> [`07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists`](../../../../07-concurrency/01-concurrency/goroutines/0-why-concurrency-exists/README.md)

@@ -99,6 +99,4 @@ Use panic sparingly for programmer bugs or impossible states, then recover only 
 
 ## Next Step
 
-Next: `TI.1` -> `04-types-design/1-struct`
-
-Open `04-types-design/1-struct/README.md` to continue.
+Next: `TI.1` -> [`04-types-design/1-struct`](../../04-types-design/1-struct/README.md)

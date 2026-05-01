@@ -152,6 +152,4 @@ because two slices still point at the same backing array.
 
 ## Next Step
 
-Next: `DS.6` -> `02-language-basics/04-data-structures/6-contact-manager`
-
-Open `02-language-basics/04-data-structures/6-contact-manager/README.md` to continue.
+Next: `DS.6` -> [`02-language-basics/04-data-structures/6-contact-manager`](../6-contact-manager/README.md)

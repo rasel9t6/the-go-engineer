@@ -151,6 +151,4 @@ instead of doing everything in one place.
 
 ## Next Step
 
-Next: `FE.8` -> `03-functions-errors/8-first-class-functions`
-
-Open `03-functions-errors/8-first-class-functions/README.md` to continue.
+Next: `FE.8` -> [`03-functions-errors/8-first-class-functions`](../8-first-class-functions/README.md)

@@ -89,6 +89,4 @@ A concurrency limit of `4` might be too low for a 64-core server, and too high f
 
 ## Next Step
 
-Next: `CP.5` -> `07-concurrency/02-concurrency-patterns/5-url-checker-exercise`
-
-Open `07-concurrency/02-concurrency-patterns/5-url-checker-exercise/README.md` to continue.
+Next: `CP.5` -> [`07-concurrency/02-concurrency-patterns/5-url-checker-exercise`](../5-url-checker-exercise/README.md)

@@ -93,6 +93,4 @@ Even if your logic is correct, the Go runtime keeps the context in memory (and i
 
 ## Next Step
 
-Next: `CT.3` -> `07-concurrency/01-concurrency/context/3-with-timeout`
-
-Open `07-concurrency/01-concurrency/context/3-with-timeout/README.md` to continue.
+Next: `CT.3` -> [`07-concurrency/01-concurrency/context/3-with-timeout`](../3-with-timeout/README.md)

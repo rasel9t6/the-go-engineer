@@ -76,6 +76,4 @@ Simulates a network call between two components, demonstrating how you have to h
 
 ## Next Step
 
-Next: `ARCH.2` -> `09-architecture/03-architecture-patterns/2-ddd-basics`
-
-Open `09-architecture/03-architecture-patterns/2-ddd-basics/README.md` to continue.
+Next: `ARCH.2` -> [`09-architecture/03-architecture-patterns/2-ddd-basics`](../2-ddd-basics/README.md)

@@ -88,6 +88,4 @@ To avoid them:
 
 ## Next Step
 
-Next: `CT.1` -> `07-concurrency/01-concurrency/context/1-background`
-
-Open `07-concurrency/01-concurrency/context/1-background/README.md` to continue.
+Next: `CT.1` -> [`07-concurrency/01-concurrency/context/1-background`](../../context/1-background/README.md)

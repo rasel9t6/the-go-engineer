@@ -105,6 +105,4 @@ Then change the histogram bucket boundaries and observe how observations distrib
 
 ## Next Step
 
-Next: `OPSL.10` -> `11-flagship/01-opslane/modules/10-shutdown-deploy`
-
-Open `11-flagship/01-opslane/modules/10-shutdown-deploy/README.md` to continue.
+Next: `OPSL.10` -> [`11-flagship/01-opslane/modules/10-shutdown-deploy`](../10-shutdown-deploy/README.md)

@@ -74,6 +74,4 @@ Shows the difference between `slog.Info("msg", "key", val)` and the more perform
 
 ## Next Step
 
-Next: `SL.2` -> `10-production/01-structured-logging/2-context-logger`
-
-Open `10-production/01-structured-logging/2-context-logger/README.md` to continue.
+Next: `SL.2` -> [`10-production/01-structured-logging/2-context-logger`](../2-context-logger/README.md)
