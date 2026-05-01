@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/logging"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/logging"
 )
 
 func TestStartSpanRecordsNameAndCorrelation(t *testing.T) {

@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/lib/pq"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/config"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/config"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
 )
 
 // ErrInvalidReference means a tenant-scoped row points at a parent row that does not exist.

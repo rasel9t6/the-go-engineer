@@ -7,9 +7,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/events"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/services"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/events"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/services"
 )
 
 type OrderWorkflow interface {

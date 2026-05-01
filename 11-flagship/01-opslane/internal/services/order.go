@@ -9,8 +9,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/db"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/db"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
 )
 
 // OrderRepository is the minimum persistence surface the order workflow needs.

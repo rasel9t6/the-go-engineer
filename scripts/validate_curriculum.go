@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rasel9t6/the-go-engineer/scripts/internal/curriculumvalidator"
+	"github.com/swe-labs/the-go-engineer/scripts/internal/curriculumvalidator"
 )
 
 func main() {

@@ -5,10 +5,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/events"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/models"
-	paymentflow "github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/payment"
-	"github.com/rasel9t6/the-go-engineer/11-flagship/01-opslane/internal/services"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/events"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/models"
+	paymentflow "github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/payment"
+	"github.com/swe-labs/the-go-engineer/11-flagship/01-opslane/internal/services"
 )
 
 func TestOrderProcessorTransitionsOrderStatus(t *testing.T) {

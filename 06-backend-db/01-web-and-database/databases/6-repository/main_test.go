@@ -12,7 +12,7 @@ import (
 
 	_ "modernc.org/sqlite"
 
-	"github.com/rasel9t6/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/repository"
+	"github.com/swe-labs/the-go-engineer/06-backend-db/01-web-and-database/databases/6-repository/repository"
 )
 
 const repositorySchema = `

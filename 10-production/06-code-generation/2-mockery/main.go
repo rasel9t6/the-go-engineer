@@ -29,7 +29,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/rasel9t6/the-go-engineer/10-production/06-code-generation/2-mockery/internal/storage"
+	"github.com/swe-labs/the-go-engineer/10-production/06-code-generation/2-mockery/internal/storage"
 )
 
 // Stage 10: Code Generation - Mockery Workflow
