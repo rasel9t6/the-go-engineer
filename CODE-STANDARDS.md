@@ -241,6 +241,15 @@ When a lesson uses a concept taught elsewhere, reference the lesson ID:
 // from running indefinitely when the database is slow.
 ```
 
+In `README.md` files, use GitHub-style alerts for cross-references:
+
+```markdown
+> [!NOTE]
+> This concept is covered in depth in [HC.1 What is a Program?](./00-how-computers-work/1-what-is-a-program/README.md).
+```
+
+Avoid detached, standalone "Forward/Backward Reference" headlines.
+
 ## Code Organization
 
 Preferred order:

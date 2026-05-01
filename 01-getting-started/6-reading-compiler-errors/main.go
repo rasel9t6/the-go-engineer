@@ -11,16 +11,17 @@
 //   - Learn to treat the compiler as a helpful partner instead of an obstacle by decoding its error messages.
 //
 // WHY THIS MATTERS:
-//   - Think of the compiler as a "spell checker" for logic. It won't let you run a program that it knows will crash or behave unpredictably.
+//   - Think of the compiler as a "spell checker" for logic. It won't let you run a program that it
+//     knows will crash or behave unpredictably.
+//   - Being able to quickly decode an error message is the difference between a frustrated learner
+//     and a productive engineer.
 //
 // RUN:
 //   go run ./01-getting-started/6-reading-compiler-errors
 //
 // KEY TAKEAWAY:
-//   - Learn to treat the compiler as a helpful partner instead of an obstacle by decoding its error messages.
+//   - A compiler error is not a failure; it is a successful prevention of a runtime bug.
 // ============================================================================
-
-//   The compiler is your first line of defense against bugs.
 
 package main
 
@@ -43,6 +44,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: LB.1 -> 02-language-basics/1-variables")
+	fmt.Println("Run    : go run ./02-language-basics/1-variables")
 	fmt.Println("Current: GT.6 (reading-compiler-errors)")
-	fmt.Println("-----------------------------------")
+	fmt.Println("---------------------------------------------------")
 }

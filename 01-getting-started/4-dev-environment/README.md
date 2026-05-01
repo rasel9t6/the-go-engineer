@@ -10,27 +10,30 @@ Learn the small command loop that makes day-to-day Go work predictable.
 
 ## Mental Model
 
-The Go toolchain is a workflow, not a single command:
-
-1. Edit code.
-2. Format it.
-3. Build or run it.
-4. Test it when tests exist.
-
-That loop repeats across the entire repo.
+The Go toolchain is a **workflow**, not a single command. 
+Think of it like a craft:
+1. **Write**: The act of typing code.
+2. **Format**: `go fmt` makes it professional and readable.
+3. **Check**: `go build` or `go vet` verifies the logic.
+4. **Prove**: `go test` ensures it actually works.
 
 ## Visual Model
 
 ```mermaid
 graph LR
-    A["edit code"] --> B["go fmt"]
-    B --> C["go build / go run"]
+    A["Edit Code"] --> B["go fmt"]
+    B --> C["go build"]
     C --> D["go test"]
+    D --> E["Success!"]
+    E --> A
 ```
 
 ## Machine View
 
-`go fmt` rewrites source files into Go's standard format. `go build` compiles packages. `go run` compiles and executes. `go test` builds test binaries and runs them. This lesson also asks the OS whether tools like `gopls` exist on the command path.
+When you run `go build`, the compiler checks every file in the package. If it finds an error, it stops immediately. Unlike some other languages, Go refuses to produce a "broken" binary. This strictness is what makes Go software so reliable in production.
+
+> [!NOTE]
+> The resulting binary is the physical manifestation of the instruction list concept you learned in [HC.1 What is a Program?](../../00-how-computers-work/1-what-is-a-program/README.md).
 
 ## Run Instructions
 
@@ -40,39 +43,25 @@ go run ./01-getting-started/4-dev-environment
 
 ## Code Walkthrough
 
-### `commands := []commandInfo{ ... }`
-
-The lesson stores the important Go commands as structured data so it can print them consistently.
-
-### `for _, command := range commands { ... }`
-
-This loop renders the command list without repeating the same formatting code over and over.
-
-### `tools := []toolInfo{ ... }`
-
-This second slice defines the development tools the lesson wants to probe for.
-
-### `exec.LookPath(...)`
-
-This asks the operating system whether a tool exists on the current `PATH`.
-
-### `fmt.Println("NEXT UP: GT.5 -> 01-getting-started/5-go-tools")`
-
-The footer marks the transition to the essential Go toolchain.
+- **`exec.LookPath`**: This code actually checks your computer's `PATH` to see if essential Go tools are installed.
+- **`gofmt`**: The tool that actually does the formatting.
+- **`gopls`**: The "Go Language Server" that powers your editor's autocomplete and error highlighting.
 
 ## Try It
 
-1. Run `go fmt ./...` from the repo root.
-2. Run `go build ./...` and notice that success is usually quiet.
-3. Add a fake tool name to the list and inspect the "not found" branch.
+1. Purposely add some messy indentation to your `main.go`.
+2. Run `go fmt ./01-getting-started/4-dev-environment/main.go`.
+3. Observe how the file was instantly "cleaned up" to match the standard Go style.
 
 ## In Production
-Reliable teams do not guess at their command loop. They use the same format-build-test rhythm locally, in CI, and in release pipelines so surprises show up early instead of late.
+
+In a professional environment, we use **CI (Continuous Integration)** to run these commands automatically. If a developer forgets to format their code or breaks a test, the CI system will reject their changes. This ensures the master codebase always stays healthy.
 
 ## Thinking Questions
-1. Why does Go treat formatting as a command instead of a personal style choice?
-2. What different problems do `go build` and `go test` solve?
-3. Why is checking the `PATH` part of environment confidence?
+
+1. Why does Go have one official formatting style instead of letting developers choose their own?
+2. What is the difference between `go build` and `go run`?
+3. Why is it important that your editor (using `gopls`) shows you errors *while* you are typing?
 
 ## Next Step
 

@@ -1,12 +1,8 @@
-# GT.5 Go Tools
+# GT.5 Go Tools: fmt, vet, and doc
 
 ## Mission
 
-Master the three essential tools that keep Go code clean, safe, and documented: `fmt`, `vet`, and `doc`.
-
-## Why This Lesson Exists Now
-
-Writing code is only half the job. Engineering is about maintaining that code. Go provides a standard toolchain so every developer on every team uses the same style, catches the same bugs early, and can read documentation without leaving the terminal.
+Master the three essential tools that keep Go code clean, safe, and documented.
 
 ## Prerequisites
 
@@ -14,27 +10,33 @@ Writing code is only half the job. Engineering is about maintaining that code. G
 
 ## Mental Model
 
-Think of these tools as your "automated senior engineer":
-1. `go fmt`: Fixes your style.
-2. `go vet`: Catches suspicious logic.
-3. `go doc`: Explains how things work.
+Think of these tools as your **Automated Senior Engineer**.
+- **`go fmt`**: Fixes your "handwriting" (style).
+- **`go vet`**: Points out "spelling mistakes" in your logic.
+- **`go doc`**: Explains the "dictionary" definitions of Go packages.
 
 ## Visual Model
 
 ```mermaid
-graph TD
-    A["Raw Code"] --> B["go fmt"]
-    B --> C["go vet"]
-    C --> D["Clean, Validated Code"]
-    D --> E["go doc"]
-    E --> F["Documentation"]
+graph LR
+    Code["Rough Code"] --> fmt["go fmt"]
+    fmt --> clean["Clean Code"]
+    clean --> vet["go vet"]
+    vet --> safe["Safe Code"]
+    doc["go doc"] -.-> Ref["Knowledge"]
 ```
 
 ## Machine View
 
-- `go fmt` parses your code into an Abstract Syntax Tree (AST) and prints it back out using standard rules.
-- `go vet` uses static analysis to find patterns that are technically valid Go but almost certainly bugs (like printf format mismatches).
-- `go doc` extracts comments from the source code to provide help text.
+- **`go fmt`**: Rewrites your source files to use tabs for indentation and standardized spacing.
+- **`go vet`**: Uses static analysis to find common mistakes that the compiler might allow but are almost certainly bugs (like using the wrong format verb in `Printf`).
+- **`go doc`**: Reads the comments in your code and formats them into a readable manual.
+
+> [!NOTE]
+> While `fmt`, `vet`, and `doc` cover formatting and logic checks, the "Proving" stage of the development loop relies on `go test`, which we explore in depth in [Section 08: Quality & Testing](../../08-quality-test/README.md).
+
+> [!NOTE]
+> These tools are accessed via the command line, building on the skills you developed in [HC.4 Terminal Confidence](../../00-how-computers-work/4-terminal-confidence/README.md).
 
 ## Run Instructions
 
@@ -44,31 +46,25 @@ go run ./01-getting-started/5-go-tools
 
 ## Code Walkthrough
 
-### `go fmt`
-
-We use `go fmt ./...` to ensure all files in the current module follow the Go style guide.
-
-### `go vet`
-
-We use `go vet ./...` to run static analysis. It's often run automatically by editors and CI systems.
-
-### `go doc`
-
-You can run `go doc fmt.Println` to see documentation for any standard library function right in your terminal.
+- **`go fmt`**: We use this on every commit in this repo to keep it readable.
+- **`go vet`**: This tool is part of the "Required Verification" standard for contributors.
+- **`go doc`**: Try running `go doc fmt.Println` in your terminal to see it in action.
 
 ## Try It
 
-1. Intentionally mess up the indentation of `main.go` and run `go fmt ./01-getting-started/5-go-tools/main.go`.
-2. Add a `fmt.Printf("%d", "not a number")` to the code and run `go vet ./01-getting-started/5-go-tools`.
-3. Run `go doc fmt.Printf` in your terminal.
+1. Run `go doc fmt.Printf` in your terminal.
+2. Intentionally use a wrong verb: `fmt.Printf("%d", "not a number")` and run `go vet`.
+3. Observe how `go vet` catches the type mismatch even before you run the program.
 
 ## In Production
-Never commit code that hasn't been through `go fmt`. Most teams enforce this in their CI/CD pipelines. Using `go vet` is also mandatory to catch common mistakes before they reach production.
+
+We never ship code that hasn't passed `go fmt` and `go vet`. In high-stakes engineering environments, "Vet" is often configured to fail the build if it finds even a minor suspicious pattern. This "fail-fast" approach is why Go systems are known for their stability.
 
 ## Thinking Questions
-1. Why does having a single standard format (`go fmt`) reduce "bikeshedding" in code reviews?
-2. What kind of errors can `go vet` find that the compiler might miss?
-3. Why is it useful to have documentation available in the terminal via `go doc`?
+
+1. Why is it better to have the machine enforce style instead of human reviewers?
+2. Can `go vet` catch every possible bug? Why or why not?
+3. How does `go doc` encourage developers to write better comments?
 
 ## Next Step
 

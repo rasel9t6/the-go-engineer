@@ -11,13 +11,15 @@
 //   - Build a beginner-safe mental model for packages, imports, exported names, and the `go run` workflow.
 //
 // WHY THIS MATTERS:
-//   - Go organizes code into packages. A file imports packages when it wants to use capabilities it does not define itself. This lesson uses several pack...
+//   - Go organizes code into packages. A file imports packages when it wants to use capabilities it does
+//     not define itself. This lesson uses several standard library packages to demonstrate this.
+//   - Understanding the boundary between your code and the standard library is key to Go engineering.
 //
 // RUN:
 //   go run ./01-getting-started/3-how-go-works
 //
 // KEY TAKEAWAY:
-//   - Build a beginner-safe mental model for packages, imports, exported names, and the `go run` workflow.
+//   - Go uses capitalization (like `fmt.Println` vs `internalFunc`) to decide what is public and what is private.
 // ============================================================================
 
 package main
@@ -44,6 +46,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: GT.4 -> 01-getting-started/4-dev-environment")
+	fmt.Println("Run    : go run ./01-getting-started/4-dev-environment")
 	fmt.Println("Current: GT.3 (how-go-works)")
 	fmt.Println("---------------------------------------------------")
 }
