@@ -11,27 +11,29 @@ Learn how to choose among several possible paths without building long, hard-to-
 
 ## Mental Model
 
-`switch` is a multi-way branch.
+`switch` is a multi-way branch. It is a more readable alternative to a long list of `else if` statements when you are comparing one variable against several known values.
 
-It is useful when:
+In Go, `switch` is superior because it **implicitly breaks**. Once a case matches and executes, the program exits the switch block. This prevents "fallthrough" bugs where the program accidentally executes multiple branches.
 
-- one value may match several known cases
-- several conditions need a clean top-to-bottom table shape
-
-> **Backward Reference:** In [Lesson 3: Break / Continue](../3-break-continue/README.md), you learned how to interrupt flow. `switch` gives us a built-in "interrupt" automatically: when a case matches, it executes and then implicitly breaks out of the switch block.
+> [!NOTE]
+> In [CF.3 Break / Continue](../3-break-continue/README.md), you learned how to manually interrupt flow. `switch` provides a structured way to handle these interruptions automatically.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["inspect value or conditions"] --> B{"which case matches?"}
-    B --> C["run matching case"]
-    B --> D["or run default"]
+    A["Value to Check"] --> B{Switch}
+    B --> C["Case A"]
+    B --> D["Case B, C"]
+    B --> E["Default"]
+    C --> F["Exit Switch"]
+    D --> F
+    E --> F
 ```
 
 ## Machine View
 
-A `switch` evaluates the tag expression or each case condition in order. In Go, once one case matches and runs, the switch ends unless you deliberately use `fallthrough`.
+The compiler often implements a `switch` statement using a "jump table" (for dense integer cases) or a binary search (for sparse cases). This is often more efficient than a linear chain of `if/else` checks because the CPU can jump directly to the matching code path in fewer steps.
 
 ## Run Instructions
 
@@ -41,37 +43,29 @@ go run ./02-language-basics/03-control-flow/4-switch
 
 ## Code Walkthrough
 
-### `switch day { ... }`
+-   **`switch day { ... }`**: The "tagged" form. It compares the variable `day` against each `case`.
+-   **`case "Saturday", "Sunday":`**: You can group multiple values into one case if they share the same outcome.
+-   **`switch { ... }`**: The "tagless" form. It acts like a clean `if/else` ladder where each `case` is a separate boolean condition.
+-   **`default`**: Runs only if no other cases match. It is the "else" of the switch world.
 
-This form compares one value against several candidate cases.
-
-### `case "Saturday", "Sunday":`
-
-One case can match multiple values when they share the same outcome.
-
-### `switch { ... }`
-
-The tagless form evaluates each case as a boolean condition, which is useful for ranges and guard-like logic.
-
-### `default`
-
-The default case handles the fallback path when no explicit case matches.
-
-> **Forward Reference:** While `switch` simplifies synchronous logic, soon we will learn about `defer` in [Lesson 5: Defer Basics](../5-defer-basics/README.md) to handle cleanup tasks that run at the end of the current scope, regardless of how control flowed through `if`s and `switch`es.
+> [!TIP]
+> While `switch` simplifies synchronous branching, Go provides a unique tool called `defer` to handle cleanup logic that must run at the end of a scope regardless of which branch was taken. We cover this in [CF.5 Defer Basics](../5-defer-basics/README.md).
 
 ## Try It
 
-1. Change the `day` value and rerun the lesson.
-2. Change the `score` value in the tagless `switch`.
-3. Reorder the score cases and notice how case order affects behavior.
+1.  In `main.go`, change `day` to "Saturday" and rerun.
+2.  In the tagless `switch`, change `score` to `65`.
+3.  Add a new case to the `day` switch for "Friday" that prints "Almost weekend!".
 
 ## In Production
-`switch` often makes state machines, command routers, mode handlers, and category-based rules easier to read than long `if / else if` ladders.
+
+`switch` is the standard tool for state machines, command routers (e.g., handling different CLI flags), and message type handlers. Its tabular layout makes it much easier for a teammate to audit the different states a system can be in.
 
 ## Thinking Questions
-1. When is `switch` clearer than `if / else if`?
-2. Why is Go's "no fallthrough by default" behavior safer for beginners?
-3. What is the difference between a tagged and tagless `switch`?
+
+1.  When is `switch` clearer than an `if / else if` ladder?
+2.  Why is Go's "no fallthrough by default" behavior safer for beginners?
+3.  What is the main difference between a tagged `switch` and a tagless `switch`?
 
 ## Next Step
 

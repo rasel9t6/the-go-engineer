@@ -8,17 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how to schedule work to happen at the very end of a function, ensuring cleanup always runs.
+//   - Scheduling cleanup tasks with the `defer` keyword.
+//   - Last-In-First-Out (LIFO) execution order of deferred calls.
+//   - When deferred arguments are evaluated.
 //
 // WHY THIS MATTERS:
-//   - Think of `defer` like a "sticky note" you put on the exit door of a room. No matter what you do in the room or which way you leave, you must perfor...
+//   - Real programs open files, connections, and locks. If a function returns
+//     early due to an error, these resources might remain open forever (a "leak").
+//     `defer` guarantees that cleanup code runs regardless of which path the
+//     function takes to exit.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/5-defer-basics
 //
 // KEY TAKEAWAY:
-//   - 'defer' schedules a function call to run exactly when the surrounding
-//     function returns. Multiple defers execute in Last-In-First-Out (LIFO) order.
+//   - `defer` decouples where you declare cleanup from where it executes.
 // ============================================================================
 
 package main
@@ -31,11 +35,6 @@ func main() {
 	fmt.Println("CF.5: Defer Mechanics")
 	fmt.Println("--------------------------------")
 
-	// Backward reference:
-	// Unlike 'switch' and 'if' logic from previous lessons that execute exactly
-	// when they are evaluated, 'defer' intercepts control flow at the exit point.
-	// See: ../4-switch/README.md
-
 	// Defer 1 is scheduled first, so it runs last (LIFO order).
 	defer fmt.Println("  (Defer 1) This runs LAST")
 
@@ -46,14 +45,10 @@ func main() {
 	fmt.Println("Work complete. Returning now.")
 
 	fmt.Println()
-	// Forward reference:
-	// Now that you understand the LIFO execution order of 'defer', we will apply
-	// it to real-world cleanup scenarios like closing files in the next lesson.
-	// See: ../6-defer-use-cases/README.md
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.6 -> 02-language-basics/03-control-flow/6-defer-use-cases")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/6-defer-use-cases")
 	fmt.Println("Current: CF.5 (defer-basics)")
-	fmt.Println("Previous: CF.4 (switch)")
 	fmt.Println("---------------------------------------------------")
 }

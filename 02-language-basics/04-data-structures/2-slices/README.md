@@ -4,72 +4,46 @@
 
 Learn how Go represents dynamic collections through slices, and why `len`, `cap`, `make`, and `append` are all part of one connected idea.
 
-## Why This Lesson Exists Now
-
-Arrays taught you about fixed-size collections and value copying. But real programs need to handle data that grows and shrinks.
-
-That is what slices do. They are Go's primary way to work with dynamic collections.
-
-This lesson builds on DS.1 by showing what happens when you need flexibility.
-
-> **Backward Reference:** In [Lesson 1: Arrays](../1-array/README.md), you learned that arrays are rigid, fixed-size structures that copy entirely by value. Slices solve this rigidity by acting as dynamic descriptors over those underlying fixed-size arrays.
-
 ## Prerequisites
 
 - `DS.1` arrays
 
 ## Mental Model
 
-A slice is a small view over an underlying array.
-It tracks:
+A slice is a dynamic, flexible view into the elements of an array. Unlike arrays, slices are not fixed in size.
+A slice is actually a small structure (a "header") that tracks three things:
+1.  **Pointer**: Where the data starts in memory (the underlying array).
+2.  **Length (`len`)**: How many elements are currently in the slice.
+3.  **Capacity (`cap`)**: How many elements the underlying array can hold before it needs to grow.
 
-- which array data it points to
-- how many elements are currently in the slice
-- how much capacity remains before growth needs a new backing array
+> [!NOTE]
+> In [DS.1 Arrays](../1-array/README.md), you learned that arrays are rigid, fixed-size structures. Slices solve this rigidity by acting as dynamic descriptors over those underlying arrays.
 
 ## Visual Model
 
 ```mermaid
 graph TD
-    A["many values"] --> B["one collection type"]
-    B --> C["read or update by position or key"]
-```
-```text
-items := make([]int, 0, 3)
-
-slice header:
-- pointer -> backing array
-- len     -> 0
-- cap     -> 3
-```
-
-```text
-after append 10, 20, 30
-
-backing array: [10 20 30]
-len = 3
-cap = 3
-```
-
-```text
-after append 40
-
-Go may allocate a larger backing array
-so the slice can keep growing
+    subgraph "Slice Header (on Stack)"
+        P["Pointer"]
+        L["Len: 3"]
+        C["Cap: 5"]
+    end
+    subgraph "Backing Array (on Heap)"
+        A["[10]"]
+        B["[20]"]
+        D["[30]"]
+        E["(empty)"]
+        F["(empty)"]
+    end
+    P --> A
 ```
 
 ## Machine View
 
-A slice is not an array. A slice is a data structure that points to an array.
-
-When you create a slice, Go creates a small "header" with three fields:
-- **pointer**: the address of the first element in the backing array
-- **len**: how many elements are currently accessible
-- **cap**: how many elements can be added before the backing array must be reallocated
-
-When you pass a slice to a function, you are passing this small header, not copying the whole backing array.
-
-When `append` needs more capacity, it allocates a new, larger backing array and copies the old elements over.
+When you call `append(slice, val)`, Go checks if `len + 1 <= cap`.
+-   If **Yes**: It simply updates the backing array at the next index and increments the length.
+-   If **No**: It performs a "reallocation"—it creates a new, larger array, copies all existing data to it, updates the pointer in the slice header, and then adds the new value.
+This is why `append` must always be assigned back to the variable: `s = append(s, val)`.
 
 ## Run Instructions
 
@@ -79,88 +53,31 @@ go run ./02-language-basics/04-data-structures/2-slices
 
 ## Code Walkthrough
 
-### `names := []string{"Alice", "John", "Mark"}`
+- **`names := []string{...}`**: A slice literal. Note the empty brackets `[]`—this distinguishes it from an array.
+- **`make([]int, 0, 3)`**: Pre-allocates a backing array of size 3 but starts with an empty view (length 0). This is a performance optimization.
+- **`items = append(items, 40)`**: This forces the slice to grow beyond its initial capacity.
+- **`items[:2]`**: Creates a sub-slice. This new header points to the *same* memory as the original. Changing a sub-slice element changes the original!
 
-This line creates a slice literal.
-Unlike the array lesson, there is no fixed size written in the type.
-
-That tells the learner:
-
-- this is a slice, not an array
-- slices are the normal collection tool for variable-length lists
-
-### `fmt.Printf("len=%d cap=%d\n", len(names), cap(names))`
-
-This prints the two slice measurements:
-
-- `len`: how many elements are currently visible
-- `cap`: how much space is available in the current backing array view
-
-### `items := make([]int, 0, 3)`
-
-This is one of the most important slice lines in the lesson.
-
-It means:
-
-- make a slice of `int`
-- start with length `0`
-- reserve capacity `3`
-
-The slice starts empty, but it already has room to grow.
-
-### `items = append(items, 10)` and the next two append lines
-
-Each `append` returns the updated slice, so the result must be assigned back into `items`.
-
-That is why the code does not write only `append(items, 10)`.
-If the learner forgets the reassignment, they lose the updated slice value.
-
-### `items = append(items, 40)`
-
-This append matters because it grows beyond the original capacity of `3`.
-
-That is the first hint that:
-
-- slices can grow
-- growth may require a different backing array
-
-### `firstTwo := items[:2]`
-
-This creates a smaller view over the same data.
-It does not make a copy.
-
-### `lastTwo := items[2:]`
-
-This creates another view, starting from index `2` to the end.
-
-These two lines teach the learner that slicing syntax makes views, not independent new collections
-by default.
+> [!TIP]
+> Slices are the primary sequential data structure in Go. However, if you need to look things up by a unique key rather than a position, you should use [DS.3 Maps](../3-maps/README.md).
 
 ## Try It
 
-1. Change the `make` call to `make([]int, 1, 3)` and watch how the starting length changes.
-2. Comment out one `items =` reassignment and see why `append` must be captured.
-3. Change `firstTwo := items[:2]` to `firstThree := items[:3]` and inspect the output again.
-
-## Common Questions
-
-- Why does `append` return a slice?
-  Because growth may change the slice header or even the backing array.
-
-- Does `items[:2]` copy the first two values?
-  No. It usually creates another view over the same underlying data.
+1. In `main.go`, change `make([]int, 0, 3)` to `make([]int, 5, 5)`. Notice how the slice is no longer empty at the start.
+2. Slicing: create `subset := items[1:3]` and print it.
+3. Mutation: change `subset[0] = 999` and then print the original `items`. Do you see the change?
 
 ## In Production
-Slices are everywhere in Go.
-Understanding `len`, `cap`, `make`, and `append` prevents a huge amount of confusion later in file
-processing, HTTP work, concurrency, and general application code.
+
+99% of your collection work in Go will use slices.
+- **Optimization**: Always use `make` with a known capacity if you know how many items you're going to add. This prevents expensive reallocations.
+- **Safety**: Be careful when slicing large arrays; the original array stays in memory as long as any slice points to it.
 
 ## Thinking Questions
-1. What problem is this lesson trying to solve?
-2. What would change if you removed this idea from the program?
-3. Where do you expect to see this pattern again in real Go code?
 
-> **Forward Reference:** Slices are the primary sequential data structure in Go, but what if you need to look things up by a key rather than an index? In [Lesson 3: Maps](../3-maps/README.md), you will learn how Go handles key-value dictionaries.
+1. Why does `append` return a new slice header instead of modifying the existing one in place?
+2. What is the relationship between a slice and its "backing array"?
+3. Why is `make([]int, 0, 100)` faster than calling `append` 100 times on an empty slice?
 
 ## Next Step
 

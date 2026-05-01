@@ -8,16 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn why sub-slices can still affect the original data and why `append` can reuse spare capacity in ways that surprise beginners.
+//   - Why sub-slices share the same underlying backing array.
+//   - How `append` can accidentally overwrite original data.
+//   - Breaking the shared link using the `copy` pattern.
+//   - Reasoning about capacity-triggered reallocations.
 //
 // WHY THIS MATTERS:
-//   - A sub-slice is usually another view over the same backing array. That makes slicing cheap, but it also means two slices can still touch the same st...
+//   - Shared state is the #1 source of "mysterious" bugs in Go. A sub-slice
+//     that modifies its data might unintentionally corrupt the original
+//     collection. Engineering-grade Go requires constant awareness of whether
+//     your slice is a "view" or an "independent copy."
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/5-slices-2
 //
 // KEY TAKEAWAY:
-//   - Learn why sub-slices can still affect the original data and why `append` can reuse spare capacity in ways that surprise beginners.
+//   - Slicing creates a view; `make` + `copy` creates an independent replica.
 // ============================================================================
 
 package main
@@ -66,9 +72,10 @@ func main() {
 	fmt.Printf("Independent copy after change:  %v\n", independent)
 	fmt.Printf("Original after copy change:     %v\n", original)
 
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.6 -> 02-language-basics/04-data-structures/6-contact-manager")
-	fmt.Println("Current: DS.5 (slices-2)")
-	fmt.Println("Previous: DS.4 (pointers)")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/6-contact-manager")
+	fmt.Println("Current: DS.5 (slices-in-depth)")
 	fmt.Println("---------------------------------------------------")
 }

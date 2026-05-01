@@ -8,17 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how a Go program chooses one path or another based on a condition.
+//   - Branching logic using `if`, `else if`, and `else`.
+//   - Comparison operators and boolean evaluation.
+//   - Why Go requires curly braces even for single-line branches.
 //
 // WHY THIS MATTERS:
-//   - Branching is the ability to ask a question and choose a path. With `if`, `else if`, and `else`: - one condition is checked - one branch runs - the ...
+//   - Branching is the fundamental tool for decision-making in code. From
+//     validating inputs to choosing business rules, `if/else` is the primary
+//     way programs handle multiple scenarios.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/1-if-else
 //
 // KEY TAKEAWAY:
-//   - Go's 'if' statements do not require parentheses around the condition.
-//     Branching logic executes exactly one matching block top-to-bottom.
+//   - Go's `if` statements are concise (no parentheses required) but strict
+//     (curly braces are mandatory), enforcing a consistent and readable style.
 // ============================================================================
 
 package main
@@ -59,13 +63,10 @@ func main() {
 		fmt.Println("Username is present.")
 	}
 
-	// Forward reference:
-	// If/else is great for simple conditions, but when evaluating the same
-	// variable against many distinct values, a 'switch' statement is often
-	// cleaner. See: ../4-switch/README.md
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: CF.2 -> 02-language-basics/03-control-flow/2-for-basics")
+	fmt.Println("Run    : go run ./02-language-basics/03-control-flow/2-for-basics")
 	fmt.Println("Current: CF.1 (if / else)")
-	fmt.Println("Previous: LB.4 (application-logger)")
 	fmt.Println("---------------------------------------------------")
 }

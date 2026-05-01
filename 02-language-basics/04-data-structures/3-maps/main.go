@@ -8,16 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go performs keyed lookup with maps and why the comma-ok pattern matters whenever a missing key would otherwise be ambiguous.
+//   - Associative data storage using keys and values.
+//   - The "comma-ok" idiom for safe lookups.
+//   - Zero-value behavior for missing keys.
+//   - Using `make` vs. literals for map initialization.
 //
 // WHY THIS MATTERS:
-//   - A map connects keys to values. Use it when finding something by name, ID, or label matters more than keeping items in order.
+//   - While slices are great for order, maps are unbeatable for speed. A map
+//     allows you to find a single item among millions in almost constant time
+//     (O(1)). In production, maps are used for caches, registries, and
+//     configuration lookup tables.
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/3-maps
 //
 // KEY TAKEAWAY:
-//   - Learn how Go performs keyed lookup with maps and why the comma-ok pattern matters whenever a missing key would otherwise be ambiguous.
+//   - Maps provide fast lookup; the comma-ok pattern provides lookup safety.
 // ============================================================================
 
 package main
@@ -62,9 +68,10 @@ func main() {
 	settings["timezone"] = "UTC"
 	fmt.Printf("settings: %v\n", settings)
 
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.4 -> 02-language-basics/04-data-structures/4-pointers")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/4-pointers")
 	fmt.Println("Current: DS.3 (maps)")
-	fmt.Println("Previous: DS.2 (slices)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -8,17 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn how Go declares variables and why every type has a predictable zero value.
+//   - Three common declaration shapes (`var name type`, `var name = val`, `name := val`).
+//   - Why every type has a predictable zero value.
+//   - How the compiler enforces code quality via unused variable checks.
 //
 // WHY THIS MATTERS:
-//   - A variable is a named slot that holds a value while the program runs. Go gives you three common declaration shapes: 1. `var name string` 2. `var na...
+//   - In many languages, uninitialized variables contain "garbage" data from previous
+//     memory usage. Go eliminates this entire class of bugs by guaranteeing a
+//     predictable zero state for every allocated variable.
 //
 // RUN:
 //   go run ./02-language-basics/1-variables
 //
 // KEY TAKEAWAY:
-//   - Go enforces explicit type safety and guarantees predictable zero-values
-//     upon allocation, eliminating undefined memory bugs by default.
+//   - Predictable zero-values and strict unused-variable checks make Go code
+//     stable and easier to audit under pressure.
 // ============================================================================
 
 package main
@@ -61,13 +65,10 @@ func main() {
 	var year = 2025
 	fmt.Println(year)
 
-	// Forward reference:
-	// We are printing to the console using the 'fmt' package.
-	// You will learn how the 'fmt' package formats text in detail in:
-	// ../../05-packages-io/02-io-and-cli/cli-tools/1-args/README.md
+	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: LB.2 -> 02-language-basics/2-constants")
+	fmt.Println("Run    : go run ./02-language-basics/2-constants")
 	fmt.Println("Current: LB.1 (variables)")
-	fmt.Println("Previous: none")
 	fmt.Println("---------------------------------------------------")
 }

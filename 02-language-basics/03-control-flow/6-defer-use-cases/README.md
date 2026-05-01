@@ -1,12 +1,8 @@
-# CF.6 Defer in Real Use Cases
+# CF.6 Defer Use Cases
 
 ## Mission
 
-See how `defer` is used in production for file cleanup, mutex unlocking, and logging.
-
-## Why This Lesson Exists Now
-
-Understanding the mechanics of `defer` is good, but seeing it applied to real resources makes the concept stick. This lesson bridges the gap between simple prints and real-world resource management.
+See how `defer` is used in production for file cleanup, resource management, and state protection.
 
 ## Prerequisites
 
@@ -14,9 +10,12 @@ Understanding the mechanics of `defer` is good, but seeing it applied to real re
 
 ## Mental Model
 
-Think of `defer` as a "safety harness". Before you start a dangerous task (like opening a file), you put on the harness (`defer file.Close()`) so that no matter how the task ends (success or error), you are protected.
+Think of `defer` as a **"Safety Harness"**. Before you start a potentially hazardous task (like opening a file or locking a database record), you put on the harness (`defer resource.Close()`). No matter how the task ends—whether you finish successfully or slip on an error—the harness is there to catch you and ensure the resource is closed safely.
 
-> **Backward Reference:** In [Lesson 5: Defer Basics](../5-defer-basics/README.md), you learned that deferred functions execute in LIFO order when the surrounding function returns. Here, we apply that exact mechanism to manage simulated resources safely.
+Go idiomatic code uses **Pair Patterns**:
+- `Open` -> `defer Close`
+- `Lock` -> `defer Unlock`
+- `Begin` -> `defer Rollback` (unless committed)
 
 ## Visual Model
 
@@ -32,7 +31,10 @@ graph LR
 
 ## Machine View
 
-When you `defer` a method call like `file.Close()`, the `file` pointer is captured. Even if the `file` variable is later reassigned or goes out of scope, the deferred call will still operate on the correct object.
+When you `defer` a call like `file.Close()`, Go captures the necessary parameters at that moment. Even if the `file` variable is later reassigned (though you shouldn't), the deferred call will execute on the correct resource. The machine ensures that the deferred stack is processed even if the function exits via a `return` or a `panic` (unrecoverable error).
+
+> [!NOTE]
+> In [CF.5 Defer Basics](../5-defer-basics/README.md), you learned the LIFO (Last-In, First-Out) execution order. This is critical in production when you have dependencies (e.g., closing a file *before* closing the disk connection).
 
 ## Run Instructions
 
@@ -42,29 +44,27 @@ go run ./02-language-basics/03-control-flow/6-defer-use-cases
 
 ## Code Walkthrough
 
-### Simulated File Cleanup
+- **Immediate Defer**: Notice how `defer` is placed immediately after the "Open" operation succeeds. This is the gold standard for Go resource management.
+- **Early Returns**: If your function had 10 different `if err != nil { return }` checks, `defer` ensures you don't have to copy-paste the `Close()` call 10 times.
 
-We simulate opening and closing a file. Notice how the "Closing file" message appears even if we "return early" from the work.
-
-### Pair Patterns
-
-Go often uses pairs of functions: `Open/Close`, `Lock/Unlock`, `Begin/Commit`. The second half of the pair should almost always be deferred immediately after the first half succeeds.
-
-> **Forward Reference:** We are now ready to put all of these Control Flow constructs together. In [Lesson 7: Pricing Checkout](../7-pricing-checkout/README.md), you will combine variables, loops, switches, and defers into a single unified business logic exercise.
+> [!TIP]
+> You have mastered the individual components of Go's control flow. Now, combine branching, looping, switching, and defer into one unified business logic exercise in [CF.7 Pricing Checkout](../7-pricing-checkout/README.md).
 
 ## Try It
 
-1. Simulate an error in the "work" section and see if the cleanup still runs.
-2. Add a simulated "Lock" and "Unlock" using `defer`.
-3. Think about how many return statements you would need to add cleanup to if you didn't use `defer`.
+1. In `main.go`, add a simulated "Database Connection" that uses `defer` to close.
+2. Observe how the LIFO order handles closing the "File" and the "Database" in the correct reverse sequence.
+3. Try adding a `return` statement in the middle of `simulateFileOperation`. Does the file still close?
 
 ## In Production
-Resource leaks (unclosed files or database connections) are a major source of production outages. `defer` is the primary tool Go engineers use to prevent these leaks.
+
+Resource leaks (unclosed files, network sockets, or database handles) are one of the most common causes of production memory exhaustion and system crashes. `defer` is not just a convenience; it is the primary mechanism for writing reliable, production-grade Go software.
 
 ## Thinking Questions
-1. Why is it better to `defer` cleanup immediately after a successful open?
-2. What happens if you `defer` something that could also return an error (like `file.Close()`)?
-3. How does `defer` make code with many `if err != nil { return ... }` checks cleaner?
+
+1. Why is it better to `defer` cleanup immediately rather than at the end of the function?
+2. What happens to resources if you *don't* use `defer` and your code returns early due to an error?
+3. How does `defer` improve code readability during peer reviews?
 
 ## Next Step
 

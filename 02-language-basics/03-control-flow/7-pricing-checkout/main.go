@@ -8,18 +8,21 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Build a small checkout flow that combines branching, loops, `switch`, and `continue` into one runnable program.
+//   - Integrating `for`, `switch`, and `if` into a single flow.
+//   - Handling "exceptional" data with `continue`.
+//   - Accumulating state (subtotal) across multiple iterations.
 //
 // WHY THIS MATTERS:
-//   - This milestone is a miniature rule engine: - loop over each cart item - classify the item with `switch` - apply extra rules with `if` - skip bad da...
+//   - Business logic is rarely a single `if` statement. It is a sequence of
+//     decisions: identifying an item, checking its validity, applying
+//     discounts, and totaling the results. Mastering this composition is
+//     how you build real applications.
 //
 // RUN:
 //   go run ./02-language-basics/03-control-flow/7-pricing-checkout
 //
 // KEY TAKEAWAY:
-//   - Control flow constructs (loops, switches, conditions, and breaks) compose
-//     together naturally to build resilient business logic, like this miniature
-//     shopping cart rule engine.
+//   - Complex logic is built by nesting and sequencing simple control structures.
 // ============================================================================
 
 package main
@@ -74,15 +77,10 @@ func main() {
 	// - Use if/else for conditional logic and ranges.
 	// - Use continue to skip invalid or unhandled items in a loop.
 
-	// Forward reference:
-	// We've been using slices (like 'cart = []string{...}') without explaining
-	// them fully. Next, we enter the Data Structures section to learn exactly
-	// how Arrays and Slices work in memory.
-	// See: ../../04-data-structures/1-array/README.md
 	fmt.Println()
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.1 -> 02-language-basics/04-data-structures/1-array")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/1-array")
 	fmt.Println("Current: CF.7 (pricing-checkout)")
-	fmt.Println("Previous: CF.6 (defer-use-cases)")
 	fmt.Println("---------------------------------------------------")
 }

@@ -1,69 +1,37 @@
-# 04 Data Structures
+# Track 3: Data Structures (DS)
 
 ## Mission
 
-This section teaches the data structures that turn basic control flow into problem solving.
+Learn how to organize, store, and manipulate collections of data using Go's fundamental data structures.
 
-By the end of this section, a learner should be able to:
-
-- explain when arrays, slices, maps, and pointers are the right tool
-- reason about copy behavior versus shared state
-- follow the machine-level consequences of mutation and addressing
-- combine slices, maps, and pointers in a small milestone project
-
-## Why This Section Exists Now
-
-The learner already knows values, branching, loops, and cleanup.
-
-That is enough to ask stronger questions:
-
-- how should a program store ordered data?
-- when is key-based lookup better than scanning?
-- what changes when two variables share access to the same underlying state?
-
-Those are data-structure questions.
+By the end of this track, a learner should be able to:
+- Explain the relationship between fixed-size Arrays and dynamic Slices.
+- Perform efficient key-based lookups using Maps.
+- Manage memory addresses and shared state using Pointers.
+- Reason about value copying vs. pointer mutation at the machine level.
 
 ## Zero-Magic Boundary
 
-This section teaches:
+This track focuses on **Data Organization**.
+It does **not** formally teach:
+- Advanced struct design (covered in Section 04).
+- Concurrency safety for maps (covered in Section 07).
+- Complex algorithm complexity analysis (O-notation).
 
-- arrays
-- slices
-- maps
-- pointers
-- slice sharing and mutation
+> [!NOTE]
+> Pointers are introduced here specifically to explain how to mutate slices and maps efficiently, providing a bridge to [Section 04: Type Design](../../04-types-design/README.md).
 
-It does **not** jump ahead into:
+## Track Map
 
-- package-level architecture
-- concurrency safety
-- profiling strategy
-- advanced memory tuning
-
-Those topics come later, after the learner has earned stronger system context.
-
-## Section Ownership
-
-This section belongs to [02 Language Basics](../README.md).
-
-## Suggested Learning Flow
-
-1. Start with arrays and slices so ordered data feels concrete.
-2. Move into maps when lookup by key becomes the better mental model.
-3. Use pointers after you can already describe the value being changed.
-4. Finish with the contact-manager milestone before moving on.
-
-## Section Milestone
-
-`DS.6` is the milestone for this section.
-
-You are ready for the next section when you can explain:
-
-- why slices are usually the real ordered-data tool in Go
-- why maps trade order for lookup speed
-- why pointers let you update the original value instead of a copy
-- how these concepts combine in one small directory-style program
+| ID | Lesson | What It Unlocks |
+| --- | --- | --- |
+| `DS.1` | [Arrays](./1-array/) | Foundation for contiguous memory storage. |
+| `DS.2` | [Slices](./2-slices/) | Go's most powerful tool for dynamic sequences. |
+| `DS.3` | [Maps](./3-maps/) | Fast lookup and associative data storage. |
+| `DS.4` | [Pointers](./4-pointers/) | Direct memory access and shared state control. |
+| `DS.5` | [Slices in Depth](./5-slices-2/) | Length, capacity, and the underlying backing array. |
+| `DS.6` | [Contact Manager](./6-contact-manager/) | **Milestone**: Building a searchable data registry. |
 
 ## Next Step
 
-After `DS.6`, continue to [03 Functions & Errors](../../03-functions-errors).
+After completing this track, you have finished Section 02. Continue to [Section 03: Functions & Errors](../../03-functions-errors/README.md).

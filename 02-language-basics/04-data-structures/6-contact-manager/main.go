@@ -8,16 +8,22 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Build a small in-memory contact directory that combines slices, maps, and pointers in one runnable milestone.
+//   - Coordinating multiple data structures (Slices, Maps, Pointers).
+//   - Implementing $O(1)$ lookups into ordered collections.
+//   - Mutating specific collection elements via pointers.
+//   - Basic duplicate prevention using the "comma-ok" pattern.
 //
 // WHY THIS MATTERS:
-//   - This exercise uses three data-structure roles together: - slices store ordered contact data - a map turns names into positions - a pointer updates ...
+//   - Software engineering is about managing complex relationships between
+//     data. This milestone forces you to think about where data "lives"
+//     (slices), how to "find" it (maps), and how to "share" or "change" it
+//     (pointers).
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/6-contact-manager
 //
 // KEY TAKEAWAY:
-//   - Build a small in-memory contact directory that combines slices, maps, and pointers in one runnable milestone.
+//   - Slices for storage, Maps for indexing, Pointers for updates.
 // ============================================================================
 
 package main
@@ -95,9 +101,11 @@ func main() {
 		fmt.Println("Zack not found.")
 	}
 
-	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("SECTION COMPLETE: DS.6 contact-directory")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
+	fmt.Println("SECTION COMPLETE: Section 02 Language Basics")
 	fmt.Println("NEXT UP: FE.1 -> 03-functions-errors/1-functions-basics")
-	fmt.Println("Previous: DS.5 (slices-2)")
+	fmt.Println("Run    : go run ./03-functions-errors/1-functions-basics")
+	fmt.Println("Current: DS.6 (contact-manager)")
 	fmt.Println("---------------------------------------------------")
 }

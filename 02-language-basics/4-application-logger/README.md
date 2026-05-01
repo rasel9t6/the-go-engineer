@@ -13,81 +13,78 @@ Build a small logger that combines variables, constants, `iota`, and methods int
 ## Mental Model
 
 This exercise turns separate language pieces into one compact system:
+-   **Named Type**: Models the categorical log level.
+-   **iota Constants**: Creates ordered, machine-friendly values.
+-   **String() Method**: Converts internal numeric values into human-friendly output.
 
-- a named type models the log level
-- `iota` creates ordered constants
-- a method converts internal numeric values into readable output
+This is your first experience composing simple language foundations into a useful engineering artifact.
 
-That is the first taste of composing simple ideas into one useful artifact.
-
-> **Backward Reference:** This exercise directly combines the core language components from [Lesson 1: Variables](../1-variables/README.md), [Lesson 2: Constants](../2-constants/README.md), and [Lesson 3: Enums](../3-enums/README.md).
+> [!NOTE]
+> This exercise directly combines the concepts from [LB.1 Variables](../1-variables/README.md), [LB.2 Constants](../2-constants/README.md), and [LB.3 Enums](../3-enums/README.md).
 
 ## Visual Model
 
 ```mermaid
 graph LR
-    A["LogLevel type"] --> B["iota constants"]
-    B --> C["String() method"]
-    C --> D["readable log output"]
+    A["LogLevel type"] --- B["iota constants (0-4)"]
+    B --- C["String() method"]
+    C --- D["Lookup Table (Slice)"]
+    D --> E["'Trace', 'Debug', 'Info'..."]
 ```
 
 ## Machine View
 
-At runtime, the program stores log levels as small integers. The `String()` method translates those integers into human-readable names before printing, and the bounds check prevents invalid indexes from crashing the program.
+At runtime, the program stores log levels as small integers. The `String()` method translates those integers into human-readable names before printing. A critical "bounds check" ensures that if an invalid number is passed, the program returns a safe fallback ("Unknown") instead of attempting to access an invalid memory index.
 
 ## Run Instructions
 
 ```bash
 go run ./02-language-basics/4-application-logger
-go run ./02-language-basics/4-application-logger/_starter
 ```
 
 ## Solution Walkthrough
 
-### `type LogLevel int`
+-   **`type LogLevel int`**: Creates a named category.
+-   **`const ( ... LogLevel = iota )`**: Assigns stable numeric values.
+-   **`var levelNames = []string{...}`**: A lookup table mapping numeric levels to text.
+-   **`func (l LogLevel) String() string`**: The translation logic. It checks `if l < LevelTrace || l > LevelError` to ensure safety.
+-   **`printLogLevel(...)`**: A helper function to centralize output formatting.
 
-The solution creates a named type so log levels are more meaningful than raw integers.
-
-### `const ( ... LogLevel = iota )`
-
-This block assigns stable numeric values to each log level in order.
-
-### `var levelNames = []string{...}`
-
-The slice maps each numeric level to the text the program wants to display.
-
-### `func (l LogLevel) String() string`
-
-The method checks bounds first, then returns the matching human-friendly name.
-
-### `printLogLevel(...)`
-
-This helper centralizes how a level is shown in output, keeping `main()` simple.
-
-> **Forward Reference:** Now that we have established a foundation of types and variables, we will use them to build branching logic. Proceed to the next section to learn control flow structures in [Control Flow: if-else](../03-control-flow/1-if-else/README.md).
+> [!TIP]
+> Now that you have a solid foundation in variables and types, you are ready to learn how to direct program execution using [CF.1 If / Else](../03-control-flow/1-if-else/README.md).
 
 ## Try It
 
-1. Add another log level and its display name.
-2. Print an invalid log level like `99` and inspect the fallback.
-3. Change the output format inside `printLogLevel`.
+1.  Add another log level (e.g., `LevelFatal`) to the `const` block and the `levelNames` slice.
+2.  In `main.go`, pass an invalid number to `printLogLevel(100)` and verify it shows "Unknown".
+3.  Change the format in `printLogLevel` to include the current system time (simulated with a string).
 
 ## Verification Surface
 
+Run the completed program:
 ```bash
 go run ./02-language-basics/4-application-logger
-go run ./02-language-basics/4-application-logger/_starter
 ```
 
-Expected output should show readable level names and a safe fallback for invalid input.
+Expected output:
+```text
+Log level: 0 Trace
+Log level: 1 Debug
+Log level: 2 Info
+Log level: 3 Warning
+Log level: 4 Error
+Log level: 10 Unknown
+```
 
 ## In Production
-Enum-like log levels are everywhere in services and tooling. Good logging systems depend on stable internal values and readable external text, especially when alerts and dashboards consume those levels downstream.
+
+Real-world logging systems (like `zap` or `logrus`) use this exact pattern. Stable internal IDs allow machines to filter logs efficiently, while human-readable strings ensure that engineers can debug systems quickly during an incident.
 
 ## Thinking Questions
-1. Why is it useful to separate the stored level value from the displayed level name?
-2. What bug does the bounds check inside `String()` prevent?
-3. Why is this exercise a better milestone than printing raw integers?
+
+1.  Why is it useful to separate the stored level (int) from the displayed level name (string)?
+2.  What would happen if the `String()` method didn't check the bounds of the `levelNames` slice?
+3.  How does this pattern make the logger easier to extend in the future?
 
 ## Next Step
 

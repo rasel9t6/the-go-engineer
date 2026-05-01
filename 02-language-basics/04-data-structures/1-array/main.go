@@ -8,16 +8,20 @@
 // ============================================================================
 //
 // WHAT YOU'LL LEARN:
-//   - Learn what an array is in Go and why arrays matter even though slices become the more common tool later. This lesson exists because arrays make one...
+//   - How to declare and initialize fixed-size arrays.
+//   - Why the array size is part of its type.
+//   - Array "value-copy" behavior (pass-by-value).
 //
 // WHY THIS MATTERS:
-//   - An array is a fixed-size value. Its size is part of its type, and copying an array copies all of its elements.
+//   - Arrays are the low-level foundation for memory storage in Go. Even
+//     though you'll use slices more often, understanding arrays is key to
+//     mastering memory layout and avoiding accidental data duplication.
 //
 // RUN:
 //   go run ./02-language-basics/04-data-structures/1-array
 //
 // KEY TAKEAWAY:
-//   - Learn what an array is in Go and why arrays matter even though slices become the more common tool later. This lesson exists because arrays make one...
+//   - Copying an array copies every single element.
 // ============================================================================
 
 package main
@@ -57,9 +61,10 @@ func main() {
 	fmt.Printf("\nOriginal: %v\n", original)
 	fmt.Printf("Copy:     %v\n", copied)
 
-	fmt.Println("\n---------------------------------------------------")
+	fmt.Println()
+	fmt.Println("---------------------------------------------------")
 	fmt.Println("NEXT UP: DS.2 -> 02-language-basics/04-data-structures/2-slices")
+	fmt.Println("Run    : go run ./02-language-basics/04-data-structures/2-slices")
 	fmt.Println("Current: DS.1 (arrays)")
-	fmt.Println("Previous: CF.7 (pricing-checkout)")
 	fmt.Println("---------------------------------------------------")
 }
