@@ -17,6 +17,8 @@
 //   - Deployment sequence: docker stop -> SIGTERM -> 30s to clean up -> SIGKILL.
 //   - Before NotifyContext: manual goroutine, potential panics, ignored errors.
 //
+// RUN:
+//   go run ./10-production/02-graceful-shutdown/1-signal-context
 // KEY TAKEAWAY:
 //   - signal.NotifyContext integrates with context-aware APIs (DB, HTTP, gRPC).
 //   - Every production binary must handle SIGTERM to avoid data loss.
@@ -71,6 +73,7 @@ import (
 
 // BackgroundWorker simulates a long-running background task (metrics exporter,
 // message queue consumer, cache refresher, etc.)
+// BackgroundWorker (Function): simulates a long-running background task (metrics exporter,.
 func BackgroundWorker(ctx context.Context, name string) {
 	ticker := time.NewTicker(500 * time.Millisecond)
 	defer ticker.Stop()
@@ -93,8 +96,10 @@ func BackgroundWorker(ctx context.Context, name string) {
 }
 
 // Database simulates a database connection that must be closed gracefully.
+// Database (Struct): simulates a database connection that must be closed gracefully.
 type Database struct{ name string }
 
+// Database.Close (Method): applies the close operation to receiver state at a visible boundary.
 func (db *Database) Close() error {
 	slog.Info("closing database connection", "db", db.name)
 	time.Sleep(100 * time.Millisecond) // Simulate connection drain

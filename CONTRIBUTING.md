@@ -134,11 +134,12 @@ Exercises replace `## Code Walkthrough` with `## Solution Walkthrough` and inclu
 Every lesson `main.go` should include:
 
 - copyright and license header
-- section, lesson title, and level
+- section, lesson title, and level matching `curriculum.v2.json`
 - `WHAT YOU'LL LEARN`
 - `WHY THIS MATTERS`
-- exact `RUN:` command
+- exact `RUN:` command matching `curriculum.v2.json`
 - readable teaching comments
+- Machine Role comments for major constructs that explain role, boundary, invariant, or failure mode
 - `KEY TAKEAWAY`
 - `NEXT UP:` footer matching `curriculum.v2.json`
 
@@ -146,9 +147,11 @@ Every lesson `main.go` should include:
 
 When a lesson uses a concept from another point in the curriculum:
 
-- forward reference later concepts briefly and name the future lesson or section
-- backward reference previously established ideas when they are reused
-- use GitHub-style alerts (`[!NOTE]` or `[!TIP]`) to keep cross-references inline rather than as detached navigation blocks
+- use `[!NOTE]` for prerequisite context, backward references, and gentle forward references
+- use `[!TIP]` for actionable navigation, rerun suggestions, or learner practice advice
+- keep cross-references inline rather than as detached navigation blocks
+- include the lesson ID and a clickable local `README.md` link when referencing a specific lesson
+- avoid legacy `Forward Reference` or `Backward Reference` labels
 
 ## Validation
 
@@ -162,8 +165,14 @@ go mod tidy
 git diff --exit-code -- go.mod go.sum
 go test ./...
 go test -race ./...
-go test -coverprofile coverage.out ./...
+go test -coverprofile=coverage.out ./...
 go run ./scripts/validate_curriculum.go
+```
+
+On PowerShell, quote the coverage flag if needed:
+
+```powershell
+go test "-coverprofile=coverage.out" ./...
 ```
 
 For benchmark-related changes:
