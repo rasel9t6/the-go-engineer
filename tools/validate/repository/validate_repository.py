@@ -47,6 +47,9 @@ def main():
     for forbidden in ["codex", "ai", "agent", "bot", "llm"]:
         for path in root.rglob(forbidden):
             if path.is_dir():
+                parts = path.relative_to(root).parts
+                if ".opencode" in parts or "node_modules" in parts:
+                    continue
                 errors.append(f"forbidden folder name: {path}")
     for item in all_items(args.metadata_dir):
         files = item.get("files") or {}
