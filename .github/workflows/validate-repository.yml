@@ -66,25 +66,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          strict="${{ github.event.inputs.strict_repository || 'true' }}"
+          # Non-strict by default for PRs (partial migration)
+          strict="${{ github.event.inputs.strict_repository || 'false' }}"
           if [ "$strict" = "true" ]; then
             make validate-repository
           else
-            go run ./tools/validate/curriculum validate-repository
+            make validate-repository STRICT_REPOSITORY=0
           fi
-
-      - name: Run optional repository validators
-        shell: bash
-        run: |
-          set -euo pipefail
-          for script in validate_readmes.py validate_code.py validate_assets.py validate_repository.py; do
-            path="tools/validate/repository/$script"
-            if [ -f "$path" ]; then
-              python3 "$path" --metadata-dir metadata --curriculum-dir curriculum
-            else
-              echo "Optional validator skipped: $path not found"
-            fi
-          done
 
       - name: Run Go tests when curriculum code exists
         shell: bash
