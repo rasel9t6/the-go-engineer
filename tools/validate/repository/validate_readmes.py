@@ -30,10 +30,13 @@ def all_items(metadata_dir, strict=True, root=None):
         modules_path[m["id"]] = m.get("path", "")
     for items in [core.get("items", []), electives.get("items", [])]:
         for item in items:
-            if not strict and root and item.get("module_id") in modules_path:
-                mod_path = root / modules_path[item["module_id"]]
-                if not mod_path.exists():
-                    continue
+            if not strict and root:
+                files = item.get("files") or {}
+                readme = files.get("readme_path", "")
+                if readme:
+                    lesson_dir = (root / readme).parent
+                    if not lesson_dir.exists():
+                        continue
             yield item
 
 def fail(errors):
